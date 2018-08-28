@@ -103,27 +103,98 @@
                     "ligaHijos": "/#/eCommerceLiverpool",
                     "hijos": [
                         {
-                            "nombre": "Sub Componente 0",
+                            "nombre": "Hardware",
                             "valor": 100,
                             "variante": "success",
                             "icon": "icon-settings progress-group-icon",
                             "ligaHijos": "/#/subComponente0",
                             "hijos": [
                                 {
-                                    "nombre": "Sub Sub Componente 0",
+                                    "nombre": "BD UP & Running",
                                     "valor": 100,
                                     "variante": "success",
                                     "icon": "icon-settings progress-group-icon",
                                     "ligaHijos": "/#/"
                                 }
                             ]
+                        },
+                        {
+                            "nombre": "Database",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                            
+                        },
+                        {
+                            "nombre": "Endeca",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "OTD",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "Coherence",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "Load Balancer",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "AUXs",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "Stores",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "BCC",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "PLM",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
+                        },
+                        {
+                            "nombre": "LSM",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0"
                         }
                     ]
                 },
                 {
                     "nombre": "Multisitios",
-                    "valor": 5,
-                    "variante": "danger",
+                    "valor": 70,
+                    "variante": "warning",
                     "icon": "icon-settings progress-group-icon"
                 },
                 {
@@ -140,19 +211,19 @@
                 },
                 {
                     "nombre": "Cybersource",
-                    "valor": 5,
+                    "valor": 10,
                     "variante": "danger",
                     "icon": "icon-settings progress-group-icon"
                 },
                 {
                     "nombre": "FMS",
-                    "valor": 5,
+                    "valor": 10,
                     "variante": "danger",
                     "icon": "icon-settings progress-group-icon"
                 },
                 {
                     "nombre": "3DSecure",
-                    "valor": 5,
+                    "valor": 10,
                     "variante": "danger",
                     "icon": "icon-settings progress-group-icon"
                 },
@@ -176,7 +247,7 @@
                 },
                 {
                     "nombre": "Mesa de Regalos",
-                    "valor": 5,
+                    "valor": 30,
                     "variante": "danger",
                     "icon": "icon-settings progress-group-icon"
                 }
