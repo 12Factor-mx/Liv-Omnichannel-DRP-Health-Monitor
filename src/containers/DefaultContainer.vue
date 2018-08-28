@@ -49,13 +49,10 @@
     </div>
     <TheFooter>
       <!--footer-->
-      <!-- <div>
-        <a href="https://coreui.io">CoreUI</a>
-        <span class="ml-1">&copy; 2018 creativeLabs.</span>
-      </div> -->
+  
 
       <div>
-        <a href="https://backoffice.infra.liverpool.com.mx">ATG HA Healt Monitor</a>
+        <a href="https://backoffice.infra.liverpool.com.mx">ATG HA health Monitor</a>
         <span class="ml-1">&copy; 2018 Infra Backoffice Liverpool.</span>
       </div>
 
@@ -64,10 +61,6 @@
         <a href="https://backoffice.infra.liverpool.com.mx">mdiazm01@liverpool.com.mx</a>
       </div>
 
-      <!-- <div class="ml-auto">
-        <span class="mr-1">Powered by</span>
-        <a href="https://coreui.io">CoreUI for Vue</a>
-      </div> -->
     </TheFooter>
   </div>
 </template>

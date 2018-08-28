@@ -7,6 +7,10 @@ const DefaultContainer = () => import('@/containers/DefaultContainer')
 // Views
 const Dashboard = () => import('@/views/Dashboard')
 
+//const ECommerceLiverpool = () => import('@/views/sistemas/ECommerceLiverpool')
+const ECommerceLiverpool = () => import('@/views/sistemas/eCommerceLiverpool/ECommerceLiverpool')
+const SubComponente0 = () => import('@/views/sistemas/eCommerceLiverpool/subComponente0/SubComponente0')
+
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
 
@@ -68,13 +72,23 @@ export default new Router({
     {
       path: '/',
       redirect: '/dashboard',
-      name: 'Home',
+      name: 'Inicio',
       component: DefaultContainer,
       children: [
         {
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard
+        },
+        {
+          path: 'eCommerceLiverpool',
+          name: "ECommerce Liverpool",
+          component: ECommerceLiverpool
+        },
+        {
+          path: 'subComponente0',
+          name: "Sub Componente 0",
+          component: SubComponente0
         },
         {
           path: 'theme',

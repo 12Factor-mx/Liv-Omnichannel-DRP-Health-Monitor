@@ -8,7 +8,27 @@
                     "nombre": "eCommerce Liverpool",
                     "valor": 100,
                     "variante": "success",
-                    "icon": "icon-settings progress-group-icon"
+                    "icon": "icon-settings progress-group-icon",
+                    "ligaHijos": "/#/eCommerceLiverpool",
+                    "hijos": 
+                           [
+                               {
+                                   "nombre": "Sub Componente 0",
+                                    "valor": 100,
+                                    "variante": "success",
+                                    "icon": "icon-settings progress-group-icon",
+                                    "ligaHijos": "/#/subComponente0",
+                                    "hijos": [
+                                        {
+                                            "nombre": "Sub Sub Componente 0",
+                                            "valor": 100,
+                                            "variante": "success",
+                                            "icon": "icon-settings progress-group-icon",
+                                            "ligaHijos": "/#/"
+                                        }
+                                    ]
+                                }
+                            ]
                 },
                 {
                     "nombre": "Multisitios",
@@ -79,7 +99,26 @@
                     "nombre": "eCommerce Liverpool",
                     "valor": 90,
                     "variante": "warning",
-                    "icon": "icon-settings progress-group-icon"
+                    "icon": "icon-settings progress-group-icon",
+                    "ligaHijos": "/#/eCommerceLiverpool",
+                    "hijos": [
+                        {
+                            "nombre": "Sub Componente 0",
+                            "valor": 100,
+                            "variante": "success",
+                            "icon": "icon-settings progress-group-icon",
+                            "ligaHijos": "/#/subComponente0",
+                            "hijos": [
+                                {
+                                    "nombre": "Sub Sub Componente 0",
+                                    "valor": 100,
+                                    "variante": "success",
+                                    "icon": "icon-settings progress-group-icon",
+                                    "ligaHijos": "/#/"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "nombre": "Multisitios",
