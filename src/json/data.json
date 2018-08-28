@@ -1,0 +1,147 @@
+{
+    "cardSistemas": "Sistemas",
+    "cardList": [
+        {
+            "ambiente": "Producción",
+            "plataformas": [
+                {
+                    "nombre": "eCommerce Liverpool",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Multisitios",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "eCommerce Suburbia",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "BrideCore",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Cybersource",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "FMS",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "3DSecure",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Shopping App",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "App Vendedor",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Descargables",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Mesa de Regalos",
+                    "valor": 100,
+                    "variante": "success",
+                    "icon": "icon-settings progress-group-icon"
+                }
+            ]
+        },
+        {
+            "ambiente": "HA - DRP",
+            "plataformas": [
+                {
+                    "nombre": "eCommerce Liverpool",
+                    "valor": 90,
+                    "variante": "warning",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Multisitios",
+                    "valor": 5,
+                    "variante": "danger",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "eCommerce Suburbia",
+                    "valor": 5,
+                    "variante": "danger",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "BrideCore",
+                    "valor": 90,
+                    "variante": "warning",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Cybersource",
+                    "valor": 5,
+                    "variante": "danger",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "FMS",
+                    "valor": 5,
+                    "variante": "danger",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "3DSecure",
+                    "valor": 5,
+                    "variante": "danger",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Shopping App",
+                    "valor": 90,
+                    "variante": "warning",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "App Vendedor",
+                    "valor": 0,
+                    "variante": "warning",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Descargables",
+                    "valor": 90,
+                    "variante": "warning",
+                    "icon": "icon-settings progress-group-icon"
+                },
+                {
+                    "nombre": "Mesa de Regalos",
+                    "valor": 5,
+                    "variante": "danger",
+                    "icon": "icon-settings progress-group-icon"
+                }
+            ]
+        }
+    ]
+}
