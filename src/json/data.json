@@ -211,7 +211,7 @@
                 },
                 {
                     "nombre": "Cybersource",
-                    "valor": 10,
+                    "valor": 35,
                     "variante": "danger",
                     "icon": "icon-settings progress-group-icon"
                 },
@@ -247,7 +247,7 @@
                 },
                 {
                     "nombre": "Mesa de Regalos",
-                    "valor": 30,
+                    "valor": 40,
                     "variante": "danger",
                     "icon": "icon-settings progress-group-icon"
                 }
