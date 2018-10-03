@@ -16,7 +16,7 @@
               </b-row>
               <hr class="mt-0">
               <ul class="horizontal-bars type-2">
-                <div :key="item.id" class="progress-group" v-for="item in ecommercelmonprd ">
+                <div :key="item.id" class="progress-group" v-for="item in weblogiclmonprd ">
                   <div class="progress-group-header">
                     <a v-bind:href= "'/#/' + item._id"> > </a>
                     <i class="icon-settings progress-group-icon"></i>
@@ -58,7 +58,7 @@
                 </b-col>
               </b-row>
               <hr class="mt-0">
-              <div :key="item.id" class="progress-group" v-for="item in ecommercelmondrp ">
+              <div :key="item.id" class="progress-group" v-for="item in weblogiclmondrp ">
                   <div class="progress-group-header">
                     <a v-bind:href= "'/#/' + item._id"> > </a>
                     <i class="icon-settings progress-group-icon"></i>
@@ -95,14 +95,14 @@ const miliseconds = 10000;
 
 
 export default {
-  name: 'eCommerceLiverpool',
+  name: 'WebLogic',
   
   data: function () {
     return {  
 
       rootmonprd: [],
-      ecommercelmondrp: [],
-      ecommercelmonprd: [],
+      weblogiclmondrp: [],
+      weblogiclmonprd: [],
       timer: [],
       loading: false
 
@@ -175,19 +175,19 @@ export default {
         this.errors.push(e)
       }) */
 
-     axios.get('http://localhost:9001/ecommercelmondrp')
+     axios.get('http://localhost:9001/weblogiclmondrp')
      .then(function (response) {
        this.loading = false;
-       this.ecommercelmondrp = response.data;
+       this.weblogiclmondrp = response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
     })
 
-     axios.get('http://localhost:9001/ecommercelmonprd')
+     axios.get('http://localhost:9001/weblogiclmonprd')
      .then(function (response) {
        this.loading = false;
-       this.ecommercelmonprd= response.data;
+       this.weblogiclmonprd= response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;

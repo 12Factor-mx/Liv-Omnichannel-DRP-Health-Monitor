@@ -9,7 +9,9 @@ const Dashboard = () => import('@/views/Dashboard')
 
 //const ECommerceLiverpool = () => import('@/views/sistemas/ECommerceLiverpool')
 const ECommerceLiverpool = () => import('@/views/sistemas/eCommerceLiverpool/ECommerceLiverpool')
-const SubComponente0 = () => import('@/views/sistemas/eCommerceLiverpool/subComponente0/SubComponente0')
+const WebLogic = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/WebLogic')
+const Servers = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/Servers/Servers')
+
 
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
@@ -86,9 +88,14 @@ export default new Router({
           component: ECommerceLiverpool
         },
         {
-          path: 'subComponente0',
-          name: "Sub Componente 0",
-          component: SubComponente0
+          path: 'WebLogic',
+          name: "WebLogic",
+          component: WebLogic
+        },
+        {
+          path: 'Servers',
+          name: "Servers",
+          component: Servers
         },
         {
           path: 'theme',
