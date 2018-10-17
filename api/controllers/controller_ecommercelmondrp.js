@@ -13,3 +13,25 @@ exports.findAll = (req, res) => {
             });
         });
 };
+
+exports.update = (req, res) => {
+    Ecommercelmondrp.findByIdAndUpdate(req.params.ecommercelmondrpId, req.body, {new: true })
+        .then(Ecommercelmondrp => {
+            if (!Ecommercelmondrp) {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.ecommercelmondrpId
+                });
+            }
+            res.send(Ecommercelmondrp);
+        })
+        .catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.ecommercelmondrpId
+                });
+            }
+            return res.status(500).send({
+                message: "Error updating note with id " + req.params.ecommercelmondrpId
+            });
+        });
+};

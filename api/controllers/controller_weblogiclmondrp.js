@@ -13,3 +13,24 @@ exports.findAll = (req, res) => {
             });
         });
 };
+
+exports.update = (req, res) => {
+    Weblogiclmondrp.findByIdAndUpdate(req.params.weblogiclmondrpId, req.body, { new: true })
+        .then(Weblogiclmondrp => {
+            if (!Weblogiclmondrp) {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                });
+            }
+            res.send(Weblogiclmondrp);})
+                .catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                });
+            }
+            return res.status(500).send({
+                message: "Error updating note with id " + req.params.weblogiclmondrpId
+            });
+        });
+};

@@ -17,11 +17,22 @@ var weblogiclmondrpSchema = new Schema(
         fecha: {
             type: 'Date'
         },
-        status: {
-            type: 'String'
+        running: {
+            type: 'Number'
+        },
+        noRunning: {
+            type: 'Number'
+        },
+        percentage: {
+            type: 'Number'
+        },
+        estadoDestalle: {
+            type: 'Mixed'
         }
     }
 
 );
 
 module.exports = mongoose.model('Weblogiclmondrp', weblogiclmondrpSchema, 'weblogiclmondrp');
+
+
