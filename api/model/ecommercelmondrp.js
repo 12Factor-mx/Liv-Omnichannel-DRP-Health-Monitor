@@ -17,10 +17,10 @@ var ecommercelmondrpSchema = new Schema(
         fecha: {
             type: 'Date'
         },
-        running: {
+        consistente: {
             type: 'Number'
         },
-        noRunning: {
+        inconsistente: {
             type: 'Number'
         },
         percentage: {

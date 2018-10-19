@@ -42,6 +42,9 @@ exports.updateParents = (req, res) => {
         updateWebLogicServerLMonDrpStatus(req.body).then((response) =>
         {
             req.body.nombre = "Weblogic";
+            return res.send(response);
+
+            /*
             req.updateWebLogicServerLMonDrpStatus = response
 
             updateeCommerceLMonDrpStatus(req.body).then((response) => {
@@ -71,7 +74,8 @@ exports.updateParents = (req, res) => {
                     message: "Error updating eCommerceLMonDrpStatus status " + e
                 });
             }); 
-
+            */
+            
         }).catch( e => {
             return res.send({
                 message: "Error updating WebLogicServerLMonDrpStatus" + e
@@ -113,6 +117,7 @@ const updateWebLogicServerLMonDrpStatus = (body) =>
 } 
 
 const updateeCommerceLMonDrpStatus = (body) => {
+
     return axios.put('http://localhost:9001/ecommercelmondrp/WebLogic', body)
         .then((response) => {
             console.log(" put http://localhost:9001/ecommercelmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
