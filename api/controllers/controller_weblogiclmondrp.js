@@ -2,7 +2,7 @@
 const
     Weblogiclmondrp = require('../model/weblogiclmondrp.js');
 
-const axios = require('axios'); 
+const axios = require('axios');
 
 
 exports.findAll = (req, res) => {
@@ -16,17 +16,39 @@ exports.findAll = (req, res) => {
         });
 };
 
+exports.update = (req, res) => {
+    Weblogiclmondrp.findByIdAndUpdate(req.params.weblogiclmondrpId, req.body, { new: true })
+        .then(Weblogiclmondrp => {
+            if (!Weblogiclmondrp) {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                });
+            }
+            res.send(Weblogiclmondrp);
+        })
+        .catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                });
+            }
+            return res.status(500).send({
+                message: "Error updating note with id " + req.params.weblogiclmondrpId
+            })
+        })
+}
+
+
 exports.updateParents = (req, res) => {
 
-    getWebLogicLMonDrpStatus().then((response) =>
-    {
+    getWebLogicLMonDrpStatus().then((response) => {
 
         const weblogicStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
             {}
         )
 
-        consistente = parseInt(weblogicStatusTotals["consistente"] ) ;
+        consistente = parseInt(weblogicStatusTotals["consistente"]);
         consistente = (isNaN(consistente) ? 0 : consistente)
         inconsistente = response.length - consistente;
         percentage = (consistente / inconsistente) * 100;
@@ -41,24 +63,24 @@ exports.updateParents = (req, res) => {
 
 
         /*----------------------------------------------------------------------*/
-        
+
         updateeCommerceLMonDrpStatus(req.body).then((response) => {
-          
+
             return res.send(response);
-                   
+
         }).catch(e => {
             return res.send({
                 message: "Error updating WeblogicLMonDrpStatus status " + e
             });
-        }); 
+        });
         /*----------------------------------------------------------------------*/
 
-    }).catch (e => {
-      return res.send({
-         message: "Error getting weblogic " + e
-      });
+    }).catch(e => {
+        return res.send({
+            message: "Error getting weblogic " + e
+        });
     })
-   
+
 };
 
 const getWebLogicLMonDrpStatus = () => {
@@ -71,7 +93,7 @@ const getWebLogicLMonDrpStatus = () => {
             console.log(e)
             return e.message
         })
-} 
+}
 
 const updateeCommerceLMonDrpStatus = (body) => {
     return axios.put('http://localhost:9001/ecommercelmondrp/WebLogic', body)

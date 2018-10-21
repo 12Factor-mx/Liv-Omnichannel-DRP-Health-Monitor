@@ -19,12 +19,13 @@ module.exports = (app) => {
     app.get( '/weblogiclmonprd', weblogiclmonprd.findAll);
     app.get( '/weblogiclmondrp', weblogiclmondrp.findAll);
     app.post('/weblogiclmondrp/updateparents', weblogiclmondrp.updateParents)
-    //app.put( '/weblogiclmondrp/:weblogiclmondrpId', weblogiclmondrp.update);
+    app.put( '/weblogiclmondrp/:weblogiclmondrpId', weblogiclmondrp.update);
 
     const weblogicserverslmonprd = require('../controllers/controller_weblogicserverslmonprd.js');
     const weblogicserverslmondrp = require('../controllers/controller_weblogicserverslmondrp.js');
     app.get('/weblogicserverslmonprd', weblogicserverslmonprd.findAll);
     app.get('/weblogicserverslmondrp', weblogicserverslmondrp.findAll);
     app.post('/weblogicserverslmondrp/updateparents', weblogicserverslmondrp.updateParents)
+    app.post('/weblogicserverslmonprd/updateparents', weblogicserverslmonprd.updateParents)
 
 }

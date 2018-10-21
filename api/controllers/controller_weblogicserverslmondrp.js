@@ -22,7 +22,6 @@ exports.updateParents = (req, res) => {
     getWebLogicServerLMonDrpStatus().then((response) => 
     {
         
-
         const serverStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
             {}
@@ -44,48 +43,20 @@ exports.updateParents = (req, res) => {
             req.body.nombre = "Weblogic";
             return res.send(response);
 
-            /*
-            req.updateWebLogicServerLMonDrpStatus = response
-
-            updateeCommerceLMonDrpStatus(req.body).then((response) => {
-
-                req.body.nombre = "eCommerceLiverpool";
-                req.updateWebLogicLMonDrpStatus = response
-
-                updateRootMonDrpStatus(req.body).then((response) => {
-    
-                    response.
-                        updateWebLogicLMonDrpStatus = req.updateWebLogicLMonDrpStatus
-
-                    response.
-                        updateWebLogicLMonDrpStatus.
-                            updateWebLogicServerLMonDrpStatus = req.updateWebLogicServerLMonDrpStatus
-                  
-                   return res.send(response);
-
-                }).catch(e => {
-                    return res.send({
-                        message: "Error updating updateRootMonDrpStatusstatus " + e
-                    });
-                });   
-                 
-            }).catch(e => {
-                return res.send({
-                    message: "Error updating eCommerceLMonDrpStatus status " + e
-                });
-            }); 
-            */
-            
         }).catch( e => {
+            
             return res.send({
                 message: "Error updating WebLogicServerLMonDrpStatus" + e
             });
+
         });
 
     }).catch(e => {
+        
         return res.send({
             message: "Error getting weblogic servers " + e
         });
+
     })
 
 };
@@ -115,32 +86,6 @@ const updateWebLogicServerLMonDrpStatus = (body) =>
             return e.message
         })
 } 
-
-const updateeCommerceLMonDrpStatus = (body) => {
-
-    return axios.put('http://localhost:9001/ecommercelmondrp/WebLogic', body)
-        .then((response) => {
-            console.log(" put http://localhost:9001/ecommercelmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
-            return response.data;
-        })
-        .catch(e => {
-            console.log(e)
-            return e.message
-        })
-} 
-
-const updateRootMonDrpStatus = (body) => {
-    return axios.put('http://localhost:9001/rootmondrp/eCommerceLiverpool', body)
-        .then((response) => {
-            console.log(" put http://localhost:9001/rootmondrp/eCommerceLiverpool result: \n" + JSON.stringify(response.data, undefined, 2));
-            return response.data;
-        })
-        .catch(e => {
-            console.log(e)
-            return e.message
-        })
-} 
-
 
 
 
