@@ -13,3 +13,25 @@ exports.findAll = (req, res) => {
             });
         });
 };
+exports.update = (req, res) => {
+    Rootmonprd.findByIdAndUpdate(req.params.rootmonprdRootmonprdId, req.body, { new: true })
+        .then(Rootmonprd => {
+            if (!Rootmonprd) {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.rootmonprdRootmonprdId
+                });
+            }
+            res.send(Rootmonprd);
+        })
+        .catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.rootmonprdRootmonprdId
+                });
+            }
+            return res.status(500).send({
+                message: "Error updating note with id " + req.params.rootmonprdRootmonprdId
+            });
+        });
+};
+

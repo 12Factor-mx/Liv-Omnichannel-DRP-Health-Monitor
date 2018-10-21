@@ -1,5 +1,62 @@
 <template>
   <div class="animated fadeIn">
+      <b-row>
+      <b-col md="12">
+        <b-card  header="Weblogic">
+            <b-row >
+              <b-col  lg="6">
+                <p>
+                  <i class='fa fa-align-justify'></i> HA-PROD
+                </p>
+                <b-table :items="rootmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="rootmonprd">
+                    <b-badge :variant="getBadge(rootmonprd.item.estado)" >{{formatEstado(rootmonprd.item.estado)}}</b-badge>
+                  </template>
+                  <template slot="fecha" slot-scope="rootmonprd">
+                    {{formatDate(rootmonprd.item.fecha)}}
+                  </template> 
+                  <template slot="Fecha Consulta" slot-scope="data">
+                    {{formatDate(fechaConsulta)}} 
+                  </template>
+                   <template slot="percentage" slot-scope="rootmonprd">
+                    {{formatPercentage(rootmonprd.item.percentage)}}
+                  </template>
+                 <template slot="nombre" slot-scope="rootmonprd">
+                    <a v-if="rootmonprd.item.estado=='incosistente'  || rootmonprd.item.estado=='cosistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
+                    <a v-else>  {{rootmonprd.item.nombre}} </a>
+                  </template>
+                </b-table>
+              </b-col>
+              <b-col lg="6">
+                <p>
+                  <i class='fa fa-align-justify'></i> HA-DRP
+                </p>
+                <b-table  :items="rootmonprd" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="rootmonprd">
+                    <b-badge :variant="getBadge(rootmonprd.item.estado)" >{{formatEstado(rootmonprd.item.estado)}}</b-badge>
+                  </template> 
+                  <template slot="fecha" slot-scope="rootmonprd">
+                    {{formatDate(rootmonprd.item.fecha)}}
+                  </template>  
+                  <template slot="Fecha Consulta" slot-scope="data">
+                    {{formatDate(fechaConsulta)}}
+                  </template>   
+                   <template slot="percentage" slot-scope="rootmonprd">
+                    {{formatPercentage(rootmonprd.item.percentage)}}
+                  </template>    
+                  <template slot="nombre" slot-scope="rootmonprd">
+                    <a v-if="rootmonprd.item.estado=='incosistente'  || rootmonprd.item.estado=='cosistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
+                    <a v-else>  {{rootmonprd.item.nombre}} </a>
+                  </template>      
+                </b-table>
+              </b-col>
+            </b-row>
+        </b-card>
+      </b-col>
+    </b-row>
+
+    <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+   
     <b-row>
       <b-col md="12">
         <!-- <b-card v-bind:header="allLots.cardSistemas"> -->
@@ -100,31 +157,53 @@ export default {
   
   data: function () {
     return {  
-      //allLots: [],
+
       rootmondrp: [],
-      // rootmondrp1: [],
       rootmonprd: [],
       timer: [],
-      loading: false
+      loading: false,
+      fechaConsulta: [],
+      fields: [
+        { key: "nombre" },
+        { key: "estado" },
+        { key: "fecha", label: "Fecha Registro" },
+        { key: "percentage", label: "% conistencia" },
+        'Fecha Consulta',
+      ]
 
    } 
   },
   methods: {
-    variant (value) {
-      let $variant
-      if (value <= 25) {
-        $variant = 'info'
-      } else if (value > 25 && value <= 50) {
-        $variant = 'success'
-      } else if (value > 50 && value <= 75) {
-        $variant = 'warning'
-      } else if (value > 75 && value <= 100) {
-        $variant = 'danger'
+    
+
+    formatPercentage(value) {
+
+      var ret= value;
+
+       if (typeof ret == "undefined") {
+        //value = new Date()
+        ret = 0;
       }
-      return $variant
+
+      ret = Math.round(ret * 100) / 100
+
+       return ret + " %";
     },
-    flag (value) {
-      return 'flag-icon flag-icon-' + value
+
+
+    formatDate(value){
+      var str = "";
+
+        if(typeof value !== 'undefined'){
+           // item.fecha = new Date()
+        } 
+        var options = {hour12: false};
+        var now = new Date(value);
+    
+        str = now.toLocaleString("es-mx", options);
+
+
+      return str;        
     },
 
     formatDate(value){
@@ -143,24 +222,14 @@ export default {
     },
 
     formatEstado(value){
-      var str = "";
-
-      if(value == 'response_code 200')
-      {
-        str = "Consistente";
-      } else if (value == 'response_code 000')
-      {
-        str = "Inconsistente";
-      }else if (typeof value !== 'undefined')
-      {
-        str = "Desconocido";
-      }
-      
-      return str;        
-    },
+     return value === "incosistente" ? "inconsistente":
+             value === "desconocido"  ? "desconocido":
+             value === "consistente"   ? "consistente" : value ;
+    }, 
 
     loadData: function () {
       
+      this.fechaConsulta = new Date();
       this.loading = true;
       
       // this.allLots = json1;
@@ -194,6 +263,13 @@ export default {
       this.loading = false;
     })
 
+    },
+    getBadge(status) {
+      return status === "consistente"   ? "success": 
+             status === "SHUTDOWN"  ? "warning": 
+             status === "desconocido"   ? "danger": 
+             status === "incosistente" ? "danger" : 
+                                      "primary";
     }
   },
   created(){

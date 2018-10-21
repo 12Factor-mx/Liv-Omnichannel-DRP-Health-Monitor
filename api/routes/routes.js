@@ -1,19 +1,16 @@
 module.exports = (app) => {
 
     const rootmondrp = require('../controllers/controller.js');
-    const rootmonprd = require('../controllers/controller.1.js')
     app.get('/rootmondrp', rootmondrp.findAll);
-    app.get('/rootmonprd', rootmonprd.findAll);
     app.put('/rootmondrp/:rootmondrpId', rootmondrp.update);
-
-
-
-
+    const rootmonprd = require('../controllers/controller.1.js')
+    app.get('/rootmonprd', rootmonprd.findAll);
+    app.put('/rootmonprd/:rootmonprdId', rootmonprd.update);
 
     const ecommercelmonprd = require('../controllers/controller_ecommercelmonprd.js');
     app.get('/ecommercelmonprd', ecommercelmonprd.findAll);
+    app.post('/ecommercelmonprd/updateparents', ecommercelmonprd.updateParents)
     app.put('/ecommercelmonprd/:ecommercelmonprdId', ecommercelmonprd.update);
-    
     const ecommercelmondrp = require('../controllers/controller_ecommercelmondrp.js');
     app.get('/ecommercelmondrp', ecommercelmondrp.findAll);
     app.post('/ecommercelmondrp/updateparents', ecommercelmondrp.updateParents)
