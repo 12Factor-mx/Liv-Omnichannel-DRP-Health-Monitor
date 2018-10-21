@@ -7,11 +7,16 @@ module.exports = (app) => {
     app.put('/rootmondrp/:rootmondrpId', rootmondrp.update);
 
 
+
+
+
     const ecommercelmonprd = require('../controllers/controller_ecommercelmonprd.js');
-    const ecommercelmondrp = require('../controllers/controller_ecommercelmondrp.js');
     app.get('/ecommercelmonprd', ecommercelmonprd.findAll);
+    app.put('/ecommercelmonprd/:ecommercelmonprdId', ecommercelmonprd.update);
+    
+    const ecommercelmondrp = require('../controllers/controller_ecommercelmondrp.js');
     app.get('/ecommercelmondrp', ecommercelmondrp.findAll);
-    //app.post('/ecommercelmondrp/updateparents', ecommercelmondrp.updateParents)
+    app.post('/ecommercelmondrp/updateparents', ecommercelmondrp.updateParents)
     app.put('/ecommercelmondrp/:ecommercelmondrpId', ecommercelmondrp.update);
     
     const weblogiclmonprd = require('../controllers/controller_weblogiclmonprd.js');

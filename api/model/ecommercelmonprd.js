@@ -17,8 +17,17 @@ var ecommercelmonprdSchema = new Schema(
         fecha: {
             type: 'Date'
         },
-        status: {
-            type: 'String'
+        consistente: {
+            type: 'Number'
+        },
+        inconsistente: {
+            type: 'Number'
+        },
+        percentage: {
+            type: 'Number'
+        },
+        estadoDestalle: {
+            type: 'Mixed'
         }
     }
 
