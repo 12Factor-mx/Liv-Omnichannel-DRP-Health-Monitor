@@ -14,11 +14,11 @@ exports.findAll = (req, res) => {
         });
 };
 exports.update = (req, res) => {
-    Rootmonprd.findByIdAndUpdate(req.params.rootmonprdRootmonprdId, req.body, { new: true })
+    Rootmonprd.findByIdAndUpdate(req.params.rootmonprdId, req.body, { new: true })
         .then(Rootmonprd => {
             if (!Rootmonprd) {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.rootmonprdRootmonprdId
+                    message: "Note not found with id " + req.params.rootmonprdId
                 });
             }
             res.send(Rootmonprd);
@@ -26,7 +26,7 @@ exports.update = (req, res) => {
         .catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.rootmonprdRootmonprdId
+                    message: "Note not found with id " + req.params.rootmonprdId
                 });
             }
             return res.status(500).send({

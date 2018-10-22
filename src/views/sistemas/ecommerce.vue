@@ -31,22 +31,22 @@
                 <p>
                   <i class='fa fa-align-justify'></i> HA-DRP
                 </p>
-                <b-table  :items="rootmonprd" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="rootmonprd">
-                    <b-badge :variant="getBadge(rootmonprd.item.estado)" >{{formatEstado(rootmonprd.item.estado)}}</b-badge>
+                <b-table  :items="rootmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="rootmondrp">
+                    <b-badge :variant="getBadge(rootmondrp.item.estado)" >{{formatEstado(rootmondrp.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="rootmonprd">
-                    {{formatDate(rootmonprd.item.fecha)}}
+                  <template slot="fecha" slot-scope="rootmondrp">
+                    {{formatDate(rootmondrp.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="rootmonprd">
-                    {{formatPercentage(rootmonprd.item.percentage)}}
+                   <template slot="percentage" slot-scope="rootmondrp">
+                    {{formatPercentage(rootmondrp.item.percentage)}}
                   </template>    
-                  <template slot="nombre" slot-scope="rootmonprd">
-                    <a v-if="rootmonprd.item.estado=='incosistente'  || rootmonprd.item.estado=='cosistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
-                    <a v-else>  {{rootmonprd.item.nombre}} </a>
+                  <template slot="nombre" slot-scope="rootmondrp">
+                    <a v-if="rootmondrp.item.estado=='incosistente'  || rootmondrp.item.estado=='cosistente' " v-bind:href= "'/#/' + rootmondrp.item._id">  {{rootmondrp.item.nombre}} </a>
+                    <a v-else>  {{rootmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
               </b-col>

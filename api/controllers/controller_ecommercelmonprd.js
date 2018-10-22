@@ -53,7 +53,7 @@ exports.updateParents = (req, res) => {
         percentage = (consistente / inconsistente) * 100;
 
 
-        req.body.nombre = "eCommerceLiverpool";
+        req.body.nombre = "eCommerceLiverpool"; 
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
         req.body.percentage = percentage.toString();
