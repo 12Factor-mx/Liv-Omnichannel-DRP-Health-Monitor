@@ -7,7 +7,7 @@ const DefaultContainer = () => import('@/containers/DefaultContainer')
 // Views
 const Dashboard = () => import('@/views/Dashboard')
 
-//const ECommerceLiverpool = () => import('@/views/sistemas/ECommerceLiverpool')
+const ecommerce = () => import('@/views/sistemas/ecommerce')
 const ECommerceLiverpool = () => import('@/views/sistemas/eCommerceLiverpool/ECommerceLiverpool')
 const WebLogic = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/WebLogic')
 const Servers = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/Servers/Servers')
@@ -81,7 +81,12 @@ export default new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard
-        },
+        }, 
+        { path: 'sistemas/eCommerce',
+          name: 'e-Commerce',
+          component: ecommerce
+          
+        }, 
         {
           path: 'eCommerceLiverpool',
           name: "ECommerce Liverpool",
