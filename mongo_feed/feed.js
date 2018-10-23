@@ -428,7 +428,7 @@ db.rootmonprd.drop()
 db.ecommercelmonprd.drop()
 db.weblogiclmonprd.drop()
 db.weblogicserverslmonprd.drop()
-db.endecalmondprd.drop()
+db.endecalmonprd.drop()
 
 db.rootmonprd.insert([
     {
