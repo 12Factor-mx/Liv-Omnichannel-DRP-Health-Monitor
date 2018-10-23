@@ -9,8 +9,9 @@ const Dashboard = () => import('@/views/Dashboard')
 
 const ecommerce = () => import('@/views/sistemas/ecommerce')
 const ECommerceLiverpool = () => import('@/views/sistemas/eCommerceLiverpool/ECommerceLiverpool')
-const WebLogic = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/WebLogic')
-const Servers = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/Servers/Servers')
+  const WebLogic = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/WebLogic')
+    const Servers = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/Servers/Servers')
+  const Endeca = () => import('@/views/sistemas/eCommerceLiverpool/Endeca/Endeca')  
 
 
 const Colors = () => import('@/views/theme/Colors')
@@ -101,6 +102,11 @@ export default new Router({
           path: 'Servers',
           name: "Servers",
           component: Servers
+        },
+        {
+          path: 'Endeca',
+          name: "Endeca",
+          component: Endeca
         },
         {
           path: 'theme',

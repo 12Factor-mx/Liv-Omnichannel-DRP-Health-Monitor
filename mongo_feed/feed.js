@@ -78,7 +78,7 @@ db.ecommercelmondrp.insert([
     {
         _id: "Endeca",
         nombre: "Endeca",
-        estado: "desconocido"
+        estado: "consistente"
     },
     {
         _id: "OTD",
@@ -351,36 +351,36 @@ db.endecalmondrp.insert([
             {
                 _id: "cas",
                 nombre: "cas",
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
             {
                 _id: "plataform",
                 nombre: "plataform service",
-                estado: "desconocido",
-                procentaje: 0,
+                estado: "consistente",
+                procentaje: 100,
                 componetes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
             {
                 _id: "tools",
                 nombre: "tools & Framework",
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
         ],
-        estado: "desconocido",
-        porcentaje: 0,
+        estado: "consistente",
+        porcentaje: 100,
     },
     {
         _id: "ITL1",
@@ -389,36 +389,36 @@ db.endecalmondrp.insert([
             {
                 _id: "cas",
                 nombre: "cas",
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
             {
                 _id: "plataform",
                 nombre: "plataform service",
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
             {
                 _id: "tools",
                 nombre: "tools & Framework",
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
         ],
-        estado: "desconocido",
-        porcentaje: 0
+        estado: "consistente",
+        porcentaje: 100
     }])
 
 
@@ -502,7 +502,7 @@ db.ecommercelmonprd.insert([
     {
         _id: "Endeca",
         nombre: "Endeca",
-        estado: "desconocido"
+        estado: "consistente"
     },
     {
         _id: "OTD",
@@ -774,31 +774,31 @@ db.endecalmonprd.insert([
         servicios:[
             {   _id: "cas", 
                 nombre: "cas", 
-                estado: "desconocido", 
-                porcentaje: 0,
+                estado: "consistente", 
+                porcentaje: 100,
                 componentes: [
-                    {_id:"log",  nombre: "log", estado: "desconocido" },
-                    { id:"port", nombre: "port", estado: "desconocido"}
+                    {_id:"log",  nombre: "log", estado: "consistente" },
+                    { id:"port", nombre: "port", estado: "consistente"}
             ]},
             {   _id: "plataform", 
                 nombre: "plataform service", 
-                estado: "desconocido", 
-                procentaje: 0,
+                estado: "consistente", 
+                procentaje: 100,
                 componetes: [
-                    {_id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    {_id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
             ]},
             {  _id: "tools", 
                 nombre: "tools & Framework", 
-                estado: "desconocido", 
-                porcentaje: 0,
+                estado: "consistente", 
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
             ]},
         ],
-        estado: "desconocido",
-        porcentaje: 0,
+        estado: "consistente",
+        porcentaje: 100,
     },
     {
         _id: "ITL1",
@@ -806,33 +806,33 @@ db.endecalmonprd.insert([
         servicios: [
             {   _id: "cas", 
                 nombre: "cas", 
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]},
             {   _id: "plataform", 
                 nombre: "plataform service", 
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
             {   _id: "tools", 
                 nombre: "tools & Framework", 
-                estado: "desconocido",
-                porcentaje: 0,
+                estado: "consistente",
+                porcentaje: 100,
                 componentes: [
-                    { _id: "log", nombre: "log", estado: "desconocido" },
-                    { id: "port", nombre: "port", estado: "desconocido" }
+                    { _id: "log", nombre: "log", estado: "consistente" },
+                    { id: "port", nombre: "port", estado: "consistente" }
                 ]
             },
         ],
-        estado: "desconocido",
-        porcentaje: 0
+        estado: "consistente",
+        porcentaje: 100
     }])
 
 
