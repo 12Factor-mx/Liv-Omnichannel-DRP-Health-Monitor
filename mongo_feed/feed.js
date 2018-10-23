@@ -4,6 +4,7 @@ db.rootmondrp.drop();
 db.ecommercelmondrp.drop()
 db.weblogiclmondrp.drop()
 db.weblogicserverslmondrp.drop()
+db.endecalmondrp.drop()
 
 db.rootmondrp.insert([
     {
@@ -342,12 +343,92 @@ db.weblogicserverslmondrp.insert([
     }
 ])
 
+db.endecalmondrp.insert([
+    {
+        _id: "Endeca1",
+        nombre: "Endeca1",
+        servicios: [
+            {
+                _id: "cas",
+                nombre: "cas",
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+            {
+                _id: "plataform",
+                nombre: "plataform service",
+                estado: "desconocido",
+                procentaje: 0,
+                componetes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+            {
+                _id: "tools",
+                nombre: "tools & Framework",
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+        ],
+        estado: "desconocido",
+        porcentaje: 0,
+    },
+    {
+        _id: "ITL1",
+        nombre: "ITL1",
+        servicios: [
+            {
+                _id: "cas",
+                nombre: "cas",
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+            {
+                _id: "plataform",
+                nombre: "plataform service",
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+            {
+                _id: "tools",
+                nombre: "tools & Framework",
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+        ],
+        estado: "desconocido",
+        porcentaje: 0
+    }])
+
+
 //--- Prd ------------------------------------------------
 
 db.rootmonprd.drop()
 db.ecommercelmonprd.drop()
 db.weblogiclmonprd.drop()
 db.weblogicserverslmonprd.drop()
+db.endecalmondprd.drop()
 
 db.rootmonprd.insert([
     {
@@ -686,6 +767,72 @@ db.weblogicserverslmonprd.insert([
     }
 ])
 
-
+db.endecalmonprd.insert([
+    {
+        _id: "Endeca1",
+        nombre: "Endeca1",
+        servicios:[
+            {   _id: "cas", 
+                nombre: "cas", 
+                estado: "desconocido", 
+                porcentaje: 0,
+                componentes: [
+                    {_id:"log",  nombre: "log", estado: "desconocido" },
+                    { id:"port", nombre: "port", estado: "desconocido"}
+            ]},
+            {   _id: "plataform", 
+                nombre: "plataform service", 
+                estado: "desconocido", 
+                procentaje: 0,
+                componetes: [
+                    {_id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+            ]},
+            {  _id: "tools", 
+                nombre: "tools & Framework", 
+                estado: "desconocido", 
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+            ]},
+        ],
+        estado: "desconocido",
+        porcentaje: 0,
+    },
+    {
+        _id: "ITL1",
+        nombre: "ITL1",
+        servicios: [
+            {   _id: "cas", 
+                nombre: "cas", 
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]},
+            {   _id: "plataform", 
+                nombre: "plataform service", 
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+            {   _id: "tools", 
+                nombre: "tools & Framework", 
+                estado: "desconocido",
+                porcentaje: 0,
+                componentes: [
+                    { _id: "log", nombre: "log", estado: "desconocido" },
+                    { id: "port", nombre: "port", estado: "desconocido" }
+                ]
+            },
+        ],
+        estado: "desconocido",
+        porcentaje: 0
+    }])
 
 
