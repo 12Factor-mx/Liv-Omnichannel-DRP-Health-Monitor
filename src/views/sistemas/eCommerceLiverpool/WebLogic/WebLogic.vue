@@ -22,7 +22,7 @@
                     {{formatPercentage(weblogiclmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="weblogiclmonprd">
-                    <a v-if="weblogiclmonprd.item.estado=='incosistente'  || weblogiclmonprd.item.estado=='cosistente' " v-bind:href= "'/#/' + weblogiclmonprd.item._id">  {{weblogiclmonprd.item.nombre}} </a>
+                    <a v-if="weblogiclmonprd.item.estado=='incosistente'  || weblogiclmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + weblogiclmonprd.item._id">  {{weblogiclmonprd.item.nombre}} </a>
                     <a v-else>  {{weblogiclmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
@@ -45,7 +45,7 @@
                     {{formatPercentage(weblogiclmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="weblogiclmondrp">
-                    <a v-if="weblogiclmondrp.item.estado=='incosistente'  || weblogiclmondrp.item.estado=='cosistente' " v-bind:href= "'/#/' + weblogiclmondrp.item._id">  {{weblogiclmondrp.item.nombre}} </a>
+                    <a v-if="weblogiclmondrp.item.estado=='incosistente'  || weblogiclmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + weblogiclmondrp.item._id">  {{weblogiclmondrp.item.nombre}} </a>
                     <a v-else>  {{weblogiclmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>

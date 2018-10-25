@@ -22,7 +22,7 @@
                     {{formatPercentage(ecommercelmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="ecommercelmonprd">
-                    <a v-if="ecommercelmonprd.item.estado=='incosistente'  || ecommercelmonprd.item.estado=='cosistente' " v-bind:href= "'/#/' + ecommercelmonprd.item._id">  {{ecommercelmonprd.item.nombre}} </a>
+                    <a v-if="ecommercelmonprd.item.estado=='incosistente'  || ecommercelmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + ecommercelmonprd.item._id">  {{ecommercelmonprd.item.nombre}} </a>
                     <a v-else>  {{ecommercelmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
@@ -45,7 +45,7 @@
                     {{formatPercentage(ecommercelmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="ecommercelmondrp">
-                    <a v-if="ecommercelmondrp.item.estado=='incosistente'  || ecommercelmondrp.item.estado=='cosistente' " v-bind:href= "'/#/' + ecommercelmondrp.item._id">  {{ecommercelmondrp.item.nombre}} </a>
+                    <a v-if="ecommercelmondrp.item.estado=='incosistente'  || ecommercelmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + ecommercelmondrp.item._id">  {{ecommercelmondrp.item.nombre}} </a>
                     <a v-else>  {{ecommercelmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>

@@ -2,30 +2,31 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Endeca Servers">
+        <b-card  header="Endeca Services">
             <b-row >
               <b-col  lg="6">
                 <p>
                   <i class='fa fa-align-justify'></i> HA-PROD
                 </p>
-                <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
+                <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="endecalmonprd">
                     <b-badge :variant="getBadge(endecalmonprd.item.estado)" >{{formatEstado(endecalmonprd.item.estado)}}</b-badge>
-                  </template>
+                  </template> 
                   <template slot="fecha" slot-scope="endecalmonprd">
                     {{formatDate(endecalmonprd.item.fecha)}}
-                  </template> 
+                  </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
-                    {{formatDate(fechaConsulta)}} 
-                  </template>
+                    {{formatDate(fechaConsulta)}}
+                  </template>   
                    <template slot="percentage" slot-scope="endecalmonprd">
                     {{formatPercentage(endecalmonprd.item.percentage)}}
-                  </template>
-                 <template slot="nombre" slot-scope="endecalmonprd">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices-' + endecalmonprd.item.nombre + '_prd'" >  {{endecalmonprd.item.nombre}} </a>
+                  </template>    
+                  <template slot="nombre" slot-scope="endecalmonprd">
+                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices'">  {{endecalmonprd.item.nombre}} </a>
                     <a v-else>  {{endecalmonprd.item.nombre}} </a>
-                  </template>
+                  </template>      
                 </b-table>
+
               </b-col>
               <b-col lg="6">
                 <p>
@@ -45,7 +46,7 @@
                     {{formatPercentage(endecalmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices-' + endecalmondrp.item.nombre + '_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
@@ -55,7 +56,7 @@
       </b-col>
     </b-row>
 
-   
+    
   </div>
 </template>
 
@@ -68,9 +69,7 @@ const miliseconds = 10000;
 
 
 export default {
-  name: 'Endeca',
-
-  props:['propiedad'],
+  name: 'EndecaServices',
   
   data: function () {
     return {  
@@ -80,6 +79,8 @@ export default {
       endecalmonprd: [],
       timer: [],
       loading: false,
+      env: "",
+      server: "",
       fechaConsulta: [],
       fields: [
         { key: "nombre" },
@@ -150,7 +151,22 @@ export default {
      axios.get('http://localhost:9001/endecalmondrp')
      .then(function (response) {
        this.loading = false;
-       this.endecalmondrp = response.data;
+ 
+      this.env = this.$el.baseURI.substring(this.$el.baseURI.indexOf("_") + 1)
+      this.server = this.$el.baseURI.substring(this.$el.baseURI.indexOf("-") + 1, this.$el.baseURI.indexOf("_"))
+      var i;
+        for (i = 0; i < response.data.length; i++) { 
+            console.log(response.data[i]._id )
+            console.log(this.server)
+            console.log(response.data[i]._id == this.server)
+
+            if (response.data[i]._id == this.server)
+            {
+                this.endecalmondrp = response.data[i].servicios
+                console.log(this.endecalmondrp)
+            }
+        }
+      
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
@@ -159,7 +175,21 @@ export default {
      axios.get('http://localhost:9001/endecalmonprd')
      .then(function (response) {
        this.loading = false;
-       this.endecalmonprd= response.data;
+       this.env = this.$el.baseURI.substring(this.$el.baseURI.indexOf("_") + 1)
+      this.server = this.$el.baseURI.substring(this.$el.baseURI.indexOf("-") + 1, this.$el.baseURI.indexOf("_"))
+      var i;
+        for (i = 0; i < response.data.length; i++) { 
+            console.log(response.data[i]._id )
+            console.log(this.server)
+            console.log(response.data[i]._id == this.server)
+
+            if (response.data[i]._id == this.server)
+            {
+                this.endecalmonprd = response.data[i].servicios
+                console.log(this.endecalmonprd)
+            }
+        }
+       //this.endecalmonprd= response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;

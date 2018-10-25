@@ -1,0 +1,7 @@
+{
+"splits": 
+  [
+    {"start":"2", "end":"3", "into":"collectioName"}
+  ]  
+
+}

@@ -22,7 +22,7 @@
                     {{formatPercentage(rootmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="rootmonprd">
-                    <a v-if="rootmonprd.item.estado=='incosistente'  || rootmonprd.item.estado=='cosistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
+                    <a v-if="rootmonprd.item.estado=='incosistente'  || rootmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
                     <a v-else>  {{rootmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
@@ -45,7 +45,7 @@
                     {{formatPercentage(rootmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="rootmondrp">
-                    <a v-if="rootmondrp.item.estado=='incosistente'  || rootmondrp.item.estado=='cosistente' " v-bind:href= "'/#/' + rootmondrp.item._id">  {{rootmondrp.item.nombre}} </a>
+                    <a v-if="rootmondrp.item.estado=='incosistente'  || rootmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + rootmondrp.item._id">  {{rootmondrp.item.nombre}} </a>
                     <a v-else>  {{rootmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
