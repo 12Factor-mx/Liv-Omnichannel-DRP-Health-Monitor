@@ -1,54 +1,58 @@
 
 const
-    Weblogicserverslmonprd = require('../model/weblogicserverslmonprd.js');
+    Weblogicserversmulmondrp = require('../model/weblogicserversmulmondrp.js');
 
-const axios = require('axios'); 
+const axios =require('axios'); 
+
 
 exports.findAll = (req, res) => {
-    Weblogicserverslmonprd.find()
-        .then(weblogicserverslmonprd => {
-            res.send(weblogicserverslmonprd);
+    Weblogicserversmulmondrp.find()
+        .then(weblogicserversmulmondrp => {
+            res.send(weblogicserversmulmondrp);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Error recuperando weblogicserverslmonprd."
+                message: err.message || "Error recuperando weblogicserversmulmondrp."
             });
         });
 };
+
 // Update
 exports.updateParents = (req, res) => {
-
-    getWebLogicServerLMonPrdStatus().then((response) => {
-
+    
+    getWebLogicServerMulMonDrpStatus().then((response) => 
+    {
+        
         const serverStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
             {}
         )
-
+        
         running = parseInt(serverStatusTotals["RUNNING"]);
-        noRunning = response.length - running;
+        noRunning =  response.length - running;
         percentage = (running / noRunning) * 100;
 
         req.body.nombre = "Servers";
         req.body.running = running;
         req.body.noRunning = noRunning
-        req.body.percentage = percentage.toString();
+        req.body.percentage = percentage.toString(); 
         req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
         req.body.estadoDestalle = serverStatusTotals;
 
-        updateWebLogicServerLMonPrdStatus(req.body).then((response) => {
+        updateWebLogicServerMulMonDrpStatus(req.body).then((response) =>
+        {
             req.body.nombre = "Weblogic";
             return res.send(response);
 
-        }).catch(e => {
-
+        }).catch( e => {
+            
             return res.send({
-                message: "Error updating WebLogicServerLMonPrdStatus" + e
+                message: "Error updating WebLogicServerMulMonDrpStatus" + e
             });
 
         });
 
     }).catch(e => {
-
+        
         return res.send({
             message: "Error getting weblogic servers " + e
         });
@@ -57,22 +61,24 @@ exports.updateParents = (req, res) => {
 
 };
 
-const getWebLogicServerLMonPrdStatus = () => {
-    return axios.get('http://localhost:9001/weblogicserverslmonprd')
+const getWebLogicServerMulMonDrpStatus = () =>
+{
+    return axios.get('http://localhost:9001/weblogicserversmulmondrp')
         .then((response) => {
-            console.log(" get http://localhost:9001/weblogicserverslmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" get http://localhost:9001/weblogicserversmulmondrp result : \n" + JSON.stringify(response.data, undefined,2));
             return response.data;
         })
         .catch(e => {
             console.log(e)
             return e.message
         })
-}
+} 
 
-const updateWebLogicServerLMonPrdStatus = (body) => {
-    return axios.put('http://localhost:9001/weblogiclmonprd/Servers', body)
+const updateWebLogicServerMulMonDrpStatus = (body) => 
+{
+    return axios.put('http://localhost:9001/weblogicmulmondrp/Servers', body )
         .then((response) => {
-            console.log(" put http://localhost:9001/weblogiclmonprd/Servers result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/weblogicmulmondrp/Servers result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

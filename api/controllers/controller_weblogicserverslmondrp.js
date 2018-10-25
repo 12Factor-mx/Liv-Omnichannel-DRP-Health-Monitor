@@ -35,7 +35,7 @@ exports.updateParents = (req, res) => {
         req.body.running = running;
         req.body.noRunning = noRunning
         req.body.percentage = percentage.toString(); 
-        req.body.estado = (percentage == 100 ? "consistente" : "incosistente");
+        req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
         req.body.estadoDestalle = serverStatusTotals;
 
         updateWebLogicServerLMonDrpStatus(req.body).then((response) =>

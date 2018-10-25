@@ -23,7 +23,7 @@ export default {
           },
           icon: 'icon-basket',
           name: 'e-Commerce',
-          url: '/sistemas/eCommerce'
+          url: '/ATG/eCommerce'
         }
       ]
     }

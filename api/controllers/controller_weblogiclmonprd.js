@@ -58,7 +58,7 @@ exports.updateParents = (req, res) => {
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
         req.body.percentage = percentage.toString();
-        req.body.estado = (percentage == 100 ? "consistente" : "incosistente");
+        req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
         req.body.estadoDestalle = weblogicStatusTotals;
 
 

@@ -1,92 +1,91 @@
 
 const
-    Weblogiclmondrp = require('../model/weblogiclmondrp.js');
+    Endecamulmonprd = require('../model/endecamulmonprd.js');
 
 const axios = require('axios');
 
 
 exports.findAll = (req, res) => {
-    Weblogiclmondrp.find()
-        .then(weblogiclmondrp => {
-            res.send(weblogiclmondrp);
+    Endecamulmonprd.find()
+        .then(endecamulmonprd => {
+            res.send(endecamulmonprd);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Error recuperando weblogiclmondrp."
+                message: err.message || "Error recuperando endecamulmonprd."
             });
         });
 };
 
 exports.update = (req, res) => {
-    Weblogiclmondrp.findByIdAndUpdate(req.params.weblogiclmondrpId, req.body, { new: true })
-        .then(Weblogiclmondrp => {
-            if (!Weblogiclmondrp) {
+    Endecamulmonprd.findByIdAndUpdate(req.params.endecamulmonprdId, req.body, {new: true })
+        .then(Endecamulmonprd => {
+            if (!Endecamulmonprd) {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                    message: "Note not found with id " + req.params.endecamulmonprdId
                 });
             }
-            res.send(Weblogiclmondrp);
+            res.send(Endecamulmonprd);
         })
         .catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                    message: "Note not found with id " + req.params.endecamulmonprdId
                 });
             }
             return res.status(500).send({
-                message: "Error updating note with id " + req.params.weblogiclmondrpId
-            })
-        })
-}
-
+                message: "Error updating note with id " + req.params.endecamulmonprdId
+            });
+        });
+};
 
 exports.updateParents = (req, res) => {
 
-    getWebLogicLMonDrpStatus().then((response) => {
+    getEndecamulmonPrdStatus().then((response) => {
 
-        const weblogicStatusTotals = response.reduce(
+        const endecaStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
             {}
         )
 
-        consistente = parseInt(weblogicStatusTotals["consistente"]);
+        consistente = parseInt(endecaStatusTotals["consistente"]);
         consistente = (isNaN(consistente) ? 0 : consistente)
         inconsistente = response.length - consistente;
         percentage = (consistente / inconsistente) * 100;
 
 
-        req.body.nombre = "WebLogic";
+        req.body.nombre = "XXXXXXXXXXXXXXXXX endeca ";
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
         req.body.percentage = percentage.toString();
         req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
-        req.body.estadoDestalle = weblogicStatusTotals;
+        req.body.estadoDestalle = endecaStatusTotals;
 
 
         /*----------------------------------------------------------------------*/
 
-        updateeCommerceLMonDrpStatus(req.body).then((response) => {
+        updateEndecamulmonPrdStatus(req.body).then((response) => {
 
             return res.send(response);
 
         }).catch(e => {
             return res.send({
-                message: "Error updating WeblogicLMonDrpStatus status " + e
+                message: "Error updating EndecaMonPrdStatus status " + e
             });
         });
         /*----------------------------------------------------------------------*/
 
     }).catch(e => {
         return res.send({
-            message: "Error getting weblogic " + e
+            message: "Error getting endeca " + e
         });
     })
 
 };
 
-const getWebLogicLMonDrpStatus = () => {
-    return axios.get('http://localhost:9001/weblogiclmondrp')
+const getEndecamulmonPrdStatus = () => {
+    return axios.get('http://localhost:9001/endecamulmonprd')
         .then((response) => {
-            console.log(" get http://localhost:9001/weblogiclmondrp result : \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" get http://localhost:9001/endecamulmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {
@@ -95,10 +94,10 @@ const getWebLogicLMonDrpStatus = () => {
         })
 }
 
-const updateeCommerceLMonDrpStatus = (body) => {
-    return axios.put('http://localhost:9001/ecommercelmondrp/WebLogic', body)
+const updateEndecamulmonPrdStatus = (body) => {
+    return axios.put('http://localhost:9001/endecamulmonprd/endeca', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/ecommercelmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/endecamulmonprd/endeca result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

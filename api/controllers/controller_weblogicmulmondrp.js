@@ -1,39 +1,39 @@
 
 const
-    Weblogiclmondrp = require('../model/weblogiclmondrp.js');
+    Weblogicmulmondrp = require('../model/weblogicmulmondrp.js');
 
 const axios = require('axios');
 
 
 exports.findAll = (req, res) => {
-    Weblogiclmondrp.find()
-        .then(weblogiclmondrp => {
-            res.send(weblogiclmondrp);
+    Weblogicmulmondrp.find()
+        .then(weblogicmulmondrp => {
+            res.send(weblogicmulmondrp);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Error recuperando weblogiclmondrp."
+                message: err.message || "Error recuperando weblogicmulmondrp."
             });
         });
 };
 
 exports.update = (req, res) => {
-    Weblogiclmondrp.findByIdAndUpdate(req.params.weblogiclmondrpId, req.body, { new: true })
-        .then(Weblogiclmondrp => {
-            if (!Weblogiclmondrp) {
+    Weblogicmulmondrp.findByIdAndUpdate(req.params.weblogicmulmondrpId, req.body, { new: true })
+        .then(Weblogicmulmondrp => {
+            if (!Weblogicmulmondrp) {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                    message: "Note not found with id " + req.params.weblogicmulmondrpId
                 });
             }
-            res.send(Weblogiclmondrp);
+            res.send(Weblogicmulmondrp);
         })
         .catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.weblogiclmondrpId
+                    message: "Note not found with id " + req.params.weblogicmulmondrpId
                 });
             }
             return res.status(500).send({
-                message: "Error updating note with id " + req.params.weblogiclmondrpId
+                message: "Error updating note with id " + req.params.weblogicmulmondrpId
             })
         })
 }
@@ -41,7 +41,7 @@ exports.update = (req, res) => {
 
 exports.updateParents = (req, res) => {
 
-    getWebLogicLMonDrpStatus().then((response) => {
+    getWeblogicmulmonDrpStatus().then((response) => {
 
         const weblogicStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
@@ -70,7 +70,7 @@ exports.updateParents = (req, res) => {
 
         }).catch(e => {
             return res.send({
-                message: "Error updating WeblogicLMonDrpStatus status " + e
+                message: "Error updating WeblogicmulmonDrpStatus status " + e
             });
         });
         /*----------------------------------------------------------------------*/
@@ -83,10 +83,10 @@ exports.updateParents = (req, res) => {
 
 };
 
-const getWebLogicLMonDrpStatus = () => {
-    return axios.get('http://localhost:9001/weblogiclmondrp')
+const getWeblogicmulmonDrpStatus = () => {
+    return axios.get('http://localhost:9001/weblogicmulmondrp')
         .then((response) => {
-            console.log(" get http://localhost:9001/weblogiclmondrp result : \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" get http://localhost:9001/weblogicmulmondrp result : \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

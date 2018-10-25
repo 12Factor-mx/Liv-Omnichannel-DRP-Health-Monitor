@@ -1,16 +1,16 @@
 
 const
-    Weblogicserverslmonprd = require('../model/weblogicserverslmonprd.js');
+    Weblogicserversmulmonprd = require('../model/weblogicserversmulmonprd.js');
 
 const axios = require('axios'); 
 
 exports.findAll = (req, res) => {
-    Weblogicserverslmonprd.find()
-        .then(weblogicserverslmonprd => {
-            res.send(weblogicserverslmonprd);
+    Weblogicserversmulmonprd.find()
+        .then(weblogicserversmulmonprd => {
+            res.send(weblogicserversmulmonprd);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Error recuperando weblogicserverslmonprd."
+                message: err.message || "Error recuperando weblogicserversmulmonprd."
             });
         });
 };
@@ -42,7 +42,7 @@ exports.updateParents = (req, res) => {
         }).catch(e => {
 
             return res.send({
-                message: "Error updating WebLogicServerLMonPrdStatus" + e
+                message: "Error updating WebLogicServerMulMonPrdStatus" + e
             });
 
         });
@@ -57,10 +57,10 @@ exports.updateParents = (req, res) => {
 
 };
 
-const getWebLogicServerLMonPrdStatus = () => {
-    return axios.get('http://localhost:9001/weblogicserverslmonprd')
+const getWebLogicServerMulMonPrdStatus = () => {
+    return axios.get('http://localhost:9001/weblogicserversmulmonprd')
         .then((response) => {
-            console.log(" get http://localhost:9001/weblogicserverslmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" get http://localhost:9001/weblogicserversmulmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {
@@ -69,10 +69,10 @@ const getWebLogicServerLMonPrdStatus = () => {
         })
 }
 
-const updateWebLogicServerLMonPrdStatus = (body) => {
-    return axios.put('http://localhost:9001/weblogiclmonprd/Servers', body)
+const updateWebLogicServerMulMonPrdStatus = (body) => {
+    return axios.put('http://localhost:9001/weblogicmulmonprd/Servers', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/weblogiclmonprd/Servers result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/weblogicmulmonprd/Servers result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

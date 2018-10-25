@@ -6,13 +6,17 @@ const DefaultContainer = () => import('@/containers/DefaultContainer')
 
 // Views
 const Dashboard = () => import('@/views/Dashboard')
+const ecommerce = () => import('@/views/ATG/ecommerce')
 
-const ecommerce = () => import('@/views/sistemas/ecommerce')
-const ECommerceLiverpool = () => import('@/views/sistemas/eCommerceLiverpool/ECommerceLiverpool')
-  const WebLogic = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/WebLogic')
-    const Servers = () => import('@/views/sistemas//eCommerceLiverpool/WebLogic/Servers/Servers')
-  const Endeca = () => import('@/views/sistemas/eCommerceLiverpool/Endeca/Endeca')  
-    const EndecaServices = () => import('@/views/sistemas//eCommerceLiverpool/Endeca/EndecaServices/EndecaServices')
+const ECommerceLiverpool = () => import('@/views/ATG/eCommerceLiverpool/ECommerceLiverpool')
+  const WebLogicLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicLiverpool')
+    const WebLogicServersLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicServersLiverpool/WebLogicServersLiverpool')
+  const EndecaLiverpool = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpool')  
+
+const ECommerceMultisitios = () => import('@/views/ATG/eCommerceMultisitios/ECommerceMultisitios')
+  const WebLogicMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicMultisitios')
+    const WebLogicServersMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicServersMultisitios/WebLogicServersMultisitios')
+
 
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
@@ -83,7 +87,7 @@ export default new Router({
           name: 'Dashboard',
           component: Dashboard
         }, 
-        { path: 'sistemas/eCommerce',
+        { path: 'ATG/eCommerce',
           name: 'e-Commerce',
           component: ecommerce
           
@@ -94,24 +98,34 @@ export default new Router({
           component: ECommerceLiverpool
         },
         {
-          path: 'WebLogic',
-          name: "WebLogic",
-          component: WebLogic
+          path: 'WebLogicLiverpool',
+          name: "WebLogic Liverpool",
+          component: WebLogicLiverpool
         },
         {
-          path: 'Servers',
-          name: "Servers",
-          component: Servers
-        },  
+          path: 'WebLogicServersLiverpool',
+          name: "WebLogic Servers Liverpool",
+          component: WebLogicServersLiverpool
+        },
         {
-          path: 'Endeca',
-          name: "Endeca",
-          component: Endeca
-        },      
+          path: 'EndecaLiverpool',
+          name: "Endeca Liverpool",
+          component: EndecaLiverpool
+        },
         {
-          path: 'EndecaServices-*',
-          name: "Endeca Services",
-          component: EndecaServices
+          path: 'eCommerceMultisitios',
+          name: "ECommerce Multisitios",
+          component: ECommerceMultisitios
+        },
+        {
+          path: 'WebLogicMultisitios',
+          name: "WebLogic Multisitios",
+          component: WebLogicMultisitios
+        },
+        {
+          path: 'WebLogicServersMultisitios',
+          name: "WebLogic Servers Multisitios",
+          component: WebLogicServersMultisitios
         },
         {
           path: 'theme',
