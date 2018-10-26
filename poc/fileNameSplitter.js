@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-function parse(path, options) {
+function fileNameSplitter(path, options) {
 
     var files = getFiles(path);
     var res = splitFiles(files, options);
@@ -40,5 +40,5 @@ function splitFiles(files, options) {
     return returningArray
 }
 
-module.exports = parse
+module.exports = fileNameSplitter
 

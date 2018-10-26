@@ -1,8 +1,7 @@
-var parse = require('./parser.js')
+var fileNameSplitter = require('./fileNameSplitter')
 
-//var myParser = new parser();
 
-var optionsEndeca = {
+var optionsEndecaFileNameSplit = {
     parts: [
         { start: "0", end: "3", into: "Endeca_bussines" },
         { start: "3", end: "6", into: "Enedeca_env" },
@@ -11,9 +10,7 @@ var optionsEndeca = {
     ]
 };
 
-var resultEndecaSplit = [];
+var resultEndecaFileNameSplit = [];
  
-resultEndecaSplit = parse('./files', optionsEndeca);
-//console.log("res = "+  this.resultEndecaSplit)
-//console.log("res" + parse('./files', optionsEndeca));
-console.log("Final result", resultEndecaSplit)
+resultEndecaFileNameSplit = fileNameSplitter('./files', optionsEndecaFileNameSplit);
+console.log("Final result", resultEndecaFileNameSplit)
