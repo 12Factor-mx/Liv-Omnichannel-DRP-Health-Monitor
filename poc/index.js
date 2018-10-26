@@ -1,4 +1,5 @@
-var parser = require('./parser.js')
+var parse = require('./parser.js')
+
 //var myParser = new parser();
 
 var optionsEndeca = {
@@ -12,8 +13,7 @@ var optionsEndeca = {
 
 var resultEndecaSplit = [];
  
-resultEndecaSplit = parser.parse('./files', optionsEndeca);
+resultEndecaSplit = parse('./files', optionsEndeca);
 //console.log("res = "+  this.resultEndecaSplit)
-console.log("res" + parser.parse('./files', optionsEndeca));
-//console.log(resultEndecaSplit)
-
+//console.log("res" + parse('./files', optionsEndeca));
+console.log("Final result", resultEndecaSplit)
