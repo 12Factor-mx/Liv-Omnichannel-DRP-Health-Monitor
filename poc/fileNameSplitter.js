@@ -1,18 +1,12 @@
-var fs = require('fs');
+const fs = require('fs');
+const csvtojsonV2 = require("csvtojson/v2");
 
 function fileNameSplitter(path, options) {
 
-    var files = getFiles(path);
+    var files = fs.readdirSync(path);;
     var res = splitFiles(files, options);
 
     return res;
-}
-
-function getFiles(path) {
-
-    var files = fs.readdirSync(path);
-
-    return files;
 }
 
 function splitFiles(files, options) {
