@@ -1,5 +1,5 @@
 const fs = require('fs');
-const csvtojsonV2 = require("csvtojson/v2");
+const csvtojsonV2 = require("csvtojson/v2"); 
 const cv = require("csv-to-array")
 var res2 = [];
 
