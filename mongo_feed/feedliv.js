@@ -78,8 +78,53 @@ db.weblogicserverslmondrp.insert([
         estado: "consistente"
     },
     {
+        _id: "App-03",
+        nombre: "App-03",
+        estado: "consistente"
+    },
+    {
+        _id: "App-04",
+        nombre: "App-04",
+        estado: "consistente"
+    },
+    {
+        _id: "App-05",
+        nombre: "App-05",
+        estado: "consistente"
+    },
+    {
+        _id: "App-06",
+        nombre: "App-06",
+        estado: "consistente"
+    },
+    {
+        _id: "Aux-01",
+        nombre: "Aux-01",
+        estado: "consistente"
+    },
+    {
+        _id: "Aux-02",
+        nombre: "Aux-02",
+        estado: "consistente"
+    },
+    {
         _id: "Aux-03",
         nombre: "Aux-03",
+        estado: "consistente"
+    },
+    {
+        _id: "Aux-04",
+        nombre: "Aux-04",
+        estado: "consistente"
+    },
+    {
+        _id: "bcc",
+        nombre: "bcc",
+        estado: "consistente"
+    },
+    {
+        _id: "Bot",
+        nombre: "Bot",
         estado: "consistente"
     },
     {
@@ -93,22 +138,47 @@ db.weblogicserverslmondrp.insert([
         estado: "consistente"
     },
     {
-        _id: "Proxy-01",
-        nombre: "Proxy-01",
+        _id: "Csc-02",
+        nombre: "Csc-02",
         estado: "consistente"
     },
     {
-        _id: "ManagedServer-Store01-eCommerce-liverpool-Drp",
+        _id: "Csc-idx",
+        nombre: "Csc-idx",
+        estado: "consistente"
+    },
+    {
+        _id: "Gss-01",
+        nombre: "Gss-01",
+        estado: "consistente"
+    },
+    {
+        _id: "Gss-02",
+        nombre: "Gss-02",
+        estado: "consistente"
+    },
+    {
+        _id: "Plm",
+        nombre: "Plm",
+        estado: "consistente"
+    },
+    {
+        _id: "Slm",
+        nombre: "Slm",
+        estado: "consistente"
+    },
+    {
+        _id: "Store-01",
         nombre: "Store-01",
         estado: "consistente"
     },
     {
-        _id: "ManagedServer-Store02-eCommerce-liverpool-Drp",
+        _id: "Store-02",
         nombre: "Store-02",
         estado: "consistente"
     },
     {
-        _id: "ManagedServer-Store03-eCommerce-liverpool-Drp",
+        _id: "Store-03",
         nombre: "Store-03",
         estado: "consistente"
     },
@@ -244,27 +314,27 @@ db.weblogicserverslmondrp.insert([
     },
     {
         _id: "Store-MS-01",
-        nombre: "Store-01",
+        nombre: "Store-MS-01",
         estado: "consistente"
     },
     {
         _id: "Store-MS-02",
-        nombre: "Store-02",
+        nombre: "Store-MS-02",
         estado: "consistente"
     },
     {
         _id: "Store-MS-03",
-        nombre: "Store-03",
+        nombre: "Store-MS-03",
         estado: "consistente"
     },
     {
         _id: "Store-MS-04",
-        nombre: "Store-04",
+        nombre: "Store-MS-04",
         estado: "consistente"
     },
     {
         _id: "Store-MS-05",
-        nombre: "Store-05",
+        nombre: "Store-MS-05",
         estado: "consistente"
     },
     {
@@ -448,8 +518,53 @@ db.weblogicserverslmonprd.insert([
         estado: "consistente"
     },
     {
+        _id: "App-03",
+        nombre: "App-03",
+        estado: "consistente"
+    },
+    {
+        _id: "App-04",
+        nombre: "App-04",
+        estado: "consistente"
+    },
+    {
+        _id: "App-05",
+        nombre: "App-05",
+        estado: "consistente"
+    },
+    {
+        _id: "App-06",
+        nombre: "App-06",
+        estado: "consistente"
+    },
+    {
+        _id: "Aux-01",
+        nombre: "Aux-01",
+        estado: "consistente"
+    },
+    {
+        _id: "Aux-02",
+        nombre: "Aux-02",
+        estado: "consistente"
+    },
+    {
         _id: "Aux-03",
         nombre: "Aux-03",
+        estado: "consistente"
+    },
+    {
+        _id: "Aux-04",
+        nombre: "Aux-04",
+        estado: "consistente"
+    },
+    {
+        _id: "bcc",
+        nombre: "bcc",
+        estado: "consistente"
+    },
+    {
+        _id: "Bot",
+        nombre: "Bot",
         estado: "consistente"
     },
     {
@@ -463,22 +578,47 @@ db.weblogicserverslmonprd.insert([
         estado: "consistente"
     },
     {
-        _id: "Proxy-01",
-        nombre: "Proxy-01",
+        _id: "Csc-02",
+        nombre: "Csc-02",
         estado: "consistente"
     },
     {
-        _id: "ManagedServer-Store01-eCommerce-liverpool-Drp",
+        _id: "Csc-idx",
+        nombre: "Csc-idx",
+        estado: "consistente"
+    },
+    {
+        _id: "Gss-01",
+        nombre: "Gss-01",
+        estado: "consistente"
+    },
+    {
+        _id: "Gss-02",
+        nombre: "Gss-02",
+        estado: "consistente"
+    },
+    {
+        _id: "Plm",
+        nombre: "Plm",
+        estado: "consistente"
+    },
+    {
+        _id: "Slm",
+        nombre: "Slm",
+        estado: "consistente"
+    },
+    {
+        _id: "Store-01",
         nombre: "Store-01",
         estado: "consistente"
     },
     {
-        _id: "ManagedServer-Store02-eCommerce-liverpool-Drp",
+        _id: "Store-02",
         nombre: "Store-02",
         estado: "consistente"
     },
     {
-        _id: "ManagedServer-Store03-eCommerce-liverpool-Drp",
+        _id: "Store-03",
         nombre: "Store-03",
         estado: "consistente"
     },
@@ -614,27 +754,27 @@ db.weblogicserverslmonprd.insert([
     },
     {
         _id: "Store-MS-01",
-        nombre: "Store-01",
+        nombre: "Store-MS-01",
         estado: "consistente"
     },
     {
         _id: "Store-MS-02",
-        nombre: "Store-02",
+        nombre: "Store-MS-02",
         estado: "consistente"
     },
     {
         _id: "Store-MS-03",
-        nombre: "Store-03",
+        nombre: "Store-MS-03",
         estado: "consistente"
     },
     {
         _id: "Store-MS-04",
-        nombre: "Store-04",
+        nombre: "Store-MS-04",
         estado: "consistente"
     },
     {
         _id: "Store-MS-05",
-        nombre: "Store-05",
+        nombre: "Store-MS-05",
         estado: "consistente"
     },
     {
