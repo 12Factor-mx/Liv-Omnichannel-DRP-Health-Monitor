@@ -59,7 +59,11 @@ module.exports = (app) => {
     app.get('/weblogicserversmulmondrp', weblogicserversmulmondrp.findAll);
     app.post('/weblogicserversmulmondrp/updateparents', weblogicserversmulmondrp.updateParents)
 
-/* 
+
+
+
+
+ 
     const ecommercesubmonprd = require('../controllers/controller_ecommercesubmonprd.js');
     app.get('/ecommercesubmonprd', ecommercesubmonprd.findAll);
     app.post('/ecommercesubmonprd/updateparents', ecommercesubmonprd.updateParents)
@@ -84,7 +88,7 @@ module.exports = (app) => {
     const weblogicserverssubmondrp = require('../controllers/controller_weblogicserverssubmondrp.js');
     app.get('/weblogicserverssubmondrp', weblogicserverssubmondrp.findAll);
     app.post('/weblogicserverssubmondrp/updateparents', weblogicserverssubmondrp.updateParents)
-
+ 
 
     const ecommercemesmonprd = require('../controllers/controller_ecommercemesmonprd.js');
     app.get('/ecommercemesmonprd', ecommercemesmonprd.findAll);
@@ -110,6 +114,6 @@ module.exports = (app) => {
     const weblogicserversmesmondrp = require('../controllers/controller_weblogicserversmesmondrp.js');
     app.get('/weblogicserversmesmondrp', weblogicserversmesmondrp.findAll);
     app.post('/weblogicserversmesmondrp/updateparents', weblogicserversmesmondrp.updateParents)
- */
+ 
 
 }

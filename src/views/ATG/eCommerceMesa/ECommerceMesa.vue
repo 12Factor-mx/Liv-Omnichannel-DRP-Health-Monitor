@@ -1,29 +1,29 @@
 <template>
   <div class="animated fadeIn">
-      <b-row>
+    <b-row>
       <b-col md="12">
-        <b-card  header="e-Commerce">
+        <b-card  header="Weblogic Mesa de Regalos">
             <b-row >
               <b-col  lg="6">
                 <p>
                   <i class='fa fa-align-justify'></i> HA-PROD
                 </p>
-                <b-table :items="rootmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="rootmonprd">
-                    <b-badge :variant="getBadge(rootmonprd.item.estado)" >{{formatEstado(rootmonprd.item.estado)}}</b-badge>
+                <b-table :items="ecommercemesmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="ecommercemesmonprd">
+                    <b-badge :variant="getBadge(ecommercemesmonprd.item.estado)" >{{formatEstado(ecommercemesmonprd.item.estado)}}</b-badge>
                   </template>
-                  <template slot="fecha" slot-scope="rootmonprd">
-                    {{formatDate(rootmonprd.item.fecha)}}
+                  <template slot="fecha" slot-scope="ecommercemesmonprd">
+                    {{formatDate(ecommercemesmonprd.item.fecha)}}
                   </template> 
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="rootmonprd">
-                    {{formatPercentage(rootmonprd.item.percentage)}}
+                   <template slot="percentage" slot-scope="ecommercemesmonprd">
+                    {{formatPercentage(ecommercemesmonprd.item.percentage)}}
                   </template>
-                 <template slot="nombre" slot-scope="rootmonprd">
-                    <a v-if="rootmonprd.item.estado=='inconsistente'  || rootmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
-                    <a v-else>  {{rootmonprd.item.nombre}} </a>
+                 <template slot="nombre" slot-scope="ecommercemesmonprd">
+                    <a v-if="ecommercemesmonprd.item.estado=='inconsistente'  || ecommercemesmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + ecommercemesmonprd.item._id">  {{ecommercemesmonprd.item.nombre}} </a>
+                    <a v-else>  {{ecommercemesmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
               </b-col>
@@ -31,22 +31,22 @@
                 <p>
                   <i class='fa fa-align-justify'></i> HA-DRP
                 </p>
-                <b-table  :items="rootmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="rootmondrp">
-                    <b-badge :variant="getBadge(rootmondrp.item.estado)" >{{formatEstado(rootmondrp.item.estado)}}</b-badge>
+                <b-table  :items="ecommercemesmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="ecommercemesmondrp">
+                    <b-badge :variant="getBadge(ecommercemesmondrp.item.estado)" >{{formatEstado(ecommercemesmondrp.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="rootmondrp">
-                    {{formatDate(rootmondrp.item.fecha)}}
+                  <template slot="fecha" slot-scope="ecommercemesmondrp">
+                    {{formatDate(ecommercemesmondrp.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="rootmondrp">
-                    {{formatPercentage(rootmondrp.item.percentage)}}
+                   <template slot="percentage" slot-scope="ecommercemesmondrp">
+                    {{formatPercentage(ecommercemesmondrp.item.percentage)}}
                   </template>    
-                  <template slot="nombre" slot-scope="rootmondrp">
-                    <a v-if="rootmondrp.item.estado=='inconsistente'  || rootmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + rootmondrp.item._id">  {{rootmondrp.item.nombre}} </a>
-                    <a v-else>  {{rootmondrp.item.nombre}} </a>
+                  <template slot="nombre" slot-scope="ecommercemesmondrp">
+                    <a v-if="ecommercemesmondrp.item.estado=='inconsistente'  || ecommercemesmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + ecommercemesmondrp.item._id">  {{ecommercemesmondrp.item.nombre}} </a>
+                    <a v-else>  {{ecommercemesmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
               </b-col>
@@ -67,14 +67,14 @@ const miliseconds = 10000;
 
 
 export default {
-  //name: 'eCommerceLiverpool',
-  name: 'ecommerce',
+  name: 'eCommerceMesa',
   
   data: function () {
     return {  
 
-      rootmondrp: [],
       rootmonprd: [],
+      ecommercemesmondrp: [],
+      ecommercemesmonprd: [],
       timer: [],
       loading: false,
       fechaConsulta: [],
@@ -89,6 +89,7 @@ export default {
    } 
   },
   methods: {
+    
     formatPercentage(value) {
 
       var ret= value;
@@ -101,22 +102,6 @@ export default {
       ret = Math.round(ret * 100) / 100
 
        return ret + " %";
-    },
-
-
-    formatDate(value){
-      var str = "";
-
-        if(typeof value !== 'undefined'){
-           // item.fecha = new Date()
-        } 
-        var options = {hour12: false};
-        var now = new Date(value);
-    
-        str = now.toLocaleString("es-mx", options);
-
-
-      return str;        
     },
 
     formatDate(value){
@@ -138,11 +123,12 @@ export default {
      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
-    }, 
+    },      
+    
 
     loadData: function () {
       
-      this.fechaConsulta = new Date();
+       this.fechaConsulta = new Date();
       this.loading = true;
       
       // this.allLots = json1;
@@ -158,19 +144,19 @@ export default {
         this.errors.push(e)
       }) */
 
-     axios.get('http://localhost:9001/rootmondrp')
+     axios.get('http://localhost:9001/ecommercemesmondrp')
      .then(function (response) {
        this.loading = false;
-       this.rootmondrp = response.data;
+       this.ecommercemesmondrp = response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
     })
 
-     axios.get('http://localhost:9001/rootmonprd')
+     axios.get('http://localhost:9001/ecommercemesmonprd')
      .then(function (response) {
        this.loading = false;
-       this.rootmonprd= response.data;
+       this.ecommercemesmonprd= response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
@@ -208,4 +194,3 @@ export default {
     width: 100% !important;
   }
 </style>
-

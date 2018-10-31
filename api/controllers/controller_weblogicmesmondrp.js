@@ -1,39 +1,39 @@
 
 const
-    Weblogicmulmonprd = require('../model/weblogicmulmonprd.js');
+    Weblogicmulmondrp = require('../model/weblogicmesmondrp.js');
 
 const axios = require('axios');
 
 
 exports.findAll = (req, res) => {
-    Weblogicmulmonprd.find()
-        .then(weblogicmulmonprd => {
-            res.send(weblogicmulmonprd);
+    Weblogicmulmondrp.find()
+        .then(weblogicmulmondrp => {
+            res.send(weblogicmulmondrp);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Error recuperando weblogicmulmonprd."
+                message: err.message || "Error recuperando weblogicmesmondrp."
             });
         });
 };
 
 exports.update = (req, res) => {
-    Weblogicmulmonprd.findByIdAndUpdate(req.params.weblogicmulmonprdId, req.body, { new: true })
-        .then(Weblogicmulmonprd => {
-            if (!Weblogicmulmonprd) {
+    Weblogicmulmondrp.findByIdAndUpdate(req.params.weblogicmulmondrpId, req.body, { new: true })
+        .then(Weblogicmulmondrp => {
+            if (!Weblogicmulmondrp) {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.weblogicmulmonprdId
+                    message: "Note not found with id " + req.params.weblogicmulmondrpId
                 });
             }
-            res.send(Weblogicmulmonprd);
+            res.send(Weblogicmulmondrp);
         })
         .catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.weblogicmulmonprdId
+                    message: "Note not found with id " + req.params.weblogicmulmondrpId
                 });
             }
             return res.status(500).send({
-                message: "Error updating note with id " + req.params.weblogicmulmonprdId
+                message: "Error updating note with id " + req.params.weblogicmulmondrpId
             })
         })
 }
@@ -41,7 +41,7 @@ exports.update = (req, res) => {
 
 exports.updateParents = (req, res) => {
 
-    getWeblogicmulmonPrdStatus().then((response) => {
+    getWeblogicmulmonDrpStatus().then((response) => {
 
         const weblogicStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
@@ -64,13 +64,13 @@ exports.updateParents = (req, res) => {
 
         /*----------------------------------------------------------------------*/
 
-        updateeCommerceLMonPrdStatus(req.body).then((response) => {
+        updateeCommerceLMonDrpStatus(req.body).then((response) => {
 
             return res.send(response);
 
         }).catch(e => {
             return res.send({
-                message: "Error updating WeblogicmulmonPrdStatus status " + e
+                message: "Error updating WeblogicmesmonDrpStatus status " + e
             });
         });
         /*----------------------------------------------------------------------*/
@@ -83,10 +83,10 @@ exports.updateParents = (req, res) => {
 
 };
 
-const getWeblogicmulmonPrdStatus = () => {
-    return axios.get('http://localhost:9001/weblogicmulmonprd')
+const getWeblogicmulmonDrpStatus = () => {
+    return axios.get('http://localhost:9001/weblogicmesmondrp')
         .then((response) => {
-            console.log(" get http://localhost:9001/weblogicmulmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" get http://localhost:9001/weblogicmesmondrp result : \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {
@@ -95,10 +95,10 @@ const getWeblogicmulmonPrdStatus = () => {
         })
 }
 
-const updateeCommerceLMonPrdStatus = (body) => {
-    return axios.put('http://localhost:9001/ecommercemulmonprd/WebLogic', body)
+const updateeCommerceLMonDrpStatus = (body) => {
+    return axios.put('http://localhost:9001/ecommercemesmondrp/WebLogic', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/ecommercemulmonprd/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/ecommercemesmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

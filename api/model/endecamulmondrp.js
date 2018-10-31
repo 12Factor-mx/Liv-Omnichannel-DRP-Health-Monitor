@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var endecamulmondrpSchema = new Schema(
+var endecamumulmondrpSchema = new Schema(
     {
         _id: {
             type: 'String'
@@ -35,4 +35,4 @@ var endecamulmondrpSchema = new Schema(
 
 );
 
-module.exports = mongoose.model('Endecamulmondrp', endecamulmondrpSchema, 'endecamulmondrp');
+module.exports = mongoose.model('Endecamumulmondrp', endecamumulmondrpSchema, 'endecamumulmondrp');

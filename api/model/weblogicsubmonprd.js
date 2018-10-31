@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var endecamumulmonprdSchema = new Schema(
+
+var weblogicsubmonprdSchema = new Schema(
     {
         _id: {
             type: 'String'
@@ -10,22 +11,19 @@ var endecamumulmonprdSchema = new Schema(
         nombre: {
             type: 'String'
         },
-        servicios: {
-            type: 'Mixed'
-        },
         estado: {
             type: 'String'
         },
         fecha: {
             type: 'Date'
         },
-        consistente: {
+        running: {
             type: 'Number'
         },
-        inconsistente: {
+        noRunning: {
             type: 'Number'
         },
-        porcentaje: {
+        percentage: {
             type: 'Number'
         },
         estadoDestalle: {
@@ -35,4 +33,4 @@ var endecamumulmonprdSchema = new Schema(
 
 );
 
-module.exports = mongoose.model('Endecamumulmonprd', endecamumulmonprdSchema, 'endecamumulmonprd');
+module.exports = mongoose.model('Weblogicsubmonprd', weblogicsubmonprdSchema, 'weblogicsubmonprd');

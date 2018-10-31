@@ -2,16 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var endecamumulmonprdSchema = new Schema(
+
+var ecommercesubmonprdSchema = new Schema(
     {
         _id: {
             type: 'String'
         },
         nombre: {
             type: 'String'
-        },
-        servicios: {
-            type: 'Mixed'
         },
         estado: {
             type: 'String'
@@ -25,7 +23,7 @@ var endecamumulmonprdSchema = new Schema(
         inconsistente: {
             type: 'Number'
         },
-        porcentaje: {
+        percentage: {
             type: 'Number'
         },
         estadoDestalle: {
@@ -35,4 +33,4 @@ var endecamumulmonprdSchema = new Schema(
 
 );
 
-module.exports = mongoose.model('Endecamumulmonprd', endecamumulmonprdSchema, 'endecamumulmonprd');
+module.exports = mongoose.model('Ecommercesubmonprd', ecommercesubmonprdSchema, 'ecommercesubmonprd');

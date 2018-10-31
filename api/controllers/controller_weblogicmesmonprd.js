@@ -1,6 +1,6 @@
 
 const
-    Weblogicmulmonprd = require('../model/weblogicmulmonprd.js');
+    Weblogicmulmonprd = require('../model/weblogicmesmonprd.js');
 
 const axios = require('axios');
 
@@ -11,7 +11,7 @@ exports.findAll = (req, res) => {
             res.send(weblogicmulmonprd);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Error recuperando weblogicmulmonprd."
+                message: err.message || "Error recuperando weblogicmesmonprd."
             });
         });
 };
@@ -70,7 +70,7 @@ exports.updateParents = (req, res) => {
 
         }).catch(e => {
             return res.send({
-                message: "Error updating WeblogicmulmonPrdStatus status " + e
+                message: "Error updating WeblogicmesmonPrdStatus status " + e
             });
         });
         /*----------------------------------------------------------------------*/
@@ -84,9 +84,9 @@ exports.updateParents = (req, res) => {
 };
 
 const getWeblogicmulmonPrdStatus = () => {
-    return axios.get('http://localhost:9001/weblogicmulmonprd')
+    return axios.get('http://localhost:9001/weblogicmesmonprd')
         .then((response) => {
-            console.log(" get http://localhost:9001/weblogicmulmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" get http://localhost:9001/weblogicmesmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {
@@ -96,9 +96,9 @@ const getWeblogicmulmonPrdStatus = () => {
 }
 
 const updateeCommerceLMonPrdStatus = (body) => {
-    return axios.put('http://localhost:9001/ecommercemulmonprd/WebLogic', body)
+    return axios.put('http://localhost:9001/ecommercemesmonprd/WebLogic', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/ecommercemulmonprd/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/ecommercemesmonprd/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

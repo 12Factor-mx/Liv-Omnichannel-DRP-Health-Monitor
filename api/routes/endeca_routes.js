@@ -37,7 +37,7 @@ module.exports = (app) => {
     app.get('/endecasubmonprd', endecasubmonprd.findAll);
     app.post('/endecasubmonprd/updateparents', endecasubmonprd.updateParents)
     app.put('/endecasubmonprd/:endecasubmonprdId', endecasubmonprd.update);
-
+ */
 
     const endecamesmondrp = require('../controllers/controller_endecamesmondrp.js');
     app.get( '/endecamesmondrp', endecamesmondrp.findAll);
@@ -48,6 +48,6 @@ module.exports = (app) => {
     app.get('/endecamesmonprd', endecamesmonprd.findAll);
     app.post('/endecamesmonprd/updateparents', endecamesmonprd.updateParents)
     app.put('/endecamesmonprd/:endecamesmonprdId', endecamesmonprd.update);
- */
+ 
 
 }

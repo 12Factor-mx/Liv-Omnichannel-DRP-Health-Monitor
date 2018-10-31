@@ -1,29 +1,29 @@
 <template>
   <div class="animated fadeIn">
-      <b-row>
+    <b-row>
       <b-col md="12">
-        <b-card  header="e-Commerce">
+        <b-card  header="Weblogic Suburbia">
             <b-row >
               <b-col  lg="6">
                 <p>
                   <i class='fa fa-align-justify'></i> HA-PROD
                 </p>
-                <b-table :items="rootmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="rootmonprd">
-                    <b-badge :variant="getBadge(rootmonprd.item.estado)" >{{formatEstado(rootmonprd.item.estado)}}</b-badge>
+                <b-table :items="weblogicsubmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="weblogicsubmonprd">
+                    <b-badge :variant="getBadge(weblogicsubmonprd.item.estado)" >{{formatEstado(weblogicsubmonprd.item.estado)}}</b-badge>
                   </template>
-                  <template slot="fecha" slot-scope="rootmonprd">
-                    {{formatDate(rootmonprd.item.fecha)}}
+                  <template slot="fecha" slot-scope="weblogicsubmonprd">
+                    {{formatDate(weblogicsubmonprd.item.fecha)}}
                   </template> 
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="rootmonprd">
-                    {{formatPercentage(rootmonprd.item.percentage)}}
+                   <template slot="percentage" slot-scope="weblogicsubmonprd">
+                    {{formatPercentage(weblogicsubmonprd.item.percentage)}}
                   </template>
-                 <template slot="nombre" slot-scope="rootmonprd">
-                    <a v-if="rootmonprd.item.estado=='inconsistente'  || rootmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
-                    <a v-else>  {{rootmonprd.item.nombre}} </a>
+                 <template slot="nombre" slot-scope="weblogicsubmonprd">
+                    <a v-if="weblogicsubmonprd.item.estado=='inconsistente'  || weblogicsubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + weblogicsubmonprd.item._id">  {{weblogicsubmonprd.item.nombre}} </a>
+                    <a v-else>  {{weblogicsubmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
               </b-col>
@@ -31,22 +31,22 @@
                 <p>
                   <i class='fa fa-align-justify'></i> HA-DRP
                 </p>
-                <b-table  :items="rootmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="rootmondrp">
-                    <b-badge :variant="getBadge(rootmondrp.item.estado)" >{{formatEstado(rootmondrp.item.estado)}}</b-badge>
+                <b-table  :items="weblogicsubmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="weblogicsubmondrp">
+                    <b-badge :variant="getBadge(weblogicsubmondrp.item.estado)" >{{formatEstado(weblogicsubmondrp.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="rootmondrp">
-                    {{formatDate(rootmondrp.item.fecha)}}
+                  <template slot="fecha" slot-scope="weblogicsubmondrp">
+                    {{formatDate(weblogicsubmondrp.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="rootmondrp">
-                    {{formatPercentage(rootmondrp.item.percentage)}}
+                   <template slot="percentage" slot-scope="weblogicsubmondrp">
+                    {{formatPercentage(weblogicsubmondrp.item.percentage)}}
                   </template>    
-                  <template slot="nombre" slot-scope="rootmondrp">
-                    <a v-if="rootmondrp.item.estado=='inconsistente'  || rootmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + rootmondrp.item._id">  {{rootmondrp.item.nombre}} </a>
-                    <a v-else>  {{rootmondrp.item.nombre}} </a>
+                  <template slot="nombre" slot-scope="weblogicsubmondrp">
+                    <a v-if="weblogicsubmondrp.item.estado=='inconsistente'  || weblogicsubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + weblogicsubmondrp.item._id">  {{weblogicmeszmondrp.item.nombre}} </a>
+                    <a v-else>  {{weblogicsubmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
               </b-col>
@@ -67,14 +67,14 @@ const miliseconds = 10000;
 
 
 export default {
-  //name: 'eCommerceLiverpool',
-  name: 'ecommerce',
+  name: 'WebLogicSuburbia',
   
   data: function () {
     return {  
 
-      rootmondrp: [],
       rootmonprd: [],
+      weblogicsubmondrp: [],
+      weblogicsubmonprd: [],
       timer: [],
       loading: false,
       fechaConsulta: [],
@@ -85,10 +85,11 @@ export default {
         { key: "percentage", label: "% conistencia" },
         'Fecha Consulta',
       ]
-
    } 
   },
+
   methods: {
+    
     formatPercentage(value) {
 
       var ret= value;
@@ -104,47 +105,32 @@ export default {
     },
 
 
-    formatDate(value){
+    formatDate(value) {
       var str = "";
+      if (typeof value == "undefined") {
+        //value = new Date()
+        return ""
+      }
+      var options = { hour12: false };
+      var now = new Date(value);
 
-        if(typeof value !== 'undefined'){
-           // item.fecha = new Date()
-        } 
-        var options = {hour12: false};
-        var now = new Date(value);
-    
-        str = now.toLocaleString("es-mx", options);
+      str = now.toLocaleString("es-mx", options);
 
-
-      return str;        
+      return str;
     },
 
-    formatDate(value){
-      var str = "";
+    formatEstado(value) {
 
-        if(typeof value !== 'undefined'){
-           // item.fecha = new Date()
-        } 
-        var options = {hour12: false};
-        var now = new Date(value);
-    
-        str = now.toLocaleString("es-mx", options);
-
-
-      return str;        
-    },
-
-    formatEstado(value){
-     return value === "inconsistente" ? "inconsistente":
+      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
-    }, 
+    },
 
     loadData: function () {
-      
+
       this.fechaConsulta = new Date();
       this.loading = true;
-      
+
       // this.allLots = json1;
       
       /* axios.get('http://localhost:9001/rootmondrp')
@@ -158,25 +144,26 @@ export default {
         this.errors.push(e)
       }) */
 
-     axios.get('http://localhost:9001/rootmondrp')
+     axios.get('http://localhost:9001/weblogicsubmondrp')
      .then(function (response) {
        this.loading = false;
-       this.rootmondrp = response.data;
+       this.weblogicsubmondrp = response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
     })
 
-     axios.get('http://localhost:9001/rootmonprd')
+     axios.get('http://localhost:9001/weblogicsubmonprd')
      .then(function (response) {
        this.loading = false;
-       this.rootmonprd= response.data;
+       this.weblogicsubmonprd= response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
     })
 
     },
+
     getBadge(status) {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
@@ -184,6 +171,7 @@ export default {
              status === "inconsistente" ? "danger" : 
                                       "primary";
     }
+
   },
   created(){
 
@@ -208,4 +196,3 @@ export default {
     width: 100% !important;
   }
 </style>
-
