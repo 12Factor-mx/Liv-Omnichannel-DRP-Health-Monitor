@@ -8,12 +8,12 @@
                 <p>
                   <i class='fa fa-align-justify'></i> HA-PROD
                 </p>
-                <b-table :items="weblogicserverslmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="weblogicserverslmonprd">
-                    <b-badge :variant="getBadge(weblogicserverslmonprd.item.estado)" >{{formatEstado(weblogicserverslmonprd.item.estado)}}</b-badge>
+                <b-table :items="weblogicserversmulmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="weblogicserversmulmonprd">
+                    <b-badge :variant="getBadge(weblogicserversmulmonprd.item.estado)" >{{formatEstado(weblogicserversmulmonprd.item.estado)}}</b-badge>
                   </template>
-                  <template slot="fecha" slot-scope="weblogicserverslmonprd">
-                    {{formatDate(weblogicserverslmonprd.item.fecha)}}
+                  <template slot="fecha" slot-scope="weblogicserversmulmonprd">
+                    {{formatDate(weblogicserversmulmonprd.item.fecha)}}
                   </template> 
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
@@ -24,12 +24,12 @@
                 <p>
                   <i class='fa fa-align-justify'></i> HA-DRP
                 </p>
-                <b-table  :items="weblogicserverslmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="weblogicserverslmondrp">
-                    <b-badge :variant="getBadge(weblogicserverslmondrp.item.estado)" >{{formatEstado(weblogicserverslmondrp.item.estado)}}</b-badge>
+                <b-table  :items="weblogicserversmulmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="weblogicserversmulmondrp">
+                    <b-badge :variant="getBadge(weblogicserversmulmondrp.item.estado)" >{{formatEstado(weblogicserversmulmondrp.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="weblogicserverslmondrp">
-                    {{formatDate(weblogicserverslmondrp.item.fecha)}}
+                  <template slot="fecha" slot-scope="weblogicserversmulmondrp">
+                    {{formatDate(weblogicserversmulmondrp.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
@@ -55,8 +55,8 @@ export default {
   data: function() {
     return {
       rootmonprd: [],
-      weblogicserverslmondrp: [],
-      weblogicserverslmonprd: [],
+      weblogicserversmulmondrp: [],
+      weblogicserversmulmonprd: [],
       timer: [],
       loading: false,
       fechaConsulta: [],
@@ -111,11 +111,11 @@ export default {
       }) */
 
       axios
-        .get("http://localhost:9001/weblogicserverslmondrp")
+        .get("http://localhost:9001/weblogicserversmulmondrp")
         .then(
           function(response) {
             this.loading = false;
-            this.weblogicserverslmondrp = response.data;
+            this.weblogicserversmulmondrp = response.data;
             this.items = response.data;
           }.bind(this)
         )
@@ -124,11 +124,11 @@ export default {
         });
 
       axios
-        .get("http://localhost:9001/weblogicserverslmonprd")
+        .get("http://localhost:9001/weblogicserversmulmonprd")
         .then(
           function(response) {
             this.loading = false;
-            this.weblogicserverslmonprd = response.data;
+            this.weblogicserversmulmonprd = response.data;
           }.bind(this)
         )
         .catch(e => {
