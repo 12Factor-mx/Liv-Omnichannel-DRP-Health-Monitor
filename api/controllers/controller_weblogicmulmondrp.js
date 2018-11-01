@@ -96,9 +96,9 @@ const getWeblogicmulmonDrpStatus = () => {
 }
 
 const updateeCommerceLMonDrpStatus = (body) => {
-    return axios.put('http://localhost:9001/ecommercelmondrp/WebLogic', body)
+    return axios.put('http://localhost:9001/ecommercemulmondrp/WebLogic', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/ecommercelmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/ecommercemulmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

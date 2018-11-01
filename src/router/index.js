@@ -17,6 +17,13 @@ const ECommerceMultisitios = () => import('@/views/ATG/eCommerceMultisitios/ECom
   const WebLogicMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicMultisitios')
     const WebLogicServersMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicServersMultisitios/WebLogicServersMultisitios')
 
+const ECommerceMesa = () => import('@/views/ATG/eCommerceMesa/ECommerceMesa')
+  const WebLogicMesa = () => import('@/views/ATG/eCommerceMesa/WebLogicMesa/WebLogicMesa')
+    const WebLogicServersMesa = () => import('@/views/ATG/eCommerceMesa/WebLogicMesa/WebLogicServersMesa/WebLogicServersMesa')
+
+const ECommerceSuburbia = () => import('@/views/ATG/eCommerceSuburbia/ECommerceSuburbia')
+  const WebLogicSuburbia = () => import('@/views/ATG/eCommerceSuburbia/WebLogicSuburbia/WebLogicSuburbia')
+    const WebLogicServersSuburbia = () => import('@/views/ATG/eCommerceSuburbia/WebLogicSuburbia/WebLogicServersSuburbia/WebLogicServersSuburbia')
 
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
@@ -126,6 +133,42 @@ export default new Router({
           path: 'WebLogicServersMultisitios',
           name: "WebLogic Servers Multisitios",
           component: WebLogicServersMultisitios
+        },
+         {
+          path: 'eCommerceMesa',
+          name: "ECommerce Mesa",
+          component: ECommerceMesa
+        },
+        {
+          path: 'WebLogicMesa',
+          name: "WebLogic Mesa",
+          component: WebLogicMesa
+        },
+        {
+          path: 'WebLogicServersMesa',
+          name: "WebLogic Servers Mesa",
+          component: WebLogicServersMesa
+        },
+/*        {
+          path: 'EndecaMesa',
+          name: "Endeca Mesa",
+          component: EndecaMesa
+        },
+ */
+        {
+          path: 'eCommerceSuburbia',
+          name: "ECommerce Suburbia",
+          component: ECommerceSuburbia
+        },
+        {
+          path: 'WebLogicSuburbia',
+          name: "WebLogic Suburbia",
+          component: WebLogicSuburbia
+        },
+        {
+          path: 'WebLogicServersSuburbia',
+          name: "WebLogic Servers Suburbia",
+          component: WebLogicServersSuburbia
         },
         {
           path: 'theme',

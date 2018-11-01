@@ -167,7 +167,7 @@ export default {
         { key: "nombre" },
         { key: "estado" },
         { key: "fecha", label: "Fecha Registro" },
-        { key: "percentage", label: "% conistencia" },
+        { key: "percentage", label: "% Consistencia" },
         'Fecha Consulta',
       ]
 
