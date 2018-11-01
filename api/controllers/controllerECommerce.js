@@ -1,6 +1,6 @@
 const axios = require('axios');
 // var eCommerceName = 'ecommercemesmondrp';
-const eCommerce = require('../model/modelECommerce.js');
+var eCommerce = require('../model/modelECommerce.js');
 
 
 exports.findAll = (req, res) => {
@@ -17,7 +17,7 @@ exports.findAll = (req, res) => {
 
 
 exports.update = (req, res) => {
-    eCommerce.findByIdAndUpdate(req.params.ecommercelmondrpId, req.body, {new: true })
+    eCommerce.findByIdAndUpdate(req.params.ecommercemesmondrpId, req.body, {new: true })
         .then(eCommerce => {
             if (!eCommerce) {
                 return res.status(404).send({

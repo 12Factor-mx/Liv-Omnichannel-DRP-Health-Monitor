@@ -45,7 +45,7 @@
                     {{formatPercentage(weblogicsubmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="weblogicsubmondrp">
-                    <a v-if="weblogicsubmondrp.item.estado=='inconsistente'  || weblogicsubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + weblogicsubmondrp.item._id">  {{weblogicmeszmondrp.item.nombre}} </a>
+                    <a v-if="weblogicsubmondrp.item.estado=='inconsistente'  || weblogicsubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + weblogicsubmondrp.item._id">  {{weblogicsubmondrp.item.nombre}} </a>
                     <a v-else>  {{weblogicsubmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>

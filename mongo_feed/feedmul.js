@@ -56,7 +56,7 @@ db.weblogicmulmondrp.insert([
     },
     {
         _id: "Weblogic Cluster Multisitios",
-        nombre: "Cluster",
+        nombre: "WebLogic Cluster Multisitios",
         estado: "consistente"
     },
 ])
@@ -426,7 +426,7 @@ db.weblogicmulmonprd.insert([
     },
     {
         _id: "Weblogic Cluster Multisitios",
-        nombre: "Cluster",
+        nombre: "WebLogic Cluster Multisitios",
         estado: "consistente"
     },
 ])

@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Weblogic Multisitios">
+        <b-card  header="Weblogic Multisitios 1">
             <b-row >
               <b-col  lg="6">
                 <p>
@@ -55,91 +55,6 @@
       </b-col>
     </b-row>
 
-    <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
-   
-    <b-row>
-      <b-col md="12">
-        <!-- <b-card v-bind:header="allLots.cardSistemas"> -->
-        <b-card header="Sistemas">
-          <b-row>
-            <b-col sm="12" lg="6">
-              <b-row>
-                <b-col sm="6">
-                  Producción
-                  <!-- {{allLots.cardList[0].ambiente}} -->
-                </b-col>
-                <b-col sm="6">
-                </b-col>
-              </b-row>
-              <hr class="mt-0">
-              <ul class="horizontal-bars type-2">
-                <div :key="item.id" class="progress-group" v-for="item in ecommercelmonprd ">
-                  <div class="progress-group-header">
-                    <a v-bind:href= "'/#/' + item._id"> > </a>
-                    <i class="icon-settings progress-group-icon"></i>
-                    <span class="title">{{item.nombre}}</span>
-                    <div class="ml-auto font-weight-normal" v-if="item.fecha"> 
-                        {{formatDate(item.fecha)}} 
-                    </div>
-                    <div class="ml-auto font-weight-normal" v-else > 
-                        {{formatDate(new Date()) + " "}} 
-                    </div>
-                     <div class="ml-auto font-weight-normal">
-                    {{formatEstado(item.estado)}}
-                    </div>
-                  </div>
-                  <div class="progress-group-bars">
-                    <b-progress height={} class="progress-xs" v-bind:variant="success" value="90"></b-progress>
-                  </div>
-                </div>
-                <!--<div :key="item.id" class="progress-group" v-for="item in allLots.cardList[0].plataformas">
-                  <div class="progress-group-header">
-                    <a v-bind:href="item.ligaHijos"> > </a>
-                    <i v-bind:class="item.icon"> </i>
-                    <span class="title">{{item.nombre}}</span>
-                    <span class="ml-auto font-weight-bold">{{item.valor}}%</span>
-                  </div>
-                  <div class="progress-group-bars">
-                    <b-progress height={} class="progress-xs" v-bind:variant="item.variante" v-bind:value="item.valor"></b-progress>
-                  </div>
-                </div> -->
-              </ul> 
-            </b-col> 
-            <b-col sm="12" lg="6">
-              <b-row>
-                <b-col sm="6">
-                 HA - DRP
-                 <!-- {{allLots.cardList[1].ambiente}} -->
-                </b-col>
-                 <b-col sm="6">
-                </b-col>
-              </b-row>
-              <hr class="mt-0">
-              <div :key="item.id" class="progress-group" v-for="item in ecommercelmondrp ">
-                  <div class="progress-group-header">
-                    <a v-bind:href= "'/#/' + item._id"> > </a>
-                    <i class="icon-settings progress-group-icon"></i>
-                    <span class="title">{{item.nombre}}</span>
-                    <div class="ml-auto font-weight-normal" v-if="item.fecha"> 
-                        {{formatDate(item.fecha)}} 
-                    </div>
-                    <div class="ml-auto font-weight-normal" v-else > 
-                        {{formatDate(new Date()) + " "}} 
-                    </div>
-                     <div class="ml-auto font-weight-normal">
-                    {{formatEstado(item.estado)}}
-                    </div>
-                  </div>
-                  <div class="progress-group-bars">
-                    <b-progress height={} class="progress-xs" v-bind:variant="item.variante" v-bind:value="item.valor"></b-progress>
-                  </div>
-                </div>
-            </b-col> 
-          </b-row>
-          <br/>
-        </b-card> 
-      </b-col>
-    </b-row>
   </div>
 </template>
 
