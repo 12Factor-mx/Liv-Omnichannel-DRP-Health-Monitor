@@ -1,15 +1,8 @@
+const axios = require("axios")
+
 const fileNameSplitter = require('./fileNameSplitter')
-const fs = require('fs');
-const path = './files'
-const csvtojsonV2 = require("csvtojson/v2");
-var res22 = new Array()
-var ress22 = []
-
-
-//const fileContentParser = require('./fileContenParser')
-
-const Parse = require('./fileContenParser')
-
+const fileContentParser = require('./fileContenParser')
+const asyncForEach = require("./asyncForEach")
 
 var optionsEndecaFileNameSplit = {
     parts: [
@@ -35,47 +28,69 @@ var optionsEndecaFileContentParser = {
 };
 
 var resultEndecaFileNameSplit = [];
-var resultEndecaFileContentParser = []
+var resultEndecaFileContent = [];
+var colname = ""
 
-const asyncForEach = async (array, callback) => {
-    for (let index = 0; index < array.length; index++) {
-        await callback(array[index], index, array)
-    }
-}
 
-const start = async (fls, pth) => {
-    var res = [];
-    await asyncForEach(fls, async (file)=> {
+
+fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((result) =>{
+    
+    resultEndecaFileNameSplit = result
+    
+    fileContentParser('./files').then((result) => {
+    
+        {// arma el nombre de  de la colección
+        asyncForEach(resultEndecaFileNameSplit, (item) => {
+            colname = item.parts[0].partName.substring(0, item.parts[0].partName.indexOf("_"))
+            for (var i = 0; i < item.parts.length; i++ )
+            {
+                if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "bussines")
+                {
+                    colname = colname + item.parts[i].partValue + "mon"
+                }
+                if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "env") {
+                    colname = colname + item.parts[i].partValue
+                }
+            }
+            colname = colname.toLowerCase();
+            console.log(colname)
+        })}
         
-        await csvtojsonV2()
-            .fromFile(pth + "/" + file)
-            .then((jsonObj) => {
-                res = JSON.stringify(jsonObj)
-                //ress22[file] = new Object()
-                //res22.push(res)
-                //res22[file] = new Object(jsonObj);
-                //res22[new Object(file)] = new Object(jsonObj)
-                //console.log(jsonObj);
-                //console.log(res2);
-                //return res2
+        {// get dr la collecion
 
-            }, this)   
-        //ress22.push(file)
-        ress22[file] = res
-        res = []
+            asyncForEach(resultEndecaFileNameSplit, (item) => {
 
-    },this)
+                axios.get('http://localhost:9001/' + colname)
+                .then(function (response) {
+                    this.loading = false;
+                    this.rootmondrp = response.data;
+                }.bind(this))
+                .catch(e => {
+                    this.loading = false;
+                })       
+            })
+            
+        }// ------------------
+    
+       
 
 
-}
+          
+        
+    })
 
-resultEndecaFileNameSplit = fileNameSplitter('./files', optionsEndecaFileNameSplit);
-console.log("Final result", resultEndecaFileNameSplit)
-
-var files = fs.readdirSync(path);
-
-start(files, './files').then(() => {
-    console.log(ress22)
-    console.log(JSON.stringify(ress22, undefined, 2))
+    console.log("file name split result", result)
+    resultEndecaFileNameSplit.forEach((item, i) => {
+        var j = ++i
+        console.log(j + ") Para " + item.fileName + " el contenido es: " + JSON.stringify(item.parts, undefined, 2) + "\n")
+    })
+    console.log(resultEndecaFileNameSplit)
+    
+    console.log("file content result", JSON.stringify(result, undefined, 2))
+    resultEndecaFileContent.forEach((item, i) => {
+        var j = ++i
+        console.log(j + ") Para " + item.fileName + " el contenido es: " + JSON.stringify(item.fileContent, undefined, 2) + "\n")
+    })
+    console.log(resultEndecaFileContent)
 
 })
