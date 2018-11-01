@@ -11,7 +11,11 @@ const ecommerce = () => import('@/views/ATG/ecommerce')
 const ECommerceLiverpool = () => import('@/views/ATG/eCommerceLiverpool/ECommerceLiverpool')
   const WebLogicLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicLiverpool')
     const WebLogicServersLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicServersLiverpool/WebLogicServersLiverpool')
-  const EndecaLiverpool = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpool')  
+  const EndecaLiverpool = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpool') 
+    const EndecaLiverpoolServices = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpoolServices/EndecaLiverpoolServices') 
+    
+
+
 
 const ECommerceMultisitios = () => import('@/views/ATG/eCommerceMultisitios/ECommerceMultisitios')
   const WebLogicMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicMultisitios')
@@ -118,6 +122,12 @@ export default new Router({
           path: 'EndecaLiverpool',
           name: "Endeca Liverpool",
           component: EndecaLiverpool
+        },
+
+        {
+          path: 'EndecaServices-*',
+          name: "Endeca Liverpool Services",
+          component: EndecaLiverpoolServices
         },
         {
           path: 'eCommerceMultisitios',
