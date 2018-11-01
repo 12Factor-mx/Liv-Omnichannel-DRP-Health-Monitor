@@ -359,7 +359,8 @@ db.weblogicserverslmondrp.insert([
     }
 ])
 
-db.endecalmondrp.insert([
+db.endecalmondrp.insert(
+[
     {
         _id: "eCommerceLiverpoolServidores-Endeca1",
         nombre: "Endeca1",
@@ -435,7 +436,8 @@ db.endecalmondrp.insert([
         ],
         estado: "consistente",
         porcentaje: 100
-    }])
+    }
+])
 
 
 //--- Prd ------------------------------------------------
@@ -799,39 +801,41 @@ db.weblogicserverslmonprd.insert([
     }
 ])
 
-db.endecalmonprd.insert([
+db.endecalmonprd.insert(    
+[
+
     {
-        _id: "eCommerceLiverpoolServidoresEndeca1",
+        _id: "eCommerceLiverpoolServidores-Endeca1",
         nombre: "Endeca1",
         servicios: [
             {
-                _id: "eCommerceLiverpoolServidoresEndeca1ServicioCas",
+                _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-CAS",
                 nombre: "CAS",
                 estado: "consistente",
                 porcentaje: 100,
                 componentes: [
-                    { _id: "eCommerceLiverpoolServidoresEndeca1ServicioCasComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceLiverpoolServidoresEndeca1ServicioCasComponentePort", nombre: "port", estado: "consistente" }
+                    { _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente" },
+                    { _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente" }
                 ]
             },
             {
-                _id: "eCommerceLiverpoolServidoresEndeca1Servicioplataform",
-                nombre: "Plataform Service",
+                _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-Plataform",
+                nombre: "Plataform",
                 estado: "consistente",
                 procentaje: 100,
                 componetes: [
-                    { _id: "eCommerceLiverpoolServidoresEndeca1ServicioplataformComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceLiverpoolServidoresEndeca1ServicioplataformComponentePort", nombre: "port", estado: "consistente" }
+                    { _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-Plataform-Componente-Log", nombre: "Log", estado: "consistente" },
+                    { _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-Plataform-Componente-Port", nombre: "Port", estado: "consistente" }
                 ]
             },
             {
-                _id: "eCommerceLiverpoolServidoresEndeca1Serviciotools",
-                nombre: "Tools & Framework",
+                _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-Tools",
+                nombre: "Tools",
                 estado: "consistente",
                 porcentaje: 100,
                 componentes: [
-                    { _id: "eCommerceLiverpoolServidoresEndeca1ServiciotoolsComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceLiverpoolServidoresEndeca1ServiciotoolsComponentePort", nombre: "port", estado: "consistente" }
+                    { _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente" },
+                    { _id: "eCommerceLiverpoolServidoresEndeca1-Servicio-Tools-Componente-Port", nombre: "Port", estado: "consistente" }
                 ]
             },
         ],
@@ -839,42 +843,43 @@ db.endecalmonprd.insert([
         porcentaje: 100
     },
     {
-        _id: "eCommerceLiverpoolServidoresITL1",
+        _id: "eCommerceLiverpoolServidores-ITL1",
         nombre: "ITL1",
         servicios: [
             {
-                _id: "eCommerceLiverpoolServidoresITL1ServicioCas",
+                _id: "eCommerceLiverpoolServidores-ITL1-Servicio-Cas",
                 nombre: "CAS",
                 estado: "consistente",
                 porcentaje: 100,
                 componentes: [
-                    { _id: "eCommerceLiverpoolServidoresITL1ServicioCasComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceLiverpoolServidoresITL1ServicioCasComponentePort", nombre: "port", estado: "consistente" }
+                    { _id: "eCommerceLiverpoolServidores-ITL1-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente" },
+                    { _id: "eCommerceLiverpoolServidores-ITL1-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente" }
                 ]
             },
             {
-                _id: "eCommerceLiverpoolServidoresITL1Servicioplataform",
-                nombre: "Plataform Service",
+                _id: "eCommerceLiverpoolServidores-ITL1-Servicio-Plataform",
+                nombre: "Plataform",
                 estado: "consistente",
                 procentaje: 100,
                 componetes: [
-                    { _id: "eCommerceLiverpoolServidoresITL1ServicioplataformComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceLiverpoolServidoresITL1ServicioplataformComponentePort", nombre: "port", estado: "consistente" }
+                    { _id: "eCommerceLiverpool-Servidores-ITL1Servicio-Plataform-Componente_Log", nombre: "Log", estado: "consistente" },
+                    { _id: "eCommerceLiverpool-Servidores-ITL1Servicio-Plataform-Componente_Port", nombre: "Port", estado: "consistente" }
                 ]
             },
             {
-                _id: "eCommerceLiverpoolServidoresITL1Serviciotools",
-                nombre: "Tools & Framework",
+                _id: "eCommerceLiverpoolServidores-ITL1-Servicio-Tools",
+                nombre: "Tools",
                 estado: "consistente",
                 porcentaje: 100,
                 componentes: [
-                    { _id: "eCommerceLiverpoolServidoresITL1ServiciotoolsComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceLiverpoolServidoresITL1ServiciotoolsComponentePort", nombre: "port", estado: "consistente" }
+                    { _id: "eCommerceLiverpoolServidores-ITL1-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente" },
+                    { _id: "eCommerceLiverpoolServidores-ITL1-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente" }
                 ]
             },
         ],
         estado: "consistente",
         porcentaje: 100
-    }])
+    }
+])
 
 
