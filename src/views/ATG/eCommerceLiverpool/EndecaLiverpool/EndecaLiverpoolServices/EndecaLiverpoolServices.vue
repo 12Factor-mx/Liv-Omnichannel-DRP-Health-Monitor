@@ -146,15 +146,7 @@ export default {
      .then(function (response) {
         this.loading = false;
 
-        this.loading = false;
-        this.env = this.$el.baseURI.substring(this.$el.baseURI.indexOf("_") + 1)
-        this.server = this.$el.baseURI.substring(this.$el.baseURI.indexOf("-") + 1, this.$el.baseURI.indexOf("_"))
-        var i;
-
-        for (i = 0; i < response.data.length; i++) { 
-            
-            console.log(response.data[i]._id )
-            //console.log(this.server)
+     console.log("baseUri : " + baseURI)
         
             this._pos = response.data[i]._id.split("-", 1).join("-").length;
 
