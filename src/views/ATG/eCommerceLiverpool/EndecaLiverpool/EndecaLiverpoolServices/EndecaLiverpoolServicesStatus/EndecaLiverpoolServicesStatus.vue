@@ -2,18 +2,18 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Endeca Liverpool Services">
+        <b-card  header="Endeca Liverpool Services Status">
             <b-row >
               <b-col  lg="6">
                 <p>
-                  <i class='fa fa-align-justify'></i> HA-PROD {{a()}}
+                  <i class='fa fa-align-justify'></i> HA-PROD
                 </p>
                 <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="endecalmonprd">
                     <b-badge :variant="getBadge(endecalmonprd.item.estado)" >{{formatEstado(endecalmonprd.item.estado)}}</b-badge>
                   </template> 
                   <template slot="fecha" slot-scope="endecalmonprd">
-                    {{formatDate(endecalmonprd.item.fecha)}} 
+                    {{formatDate(endecalmonprd.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
@@ -22,7 +22,7 @@
                     {{formatPercentage(endecalmonprd.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmonprd">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmonprd.item.nombre + '-' + server +  '-_prd'">  {{endecalmonprd.item.nombre}} </a>
+                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices'">  {{endecalmonprd.item.nombre}} </a>
                     <a v-else>  {{endecalmonprd.item.nombre}} </a>
                   </template>      
                 </b-table>
@@ -31,7 +31,6 @@
               <b-col lg="6">
                 <p>
                   <i class='fa fa-align-justify'></i> HA-DRP
-                 
                 </p>
                 <b-table  :items="endecalmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
                   <template slot="estado" slot-scope="endecalmondrp">
@@ -47,7 +46,7 @@
                     {{formatPercentage(endecalmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmondrp.item.nombre + '-' + server + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
@@ -65,14 +64,12 @@
 
 //import json1 from '../json/data.json'
 import axios from 'axios'; 
-import  {echo, extractBetween, extractBetweenDifferent} from '/home/mdiazm/Code/Proyects/Liv-Omnichannel-DRP-Health-Monitor/src/utils/stringUtils.js' ;
-//import Vue from 'vue';
 
 const miliseconds = 10000;
 
 
 export default {
-  name: 'EndecaLiverpoolServices',
+  name: 'EndecaLiverpoolServicesStatus',
   
   data: function () {
     return {  
@@ -83,17 +80,10 @@ export default {
       timer: [],
       loading: false,
       env: "",
+      service: "",
       server: "",
-      documentURI: "",
-      serverespejodrp: "",
-      serverespejoprd: "",
       _pos: "",
-      xserverprd: "",
-      xserverdrp: "",
-      serverprd: "",
-      serverdrp: "",
-      serveruriprd: "",
-      serveruridrp: "",
+      xserver: "",
       fechaConsulta: [],
       fields: [
         { key: "nombre" },
@@ -107,11 +97,6 @@ export default {
 
   methods: {
 
-    a()
-    {
-      
-      return echo("sssss kskskj -papi_jksksk" )
-    },
     getPosition(string, subString, index) {
       return string.split(subString, index).join(subString).length;
     },
@@ -153,65 +138,107 @@ export default {
     },
 
     loadData: function () {
-     
+
       this.fechaConsulta = new Date();
+      this.loading = true;
 
 
-      this.documentURI = document.documentURI
-      console.log("documentURI : " + this.documentURI)
-      this.server =  extractBetweenDifferent(document.documentURI, "-", "_",1)
-      console.log("serverprd : " + this.serverprd)
-      this.env =  document.documentURI.substring(document.documentURI.indexOf('_') + 1)
-      console.log("env : " + this.env)
- 
+     axios.get('http://localhost:9001/endecalmondrp')
+     .then(function (response) {
+        this.loading = false;
 
-      if(this.env == "drp")
-      {
-        axios.get('http://localhost:9001/endecalmondrp/' + this.server).then(function (responsedrp)
-        {
-           console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
-           this.endecalmondrp = responsedrp.data.servicios
+        this.env = this.$el.baseURI.substring(this.$el.baseURI.indexOf("_") + 1)
+        //console.log("env " + this.env)
+        this.service = this.$el.baseURI.substring(this.$el.baseURI.indexOf("-") + 1, this.$el.baseURI.split("-", 2).join("-").length)
+        // console.log("service " + this.service)
 
-            axios.get('http://localhost:9001/endecalmonprd/' + responsedrp.data.espejo).then(function (responseprd)
+        this.server = this.$el.baseURI.substring(this.$el.baseURI.split("-", 2).join("-").length +1, this.$el.baseURI.split("-", 3).join("-").length)
+        // console.log("server " + this.server)
+
+        var i;
+
+        for (i = 0; i < response.data.length; i++) { 
+            
+            //console.log(response.data[i]._id )
+            //console.log(this.server)
+        
+            this._pos = response.data[i]._id.split("-", 1).join("-").length;
+            //console.log("posición " + this._pos)
+
+            this.xserver = response.data[i]._id.substring(this._pos +1)
+            //console.log("xserver " + this.xserver)
+
+            var bol = this.server == this.xserver
+            console.log(" es el servidor correcto: " + bol )
+
+            if (this.server == this.xserver)
             {
-              console.log("res prd: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
-              this.endecalmonprd = responseprd.data.servicios
+                //this.endecalmonprd = response.data[i].servicios
+                var k;
 
-            }.bind(this)).catch(e => 
+                //console.log("servicios " + JSON.stringify(response.data[i].servicios))
+                for(k = 1; k < response.data[i].servicios.length; k++)
+                {
+                     //console.log("servicios: \n" + JSON.stringify(response.data[i].servicios[k],undefined,2))
+                     this.endecalmonprd = response.data[i].servicios[k].componentes
+                }
+            }
+        }
+
+      }.bind(this)) 
+      .catch(e => {
+      this.loading = false;
+    })
+
+     axios.get('http://localhost:9001/endecalmonprd')
+     .then(function (response) {
+        
+        this.loading = false;
+
+        //console.log("a")
+        this.env = this.$el.baseURI.substring(this.$el.baseURI.indexOf("_") + 1)
+        //console.log("env " + this.env)
+        this.service = this.$el.baseURI.substring(this.$el.baseURI.indexOf("-") + 1, this.$el.baseURI.split("-", 2).join("-").length)
+        // console.log("service " + this.service)
+
+        this.server = this.$el.baseURI.substring(this.$el.baseURI.split("-", 2).join("-").length +1, this.$el.baseURI.split("-", 3).join("-").length)
+        // console.log("server " + this.server)
+
+        var i;
+
+        for (i = 0; i < response.data.length; i++) { 
+            
+            //console.log(response.data[i]._id )
+            //console.log(this.server)
+        
+            this._pos = response.data[i]._id.split("-", 1).join("-").length;
+            //console.log("posición " + this._pos)
+
+            this.xserver = response.data[i]._id.substring(this._pos +1)
+            //console.log("xserver " + this.xserver)
+
+            var bol = this.server == this.xserver
+            //console.log(" es el servidor correcto: " + bol )
+
+            if (this.server == this.xserver)
             {
-              this.loading = false;
-            })
+                //this.endecalmonprd = response.data[i].servicios
+                var k;
 
-        }.bind(this)).catch(e => 
-        {
-          this.loading = false;
-        })
-
-      }
-      else if (this.env == "prd")
-      {
-        axios.get('http://localhost:9001/endecalmonprd/' + this.server).then(function (responseprd)
-        {
-           console.log("res prd: " + JSON.stringify(responseprd.data.servicios, undefined,2))
-           this.endecalmonprd = responseprd.data.servicios
-
-            axios.get('http://localhost:9001/endecalmondrp/' + responseprd.data.espejo).then(function (responsedrp)
-            {
-              console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
-              this.endecalmondrp = responsedrp.data.servicios
-
-            }.bind(this)).catch(e => 
-            {
-              this.loading = false;
-            })
-
-        }.bind(this)).catch(e => 
-        {
-          this.loading = false;
-        })
+                //console.log("servicios " + JSON.stringify(response.data[i].servicios))
+                for(k = 1; k < response.data[i].servicios.length; k++)
+                {
+                     //console.log("servicios: \n" + JSON.stringify(response.data[i].servicios[k],undefined,2))
+                     this.endecalmondrp = response.data[i].servicios[k].componentes
+                }
+            }
+        }
 
 
-      }
+      }.bind(this)) 
+      .catch(e => {
+      this.loading = false;
+    })
 
     },
 
@@ -227,7 +254,7 @@ export default {
   created(){
 
     this.loadData();
-   
+
     setInterval(function () {
       this.loadData();
       
@@ -235,8 +262,6 @@ export default {
     
   },
    ready(){
-       
-       
   }
 
 

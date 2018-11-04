@@ -16,6 +16,18 @@ exports.findAll = (req, res) => {
         });
 };
 
+exports.findOneServer = (req, res) => {
+    Endecalmondrp.findById("eCommerceLiverpoolServidores-" + req.params.endecalmondrpserver)
+        .then(endecalmondrp => {
+            res.send(endecalmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmondrp."
+            });
+        });
+};
+
+
 exports.update = (req, res) => {
     Endecalmondrp.findByIdAndUpdate(req.params.endecalmondrpId, req.body, {new: true })
         .then(Endecalmondrp => {
