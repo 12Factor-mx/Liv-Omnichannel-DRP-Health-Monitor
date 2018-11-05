@@ -6,7 +6,7 @@
             <b-row >
               <b-col  lg="6">
                 <p>
-                  <i class='fa fa-align-justify'></i> HA-PROD {{a()}}
+                  <i class='fa fa-align-justify'></i> HA-PROD
                 </p>
                 <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="endecalmonprd">
@@ -22,9 +22,15 @@
                     {{formatPercentage(endecalmonprd.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmonprd">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmonprd.item.nombre + '-' + server +  '-_prd'">  {{endecalmonprd.item.nombre}} </a>
+                   <div v-if="env=='prd'">
+                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
                     <a v-else>  {{endecalmonprd.item.nombre}} </a>
-                  </template>      
+                    </div>
+                    <div v-if="env=='drp'">
+                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
+                    <a v-else>  {{endecalmonprd.item.nombre}} </a>
+                    </div>                 
+                    </template>      
                 </b-table>
 
               </b-col>
@@ -47,8 +53,14 @@
                     {{formatPercentage(endecalmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmondrp.item.nombre + '-' + server + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <div v-if="env=='prd'">
+                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
+                    </div>
+                    <div v-if="env=='drp'">
+                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-else>  {{endecalmondrp.item.nombre}} </a>
+                    </div>
                   </template>      
                 </b-table>
               </b-col>
@@ -90,8 +102,10 @@ export default {
       _pos: "",
       xserverprd: "",
       xserverdrp: "",
-      serverprd: "",
-      serverdrp: "",
+      prdserverprd: "",
+      prdserverdrp: "",
+      drpserverprd: "",
+      drpserverdrp: "",
       serveruriprd: "",
       serveruridrp: "",
       fechaConsulta: [],
@@ -171,11 +185,15 @@ export default {
         {
            console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
            this.endecalmondrp = responsedrp.data.servicios
+           this.drpserverdrp = this.server
+           this.drpserverprd = responsedrp.data.espejo
 
             axios.get('http://localhost:9001/endecalmonprd/' + responsedrp.data.espejo).then(function (responseprd)
             {
               console.log("res prd: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
               this.endecalmonprd = responseprd.data.servicios
+              this.prdserverprd = responseprd.data.espejo
+              this.prdserverdrp = this.server
 
             }.bind(this)).catch(e => 
             {
@@ -194,11 +212,15 @@ export default {
         {
            console.log("res prd: " + JSON.stringify(responseprd.data.servicios, undefined,2))
            this.endecalmonprd = responseprd.data.servicios
+           this.prdserverprd = this.server
+           this.prdserverdrp = responseprd.data.espejo
 
             axios.get('http://localhost:9001/endecalmondrp/' + responseprd.data.espejo).then(function (responsedrp)
             {
               console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
               this.endecalmondrp = responsedrp.data.servicios
+              this.drpserverdrp = responsedrp.data.espejo
+              this.drpserverprd = this.server
 
             }.bind(this)).catch(e => 
             {

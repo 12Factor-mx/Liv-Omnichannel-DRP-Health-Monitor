@@ -22,8 +22,7 @@
                     {{formatPercentage(endecalmonprd.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmonprd">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices'">  {{endecalmonprd.item.nombre}} </a>
-                    <a v-else>  {{endecalmonprd.item.nombre}} </a>
+                  <a>  {{endecalmonprd.item.nombre}} </a>
                   </template>      
                 </b-table>
 
@@ -46,8 +45,7 @@
                     {{formatPercentage(endecalmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices'">  {{endecalmondrp.item.nombre}} </a>
-                    <a v-else>  {{endecalmondrp.item.nombre}} </a>
+                     <a>  {{endecalmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
               </b-col>
@@ -64,6 +62,8 @@
 
 //import json1 from '../json/data.json'
 import axios from 'axios'; 
+import  {echo, extractBetween, extractBetweenDifferent} from '/home/mdiazm/Code/Proyects/Liv-Omnichannel-DRP-Health-Monitor/src/utils/stringUtils.js' ;
+
 
 const miliseconds = 10000;
 
@@ -140,105 +140,67 @@ export default {
     loadData: function () {
 
       this.fechaConsulta = new Date();
-      this.loading = true;
+  
+      this.documentURI = document.documentURI
+      console.log("documentURI : " + this.documentURI)
+      this.service =  extractBetween(document.documentURI, "-",1)
+      console.log("service : " + this.service)
+      this.server =  extractBetween(document.documentURI, "-",2)
+      console.log("server : " + this.server)
+      this.env =  document.documentURI.substring(document.documentURI.indexOf('_') + 1)
+      console.log("env : " + this.env)
 
-
-     axios.get('http://localhost:9001/endecalmondrp')
-     .then(function (response) {
-        this.loading = false;
-
-        this.env = this.$el.baseURI.substring(this.$el.baseURI.indexOf("_") + 1)
-        //console.log("env " + this.env)
-        this.service = this.$el.baseURI.substring(this.$el.baseURI.indexOf("-") + 1, this.$el.baseURI.split("-", 2).join("-").length)
-        // console.log("service " + this.service)
-
-        this.server = this.$el.baseURI.substring(this.$el.baseURI.split("-", 2).join("-").length +1, this.$el.baseURI.split("-", 3).join("-").length)
-        // console.log("server " + this.server)
-
-        var i;
-
-        for (i = 0; i < response.data.length; i++) { 
-            
-            //console.log(response.data[i]._id )
-            //console.log(this.server)
-        
-            this._pos = response.data[i]._id.split("-", 1).join("-").length;
-            //console.log("posición " + this._pos)
-
-            this.xserver = response.data[i]._id.substring(this._pos +1)
-            //console.log("xserver " + this.xserver)
-
-            var bol = this.server == this.xserver
-            console.log(" es el servidor correcto: " + bol )
-
-            if (this.server == this.xserver)
+      if(this.env == "drp")
+      {
+        axios.get('http://localhost:9001/endecalmondrp/' + this.server + "/" + this.service).then(function (responsedrp)
+        {
+           //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
+           this.endecalmondrp = responsedrp.data[0].servicios[0].componentes
+           var espejo = responsedrp.data[0].servicios[0].espejo
+           //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
+            axios.get('http://localhost:9001/endecalmonprd/' + espejo + "/" + this.service).then(function (responseprd)
             {
-                //this.endecalmonprd = response.data[i].servicios
-                var k;
+              //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
+              //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
+              this.endecalmonprd = responseprd.data[0].servicios[0].componentes
 
-                //console.log("servicios " + JSON.stringify(response.data[i].servicios))
-                for(k = 1; k < response.data[i].servicios.length; k++)
-                {
-                     //console.log("servicios: \n" + JSON.stringify(response.data[i].servicios[k],undefined,2))
-                     this.endecalmonprd = response.data[i].servicios[k].componentes
-                }
-            }
-        }
-
-      }.bind(this)) 
-      .catch(e => {
-      this.loading = false;
-    })
-
-     axios.get('http://localhost:9001/endecalmonprd')
-     .then(function (response) {
-        
-        this.loading = false;
-
-        //console.log("a")
-        this.env = this.$el.baseURI.substring(this.$el.baseURI.indexOf("_") + 1)
-        //console.log("env " + this.env)
-        this.service = this.$el.baseURI.substring(this.$el.baseURI.indexOf("-") + 1, this.$el.baseURI.split("-", 2).join("-").length)
-        // console.log("service " + this.service)
-
-        this.server = this.$el.baseURI.substring(this.$el.baseURI.split("-", 2).join("-").length +1, this.$el.baseURI.split("-", 3).join("-").length)
-        // console.log("server " + this.server)
-
-        var i;
-
-        for (i = 0; i < response.data.length; i++) { 
-            
-            //console.log(response.data[i]._id )
-            //console.log(this.server)
-        
-            this._pos = response.data[i]._id.split("-", 1).join("-").length;
-            //console.log("posición " + this._pos)
-
-            this.xserver = response.data[i]._id.substring(this._pos +1)
-            //console.log("xserver " + this.xserver)
-
-            var bol = this.server == this.xserver
-            //console.log(" es el servidor correcto: " + bol )
-
-            if (this.server == this.xserver)
+            }.bind(this)).catch(e => 
             {
-                //this.endecalmonprd = response.data[i].servicios
-                var k;
+              this.loading = false;
+            })
 
-                //console.log("servicios " + JSON.stringify(response.data[i].servicios))
-                for(k = 1; k < response.data[i].servicios.length; k++)
-                {
-                     //console.log("servicios: \n" + JSON.stringify(response.data[i].servicios[k],undefined,2))
-                     this.endecalmondrp = response.data[i].servicios[k].componentes
-                }
-            }
-        }
+        }.bind(this)).catch(e => 
+        {
+          this.loading = false;
+        })
 
+      }
+      else if (this.env == "prd")
+      {
+        
+        axios.get('http://localhost:9001/endecalmonprd/' + this.server + "/" + this.service).then(function (responseprd)
+        {
+           //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
+           this.endecalmonprd = responseprd.data[0].servicios[0].componentes
+           var espejo = responseprd.data[0].servicios[0].espejo
+           //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
+            axios.get('http://localhost:9001/endecalmondrp/' + espejo + "/" + this.service).then(function (responsedrp)
+            {
+              //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
+              //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
+              this.endecalmondrp = responsedrp.data[0].servicios[0].componentes
 
-      }.bind(this)) 
-      .catch(e => {
-      this.loading = false;
-    })
+            }.bind(this)).catch(e => 
+            {
+              this.loading = false;
+            })
+
+        }.bind(this)).catch(e => 
+        {
+          this.loading = false;
+        })
+
+      }
 
     },
 

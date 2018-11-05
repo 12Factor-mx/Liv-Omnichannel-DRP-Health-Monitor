@@ -302,11 +302,11 @@ db.endecamesmondrp.insert([
                 ]
             },
             {
-                _id: "plataform",
-                nombre: "plataform service",
+                _id: "Plataform",
+                nombre: "Plataform service",
                 estado: "consistente",
                 procentaje: 100,
-                componetes: [
+                componentes: [
                     { _id: "log", nombre: "log", estado: "consistente" },
                     { id: "port", nombre: "port", estado: "consistente" }
                 ]
@@ -340,8 +340,8 @@ db.endecamesmondrp.insert([
                 ]
             },
             {
-                _id: "plataform",
-                nombre: "plataform service",
+                _id: "Plataform",
+                nombre: "Plataform service",
                 estado: "consistente",
                 porcentaje: 100,
                 componentes: [
@@ -666,11 +666,11 @@ db.endecamesmonprd.insert([
                     {_id:"log",  nombre: "log", estado: "consistente" },
                     { id:"port", nombre: "port", estado: "consistente"}
             ]},
-            {   _id: "plataform", 
-                nombre: "plataform service", 
+            {   _id: "Plataform", 
+                nombre: "Plataform service", 
                 estado: "consistente", 
                 procentaje: 100,
-                componetes: [
+                componentes: [
                     {_id: "log", nombre: "log", estado: "consistente" },
                     { id: "port", nombre: "port", estado: "consistente" }
             ]},
@@ -698,8 +698,8 @@ db.endecamesmonprd.insert([
                     { _id: "log", nombre: "log", estado: "consistente" },
                     { id: "port", nombre: "port", estado: "consistente" }
                 ]},
-            {   _id: "plataform", 
-                nombre: "plataform service", 
+            {   _id: "Plataform", 
+                nombre: "Plataform service", 
                 estado: "consistente",
                 porcentaje: 100,
                 componentes: [

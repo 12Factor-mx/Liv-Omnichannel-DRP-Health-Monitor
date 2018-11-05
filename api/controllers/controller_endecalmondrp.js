@@ -27,6 +27,23 @@ exports.findOneServer = (req, res) => {
         });
 };
 
+exports.findOneServerService = (req, res) => {
+
+    var server = req.params.endecalmondrpserver
+    var service = req.params.endecalmondrpserverservice
+    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service
+    var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmondrp.find({ "servicios._id": queryfield }, { "_id": "0", "servicios": { "$elemMatch": { "_id": queryfield } } })
+        .then(endecalmondrp => {
+            res.send(endecalmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmondrp."
+            });
+        });
+};
 
 exports.update = (req, res) => {
     Endecalmondrp.findByIdAndUpdate(req.params.endecalmondrpId, req.body, {new: true })

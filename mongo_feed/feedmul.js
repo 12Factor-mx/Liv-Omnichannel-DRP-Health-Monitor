@@ -305,13 +305,13 @@ db.endecamulmondrp.insert([
                 ]
             },
             {
-                _id: "eCommerceMultisitiosServidoresEndeca1Servicioplataform",
+                _id: "eCommerceMultisitiosServidoresEndeca1ServicioPlataform",
                 nombre: "Plataform Service",
                 estado: "consistente",
                 procentaje: 100,
-                componetes: [
-                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioplataformComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioplataformComponentePort", nombre: "port", estado: "consistente" }
+                componentes: [
+                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioPlataformComponenteLog", nombre: "log", estado: "consistente" },
+                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioPlataformComponentePort", nombre: "port", estado: "consistente" }
                 ]
             },
             {
@@ -343,13 +343,13 @@ db.endecamulmondrp.insert([
                 ]
             },
             {
-                _id: "eCommerceMultisitiosServidoresITL1Servicioplataform",
+                _id: "eCommerceMultisitiosServidoresITL1ServicioPlataform",
                 nombre: "Plataform Service",
                 estado: "consistente",
                 procentaje: 100,
-                componetes: [
-                    { _id: "eCommerceMultisitiosServidoresITL1ServicioplataformComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceMultisitiosServidoresITL1ServicioplataformComponentePort", nombre: "port", estado: "consistente" }
+                componentes: [
+                    { _id: "eCommerceMultisitiosServidoresITL1ServicioPlataformComponenteLog", nombre: "log", estado: "consistente" },
+                    { _id: "eCommerceMultisitiosServidoresITL1ServicioPlataformComponentePort", nombre: "port", estado: "consistente" }
                 ]
             },
             {
@@ -675,13 +675,13 @@ db.endecamulmonprd.insert([
                 ]
             },
             {
-                _id: "eCommerceMultisitiosServidoresEndeca1Servicioplataform",
+                _id: "eCommerceMultisitiosServidoresEndeca1ServicioPlataform",
                 nombre: "Plataform Service",
                 estado: "consistente",
                 procentaje: 100,
-                componetes: [
-                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioplataformComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioplataformComponentePort", nombre: "port", estado: "consistente" }
+                componentes: [
+                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioPlataformComponenteLog", nombre: "log", estado: "consistente" },
+                    { _id: "eCommerceMultisitiosServidoresEndeca1ServicioPlataformComponentePort", nombre: "port", estado: "consistente" }
                 ]
             },
             {
@@ -713,13 +713,13 @@ db.endecamulmonprd.insert([
                 ]
             },
             {
-                _id: "eCommerceMultisitiosServidoresITL1Servicioplataform",
+                _id: "eCommerceMultisitiosServidoresITL1ServicioPlataform",
                 nombre: "Plataform Service",
                 estado: "consistente",
                 procentaje: 100,
-                componetes: [
-                    { _id: "eCommerceMultisitiosServidoresITL1ServicioplataformComponenteLog", nombre: "log", estado: "consistente" },
-                    { _id: "eCommerceMultisitiosServidoresITL1ServicioplataformComponentePort", nombre: "port", estado: "consistente" }
+                componentes: [
+                    { _id: "eCommerceMultisitiosServidoresITL1ServicioPlataformComponenteLog", nombre: "log", estado: "consistente" },
+                    { _id: "eCommerceMultisitiosServidoresITL1ServicioPlataformComponentePort", nombre: "port", estado: "consistente" }
                 ]
             },
             {

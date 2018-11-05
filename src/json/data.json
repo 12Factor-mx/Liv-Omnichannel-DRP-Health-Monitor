@@ -3,7 +3,7 @@
     "cardList": [
         {
             "ambiente": "Producción",
-            "plataformas": [
+            "Plataformas": [
                 {
                     "nombre": "eCommerce Liverpool",
                     "valor": 100,
@@ -94,7 +94,7 @@
         },
         {
             "ambiente": "HA - DRP",
-            "plataformas": [
+            "Plataformas": [
                 {
                     "nombre": "eCommerce Liverpool",
                     "valor": 90,

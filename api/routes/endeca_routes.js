@@ -4,12 +4,14 @@ module.exports = (app) => {
     const endecalmondrp = require('../controllers/controller_endecalmondrp.js');
     app.get( '/endecalmondrp', endecalmondrp.findAll);
     app.get('/endecalmondrp/:endecalmondrpserver', endecalmondrp.findOneServer);
+    app.get('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice', endecalmondrp.findOneServerService);
     app.post('/endecalmondrp/updateparents', endecalmondrp.updateParents)
     app.put('/endecalmondrp/:endecalmondrpId', endecalmondrp.update);
 
     const endecalmonprd = require('../controllers/controller_endecalmonprd.js');
     app.get('/endecalmonprd', endecalmonprd.findAll);
     app.get('/endecalmonprd/:endecalmonprdserver', endecalmonprd.findOneServer);
+    app.get('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice', endecalmonprd.findOneServerService);
     app.post('/endecalmonprd/updateparents', endecalmonprd.updateParents)
     app.put('/endecalmonprd/:endecalmonprdId', endecalmonprd.update);
 
