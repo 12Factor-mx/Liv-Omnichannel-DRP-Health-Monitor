@@ -62,7 +62,7 @@
 
 //import json1 from '../json/data.json'
 import axios from 'axios'; 
-import  {echo, extractBetween, extractBetweenDifferent} from '/home/mdiazm/Code/Proyects/Liv-Omnichannel-DRP-Health-Monitor/src/utils/stringUtils.js' ;
+import  {echo, extractBetween, extractBetweenDifferent} from '../../../../../../../src/utils/stringUtils.js' ;
 
 
 const miliseconds = 10000;
