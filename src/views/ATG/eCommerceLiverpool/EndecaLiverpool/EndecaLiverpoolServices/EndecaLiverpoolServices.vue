@@ -7,6 +7,12 @@
               <b-col  lg="6">
                 <p>
                   <i class='fa fa-align-justify'></i> HA-PROD
+                  <div v-if="env=='prd'">
+                      {{ prdserverprd }}
+                    </div>
+                    <div v-if="env=='drp'">
+                      {{ drpserverprd }}
+                    </div>
                 </p>
                 <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="endecalmonprd">
@@ -37,7 +43,12 @@
               <b-col lg="6">
                 <p>
                   <i class='fa fa-align-justify'></i> HA-DRP
-                 
+                  <div v-if="env=='prd'">
+                      {{ prdserverdrp }}
+                    </div>
+                    <div v-if="env=='drp'">
+                      {{ drpserverdrp }}
+                    </div>
                 </p>
                 <b-table  :items="endecalmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
                   <template slot="estado" slot-scope="endecalmondrp">
