@@ -14,6 +14,7 @@ module.exports = (app) => {
     app.get('/endecalmonprd/:endecalmonprdserver', endecalmonprd.findOneServer);
     app.get('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice', endecalmonprd.findOneServerService);
     app.post('/endecalmonprd/updateparents', endecalmonprd.updateParents)
+    app.post('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice/:endecalmonprdserverscomponent', endecalmonprd.updateOneServerService);
     app.put('/endecalmonprd/:endecalmonprdId', endecalmonprd.update);
 
 

@@ -199,22 +199,19 @@ db.weblogicserverslmondrp.insert([
         estado: "RUNNING"
     },
     {
-        fecha: new Date(),
-        _id: "Store-01",
+        _id: "ManagedServer-Store01-eCommerce-liverpool-Drp",
         nombre: "Store-01",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
-        fecha: new Date(),
-        _id: "Store-02",
+        _id: "ManagedServer-Store02-eCommerce-liverpool-Drp",
         nombre: "Store-02",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
-        fecha: new Date(),
-        _id: "Store-03",
+        _id: "ManagedServer-Store03-eCommerce-liverpool-Drp",
         nombre: "Store-03",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),
@@ -745,21 +742,21 @@ db.weblogicserverslmonprd.insert([
     },
     {
         fecha: new Date(),
-        _id: "Store-01",
+        _id: "ManagedServer-Store01-eCommerce-liverpool-Prd",
         nombre: "Store-01",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),
-        _id: "Store-02",
+        _id: "ManagedServer-Store02-eCommerce-liverpool-Prd",
         nombre: "Store-02",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),
-        _id: "Store-03",
+        _id: "ManagedServer-Store03-eCommerce-liverpool-Prd",
         nombre: "Store-03",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),

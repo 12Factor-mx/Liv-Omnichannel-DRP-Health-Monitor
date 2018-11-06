@@ -52,11 +52,11 @@ exports.updateOneServerService = (req, res) => {
     var component = req.params.endecalmondrpserverscomponent
     var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
     var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
-    var estado = req.body.estado
+    var porcentaje = req.body.porcentaje
     //var queryObject = JSON.parse(queryString)   
 
     Endecalmondrp.update({ "_id": "eCommerceLiverpoolServidores-" + server}, 
-                         { $set: {"servicios.$[s].componentes.$[c].estado":estado}},
+                         { $set: {"servicios.$[s].componentes.$[c].porcentaje":porcentaje}},
                          { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }] , new:true})
         .then(endecalmondrp => {
             res.send(endecalmondrp);
