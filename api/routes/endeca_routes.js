@@ -5,6 +5,7 @@ module.exports = (app) => {
     app.get( '/endecalmondrp', endecalmondrp.findAll);
     app.get('/endecalmondrp/:endecalmondrpserver', endecalmondrp.findOneServer);
     app.get('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice', endecalmondrp.findOneServerService);
+    app.post('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice/:endecalmondrpserverscomponent', endecalmondrp.updateOneServerService);
     app.post('/endecalmondrp/updateparents', endecalmondrp.updateParents)
     app.put('/endecalmondrp/:endecalmondrpId', endecalmondrp.update);
 
