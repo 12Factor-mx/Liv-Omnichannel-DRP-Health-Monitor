@@ -4,6 +4,7 @@ const fileNameSplitter = require('./fileNameSplitter')
 const fileContentParser = require('./fileContenParser')
 const asyncForEach = require("./asyncForEach")
 
+
 var optionsEndecaFileNameSplit = {
     parts: [
         { start: "0", end: "3", into: "Endeca_bussines" },
@@ -21,15 +22,17 @@ var optionsEndecaFileContentParser = {
         layout: [
             { column: "1", into: "Servicio"},
             { column: "2", into: "Puerto"},
-            { column: "3", into: "Estado puerto"},
-            { column: "4", into: "Estado log"}
+            { column: "3", into: "Componente_Port"},
+            { column: "4", into: "Componenete_Log"}
         ]
     }
 };
 
 var resultEndecaFileNameSplit = [];
 var resultEndecaFileContent = [];
-var colname = ""
+var collectionName
+var serverName = ""
+var collectionNameList = []
 
 
 
@@ -39,44 +42,86 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
     
     fileContentParser('./files').then((result) => {
     
+        resultEndecaFileContent = result
+
         {// arma el nombre de  de la colección
+
+        var file = 0
         asyncForEach(resultEndecaFileNameSplit, (item) => {
-            colname = item.parts[0].partName.substring(0, item.parts[0].partName.indexOf("_"))
+
+            collectionName = item.parts[0].partName.substring(0, item.parts[0].partName.indexOf("_"))
             for (var i = 0; i < item.parts.length; i++ )
             {
                 if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "bussines")
                 {
-                    colname = colname + item.parts[i].partValue + "mon"
+                    if (item.parts[i].partValue == 'LIV'){
+                        collectionName = collectionName + 'l' + "mon"    
+                    }else{
+                        collectionName = collectionName + item.parts[i].partValue + "mon"
+                    }
                 }
                 if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "env") {
-                    colname = colname + item.parts[i].partValue
+                    collectionName = collectionName + item.parts[i].partValue
+                } 
+                if(item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "server") {
+                    serverName = item.parts[i].partValue
                 }
             }
-            colname = colname.toLowerCase();
-            console.log(colname)
+
+            collectionName = collectionName.toLowerCase();
+            console.log(collectionName)
+
+            console.log(resultEndecaFileContent[file])
+            var linesPerFile = resultEndecaFileContent.length
+     
+            for (var line = 0; line < linesPerFile ; line++)  
+            {
+                        
+                var record = resultEndecaFileContent[file].fileContent[line]    
+                var Servicio = ""
+                var Componente = ""
+                var Estado = ""
+
+                for (var property in record) {
+
+                    if (record.hasOwnProperty(property)) {
+
+                        var prop = property.substring(0, property.indexOf("_") <= 0 ? property.length : property.indexOf("_"))
+                   
+                        switch (prop) {
+                            case "Servicio":
+                                Servicio = record[property]
+                                break;
+                            case "Componente":
+                                Componente = property.split("_")[1]
+                                Estado = record[property]                                
+                                break;
+                            default:
+                            {
+                                ;
+                            }
+                                
+                        }
+                    }
+                }
+                var uri = 'http://localhost:9001/' + 
+                                                    collectionName + "/" + 
+                                                    serverName     + "/" + 
+                                                    Servicio       + "/" + 
+                                                    Componente
+                
+                axios.post(uri, {estado:Estado})
+                    .then(function (response) {
+                        console.log(response)
+                        file++
+                    }.bind(this))
+                    .catch(e => {
+                        console.log(e)
+                        file++
+                })    
+            }
         })}
-        
-        {// get dr la collecion
-
-            asyncForEach(resultEndecaFileNameSplit, (item) => {
-
-                axios.get('http://localhost:9001/' + colname)
-                .then(function (response) {
-                    this.loading = false;
-                    this.rootmondrp = response.data;
-                }.bind(this))
-                .catch(e => {
-                    this.loading = false;
-                })       
-            })
-            
-        }// ------------------
-    
-       
-
-
-          
-        
+ 
     })
 
     console.log("file name split result", result)
