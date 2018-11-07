@@ -30,7 +30,11 @@ var endecamulmondrpSchema = new Schema(
         },
         estadoDestalle: {
             type: 'Mixed'
-        }
+        },
+        espejo: {
+            type: 'String'
+        },
+
     }
 
 );

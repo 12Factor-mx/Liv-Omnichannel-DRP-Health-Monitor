@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Endeca Liverpool Services Status">
+        <b-card  header="Endeca Multisitios Services Status">
             <b-row >
               <b-col  lg="6">
                 <p v-if="env=='prd'">
@@ -11,21 +11,21 @@
                 <p v-if="env=='drp'">
                   <i class='fa fa-align-justify'></i> HA-PROD - {{ drpserverprd }} - {{ drpserviceprd }}
                 </p>
-                <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
-                  <template slot="estado" slot-scope="endecalmonprd">
-                    <b-badge :variant="getBadge(endecalmonprd.item.estado)" >{{formatEstado(endecalmonprd.item.estado)}}</b-badge>
+                <b-table :items="endecamulmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
+                  <template slot="estado" slot-scope="endecamulmonprd">
+                    <b-badge :variant="getBadge(endecamulmonprd.item.estado)" >{{formatEstado(endecamulmonprd.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="endecalmonprd">
-                    {{formatDate(endecalmonprd.item.fecha)}}
+                  <template slot="fecha" slot-scope="endecamulmonprd">
+                    {{formatDate(endecamulmonprd.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="endecalmonprd">
-                    {{formatPercentage(endecalmonprd.item.percentage)}}
+                   <template slot="percentage" slot-scope="endecamulmonprd">
+                    {{formatPercentage(endecamulmonprd.item.percentage)}}
                   </template>    
-                  <template slot="nombre" slot-scope="endecalmonprd">
-                  <a>  {{endecalmonprd.item.nombre}} </a>
+                  <template slot="nombre" slot-scope="endecamulmonprd">
+                  <a>  {{endecamulmonprd.item.nombre}} </a>
                   </template>      
                 </b-table>
 
@@ -37,21 +37,21 @@
                 <p v-if="env=='drp'">
                   <i class='fa fa-align-justify'></i> HA-DRP - {{ drpserverdrp }} - {{ drpservicedrp }}
                 </p>
-                <b-table  :items="endecalmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="endecalmondrp">
-                    <b-badge :variant="getBadge(endecalmondrp.item.estado)" >{{formatEstado(endecalmondrp.item.estado)}}</b-badge>
+                <b-table  :items="endecamulmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="endecamulmondrp">
+                    <b-badge :variant="getBadge(endecamulmondrp.item.estado)" >{{formatEstado(endecamulmondrp.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="endecalmondrp">
-                    {{formatDate(endecalmondrp.item.fecha)}}
+                  <template slot="fecha" slot-scope="endecamulmondrp">
+                    {{formatDate(endecamulmondrp.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="endecalmondrp">
-                    {{formatPercentage(endecalmondrp.item.percentage)}}
+                   <template slot="percentage" slot-scope="endecamulmondrp">
+                    {{formatPercentage(endecamulmondrp.item.percentage)}}
                   </template>    
-                  <template slot="nombre" slot-scope="endecalmondrp">
-                     <a>  {{endecalmondrp.item.nombre}} </a>
+                  <template slot="nombre" slot-scope="endecamulmondrp">
+                     <a>  {{endecamulmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
               </b-col>
@@ -75,14 +75,14 @@ const miliseconds = 10000;
 
 
 export default {
-  name: 'EndecaLiverpoolServicesStatus',
+  name: 'EndecaMultisitiosServicesStatus',
   
   data: function () {
     return {  
 
       rootmonprd: [],
-      endecalmondrp: [],
-      endecalmonprd: [],
+      endecamulmondrp: [],
+      endecamulmonprd: [],
       timer: [],
       loading: false,
       env: "",
@@ -166,10 +166,10 @@ export default {
 
       if(this.env == "drp")
       {
-        axios.get('http://localhost:9001/endecalmondrp/' + this.server + "/" + this.service).then(function (responsedrp)
+        axios.get('http://localhost:9001/endecamulmondrp/' + this.server + "/" + this.service).then(function (responsedrp)
         {
            //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
-           this.endecalmondrp = responsedrp.data[0].servicios[0].componentes
+           this.endecamulmondrp = responsedrp.data[0].servicios[0].componentes
            var espejo = responsedrp.data[0].servicios[0].espejo
            this.drpserverdrp = this.server
            this.drpserverprd = espejo
@@ -177,11 +177,11 @@ export default {
            this.drpserviceprd = this.service
             console.log('Viniendo de drp: ' + this.server + ' ' + responsedrp.data.espejo);
            //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
-            axios.get('http://localhost:9001/endecalmonprd/' + espejo + "/" + this.service).then(function (responseprd)
+            axios.get('http://localhost:9001/endecamulmonprd/' + espejo + "/" + this.service).then(function (responseprd)
             {
               //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
               //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
-              this.endecalmonprd = responseprd.data[0].servicios[0].componentes
+              this.endecamulmonprd = responseprd.data[0].servicios[0].componentes
               this.prdserverdrp = this.server
               this.prdserverprd = espejo
               this.prdservicedrp = this.service
@@ -201,21 +201,21 @@ export default {
       else if (this.env == "prd")
       {
         
-        axios.get('http://localhost:9001/endecalmonprd/' + this.server + "/" + this.service).then(function (responseprd)
+        axios.get('http://localhost:9001/endecamulmonprd/' + this.server + "/" + this.service).then(function (responseprd)
         {
            //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
-           this.endecalmonprd = responseprd.data[0].servicios[0].componentes
+           this.endecamulmonprd = responseprd.data[0].servicios[0].componentes
            var espejo = responseprd.data[0].servicios[0].espejo
            this.prdserverprd = this.server
            this.prdserverdrp = espejo
            this.prdservicedrp = this.service
            this.prdserviceprd = this.service
            //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
-            axios.get('http://localhost:9001/endecalmondrp/' + espejo + "/" + this.service).then(function (responsedrp)
+            axios.get('http://localhost:9001/endecamulmondrp/' + espejo + "/" + this.service).then(function (responsedrp)
             {
               //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
               //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
-              this.endecalmondrp = responsedrp.data[0].servicios[0].componentes
+              this.endecamulmondrp = responsedrp.data[0].servicios[0].componentes
               this.drpserverdrp = this.server
               this.drpserverprd = espejo
               this.prdservicedrp = this.service

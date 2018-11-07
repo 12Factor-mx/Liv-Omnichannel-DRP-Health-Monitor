@@ -20,14 +20,23 @@ const ECommerceLiverpool = () => import('@/views/ATG/eCommerceLiverpool/ECommerc
 const ECommerceMultisitios = () => import('@/views/ATG/eCommerceMultisitios/ECommerceMultisitios')
   const WebLogicMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicMultisitios')
     const WebLogicServersMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicServersMultisitios/WebLogicServersMultisitios')
+    const EndecaMultisitios = () => import('@/views/ATG/eCommerceMultisitios/EndecaMultisitios/EndecaMultisitios') 
+    const EndecaMultisitiosServices = () => import('@/views/ATG/eCommerceMultisitios/EndecaMultisitios/EndecaMultisitiosServices/EndecaMultisitiosServices') 
+      const EndecaMultisitiosServicesStatus = () => import('@/views/ATG/eCommerceMultisitios/EndecaMultisitios/EndecaMultisitiosServices/EndecaMultisitiosServicesStatus/EndecaMultisitiosServicesStatus')
 
 const ECommerceMesa = () => import('@/views/ATG/eCommerceMesa/ECommerceMesa')
   const WebLogicMesa = () => import('@/views/ATG/eCommerceMesa/WebLogicMesa/WebLogicMesa')
     const WebLogicServersMesa = () => import('@/views/ATG/eCommerceMesa/WebLogicMesa/WebLogicServersMesa/WebLogicServersMesa')
+    const EndecaMesa = () => import('@/views/ATG/eCommerceMesa/EndecaMesa/EndecaMesa') 
+    const EndecaMesaServices = () => import('@/views/ATG/eCommerceMesa/EndecaMesa/EndecaMesaServices/EndecaMesaServices') 
+      const EndecaMesaServicesStatus = () => import('@/views/ATG/eCommerceMesa/EndecaMesa/EndecaMesaServices/EndecaMesaServicesStatus/EndecaMesaServicesStatus')
 
 const ECommerceSuburbia = () => import('@/views/ATG/eCommerceSuburbia/ECommerceSuburbia')
   const WebLogicSuburbia = () => import('@/views/ATG/eCommerceSuburbia/WebLogicSuburbia/WebLogicSuburbia')
     const WebLogicServersSuburbia = () => import('@/views/ATG/eCommerceSuburbia/WebLogicSuburbia/WebLogicServersSuburbia/WebLogicServersSuburbia')
+    const EndecaSuburbia = () => import('@/views/ATG/eCommerceSuburbia/EndecaSuburbia/EndecaSuburbia') 
+    const EndecaSuburbiaServices = () => import('@/views/ATG/eCommerceSuburbia/EndecaSuburbia/EndecaSuburbiaServices/EndecaSuburbiaServices') 
+      const EndecaSuburbiaServicesStatus = () => import('@/views/ATG/eCommerceSuburbia/EndecaSuburbia/EndecaSuburbiaServices/EndecaSuburbiaServicesStatus/EndecaSuburbiaServicesStatus')
 
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
@@ -124,12 +133,12 @@ export default new Router({
           component: EndecaLiverpool
         },
         {
-          path: 'EndecaServices-*',
+          path: 'EndecaLiverpoolServices-*',
           name: "Endeca Liverpool Services",
           component: EndecaLiverpoolServices
         },
         {
-          path: 'EndecaServicesStatus-*',
+          path: 'EndecaLiverpoolServicesStatus-*',
           name: "Endeca Liverpool Services Status",
           component: EndecaLiverpoolServicesStatus
         },
@@ -148,6 +157,21 @@ export default new Router({
           name: "WebLogic Servers Multisitios",
           component: WebLogicServersMultisitios
         },
+        {
+          path: 'EndecaMultisitios',
+          name: "Endeca Multisitios",
+          component: EndecaMultisitios
+        },
+        {
+          path: 'EndecaMultisitiosServices-*',
+          name: "Endeca Multisitios Services",
+          component: EndecaMultisitiosServices
+        },
+        {
+          path: 'EndecaMultisitiosServicesStatus-*',
+          name: "Endeca Multisitios Services Status",
+          component: EndecaMultisitiosServicesStatus
+        },
          {
           path: 'eCommerceMesa',
           name: "ECommerce Mesa",
@@ -163,12 +187,21 @@ export default new Router({
           name: "WebLogic Servers Mesa",
           component: WebLogicServersMesa
         },
-/*        {
+        {
           path: 'EndecaMesa',
           name: "Endeca Mesa",
           component: EndecaMesa
         },
- */
+        {
+          path: 'EndecaMesaServices-*',
+          name: "Endeca Mesa Services",
+          component: EndecaMesaServices
+        },
+        {
+          path: 'EndecaMesaServicesStatus-*',
+          name: "Endeca Mesa Services Status",
+          component: EndecaMesaServicesStatus
+        },
         {
           path: 'eCommerceSuburbia',
           name: "ECommerce Suburbia",
@@ -183,6 +216,21 @@ export default new Router({
           path: 'WebLogicServersSuburbia',
           name: "WebLogic Servers Suburbia",
           component: WebLogicServersSuburbia
+        },
+        {
+          path: 'EndecaSuburbia',
+          name: "Endeca Suburbia",
+          component: EndecaSuburbia
+        },
+        {
+          path: 'EndecaSuburbiaServices-*',
+          name: "Endeca Suburbia Services",
+          component: EndecaSuburbiaServices
+        },
+        {
+          path: 'EndecaSuburbiaServicesStatus-*',
+          name: "Endeca Suburbia Services Status",
+          component: EndecaSuburbiaServicesStatus
         },
         {
           path: 'theme',

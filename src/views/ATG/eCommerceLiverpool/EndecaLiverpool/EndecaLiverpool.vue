@@ -22,7 +22,7 @@
                     {{formatPercentage(endecalmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="endecalmonprd">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices-' + endecalmonprd.item.nombre + '_prd'" >  {{endecalmonprd.item.nombre}} </a>
+                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmonprd.item.nombre + '_prd'" >  {{endecalmonprd.item.nombre}} </a>
                     <a v-else>  {{endecalmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
@@ -45,7 +45,7 @@
                     {{formatPercentage(endecalmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServices-' + endecalmondrp.item.nombre + '_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmondrp.item.nombre + '_drp'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
