@@ -5,8 +5,11 @@
         <b-card  header="Endeca Liverpool Services Status">
             <b-row >
               <b-col  lg="6">
-                <p>
-                  <i class='fa fa-align-justify'></i> HA-PROD
+                <p v-if="env=='prd'">
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ prdserverprd }} - {{ prdserviceprd }}
+                </p>
+                <p v-if="env=='drp'">
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ drpserverprd }} - {{ drpserviceprd }}
                 </p>
                 <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="endecalmonprd">
@@ -28,8 +31,11 @@
 
               </b-col>
               <b-col lg="6">
-                <p>
-                  <i class='fa fa-align-justify'></i> HA-DRP
+                <p v-if="env=='prd'">
+                  <i class='fa fa-align-justify'></i> HA-DRP - {{ prdserverdrp }} - {{ prdservicedrp }}
+                </p>
+                <p v-if="env=='drp'">
+                  <i class='fa fa-align-justify'></i> HA-DRP - {{ drpserverdrp }} - {{ drpservicedrp }}
                 </p>
                 <b-table  :items="endecalmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
                   <template slot="estado" slot-scope="endecalmondrp">
@@ -94,7 +100,15 @@ export default {
         { key: "fecha", label: "Fecha Registro" },
         { key: "porcentaje", label: "% Consistencia" },
         'Fecha Consulta',
-      ]
+      ],
+      prdserverprd: "",
+      prdserverdrp: "",
+      drpserverprd: "",
+      drpserverdrp: "",
+      prdserviceprd: "",
+      prdservicedrp: "",
+      drpserviceprd: "",
+      drpservicedrp: ""
    } 
   },
 
@@ -160,13 +174,22 @@ export default {
            //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
            this.endecalmondrp = responsedrp.data[0].servicios[0].componentes
            var espejo = responsedrp.data[0].servicios[0].espejo
+           this.drpserverdrp = this.server
+           this.drpserverprd = espejo
+           this.drpservicedrp = this.service
+           this.drpserviceprd = this.service
+            console.log('Viniendo de drp: ' + this.server + ' ' + responsedrp.data.espejo);
            //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
             axios.get('http://localhost:9001/endecalmonprd/' + espejo + "/" + this.service).then(function (responseprd)
             {
               //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
               //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
               this.endecalmonprd = responseprd.data[0].servicios[0].componentes
-
+              this.prdserverdrp = this.server
+              this.prdserverprd = espejo
+              this.prdservicedrp = this.service
+              this.prdserviceprd = this.service
+              console.log('Viniendo de drp: ')
             }.bind(this)).catch(e => 
             {
               this.loading = false;
@@ -186,13 +209,20 @@ export default {
            //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
            this.endecalmonprd = responseprd.data[0].servicios[0].componentes
            var espejo = responseprd.data[0].servicios[0].espejo
+           this.prdserverprd = this.server
+           this.prdserverdrp = espejo
+           this.prdservicedrp = this.service
+           this.prdserviceprd = this.service
            //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
             axios.get('http://localhost:9001/endecalmondrp/' + espejo + "/" + this.service).then(function (responsedrp)
             {
               //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
               //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
               this.endecalmondrp = responsedrp.data[0].servicios[0].componentes
-
+              this.drpserverdrp = this.server
+              this.drpserverprd = espejo
+              this.prdservicedrp = this.service
+              this.prdserviceprd = this.service
             }.bind(this)).catch(e => 
             {
               this.loading = false;

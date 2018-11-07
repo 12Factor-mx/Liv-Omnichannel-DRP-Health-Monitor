@@ -43,6 +43,7 @@ db.ecommercemesmondrp.insert([
         estado: "consistente"
     }
 ])
+
 db.weblogicmesmondrp.insert([
     {
         fecha: new Date(),
@@ -69,6 +70,7 @@ db.weblogicmesmondrp.insert([
         estado: "consistente"
     },
 ])
+
 db.weblogicserversmesmondrp.insert([
     {
         fecha: new Date(),
@@ -341,109 +343,742 @@ db.weblogicserversmesmondrp.insert([
         estado: "RUNNING"
     }
 ])
-db.endecamesmondrp.insert([
-    {
-        fecha: new Date(),
-        _id: "Endeca1",
-        nombre: "Endeca1",
-        servicios: [
-            {
-                fecha: new Date(),
-                _id: "cas",
-                nombre: "cas",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "Plataform",
-                nombre: "Plataform service",
-                estado: "consistente",
-                procentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "tools",
-                nombre: "tools & Framework",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-        ],
-        estado: "consistente",
-        porcentaje: 100,
-    },
-    {
-        fecha: new Date(),
-        _id: "ITL1",
-        nombre: "ITL1",
-        servicios: [
-            {
-                fecha: new Date(),
-                _id: "cas",
-                nombre: "cas",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "Plataform",
-                nombre: "Plataform service",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "tools",
-                nombre: "tools & Framework",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-        ],
-        estado: "consistente",
-        porcentaje: 100
-    }])
+
+db.endecamesmondrp.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea01",
+            nombre: "qroexahea01",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea01-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea01-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea01-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea01"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea01-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea01-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea01-Servicio-Tools-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea01"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea01"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea03",
+            nombre: "qroexahea03",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea03-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea03-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea03-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea02"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea03-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea03-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea03-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea02"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea03-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea03-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea03-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea02"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea02"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea04",
+            nombre: "qroexahea04",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea04-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea04-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea04-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea03"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea04-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea04-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea04-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea03"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea04-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea04-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea04-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea03"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea03"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea05",
+            nombre: "qroexahea05",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea05-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea05-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea05-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea04"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea05-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea05-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea05-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea04"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea05-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea05-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea05-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea04"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea04"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea06",
+            nombre: "qroexahea06",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea06-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea06-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea06-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea05"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea06-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea06-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea06-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea05"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea06-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea06-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea06-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea05"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea05"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea07",
+            nombre: "qroexahea07",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea07-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea07-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea07-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea06"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea07-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea07-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea07-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea06"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea07-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea07-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea07-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea06"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea06"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea08",
+            nombre: "qroexahea08",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea08-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea08-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea08-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea07"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea08-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea08-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea08-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea07"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea08-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea08-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea08-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea07"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea07"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea02",
+            nombre: "qroexahea02",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea02-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea02-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea02-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea08"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea02-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea02-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea02-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea08"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea02-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea02-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea02-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea08"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea08"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea11",
+            nombre: "qroexahea11",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea11-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea11-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea11-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea09"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea11-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea11-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea11-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea09"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea11-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea11-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea11-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea09"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea09"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea10",
+            nombre: "qroexahea10",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea10-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea10-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea10-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea10"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea10-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea10-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea10-Servicio-Tools-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea10"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea10"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea09",
+            nombre: "qroexahea09",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea09-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea09-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea09-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea11"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea09-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea09-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea09-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea11"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea09-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea09-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea09-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea11"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea11"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-qroexahea12",
+            nombre: "qroexahea12",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea12-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea12-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea12-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea12"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea12-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea12-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea12-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea12"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-qroexahea12-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea12-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-qroexahea12-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "mtyexapea12"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "mtyexapea12"
+        }
+    ])
 
 
 //--- Prd ------------------------------------------------
@@ -491,6 +1126,7 @@ db.ecommercemesmonprd.insert([
         estado: "consistente"
     }
 ])
+
 db.weblogicmesmonprd.insert([
     {
         fecha: new Date(),
@@ -517,6 +1153,7 @@ db.weblogicmesmonprd.insert([
         estado: "consistente"
     },
 ])
+
 db.weblogicserversmesmonprd.insert([
     {
         fecha: new Date(),
@@ -789,103 +1426,739 @@ db.weblogicserversmesmonprd.insert([
         estado: "RUNNING"
     }
 ])
-db.endecamesmonprd.insert([
-    {
-        fecha: new Date(),
-        _id: "Endeca1",
-        nombre: "Endeca1",
-        servicios: [
-            {
-                fecha: new Date(),
-                _id: "cas",
-                nombre: "cas",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    { _id: "log", nombre: "log", estado: "consistente" },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "Plataform",
-                nombre: "Plataform service",
-                estado: "consistente",
-                procentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "tools",
-                nombre: "tools & Framework",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-        ],
-        estado: "consistente",
-        porcentaje: 100,
-    },
-    {
-        fecha: new Date(),
-        _id: "ITL1",
-        nombre: "ITL1",
-        servicios: [
-            {
-                fecha: new Date(),
-                _id: "cas",
-                nombre: "cas",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "Plataform",
-                nombre: "Plataform service",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-            {
-                fecha: new Date(),
-                _id: "tools",
-                nombre: "tools & Framework",
-                estado: "consistente",
-                porcentaje: 100,
-                componentes: [
-                    {
-                        fecha: new Date(),
-                        _id: "log", nombre: "log", estado: "consistente"
-                    },
-                    { id: "port", nombre: "port", estado: "consistente" }
-                ]
-            },
-        ],
-        estado: "consistente",
-        porcentaje: 100
-    }])
+
+db.endecamesmonprd.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea01",
+            nombre: "mtyexapea01",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea01-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea01-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea01-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea01"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea01-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea01-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea01-Servicio-Tools-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea01"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea01"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea02",
+            nombre: "mtyexapea02",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea02-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea02-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea02-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea03"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea02-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea02-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea02-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea03"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea02-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea02-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea02-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea03"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea03"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea03",
+            nombre: "mtyexapea03",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea03-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea03-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea03-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea04"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea03-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea03-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea03-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea04"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea03-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea03-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea03-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea04"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea04"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea04",
+            nombre: "mtyexapea04",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea04-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea04-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea04-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea05"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea04-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea04-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea04-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea05"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea04-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea04-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea04-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea05"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea05"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea05",
+            nombre: "mtyexapea05",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea05-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea05-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea05-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea06"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea05-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea05-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea05-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea06"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea05-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea05-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea05-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea06"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea06"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea06",
+            nombre: "mtyexapea06",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea06-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea06-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea06-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea07"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea06-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea06-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea06-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea07"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea06-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea06-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea06-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea07"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea07"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea07",
+            nombre: "mtyexapea07",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea07-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea07-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea07-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea08"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea07-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea07-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea07-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea08"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea07-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea07-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea07-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea08"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea08"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea08",
+            nombre: "mtyexapea08",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea08-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea08-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea08-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea02"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea08-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea08-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea08-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea02"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea08-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea08-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea08-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea02"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea02"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea09",
+            nombre: "mtyexapea09",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea09-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea09-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea09-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea11"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea09-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea09-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea09-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea11"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea09-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea09-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea09-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea11"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea11"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea10",
+            nombre: "mtyexapea10",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea10-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea10-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea10-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea10"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea10-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea10-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea10-Servicio-Tools-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea10"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea10"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea11",
+            nombre: "mtyexapea11",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea11-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea11-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea11-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea09"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea11-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea11-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea11-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea09"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea11-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea11-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea11-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea09"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea09"
+        },
+        {
+            fecha: new Date(),
+            _id: "eCommerceMesaServidores-mtyexapea12",
+            nombre: "mtyexapea12",
+            servicios: [
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea12-Servicio-CAS",
+                    nombre: "CAS",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea12-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea12-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea12"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea12-Servicio-Platform",
+                    nombre: "Platform",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea12-Servicio-Platform-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea12-Servicio-Platform-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea12"
+                },
+                {
+                    fecha: new Date(),
+                    _id: "eCommerceMesaServidores-mtyexapea12-Servicio-Tools",
+                    nombre: "Tools",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    componentes: [
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea12-Servicio-Tools-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100
+                        },
+                        {
+                            fecha: new Date(),
+                            _id: "eCommerceMesaServidores-mtyexapea12-Servicio-Tools-Componente-Port", nombre: "port", estado: "consistente", porcentaje: 100
+                        }
+                    ],
+                    espejo: "qroexahea12"
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100,
+            espejo: "qroexahea12"
+        }
+    ])

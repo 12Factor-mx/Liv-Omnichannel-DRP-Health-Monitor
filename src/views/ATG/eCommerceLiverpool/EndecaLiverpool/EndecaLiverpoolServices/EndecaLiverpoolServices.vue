@@ -5,8 +5,11 @@
         <b-card  header="Endeca Liverpool Services">
             <b-row >
               <b-col  lg="6">
-                <p>
-                  <i class='fa fa-align-justify'></i> HA-PROD
+                <p v-if="env=='prd'">
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ prdserverprd }}
+                </p>
+                <p v-if="env=='drp'">
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ drpserverprd }}
                 </p>
                 <b-table :items="endecalmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="endecalmonprd">
@@ -23,11 +26,11 @@
                   </template>    
                   <template slot="nombre" slot-scope="endecalmonprd">
                    <div v-if="env=='prd'">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
+                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
                     <a v-else>  {{endecalmonprd.item.nombre}} </a>
                     </div>
                     <div v-if="env=='drp'">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
+                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
                     <a v-else>  {{endecalmonprd.item.nombre}} </a>
                     </div>                 
                     </template>      
@@ -35,9 +38,11 @@
 
               </b-col>
               <b-col lg="6">
-                <p>
-                  <i class='fa fa-align-justify'></i> HA-DRP
-                 
+                <p v-if="env=='prd'">
+                  <i class='fa fa-align-justify'></i> HA-DRP - {{ prdserverdrp }}
+                </p>
+                <p v-if="env=='drp'">
+                  <i class='fa fa-align-justify'></i> HA-DRP - {{ drpserverdrp }}
                 </p>
                 <b-table  :items="endecalmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
                   <template slot="estado" slot-scope="endecalmondrp">
@@ -54,11 +59,11 @@
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
                     <div v-if="env=='prd'">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
                     </div>
                     <div v-if="env=='drp'">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaServicesStatus-' + endecalmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
                     </div>
                   </template>      
