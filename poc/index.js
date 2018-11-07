@@ -1,14 +1,8 @@
+const axios = require("axios")
+
 const fileNameSplitter = require('./fileNameSplitter')
-const fs = require('fs');
-const path = './files'
-const csvtojsonV2 = require("csvtojson/v2");
-var res22 = new Array()
-var ress22 = []
-
-
-//const fileContentParser = require('./fileContenParser')
-
-const Parse = require('./fileContenParser')
+const fileContentParser = require('./fileContenParser')
+const asyncForEach = require("./asyncForEach")
 
 
 var optionsEndecaFileNameSplit = {
@@ -28,54 +22,120 @@ var optionsEndecaFileContentParser = {
         layout: [
             { column: "1", into: "Servicio"},
             { column: "2", into: "Puerto"},
-            { column: "3", into: "Estado puerto"},
-            { column: "4", into: "Estado log"}
+            { column: "3", into: "Componente_Port"},
+            { column: "4", into: "Componenete_Log"}
         ]
     }
 };
 
 var resultEndecaFileNameSplit = [];
-var resultEndecaFileContentParser = []
-
-const asyncForEach = async (array, callback) => {
-    for (let index = 0; index < array.length; index++) {
-        await callback(array[index], index, array)
-    }
-}
-
-const start = async (fls, pth) => {
-    var res = [];
-    await asyncForEach(fls, async (file)=> {
-        
-        await csvtojsonV2()
-            .fromFile(pth + "/" + file)
-            .then((jsonObj) => {
-                res = JSON.stringify(jsonObj)
-                //ress22[file] = new Object()
-                //res22.push(res)
-                //res22[file] = new Object(jsonObj);
-                //res22[new Object(file)] = new Object(jsonObj)
-                //console.log(jsonObj);
-                //console.log(res2);
-                //return res2
-
-            }, this)   
-        //ress22.push(file)
-        ress22[file] = res
-        res = []
-
-    },this)
+var resultEndecaFileContent = [];
+var collectionName
+var serverName = ""
+var collectionNameList = []
 
 
-}
 
-resultEndecaFileNameSplit = fileNameSplitter('./files', optionsEndecaFileNameSplit);
-console.log("Final result", resultEndecaFileNameSplit)
+fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((result) =>{
+    
+    resultEndecaFileNameSplit = result
+    
+    fileContentParser('./files').then((result) => {
+    
+        resultEndecaFileContent = result
 
-var files = fs.readdirSync(path);
+        {// arma el nombre de  de la colección
 
-start(files, './files').then(() => {
-    console.log(ress22)
-    console.log(JSON.stringify(ress22, undefined, 2))
+        var file = 0
+        asyncForEach(resultEndecaFileNameSplit, (item) => {
+
+            collectionName = item.parts[0].partName.substring(0, item.parts[0].partName.indexOf("_"))
+            for (var i = 0; i < item.parts.length; i++ )
+            {
+                if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "bussines")
+                {
+                    if (item.parts[i].partValue == 'LIV'){
+                        collectionName = collectionName + 'l' + "mon"    
+                    }else{
+                        collectionName = collectionName + item.parts[i].partValue + "mon"
+                    }
+                }
+                if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "env") {
+                    collectionName = collectionName + item.parts[i].partValue
+                } 
+                if(item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "server") {
+                    serverName = item.parts[i].partValue
+                }
+            }
+
+            collectionName = collectionName.toLowerCase();
+            console.log(collectionName)
+
+            console.log(resultEndecaFileContent[file])
+            var linesPerFile = resultEndecaFileContent.length
+     
+            for (var line = 0; line < linesPerFile ; line++)  
+            {
+                        
+                var record = resultEndecaFileContent[file].fileContent[line]    
+                var Servicio = ""
+                var Componente = ""
+                var Estado = ""
+
+                for (var property in record) {
+
+                    if (record.hasOwnProperty(property)) {
+
+                        var prop = property.substring(0, property.indexOf("_") <= 0 ? property.length : property.indexOf("_"))
+                   
+                        switch (prop) {
+                            case "Servicio":
+                                Servicio = record[property]
+                                break;
+                            case "Componente":
+                                Componente = property.split("_")[1]
+                                Estado = record[property]                                
+                                break;
+                            default:
+                            {
+                                ;
+                            }
+                                
+                        }
+                    }
+                }
+                var uri = 'http://localhost:9001/' + 
+                                                    collectionName + "/" + 
+                                                    serverName     + "/" + 
+                                                    Servicio       + "/" + 
+                                                    Componente
+                
+                axios.post(uri, {estado:Estado})
+                    .then(function (response) {
+                        console.log(response)
+                        file++
+                    }.bind(this))
+                    .catch(e => {
+                        console.log(e)
+                        file++
+                })    
+            }
+        })}
+ 
+    })
+
+    console.log("file name split result", result)
+    resultEndecaFileNameSplit.forEach((item, i) => {
+        var j = ++i
+        console.log(j + ") Para " + item.fileName + " el contenido es: " + JSON.stringify(item.parts, undefined, 2) + "\n")
+    })
+    console.log(resultEndecaFileNameSplit)
+    
+    console.log("file content result", JSON.stringify(result, undefined, 2))
+    resultEndecaFileContent.forEach((item, i) => {
+        var j = ++i
+        console.log(j + ") Para " + item.fileName + " el contenido es: " + JSON.stringify(item.fileContent, undefined, 2) + "\n")
+    })
+    console.log(resultEndecaFileContent)
 
 })

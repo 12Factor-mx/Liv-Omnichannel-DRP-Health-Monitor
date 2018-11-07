@@ -1,38 +1,72 @@
+
+const asyncForEach = require("./asyncForEach")
 const fs = require('fs');
-const csvtojsonV2 = require("csvtojson/v2");
+
+var responseFileNameSplited = []
+
 
 function fileNameSplitter(path, options) {
+    
+    var files = fs.readdirSync(path);
 
-    var files = fs.readdirSync(path);;
-    var res = splitFiles(files, options);
+    return splitFiles(files, options).then(()=>
+    {
+        return responseFileNameSplited
+    });
 
-    return res;
 }
 
-function splitFiles(files, options) {
-    var splitFileResult = []
-    var returningArray = [];
+async function slplitFileName(file, options){
+    var partsArray = [];
+    
+    return asyncForEach(options.parts, async (part) => {
+        if (part.end == "") {
+            splitedString = file.substring(part.start);
+        } else {
+            splitedString = file.substring(part.start, part.end);
+        }
 
-    files.forEach(function (file) {
+        var partObject = new Object()
+        partObject.partName = part.into
+        partObject.partValue = splitedString
+        partsArray.push(partObject)
 
-        options.parts.forEach(function (part) {
+        return partsArray
+
+    })
+
+}
+
+const splitFiles = async (files, options) => {
+
+    var partsArray = [];
+    var objectFiles = new Object()
+    objectFiles.files = new Array()
+
+    await asyncForEach(files, async (file) => 
+    {
+        await asyncForEach(options.parts, async (part) => 
+        {
             if (part.end == "") {
                 splitedString = file.substring(part.start);
             } else {
                 splitedString = file.substring(part.start, part.end);
             }
-            
-            splitFileResult[part.into] = splitedString
 
-        }, this);
+            var partObject = new Object()
+            partObject.partName = part.into
+            partObject.partValue = splitedString
+            partsArray.push(partObject)
 
-        returningArray[file] = splitFileResult;
-        splitFileResult = []
-
-    }, this);
-
-    return returningArray
+        })
+ 
+        var partsObject = new Object()
+        partsObject.fileName = file;
+        partsObject.parts = partsArray;
+        responseFileNameSplited.push(partsObject)
+        partsArray = []
+    })
 }
 
-module.exports = fileNameSplitter
-
+exports.fileNameSplitter = fileNameSplitter
+exports.slplitFileName = slplitFileName
