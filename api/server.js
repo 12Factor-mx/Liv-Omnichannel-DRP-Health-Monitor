@@ -45,6 +45,6 @@ require('./routes/endeca_routes.js')(app);
 
 
 // listen for requests
-app.listen(9001, () => {
+app.listen(9001,'0.0.0.0', () => {
     console.log("Server is listening on port 9001");
 });
