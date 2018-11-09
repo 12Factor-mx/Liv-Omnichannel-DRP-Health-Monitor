@@ -33,7 +33,9 @@ var resultEndecaFileContent = [];
 var collectionName
 var serverName = ""
 var collectionNameList = []
-
+var Servicio = ""
+var Componente = ""
+var Porcentaje = ""
 
 
 fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((result) =>{
@@ -73,14 +75,14 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
 
             console.log(resultEndecaFileContent[file])
             var linesPerFile = resultEndecaFileContent.length
+
+
      
             for (var line = 0; line < linesPerFile ; line++)  
             {
                         
                 var record = resultEndecaFileContent[file].fileContent[line]    
-                var Servicio = ""
-                var Componente = ""
-                var Estado = ""
+                
 
                 for (var property in record) {
 
@@ -94,7 +96,25 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
                                 break;
                             case "Componente":
                                 Componente = property.split("_")[1]
-                                Estado = record[property]                                
+                                Porcentaje = record[property]     
+                                
+                                var uri = 'http://localhost:9001/' +
+                                    collectionName + "/" +
+                                    serverName + "/" +
+                                    Servicio + "/" +
+                                    Componente
+
+                                console.log(uri + " " + Porcentaje)
+
+                                axios.post(uri, { "porcentaje": Porcentaje })
+                                    .then(function (response) {
+                                        console.log(response)
+                                        
+                                    }.bind(this))
+                                    .catch(e => {
+                                        console.log(e)
+                                        
+                                    })
                                 break;
                             default:
                             {
@@ -104,13 +124,14 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
                         }
                     }
                 }
-                var uri = 'http://localhost:9001/' + 
+                
+/*                 var uri = 'http://localhost:9001/' + 
                                                     collectionName + "/" + 
                                                     serverName     + "/" + 
                                                     Servicio       + "/" + 
                                                     Componente
                 
-                axios.post(uri, {estado:Estado})
+                axios.post(uri, {"porcentaje":Porcentaje})
                     .then(function (response) {
                         console.log(response)
                         file++
@@ -119,7 +140,8 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
                         console.log(e)
                         file++
                 })    
-            }
+ */            }
+            file++
         })}
  
     })
