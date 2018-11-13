@@ -68,7 +68,10 @@
 
 //import json1 from '../json/data.json'
 import axios from 'axios'; 
-import  {echo, extractBetween, extractBetweenDifferent} from '../../../../../../../src/utils/stringUtils.js' ;
+
+//import  {echo, extractBetween, extractBetweenDifferent} from './../../../../../../../src/utils/stringUtils.js' ;
+import  {echo, extractBetween, extractBetweenDifferent} from 'utils/stringUtils.js' ;
+
 
 
 const miliseconds = 10000;
@@ -166,7 +169,7 @@ export default {
 
       if(this.env == "drp")
       {
-        axios.get('http://localhost:9001/endecalmondrp/' + this.server + "/" + this.service).then(function (responsedrp)
+        axios.get('http://172.16.202.72/endecalmondrp/' + this.server + "/" + this.service).then(function (responsedrp)
         {
            //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
            this.endecalmondrp = responsedrp.data[0].servicios[0].componentes
@@ -177,7 +180,7 @@ export default {
            this.drpserviceprd = this.service
             console.log('Viniendo de drp: ' + this.server + ' ' + responsedrp.data.espejo);
            //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
-            axios.get('http://localhost:9001/endecalmonprd/' + espejo + "/" + this.service).then(function (responseprd)
+            axios.get('http://172.16.202.72/endecalmonprd/' + espejo + "/" + this.service).then(function (responseprd)
             {
               //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
               //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
@@ -201,7 +204,7 @@ export default {
       else if (this.env == "prd")
       {
         
-        axios.get('http://localhost:9001/endecalmonprd/' + this.server + "/" + this.service).then(function (responseprd)
+        axios.get('http://172.16.202.72/endecalmonprd/' + this.server + "/" + this.service).then(function (responseprd)
         {
            //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
            this.endecalmonprd = responseprd.data[0].servicios[0].componentes
@@ -211,7 +214,7 @@ export default {
            this.prdservicedrp = this.service
            this.prdserviceprd = this.service
            //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
-            axios.get('http://localhost:9001/endecalmondrp/' + espejo + "/" + this.service).then(function (responsedrp)
+            axios.get('http://172.16.202.72/endecalmondrp/' + espejo + "/" + this.service).then(function (responsedrp)
             {
               //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
               //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))

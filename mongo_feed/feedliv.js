@@ -4,12 +4,19 @@ db.ecommercelmondrp.drop()
 db.weblogiclmondrp.drop()
 db.weblogicserverslmondrp.drop()
 db.endecalmondrp.drop()
+db.originlmondrp.drop()
 
 db.ecommercelmondrp.insert([
     {
         fecha: new Date(),
         _id: "WebLogicLiverpool",
         nombre: "WebLogic Liverpool",
+        estado: "consistente"
+    },
+    {
+        fecha: new Date(),
+        _id: "OriginLiverpool",
+        nombre: "Origenes Liverpool",
         estado: "consistente"
     },
     {
@@ -201,17 +208,17 @@ db.weblogicserverslmondrp.insert([
     {
         _id: "Store-01",
         nombre: "Store-01",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         _id: "Store-02",
         nombre: "Store-02",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         _id: "Store-03",
         nombre: "Store-03",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),
@@ -427,6 +434,7 @@ db.weblogicserverslmondrp.insert([
 
 db.endecalmondrp.insert(
     [
+
         {fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea01(172.16.212.154)",nombre: "qroexahea01(172.16.212.154)",servicios: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea01(172.16.212.154)-Servicio-ITL",nombre: "ITL",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea01(172.16.212.154)-Servicio-ITL-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea01(172.16.212.154)-Servicio-ITL-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea01(172.17.212.131)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea01(172.17.212.131)"}
         ,
         {fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea03(172.16.212.147)",nombre: "qroexahea03(172.16.212.147)",servicios: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea03(172.16.212.147)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea03(172.16.212.147)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea03(172.16.212.147)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea02(172.17.212.132)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea02(172.17.212.132)"}
@@ -446,6 +454,33 @@ db.endecalmondrp.insert(
         {fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea09(172.16.212.153)",nombre: "qroexahea09(172.16.212.153)",servicios: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea09(172.16.212.153)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea09(172.16.212.153)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceLiverpoolServidores-qroexahea09(172.16.212.153)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea11(172.17.212.129)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea11(172.17.212.129)"}
     ])
 
+db.originlmondrp.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "OriginLiverpool",
+            nombre: "Origin",
+            origins: [
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenA",
+                    nombre: "OrigenA",
+                    estado: "consistente",
+                    porcentaje: 100,
+                },
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenB",
+                    nombre: "OrigenB",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100
+        },
+    ])
 
 //--- Prd ------------------------------------------------
 
@@ -453,12 +488,19 @@ db.ecommercelmonprd.drop()
 db.weblogiclmonprd.drop()
 db.weblogicserverslmonprd.drop()
 db.endecalmonprd.drop()
+db.originlmonprd.drop()
 
 db.ecommercelmonprd.insert([
     {
         fecha: new Date(),
         _id: "WebLogicLiverpool",
         nombre: "WebLogic Liverpool",
+        estado: "consistente"
+    },
+    {
+        fecha: new Date(),
+        _id: "OriginLiverpool",
+        nombre: "Origenes Liverpool",
         estado: "consistente"
     },
     {
@@ -649,21 +691,21 @@ db.weblogicserverslmonprd.insert([
     },
     {
         fecha: new Date(),
-        _id: "Store-01",
+        _id: "Store01",
         nombre: "Store-01",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),
-        _id: "Store-02",
+        _id: "Store02",
         nombre: "Store-02",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),
-        _id: "Store-03",
+        _id: "Store03",
         nombre: "Store-03",
-        estado: "RUNNING"
+        estado: "consistente"
     },
     {
         fecha: new Date(),
@@ -897,4 +939,32 @@ db.endecalmonprd.insert(
         ,
         {fecha: new Date(),_id: "eCommerceLiverpoolServidores-mtyexapea11(172.17.212.129)",nombre: "mtyexapea11(172.17.212.129)",servicios: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-mtyexapea11(172.17.212.129)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceLiverpoolServidores-mtyexapea11(172.17.212.129)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceLiverpoolServidores-mtyexapea11(172.17.212.129)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea09(172.16.212.153)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea09(172.16.212.153)"}
     ])
-    
+
+db.originlmonprd.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "OriginLiverpool",
+            nombre: "Origin",
+            origins: [
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenA",
+                    nombre: "Origen1A",
+                    estado: "consistente",
+                    porcentaje: 100,
+                },
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenB",
+                    nombre: "OrigenB",
+                    estado: "consistente",
+                    porcentaje: 100,
+
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100
+        },
+    ])
+

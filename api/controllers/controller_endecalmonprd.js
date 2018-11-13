@@ -45,6 +45,27 @@ exports.findOneServerService = (req, res) => {
         });
 };
 
+exports.updateOneServerService = (req, res) => {
+
+    var server = req.params.endecalmonprdserver
+    var service = req.params.endecalmonprdserverservice
+    var component = req.params.endecalmonprdserverscomponent
+    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
+    var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    var porcentaje = req.body.porcentaje
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
+        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } },
+        { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
+        .then(endecalmonprd => {
+            res.send(endecalmonprd);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmonprd."
+            });
+        });
+};
 exports.update = (req, res) => {
     Endecalmonprd.findByIdAndUpdate(req.params.endecalmonprdId, req.body, {new: true })
         .then(Endecalmonprd => {

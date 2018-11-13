@@ -5,6 +5,7 @@ module.exports = (app) => {
     app.get( '/endecalmondrp', endecalmondrp.findAll);
     app.get('/endecalmondrp/:endecalmondrpserver', endecalmondrp.findOneServer);
     app.get('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice', endecalmondrp.findOneServerService);
+    app.post('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice/:endecalmondrpserverscomponent', endecalmondrp.updateOneServerService);
     app.post('/endecalmondrp/updateparents', endecalmondrp.updateParents)
     app.put('/endecalmondrp/:endecalmondrpId', endecalmondrp.update);
 
@@ -13,6 +14,7 @@ module.exports = (app) => {
     app.get('/endecalmonprd/:endecalmonprdserver', endecalmonprd.findOneServer);
     app.get('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice', endecalmonprd.findOneServerService);
     app.post('/endecalmonprd/updateparents', endecalmonprd.updateParents)
+    app.post('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice/:endecalmonprdserverscomponent', endecalmonprd.updateOneServerService);
     app.put('/endecalmonprd/:endecalmonprdId', endecalmonprd.update);
 
     const endecamulmondrp = require('../controllers/controller_endecamulmondrp.js');

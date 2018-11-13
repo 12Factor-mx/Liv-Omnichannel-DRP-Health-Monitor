@@ -82,7 +82,10 @@
 
 //import json1 from '../json/data.json'
 import axios from 'axios'; 
-import  {echo, extractBetween, extractBetweenDifferent} from '../../../../../../src/utils/stringUtils.js' ;
+
+//import  {echo, extractBetween, extractBetweenDifferent} from './../../../../../utils/stringUtils.js' ;
+import  {echo, extractBetween, extractBetweenDifferent} from 'utils/stringUtils.js' ;
+
 //import Vue from 'vue';
 
 const miliseconds = 10000;
@@ -186,14 +189,14 @@ export default {
 
       if(this.env == "drp")
       {
-        axios.get('http://localhost:9001/endecalmondrp/' + this.server).then(function (responsedrp)
+        axios.get('http://172.16.202.72/endecalmondrp/' + this.server).then(function (responsedrp)
         {
            console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
            this.endecalmondrp = responsedrp.data.servicios
            this.drpserverdrp = this.server
            this.drpserverprd = responsedrp.data.espejo
 
-            axios.get('http://localhost:9001/endecalmonprd/' + responsedrp.data.espejo).then(function (responseprd)
+            axios.get('http://172.16.202.72/endecalmonprd/' + responsedrp.data.espejo).then(function (responseprd)
             {
               console.log("res prd: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
               this.endecalmonprd = responseprd.data.servicios
@@ -213,14 +216,14 @@ export default {
       }
       else if (this.env == "prd")
       {
-        axios.get('http://localhost:9001/endecalmonprd/' + this.server).then(function (responseprd)
+        axios.get('http://172.16.202.72/endecalmonprd/' + this.server).then(function (responseprd)
         {
            console.log("res prd: " + JSON.stringify(responseprd.data.servicios, undefined,2))
            this.endecalmonprd = responseprd.data.servicios
            this.prdserverprd = this.server
            this.prdserverdrp = responseprd.data.espejo
 
-            axios.get('http://localhost:9001/endecalmondrp/' + responseprd.data.espejo).then(function (responsedrp)
+            axios.get('http://172.16.202.72/endecalmondrp/' + responseprd.data.espejo).then(function (responsedrp)
             {
               console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
               this.endecalmondrp = responsedrp.data.servicios

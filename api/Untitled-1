@@ -1,0 +1,1 @@
+find . -type f -exec \sed -i 's/localhost:9009/172.16.202.72/g' {} +
