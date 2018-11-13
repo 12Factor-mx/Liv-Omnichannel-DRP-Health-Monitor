@@ -4,12 +4,19 @@ db.ecommercelmondrp.drop()
 db.weblogiclmondrp.drop()
 db.weblogicserverslmondrp.drop()
 db.endecalmondrp.drop()
+db.originlmondrp.drop()
 
 db.ecommercelmondrp.insert([
     {
         fecha: new Date(),
         _id: "WebLogicLiverpool",
         nombre: "WebLogic Liverpool",
+        estado: "consistente"
+    },
+    {
+        fecha: new Date(),
+        _id: "OriginLiverpool",
+        nombre: "Origenes Liverpool",
         estado: "consistente"
     },
     {
@@ -1161,6 +1168,33 @@ db.endecalmondrp.insert(
         }
     ])
 
+db.originlmondrp.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "OriginLiverpool",
+            nombre: "Origin",
+            origins: [
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenA",
+                    nombre: "OrigenA",
+                    estado: "consistente",
+                    porcentaje: 100,
+                },
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenB",
+                    nombre: "OrigenB",
+                    estado: "consistente",
+                    porcentaje: 100,
+                    
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100
+        },
+    ])
 
 //--- Prd ------------------------------------------------
 
@@ -1168,12 +1202,19 @@ db.ecommercelmonprd.drop()
 db.weblogiclmonprd.drop()
 db.weblogicserverslmonprd.drop()
 db.endecalmonprd.drop()
+db.originlmonprd.drop()
 
 db.ecommercelmonprd.insert([
     {
         fecha: new Date(),
         _id: "WebLogicLiverpool",
         nombre: "WebLogic Liverpool",
+        estado: "consistente"
+    },
+    {
+        fecha: new Date(),
+        _id: "OriginLiverpool",
+        nombre: "Origenes Liverpool",
         estado: "consistente"
     },
     {
@@ -2327,3 +2368,32 @@ db.endecalmonprd.insert(
             espejo: "qroexahea12"
         }
     ])
+
+db.originlmonprd.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "OriginLiverpool",
+            nombre: "Origin",
+            origins: [
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenA",
+                    nombre: "Origen1A",
+                    estado: "consistente",
+                    porcentaje: 100,
+                },
+                {
+                    fecha: new Date(),
+                    _id: "OriginLiverpool-OrigenB",
+                    nombre: "OrigenB",
+                    estado: "consistente",
+                    porcentaje: 100,
+
+                },
+            ],
+            estado: "consistente",
+            porcentaje: 100
+        },
+    ])
+
