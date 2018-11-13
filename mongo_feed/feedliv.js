@@ -950,7 +950,7 @@ db.originlmonprd.insert(
                 {
                     fecha: new Date(),
                     _id: "OriginLiverpool-OrigenA",
-                    nombre: "Origen1A",
+                    nombre: "OrigenA",
                     estado: "consistente",
                     porcentaje: 100,
                 },

@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Origenes Liverpool xyz">
+        <b-card  header="Origenes Liverpool">
             <b-row >
               <b-col  lg="6">
                 <p>
@@ -17,9 +17,6 @@
                   </template> 
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
-                  </template>
-                   <template slot="percentage" slot-scope="originlmonprd">
-                    {{formatPercentage(originlmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="originlmonprd">
                      <a>  {{originlmonprd.item.nombre}} </a>
@@ -40,9 +37,6 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="originlmondrp">
-                    {{formatPercentage(originlmondrp.item.percentage)}}
-                  </template>    
                   <template slot="nombre" slot-scope="originlmondrp">
                     <a >  {{originlmondrp.item.nombre}} </a>
                   </template>      
@@ -70,7 +64,6 @@ export default {
   data: function () {
     return {  
 
-      rootmonprd: [],
       originlmondrp: [],
       originlmonprd: [],
       timer: [],
@@ -80,7 +73,6 @@ export default {
         { key: "nombre" },
         { key: "estado" },
         { key: "fecha", label: "Fecha Registro" },
-        { key: "percentage", label: "% Consistencia" },
         'Fecha Consulta',
       ]
    } 
@@ -88,21 +80,6 @@ export default {
 
   methods: {
     
-    formatPercentage(value) {
-
-      var ret= value;
-
-       if (typeof ret == "undefined") {
-        //value = new Date()
-        ret = 0;
-      }
-
-      ret = Math.round(ret * 100) / 100
-
-       return ret + " %";
-    },
-
-
     formatDate(value) {
       var str = "";
       if (typeof value == "undefined") {
@@ -129,19 +106,6 @@ export default {
       this.fechaConsulta = new Date();
       this.loading = true;
 
-      // this.allLots = json1;
-      
-      /* axios.get('http://localhost:9001/rootmondrp')
-      .then(response => {
-         this.loading = false;
-         // JSON responses are automatically parsed.
-         this.rootmondrp1 = response.data;
-      })
-      .catch(e => {
-        this.loading = false;
-        this.errors.push(e)
-      }) */
-
      axios.get('http://localhost:9001/originlmondrp')
      .then(function (response) {
        this.loading = false;
@@ -164,7 +128,6 @@ export default {
 
     getBadge(status) {
       return status === "consistente"   ? "success": 
-             status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
              status === "inconsistente" ? "danger" : 
                                       "primary";

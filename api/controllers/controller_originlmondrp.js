@@ -17,7 +17,19 @@ exports.findAll = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    Originlmondrp.findByIdAndUpdate(req.params.originlmondrpId, req.body, { new: true })
+
+    var originId = req.params.originlmondrpId
+    var originName = req.params.originlmondrpName
+    var estado = req.body.estado
+    Originlmondrp.update(
+
+        { _id: originId },
+
+        { $set: { "origins.$[o].estado": estado } },
+
+        { arrayFilters: [{ "o.nombre": originName}] }
+
+    )
         .then(Originlmondrp => {
             if (!Originlmondrp) {
                 return res.status(404).send({
@@ -41,7 +53,7 @@ exports.update = (req, res) => {
 
 exports.updateParents = (req, res) => {
 
-    getWebLogicLMonDrpStatus().then((response) => {
+    getOriginLMonDrpStatus().then((response) => {
 
         const originStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
@@ -54,7 +66,7 @@ exports.updateParents = (req, res) => {
         percentage = (consistente / inconsistente) * 100;
 
 
-        req.body.nombre = "WebLogic";
+        req.body.nombre = "Origin";
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
         req.body.percentage = percentage.toString();
@@ -83,7 +95,7 @@ exports.updateParents = (req, res) => {
 
 };
 
-const getWebLogicLMonDrpStatus = () => {
+const getOriginLMonDrpStatus = () => {
     return axios.get('http://localhost:9001/originlmondrp')
         .then((response) => {
             console.log(" get http://localhost:9001/originlmondrp result : \n" + JSON.stringify(response.data, undefined, 2));

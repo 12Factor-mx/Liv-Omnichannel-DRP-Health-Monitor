@@ -17,18 +17,9 @@ var originlmondrpSchema = new Schema(
         fecha: {
             type: 'Date'
         },
-        running: {
-            type: 'Number'
-        },
-        noRunning: {
-            type: 'Number'
-        },
-        percentage: {
-            type: 'Number'
-        },
-        estadoDestalle: {
+        origins: {
             type: 'Mixed'
-        }
+        },
     }
 
 );

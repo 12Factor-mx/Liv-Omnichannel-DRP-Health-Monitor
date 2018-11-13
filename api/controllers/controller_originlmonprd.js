@@ -1,39 +1,39 @@
 
 const
-    Originlmondrp = require('../model/originlmondrp.js');
+    Originlmonprd = require('../model/originlmonprd.js');
 
 const axios = require('axios');
 
 
 exports.findAll = (req, res) => {
-    Originlmondrp.find()
-        .then(originlmondrp => {
-            res.send(originlmondrp);
+    Originlmonprd.find()
+        .then(originlmonprd => {
+            res.send(originlmonprd);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Error recuperando originlmondrp."
+                message: err.message || "Error recuperando originlmonprd."
             });
         });
 };
 
 exports.update = (req, res) => {
-    Originlmondrp.findByIdAndUpdate(req.params.originlmondrpId, req.body, { new: true })
-        .then(Originlmondrp => {
-            if (!Originlmondrp) {
+    Originlmonprd.findByIdAndUpdate(req.params.originlmonprdId, req.body, { new: true })
+        .then(Originlmonprd => {
+            if (!Originlmonprd) {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.originlmondrpId
+                    message: "Note not found with id " + req.params.originlmonprdId
                 });
             }
-            res.send(Originlmondrp);
+            res.send(Originlmonprd);
         })
         .catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.originlmondrpId
+                    message: "Note not found with id " + req.params.originlmonprdId
                 });
             }
             return res.status(500).send({
-                message: "Error updating note with id " + req.params.originlmondrpId
+                message: "Error updating note with id " + req.params.originlmonprdId
             })
         })
 }
@@ -84,9 +84,9 @@ exports.updateParents = (req, res) => {
 };
 
 const getWebLogicLMonDrpStatus = () => {
-    return axios.get('http://localhost:9001/originlmondrp')
+    return axios.get('http://localhost:9001/originlmonprd')
         .then((response) => {
-            console.log(" get http://localhost:9001/originlmondrp result : \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" get http://localhost:9001/originlmonprd result : \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {
@@ -96,9 +96,9 @@ const getWebLogicLMonDrpStatus = () => {
 }
 
 const updateeCommerceLMonDrpStatus = (body) => {
-    return axios.put('http://localhost:9001/ecommercelmondrp/WebLogic', body)
+    return axios.put('http://localhost:9001/ecommercelmonprd/WebLogic', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/ecommercelmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/ecommercelmonprd/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

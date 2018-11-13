@@ -19,7 +19,8 @@ var weblogicserversmulmonprdSchema = new Schema(
         },
         status: {
             type: 'String'
-        }
+        },
+        
     }
 
 );
