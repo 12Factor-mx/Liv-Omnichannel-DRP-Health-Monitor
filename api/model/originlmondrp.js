@@ -20,6 +20,19 @@ var originlmondrpSchema = new Schema(
         origins: {
             type: 'Mixed'
         },
+        consistente: {
+            type: 'Number'
+        },
+        inconsistente: {
+            type: 'Number'
+        },
+        percentage: {
+            type: 'Number'
+        },
+        estadoDestalle: {
+            type: 'Mixed'
+        }
+
     }
 
 );

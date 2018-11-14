@@ -4,19 +4,22 @@ module.exports = (app) => {
     const originlmondrp = require('../controllers/controller_originlmondrp.js');
     app.get( '/originlmondrp', originlmondrp.findAll);
     app.put('/originlmondrp/:originlmondrpId/:originlmondrpName', originlmondrp.update);
+    app.put('/originlmondrp/upadateroot', originlmondrp.updateRoot);
+    app.post('/originlmondrp/updateparents', originlmondrp.updateParents)
     /* app.get('/originlmondrp/:originlmondrpserver', originlmondrp.findOneServer);
     app.get('/originlmondrp/:originlmondrpserver/:originlmondrpserverservice', originlmondrp.findOneServerService);
-    app.post('/originlmondrp/:originlmondrpserver/:originlmondrpserverservice/:originlmondrpserverscomponent', originlmondrp.updateOneServerService);
-    app.post('/originlmondrp/updateparents', originlmondrp.updateParents)
-     */
+    app.post('/originlmondrp/:originlmondrpserver/:originlmondrpserverservice/:originlmondrpserverscomponent', originlmondrp.updateOneServerService);*/
+   
+     
 
 
     const originlmonprd = require('../controllers/controller_originlmonprd.js');
     app.get('/originlmonprd', originlmonprd.findAll);
     app.put('/originlmonprd/:originlmonprdId/:originlmonprdName', originlmonprd.update);
+  //  app.put('/originlmonprd/upadateroot', originlmonprd.updateRoot);
+    app.post('/originlmonprd/updateparents', originlmonprd.updateParents)
     /* app.get('/originlmonprd/:originlmonprdserver', originlmonprd.findOneServer);
     app.get('/originlmonprd/:originlmonprdserver/:originlmonprdserverservice', originlmonprd.findOneServerService);
-    app.post('/originlmonprd/updateparents', originlmonprd.updateParents)
     app.post('/originlmonprd/:originlmonprdserver/:originlmonprdserverservice/:originlmonprdserverscomponent', originlmonprd.updateOneServerService);
     */
 

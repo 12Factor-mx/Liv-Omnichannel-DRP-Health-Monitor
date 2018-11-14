@@ -56,7 +56,7 @@ exports.updateOneServerService = (req, res) => {
     //var queryObject = JSON.parse(queryString)   
 
     Endecalmondrp.update({ "_id": "eCommerceLiverpoolServidores-" + server}, 
-                         { $set: {"origins.$[s].componentes.$[c].porcentaje":porcentaje}},
+                         { $set: {"servicios.$[s].componentes.$[c].porcentaje":porcentaje}},
                          { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }] , new:true})
         .then(endecalmondrp => {
             res.send(endecalmondrp);

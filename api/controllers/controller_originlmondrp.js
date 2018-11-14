@@ -1,6 +1,7 @@
 
 const
     Originlmondrp = require('../model/originlmondrp.js');
+    ECommercelmondrp = require('../model/ecommercelmondrp')
 
 const axios = require('axios');
 
@@ -51,6 +52,37 @@ exports.update = (req, res) => {
 }
 
 
+exports.updateRoot = (req, res) => {
+
+
+    ECommercelmondrp.findByIdAndUpdate(
+
+        { _id:"OriginLiverpool"}, req.body, { new: true }
+
+    )
+        .then(Originlmondrp => {
+            if (!Originlmondrp) {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.originlmondrpId
+                });
+            }
+            res.send(Originlmondrp);
+        })
+        .catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Note not found with id " + req.params.originlmondrpId
+                });
+            }
+            return res.status(500).send({
+                message: "Error updating note with id " + req.params.originlmondrpId
+            })
+        })
+}
+
+
+
+
 exports.updateParents = (req, res) => {
 
     getOriginLMonDrpStatus().then((response) => {
@@ -63,10 +95,10 @@ exports.updateParents = (req, res) => {
         consistente = parseInt(originStatusTotals["consistente"]);
         consistente = (isNaN(consistente) ? 0 : consistente)
         inconsistente = response.length - consistente;
-        percentage = (consistente / inconsistente) * 100;
+        inconsistente == 0 ? percentage = 100 : percentage = (consistente / inconsistente) * 100;
 
 
-        req.body.nombre = "Origin";
+       // req.body.nombre = "Origin";
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
         req.body.percentage = percentage.toString();
@@ -76,7 +108,7 @@ exports.updateParents = (req, res) => {
 
         /*----------------------------------------------------------------------*/
 
-        updateeCommerceLMonDrpStatus(req.body).then((response) => {
+        updateOriginLMonDrpStatus(req.body).then((response) => {
 
             return res.send(response);
 
@@ -95,6 +127,7 @@ exports.updateParents = (req, res) => {
 
 };
 
+
 const getOriginLMonDrpStatus = () => {
     return axios.get('http://localhost:9001/originlmondrp')
         .then((response) => {
@@ -107,10 +140,10 @@ const getOriginLMonDrpStatus = () => {
         })
 }
 
-const updateeCommerceLMonDrpStatus = (body) => {
-    return axios.put('http://localhost:9001/ecommercelmondrp/WebLogic', body)
+const updateOriginLMonDrpStatus = (body) => {
+    return axios.put('http://localhost:9001/originlmondrp/upadateroot', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/ecommercelmondrp/WebLogic result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/originlmondrp/upadateroot result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {
