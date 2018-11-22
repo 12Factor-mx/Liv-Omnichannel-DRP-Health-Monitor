@@ -1,9 +1,6 @@
 
-const
-    Endecalmondrp = require('../model/endecalmondrp.js');
-
+const Endecalmondrp = require('../model/endecalmondrp.js');
 const axios = require('axios');
-
 
 exports.findAll = (req, res) => {
     Endecalmondrp.find()
@@ -45,28 +42,6 @@ exports.findOneServerService = (req, res) => {
         });
 };
 
-exports.updateOneServerService = (req, res) => {
-
-    var server = req.params.endecalmondrpserver
-    var service = req.params.endecalmondrpserverservice
-    var component = req.params.endecalmondrpserverscomponent
-    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
-    var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
-    var porcentaje = req.body.porcentaje
-    //var queryObject = JSON.parse(queryString)   
-
-    Endecalmondrp.update({ "_id": "eCommerceLiverpoolServidores-" + server}, 
-                         { $set: {"servicios.$[s].componentes.$[c].porcentaje":porcentaje}},
-                         { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }] , new:true})
-        .then(endecalmondrp => {
-            res.send(endecalmondrp);
-        }).catch(err => {
-            res.status(500).send({
-                message: err.message || "Error recuperando endecalmondrp."
-            });
-        });
-};
-
 exports.update = (req, res) => {
     Endecalmondrp.findByIdAndUpdate(req.params.endecalmondrpId, req.body, {new: true })
         .then(Endecalmondrp => {
@@ -89,6 +64,80 @@ exports.update = (req, res) => {
         });
 };
 
+exports.updateOneServer= (req, res) => {
+
+    var server = req.params.endecalmondrpserver
+    //var service = req.params.endecalmondrpserverservice
+    //var component = req.params.endecalmondrpserverscomponent
+    var queryfield = server 
+    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmondrp.update({ "_id": "eCommerceLiverpoolServidores-" + server },
+        {
+            $set: {
+                "porcentaje": porcentaje,
+                "estado": estado
+            }
+        },
+        {new: true })
+        .then(endecalmondrp => {
+            res.send(endecalmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmondrp."
+            });
+        });
+};
+
+exports.updateOneServerService = (req, res) => {
+
+    var server = req.params.endecalmondrpserver
+    var service = req.params.endecalmondrpserverservice
+    //var component = req.params.endecalmondrpserverscomponent
+    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service
+    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmondrp.update({ "_id": "eCommerceLiverpoolServidores-" + server}, 
+                         { $set: { "servicios.$[s].porcentaje": porcentaje, 
+                                   "servicios.$[s].estado": estado } },
+                         { arrayFilters: [{ "s.nombre": service }] , new:true})
+        .then(endecalmondrp => {
+            res.send(endecalmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmondrp."
+            });
+        });
+};
+
+exports.updateOneServerServiceComponent = (req, res) => {
+
+    var server = req.params.endecalmondrpserver
+    var service = req.params.endecalmondrpserverservice
+    var component = req.params.endecalmondrpserverscomponent
+    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
+    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    var porcentaje = req.body.porcentaje
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmondrp.update({ "_id": "eCommerceLiverpoolServidores-" + server },
+        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } },
+        { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
+        .then(endecalmondrp => {
+            res.send(endecalmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmondrp."
+            });
+        });
+};
+
 exports.updateParents = (req, res) => {
 
     getEndecaLMonDrpStatus().then((response) => {
@@ -101,10 +150,11 @@ exports.updateParents = (req, res) => {
         consistente = parseInt(endecaStatusTotals["consistente"]);
         consistente = (isNaN(consistente) ? 0 : consistente)
         inconsistente = response.length - consistente;
-        percentage = (consistente / inconsistente) * 100;
+        inconsistente == 0 ? percentage = 100 : percentage = (consistente / inconsistente) * 100;
 
 
-        req.body.nombre = "XXXXXXXXXXXXXXXXX endeca ";
+
+        req.body.nombre = response.nombre;
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
         req.body.percentage = percentage.toString();
@@ -130,7 +180,6 @@ exports.updateParents = (req, res) => {
             message: "Error getting endeca " + e
         });
     })
-
 };
 
 const getEndecaLMonDrpStatus = () => {
@@ -146,9 +195,9 @@ const getEndecaLMonDrpStatus = () => {
 }
 
 const updateEndecaLMonDrpStatus = (body) => {
-    return axios.put('http://localhost:9001/endecalmondrp/endeca', body)
+    return axios.put('http://localhost:9001/endecalmondrp/EndecaLiverpool', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/endecalmondrp/endeca result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/endecalmondrp/EndecaLiverpool result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

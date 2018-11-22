@@ -1,21 +1,49 @@
 module.exports = (app) => {
 
-                                                  
-    const endecalmondrp = require('../controllers/controller_endecalmondrp.js');
-    app.get( '/endecalmondrp', endecalmondrp.findAll);
-    app.get('/endecalmondrp/:endecalmondrpserver', endecalmondrp.findOneServer);
-    app.get('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice', endecalmondrp.findOneServerService);
-    app.post('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice/:endecalmondrpserverscomponent', endecalmondrp.updateOneServerService);
-    app.post('/endecalmondrp/updateparents', endecalmondrp.updateParents)
-    app.put('/endecalmondrp/:endecalmondrpId', endecalmondrp.update);
+    /***
+     * ---------------------------------------------------
+     * Endeca Liverpool DRP
+     * ---------------------------------------------------
+     *  */   
+    {                                           
+        const endecalmondrp = require('../controllers/controller_endecalmondrp.js');
+        // get all 
+        app.get( '/endecalmondrp', endecalmondrp.findAll);
+        // get, and update one endeca server
+        app.get('/endecalmondrp/:endecalmondrpserver', endecalmondrp.findOneServer);
+        app.post('/endecalmondrp/:endecalmondrpserver', endecalmondrp.updateOneServer);
+        // get, and update one endeca server/service
+        app.get('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice', endecalmondrp.findOneServerService);
+        app.post('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice', endecalmondrp.updateOneServerService);
+        // update one  endeca server/service/component
+        app.post('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice/:endecalmondrpserverscomponent', endecalmondrp.updateOneServerServiceComponent);   
+        // misc
+        app.post('/endecalmondrp/updateparents', endecalmondrp.updateParents)
+        app.put('/endecalmondrp/:endecalmondrpId', endecalmondrp.update);
+    }
 
-    const endecalmonprd = require('../controllers/controller_endecalmonprd.js');
-    app.get('/endecalmonprd', endecalmonprd.findAll);
-    app.get('/endecalmonprd/:endecalmonprdserver', endecalmonprd.findOneServer);
-    app.get('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice', endecalmonprd.findOneServerService);
-    app.post('/endecalmonprd/updateparents', endecalmonprd.updateParents)
-    app.post('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice/:endecalmonprdserverscomponent', endecalmonprd.updateOneServerService);
-    app.put('/endecalmonprd/:endecalmonprdId', endecalmonprd.update);
+    /***
+     * ----------------------------------------------------
+     * Endeca Liverpool PRD
+     * ----------------------------------------------------
+     *  */
+    {
+        const endecalmonprd = require('../controllers/controller_endecalmonprd.js');
+        // get all 
+        app.get('/endecalmonprd', endecalmonprd.findAll);
+        // get, and update one endeca server
+        app.get('/endecalmonprd/:endecalmonprdserver', endecalmonprd.findOneServer);
+        app.post('/endecalmonprd/:endecalmonprdserver', endecalmonprd.updateOneServer);
+        // get, and update one endeca server/service
+        app.get('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice', endecalmonprd.findOneServerService);
+        app.post('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice', endecalmonprd.updateOneServerService);
+        // update one  endeca server/service/component
+        app.post('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice/:endecalmonprdserverscomponent', endecalmonprd.updateOneServerServiceComponent);
+        // misc
+        app.post('/endecalmonprd/updateparents', endecalmonprd.updateParents)
+        app.put('/endecalmonprd/:endecalmonprdId', endecalmonprd.update);
+    }
+
 
     const endecamulmondrp = require('../controllers/controller_endecamulmondrp.js');
     app.get( '/endecamulmondrp', endecamulmondrp.findAll);

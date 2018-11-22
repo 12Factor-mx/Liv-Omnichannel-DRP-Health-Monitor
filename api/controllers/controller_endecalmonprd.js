@@ -1,9 +1,6 @@
 
-const
-    Endecalmonprd = require('../model/endecalmonprd.js');
-
+const Endecalmonprd = require('../model/endecalmonprd.js');
 const axios = require('axios');
-
 
 exports.findAll = (req, res) => {
     Endecalmonprd.find()
@@ -45,27 +42,6 @@ exports.findOneServerService = (req, res) => {
         });
 };
 
-exports.updateOneServerService = (req, res) => {
-
-    var server = req.params.endecalmonprdserver
-    var service = req.params.endecalmonprdserverservice
-    var component = req.params.endecalmonprdserverscomponent
-    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
-    var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
-    var porcentaje = req.body.porcentaje
-    //var queryObject = JSON.parse(queryString)   
-
-    Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
-        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } },
-        { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
-        .then(endecalmonprd => {
-            res.send(endecalmonprd);
-        }).catch(err => {
-            res.status(500).send({
-                message: err.message || "Error recuperando endecalmonprd."
-            });
-        });
-};
 exports.update = (req, res) => {
     Endecalmonprd.findByIdAndUpdate(req.params.endecalmonprdId, req.body, {new: true })
         .then(Endecalmonprd => {
@@ -88,6 +64,80 @@ exports.update = (req, res) => {
         });
 };
 
+exports.updateOneServer = (req, res) => {
+
+    var server = req.params.endecalmonprdserver
+    //var service = req.params.endecalmonprdserverservice
+    //var component = req.params.endecalmonprdserverscomponent
+    var queryfield = server
+    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
+        {
+            $set: {
+                "porcentaje": porcentaje,
+                "estado": estado
+            }
+        },
+        { new: true })
+        .then(endecalmonprd => {
+            res.send(endecalmonprd);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmonprd."
+            });
+        });
+};
+
+exports.updateOneServerService = (req, res) => {
+
+    var server = req.params.endecalmonprdserver
+    var service = req.params.endecalmonprdserverservice
+    //var component = req.params.endecalmonprdserverscomponent
+    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
+    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
+                         { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje,
+                                 "servicios.$[s].estado": estado } },
+                         { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
+        .then(endecalmonprd => {
+            res.send(endecalmonprd);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmonprd."
+            });
+        });
+};
+
+exports.updateOneServerServiceComponent = (req, res) => {
+
+    var server = req.params.endecalmonprdserver
+    var service = req.params.endecalmonprdserverservice
+    var component = req.params.endecalmonprdserverscomponent
+    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
+    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
+    var porcentaje = req.body.porcentaje
+    //var queryObject = JSON.parse(queryString)   
+
+    Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
+        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } },
+        { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
+        .then(endecalmonprd => {
+            res.send(endecalmonprd);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecalmonprd."
+            });
+        });
+};
+
 exports.updateParents = (req, res) => {
 
     getEndecaLMonPrdStatus().then((response) => {
@@ -103,7 +153,7 @@ exports.updateParents = (req, res) => {
         percentage = (consistente / inconsistente) * 100;
 
 
-        req.body.nombre = "XXXXXXXXXXXXXXXXX endeca ";
+        req.body.nombre = "EndecaLiverpool";
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
         req.body.percentage = percentage.toString();
@@ -145,13 +195,13 @@ const getEndecaLMonPrdStatus = () => {
 }
 
 const updateEndecaLMonPrdStatus = (body) => {
-    return axios.put('http://localhost:9001/endecalmonprd/endeca', body)
+    return axios.put('http://localhost:9001/endecalmonprd/EndecaLiverpool', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/endecalmonprd/endeca result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/endecalmonprd/EndecaLiverpool result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {
             console.log(e)
             return e.message
         })
-} 
+} :

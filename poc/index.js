@@ -5,6 +5,8 @@ const fileContentParser = require('./fileContenParser')
 const asyncForEach = require("./asyncForEach")
 
 
+const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
+
 var optionsEndecaFileNameSplit = {
     parts: [
         { start: "0", end: "3", into: "Endeca_bussines" },
@@ -38,11 +40,11 @@ var Componente = ""
 var Porcentaje = ""
 
 
-fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((result) =>{
+fileNameSplitter.fileNameSplitter(process.argv[2], optionsEndecaFileNameSplit).then((result) =>{
     
     resultEndecaFileNameSplit = result
     
-    fileContentParser('./files').then((result) => {
+    fileContentParser(process.argv[2]).then((result) => {
     
         resultEndecaFileContent = result
 
@@ -76,15 +78,16 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
             console.log(resultEndecaFileContent[file])
             var linesPerFile = resultEndecaFileContent.length
 
-
-     
+            
+            var serverValueList = []; 
             for (var line = 0; line < linesPerFile ; line++)  
             {
-                        
+                 
                 var record = resultEndecaFileContent[file].fileContent[line]    
+                var componentValueList = []; 
                 
-
                 for (var property in record) {
+                    
 
                     if (record.hasOwnProperty(property)) {
 
@@ -96,7 +99,8 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
                                 break;
                             case "Componente":
                                 Componente = property.split("_")[1]
-                                Porcentaje = record[property]     
+                                Porcentaje = record[property]    
+                                componentValueList.push(parseInt(Porcentaje))
                                 
                                 var uri = 'http://localhost:9001/' +
                                     collectionName + "/" +
@@ -104,11 +108,15 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
                                     Servicio + "/" +
                                     Componente
 
-                                console.log(uri + " " + Porcentaje)
+                                estado = (Porcentaje == "100" ? "consistente" : "inconsistente");
+   
+                                console.log(uri + "Procentaje: " + Porcentaje + "Estado: " + estado)
 
-                                axios.post(uri, { "porcentaje": Porcentaje })
-                                    .then(function (response) {
+                                 axios.post(uri, { "porcentaje": Porcentaje.toString(), "estado": estado})
+                                    .then(function (response)
+                                     {
                                         console.log(response)
+                                        
                                         
                                     }.bind(this))
                                     .catch(e => {
@@ -120,28 +128,61 @@ fileNameSplitter.fileNameSplitter('./files', optionsEndecaFileNameSplit).then((r
                             {
                                 ;
                             }
-                                
+                               
+
                         }
-                    }
+                    } 
+                   
                 }
                 
-/*                 var uri = 'http://localhost:9001/' + 
-                                                    collectionName + "/" + 
-                                                    serverName     + "/" + 
-                                                    Servicio       + "/" + 
-                                                    Componente
+                var estado = ""
+                if (componentValueList.length > 0){
+
+                    estado = (average(componentValueList) == 100 ? "consistente" : "inconsistente");
+
+
+                    console.log("promedio servicio:" + average(componentValueList))
+                     serverValueList.push(average(componentValueList))
+
+                    uri = 'http://localhost:9001/' +
+                        collectionName + "/" +
+                        serverName + "/" +
+                        Servicio
+
+
+                    axios.post(uri, { "porcentaje": average(componentValueList).toString(), "estado": estado })
+                        .then(function (response) {
+                            console.log(response)
+                            //res.send(response)
+                            // file++
+                        }.bind(this))
+                        .catch(e => {
+                            console.log(e)
+                            //res.send(e)
+                            // file++
+                        })    
+                }
                 
-                axios.post(uri, {"porcentaje":Porcentaje})
-                    .then(function (response) {
-                        console.log(response)
-                        file++
-                    }.bind(this))
-                    .catch(e => {
-                        console.log(e)
-                        file++
-                })    
- */            }
+            }
             file++
+            console.log("pronedio servidor:" + average(serverValueList))
+            estado = (average(serverValueList) == 100 ? "consistente" : "inconsistente");
+
+            uri = 'http://localhost:9001/' +
+                collectionName + "/" +
+                serverName 
+
+            axios.post(uri, { "porcentaje": average(serverValueList).toString(), "estado": estado })
+                .then(function (response) {
+                    console.log(response)
+                    //res.send(response)
+                    // file++
+                }.bind(this))
+                .catch(e => {
+                    console.log(e)
+                    //res.send(e)
+                    // file++
+                })   
         })}
  
     })
