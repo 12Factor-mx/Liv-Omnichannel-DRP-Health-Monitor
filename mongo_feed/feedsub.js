@@ -4,6 +4,7 @@ db.ecommercesubmondrp.drop()
 db.weblogicsubmondrp.drop()
 db.weblogicserverssubmondrp.drop()
 db.endecasubmondrp.drop()
+db.originsubmondrp.drop()
 
 db.ecommercesubmondrp.insert([{
     fecha: new Date(),
@@ -11,6 +12,12 @@ db.ecommercesubmondrp.insert([{
     nombre: "WebLogic Suburbia",
     estado: "consistente"
   },
+  {
+    fecha: new Date(),
+    _id: "OriginSuburbia",
+    nombre: "Origenes Suburbia",
+    estado: "consistente"
+},
   {
     fecha: new Date(),
     _id: "HardwareSuburbia",
@@ -43,7 +50,8 @@ db.ecommercesubmondrp.insert([{
   }
 ])
 
-db.weblogicsubmondrp.insert([{
+db.weblogicsubmondrp.insert(
+  [{
     fecha: new Date(),
     _id: "WebLogicDomainSuburbia",
     nombre: "WebLogic Domain Suburbia",
@@ -69,7 +77,8 @@ db.weblogicsubmondrp.insert([{
   },
 ])
 
-db.weblogicserverssubmondrp.insert([{
+db.weblogicserverssubmondrp.insert(
+  [{
     fecha: new Date(),
     _id: "sb-app-01",
     nombre: "Suburbia App 1",
@@ -154,9 +163,6 @@ db.weblogicserverssubmondrp.insert([{
     estado: "RUNNING"
   }
 ])
-
-
-
 
 db.endecasubmondrp.insert(
   [{
@@ -406,6 +412,33 @@ db.endecasubmondrp.insert(
 
   ])
 
+  db.originsubmondrp.insert(
+    [
+      {
+        fecha: new Date(),
+        _id: "OriginSuburbia",
+        nombre: "Origin",
+        origins: [
+          {
+            fecha: new Date(),
+            _id: "OriginSuburbia-OrigenA",
+            nombre: "OrigenA",
+            estado: "consistente",
+            porcentaje: 100,
+          },
+          {
+            fecha: new Date(),
+            _id: "OriginSuburbia-OrigenB",
+            nombre: "OrigenB",
+            estado: "consistente",
+            porcentaje: 100,
+          },
+        ],
+        estado: "consistente",
+        porcentaje: 100
+      },
+    ]
+  )
 
 
 //--- Prd ------------------------------------------------
@@ -414,13 +447,21 @@ db.ecommercesubmonprd.drop()
 db.weblogicsubmonprd.drop()
 db.weblogicserverssubmonprd.drop()
 db.endecasubmonprd.drop()
+db.originsubmonprd.drop()
 
-db.ecommercesubmonprd.insert([{
+db.ecommercesubmonprd.insert(
+  [{
     fecha: new Date(),
     _id: "WebLogicSuburbia",
     nombre: "WebLogic Suburbia",
     estado: "consistente"
   },
+  {
+    fecha: new Date(),
+    _id: "OriginSuburbia",
+    nombre: "Origenes Suburbia",
+    estado: "consistente"
+},
   {
     fecha: new Date(),
     _id: "HardwareSuburbia",
@@ -453,7 +494,8 @@ db.ecommercesubmonprd.insert([{
   }
 ])
 
-db.weblogicsubmonprd.insert([{
+db.weblogicsubmonprd.insert(
+  [{
     fecha: new Date(),
     _id: "WebLogicDomainSuburbia",
     nombre: "WebLogic Domain Suburbia",
@@ -479,7 +521,8 @@ db.weblogicsubmonprd.insert([{
   },
 ])
 
-db.weblogicserverssubmonprd.insert([{
+db.weblogicserverssubmonprd.insert(
+  [{
     fecha: new Date(),
     _id: "sb-app-01",
     nombre: "Suburbia App 1",
@@ -815,3 +858,31 @@ db.endecasubmonprd.insert(
 
 
   ])
+
+db.originsubmonprd.insert(
+  [
+    {
+      fecha: new Date(),
+      _id: "OriginSuburbia",
+      nombre: "Origin",
+      origins: [
+        {
+          fecha: new Date(),
+          _id: "OriginSuburbia-OrigenA",
+          nombre: "OrigenA",
+          estado: "consistente",
+          porcentaje: 100,
+        },
+        {
+          fecha: new Date(),
+          _id: "OriginSuburbia-OrigenB",
+          nombre: "OrigenB",
+          estado: "consistente",
+          porcentaje: 100,
+        },
+      ],
+      estado: "consistente",
+      porcentaje: 100
+    },
+  ]
+)
