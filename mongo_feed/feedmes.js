@@ -4,12 +4,19 @@ db.ecommercemesmondrp.drop()
 db.weblogicmesmondrp.drop()
 db.weblogicserversmesmondrp.drop()
 db.endecamesmondrp.drop()
+db.originmesmondrp.drop()
 
 db.ecommercemesmondrp.insert([
     {
         fecha: new Date(),
         _id: "WebLogicMesa",
         nombre: "WebLogic Mesa",
+        estado: "consistente"
+    },
+    {
+        fecha: new Date(),
+        _id: "OriginMesa",
+        nombre: "Origenes Mesa",
         estado: "consistente"
     },
     {
@@ -446,6 +453,26 @@ db.endecamesmondrp.insert(
 
     ])
 
+db.originmesmondrp.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "OriginMesa",
+            nombre: "Origin",
+            origins: [
+            {
+                fecha: new Date(),
+                _id: "OriginMesa-OrigenA",
+                nombre: "OrigenA",
+                estado: "consistente",
+                porcentaje: 100,
+            },
+        ],
+        estado: "consistente",
+        porcentaje: 100
+      }, 
+    ]
+)
 
 //--- Prd ------------------------------------------------
 
@@ -453,12 +480,19 @@ db.ecommercemesmonprd.drop()
 db.weblogicmesmonprd.drop()
 db.weblogicserversmesmonprd.drop()
 db.endecamesmonprd.drop()
+db.originmesmonprd.drop()
 
 db.ecommercemesmonprd.insert([
     {
         fecha: new Date(),
         _id: "WebLogicMesa",
         nombre: "WebLogic Mesa",
+        estado: "consistente"
+    },
+    {
+        fecha: new Date(),
+        _id: "OriginMesa",
+        nombre: "Origenes Mesa",
         estado: "consistente"
     },
     {
@@ -808,3 +842,24 @@ db.endecamesmonprd.insert(
 
 
     ])
+
+db.originmesmonprd.insert(
+    [
+        {
+            fecha: new Date(),
+            _id: "OriginMesa",
+            nombre: "Origin",
+            origins: [
+                {
+                    fecha: new Date(),
+                    _id: "OriginMesa-OrigenA",
+                    nombre: "OrigenA",
+                    estado: "consistente",
+                    porcentaje: 100,
+                },
+                ],
+                estado: "consistente",
+                porcentaje: 100
+        }
+    ]
+)

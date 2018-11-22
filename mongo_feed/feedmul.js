@@ -4,6 +4,7 @@ db.ecommercemulmondrp.drop()
 db.weblogicmulmondrp.drop()
 db.weblogicserversmulmondrp.drop()
 db.endecamulmondrp.drop()
+db.originmulmondrp.drop()
 
 db.ecommercemulmondrp.insert([{
     fecha: new Date(),
@@ -11,6 +12,12 @@ db.ecommercemulmondrp.insert([{
     nombre: "WebLogic Multisitios",
     estado: "consistente"
   },
+  {
+    fecha: new Date(),
+    _id: "OriginMultisitios",
+    nombre: "Origenes Multisitios",
+    estado: "consistente"
+},
   {
     fecha: new Date(),
     _id: "HardwareMultisitios",
@@ -43,7 +50,8 @@ db.ecommercemulmondrp.insert([{
   }
 ])
 
-db.weblogicmulmondrp.insert([{
+db.weblogicmulmondrp.insert(
+  [{
     fecha: new Date(),
     _id: "WeblogicDomainMultisitios",
     nombre: "Weblogic Domain Multisitios",
@@ -350,6 +358,26 @@ db.endecamulmondrp.insert(
     {fecha: new Date(),_id: "eCommerceMultisitiosServidores-qroexahea12(172.16.212.157)",nombre: "qroexahea12(172.16.212.157)",servicios: [{fecha: new Date(),_id: "eCommerceMultisitiosServidores-qroexahea12(172.16.212.157)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMultisitiosServidores-qroexahea12(172.16.212.157)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMultisitiosServidores-qroexahea12(172.16.212.157)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea12(172.17.212.130)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea12(172.17.212.130)"}
   ])
 
+db.originmulmondrp.insert(
+  [
+    {
+      fecha: new Date(),
+      _id: "OriginMultisitios",
+      nombre: "Origin",
+      origins: [
+      {
+        fecha: new Date(),
+        _id: "OriginMultisitios-OrigenA",
+        nombre: "OrigenA",
+        estado: "consistente",
+        porcentaje: 100,
+      },
+      ],
+      estado: "consistente",
+      porcentaje: 100
+    },
+  ]
+)
 
 //--- Prd ------------------------------------------------
 
@@ -357,6 +385,7 @@ db.ecommercemulmonprd.drop()
 db.weblogicmulmonprd.drop()
 db.weblogicserversmulmonprd.drop()
 db.endecamulmonprd.drop()
+db.originmulmonprd.drop()
 
 db.ecommercemulmonprd.insert([
   {
@@ -365,6 +394,12 @@ db.ecommercemulmonprd.insert([
     nombre: "WebLogic Multisitios",
     estado: "consistente"
   },
+  {
+    fecha: new Date(),
+    _id: "OriginMultisitios",
+    nombre: "Origenes Multisitios",
+    estado: "consistente"
+},
   {
     fecha: new Date(),
     _id: "HardwareMultisitios",
@@ -424,7 +459,8 @@ db.weblogicmulmonprd.insert([
   },
 ])
 
-db.weblogicserversmulmonprd.insert([{
+db.weblogicserversmulmonprd.insert(
+  [{
     fecha: new Date(),
     _id: "AdminServer",
     nombre: "AdminServer",
@@ -704,3 +740,24 @@ db.endecamulmonprd.insert(
     ,
     {fecha: new Date(),_id: "eCommerceMultisitiosServidores-mtyexapea12(172.17.212.130)",nombre: "mtyexapea12(172.17.212.130)",servicios: [{fecha: new Date(),_id: "eCommerceMultisitiosServidores-mtyexapea12(172.17.212.130)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMultisitiosServidores-mtyexapea12(172.17.212.130)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMultisitiosServidores-mtyexapea12(172.17.212.130)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea12(172.16.212.157)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea12(172.16.212.157)"}
   ])
+
+db.originmulmonprd.insert(
+  [
+    {
+      fecha: new Date(),
+      _id: "OriginMultisitios",
+      nombre: "Origin",
+      origins: [
+        {
+          fecha: new Date(),
+          _id: "OriginMultisitios-OrigenA",
+          nombre: "OrigenA",
+          estado: "consistente",
+          porcentaje: 100,
+        },
+      ],
+      estado: "consistente",
+      porcentaje: 100
+    }
+  ]
+)

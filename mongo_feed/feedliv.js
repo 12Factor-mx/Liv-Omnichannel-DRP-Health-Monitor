@@ -208,17 +208,17 @@ db.weblogicserverslmondrp.insert([
     {
         _id: "Store-01",
         nombre: "Store-01",
-        estado: "consistente"
+        estado: "RUNNING"
     },
     {
         _id: "Store-02",
         nombre: "Store-02",
-        estado: "consistente"
+        estado: "RUNNING"
     },
     {
         _id: "Store-03",
         nombre: "Store-03",
-        estado: "consistente"
+        estado: "RUNNING"
     },
     {
         fecha: new Date(),
@@ -693,19 +693,19 @@ db.weblogicserverslmonprd.insert([
         fecha: new Date(),
         _id: "Store01",
         nombre: "Store-01",
-        estado: "consistente"
+        estado: "RUNNING"
     },
     {
         fecha: new Date(),
         _id: "Store02",
         nombre: "Store-02",
-        estado: "consistente"
+        estado: "RUNNING"
     },
     {
         fecha: new Date(),
         _id: "Store03",
         nombre: "Store-03",
-        estado: "consistente"
+        estado: "RUNNING"
     },
     {
         fecha: new Date(),
