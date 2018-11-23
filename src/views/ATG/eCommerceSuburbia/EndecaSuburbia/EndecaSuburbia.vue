@@ -22,7 +22,7 @@
                     {{formatPercentage(endecasubmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="endecasubmonprd">
-                    <a v-if="endecasubmonprd.item.estado=='incosistente'  || endecasubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + endecasubmonprd.item.nombre + '_prd'" >  {{endecasubmonprd.item.nombre}} </a>
+                    <a v-if="endecasubmonprd.item.estado=='inconsistente'  || endecasubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + endecasubmonprd.item.nombre + '_prd'" >  {{endecasubmonprd.item.nombre}} </a>
                     <a v-else>  {{endecasubmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
@@ -45,7 +45,7 @@
                     {{formatPercentage(endecasubmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecasubmondrp">
-                    <a v-if="endecasubmondrp.item.estado=='incosistente'  || endecasubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + endecasubmondrp.item.nombre + '_drp'">  {{endecasubmondrp.item.nombre}} </a>
+                    <a v-if="endecasubmondrp.item.estado=='inconsistente'  || endecasubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + endecasubmondrp.item.nombre + '_drp'">  {{endecasubmondrp.item.nombre}} </a>
                     <a v-else>  {{endecasubmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
@@ -124,7 +124,7 @@ export default {
 
     formatEstado(value) {
 
-      return value === "incosistente" ? "inconsistente":
+      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
     },
@@ -171,7 +171,7 @@ export default {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
-             status === "incosistente" ? "danger" : 
+             status === "inconsistente" ? "danger" : 
                                       "primary";
     }
 

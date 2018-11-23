@@ -29,8 +29,6 @@ exports.findOneServerService = (req, res) => {
     var server = req.params.endecalmonprdserver
     var service = req.params.endecalmonprdserverservice
     var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service
-    var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
-    //var queryObject = JSON.parse(queryString)   
 
     Endecalmonprd.find({ "servicios._id": queryfield }, { "_id": "0", "servicios": { "$elemMatch": { "_id": queryfield}}} )
         .then(endecalmonprd => {
@@ -67,13 +65,8 @@ exports.update = (req, res) => {
 exports.updateOneServer = (req, res) => {
 
     var server = req.params.endecalmonprdserver
-    //var service = req.params.endecalmonprdserverservice
-    //var component = req.params.endecalmonprdserverscomponent
-    var queryfield = server
-    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
     var porcentaje = req.body.porcentaje
     var estado = req.body.estado
-    //var queryObject = JSON.parse(queryString)   
 
     Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
         {
@@ -96,17 +89,14 @@ exports.updateOneServerService = (req, res) => {
 
     var server = req.params.endecalmonprdserver
     var service = req.params.endecalmonprdserverservice
-    //var component = req.params.endecalmonprdserverscomponent
-    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
-    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
     var porcentaje = req.body.porcentaje
     var estado = req.body.estado
-    //var queryObject = JSON.parse(queryString)   
 
     Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
-                         { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje,
+                         { $set: { "servicios.$[s].porcentaje": porcentaje,
                                  "servicios.$[s].estado": estado } },
-                         { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
+                         { arrayFilters: [{ "s.nombre": service }
+                        ], new: true })
         .then(endecalmonprd => {
             res.send(endecalmonprd);
         }).catch(err => {
@@ -121,13 +111,12 @@ exports.updateOneServerServiceComponent = (req, res) => {
     var server = req.params.endecalmonprdserver
     var service = req.params.endecalmonprdserverservice
     var component = req.params.endecalmonprdserverscomponent
-    var queryfield = "eCommerceLiverpoolServidores-" + server + "-Servicio-" + service + "-Componente-" + component
-    //var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
     var porcentaje = req.body.porcentaje
-    //var queryObject = JSON.parse(queryString)   
+    var estado = req.body.estado
 
     Endecalmonprd.update({ "_id": "eCommerceLiverpoolServidores-" + server },
-        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } },
+        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } ,
+                  "servicios.$[s].componentes.$[c].estado": estado},
         { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
         .then(endecalmonprd => {
             res.send(endecalmonprd);

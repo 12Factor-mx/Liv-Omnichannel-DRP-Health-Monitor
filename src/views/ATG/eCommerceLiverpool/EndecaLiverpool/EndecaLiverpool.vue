@@ -22,8 +22,7 @@
                     {{formatPercentage(endecalmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="endecalmonprd">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmonprd.item.nombre + '_prd'" >  {{endecalmonprd.item.nombre}} </a>
-                    <a v-else>  {{endecalmonprd.item.nombre}} </a>
+                    <a v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmonprd.item.nombre + '_prd'" >  {{endecalmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
               </b-col>
@@ -45,8 +44,7 @@
                     {{formatPercentage(endecalmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmondrp.item.nombre + '_drp'">  {{endecalmondrp.item.nombre}} </a>
-                    <a v-else>  {{endecalmondrp.item.nombre}} </a>
+                    <a v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmondrp.item.nombre + '_drp'">  {{endecalmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
               </b-col>
@@ -124,7 +122,7 @@ export default {
 
     formatEstado(value) {
 
-      return value === "incosistente" ? "inconsistente":
+      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
     },
@@ -171,7 +169,7 @@ export default {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
-             status === "incosistente" ? "danger" : 
+             status === "inconsistente" ? "danger" : 
                                       "primary";
     }
 
