@@ -146,7 +146,7 @@ export default {
 
     formatEstado(value) {
 
-      return value === "incosistente" ? "inconsistente":
+      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
     },
@@ -238,7 +238,7 @@ export default {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
-             status === "incosistente" ? "danger" : 
+             status === "inconsistente" ? "danger" : 
                                       "primary";
     }
 

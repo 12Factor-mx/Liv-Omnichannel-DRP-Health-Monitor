@@ -22,7 +22,7 @@
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="percentage" slot-scope="endecalmonprd">
-                    {{formatPercentage(endecalmonprd.item.percentage)}}
+                    {{endecalmonprd.item.percentage}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmonprd">
                   <a>  {{endecalmonprd.item.nombre}} </a>
@@ -149,7 +149,7 @@ export default {
 
     formatEstado(value) {
 
-      return value === "incosistente" ? "inconsistente":
+      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
     },
@@ -241,7 +241,7 @@ export default {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
-             status === "incosistente" ? "danger" : 
+             status === "inconsistente" ? "danger" : 
                                       "primary";
     }
 

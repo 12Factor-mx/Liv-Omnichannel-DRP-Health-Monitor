@@ -1,5 +1,6 @@
 const axios = require("axios")
 
+const fs = require('fs')
 const fileNameSplitter = require('./fileNameSplitter')
 const fileContentParser = require('./fileContenParser')
 const asyncForEach = require("./asyncForEach")
@@ -7,34 +8,12 @@ const asyncForEach = require("./asyncForEach")
 
 const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
 
-var optionsEndecaFileNameSplit = {
-    parts: [
-        { start: "0", end: "3", into: "Endeca_bussines" },
-        { start: "3", end: "6", into: "Enedeca_env" },
-        { start: "6", end: "17", into: "Endeca_date" },
-        { start: "18", end: "", into: "Enedeca_server" }
-    ]
-};
-
-var optionsEndecaFileContentParser = {
-    format: {
-        type: "CSV",
-        hasHeader: false,
-        useHederForVars: false,
-        layout: [
-            { column: "1", into: "Servicio"},
-            { column: "2", into: "Puerto"},
-            { column: "3", into: "Componente_Port"},
-            { column: "4", into: "Componenete_Log"}
-        ]
-    }
-};
+var optionsEndecaFileNameSplit = JSON.parse(fs.readFileSync(process.argv[3], "utf8"));
 
 var resultEndecaFileNameSplit = [];
 var resultEndecaFileContent = [];
-var collectionName
+var collectionName = ""
 var serverName = ""
-var collectionNameList = []
 var Servicio = ""
 var Componente = ""
 var Porcentaje = ""
@@ -153,13 +132,9 @@ fileNameSplitter.fileNameSplitter(process.argv[2], optionsEndecaFileNameSplit).t
                     axios.post(uri, { "porcentaje": average(componentValueList).toString(), "estado": estado })
                         .then(function (response) {
                             console.log(response)
-                            //res.send(response)
-                            // file++
                         }.bind(this))
                         .catch(e => {
                             console.log(e)
-                            //res.send(e)
-                            // file++
                         })    
                 }
                 
@@ -175,13 +150,9 @@ fileNameSplitter.fileNameSplitter(process.argv[2], optionsEndecaFileNameSplit).t
             axios.post(uri, { "porcentaje": average(serverValueList).toString(), "estado": estado })
                 .then(function (response) {
                     console.log(response)
-                    //res.send(response)
-                    // file++
                 }.bind(this))
                 .catch(e => {
                     console.log(e)
-                    //res.send(e)
-                    // file++
                 })   
         })}
  

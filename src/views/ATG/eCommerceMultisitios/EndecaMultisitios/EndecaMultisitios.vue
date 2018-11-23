@@ -22,7 +22,7 @@
                     {{formatPercentage(endecamulmonprd.item.percentage)}}
                   </template>
                  <template slot="nombre" slot-scope="endecamulmonprd">
-                    <a v-if="endecamulmonprd.item.estado=='incosistente'  || endecamulmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServices-' + endecamulmonprd.item.nombre + '_prd'" >  {{endecamulmonprd.item.nombre}} </a>
+                    <a v-if="endecamulmonprd.item.estado=='inconsistente'  || endecamulmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServices-' + endecamulmonprd.item.nombre + '_prd'" >  {{endecamulmonprd.item.nombre}} </a>
                     <a v-else>  {{endecamulmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
@@ -45,7 +45,7 @@
                     {{formatPercentage(endecamulmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecamulmondrp">
-                    <a v-if="endecamulmondrp.item.estado=='incosistente'  || endecamulmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServices-' + endecamulmondrp.item.nombre + '_drp'">  {{endecamulmondrp.item.nombre}} </a>
+                    <a v-if="endecamulmondrp.item.estado=='inconsistente'  || endecamulmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServices-' + endecamulmondrp.item.nombre + '_drp'">  {{endecamulmondrp.item.nombre}} </a>
                     <a v-else>  {{endecamulmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
@@ -124,7 +124,7 @@ export default {
 
     formatEstado(value) {
 
-      return value === "incosistente" ? "inconsistente":
+      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
     },
@@ -171,7 +171,7 @@ export default {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
-             status === "incosistente" ? "danger" : 
+             status === "inconsistente" ? "danger" : 
                                       "primary";
     }
 

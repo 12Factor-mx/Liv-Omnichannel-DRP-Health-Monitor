@@ -26,12 +26,10 @@
                   </template>    
                   <template slot="nombre" slot-scope="endecalmonprd">
                    <div v-if="env=='prd'">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
-                    <a v-else>  {{endecalmonprd.item.nombre}} </a>
+                    <a v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
                     </div>
                     <div v-if="env=='drp'">
-                    <a v-if="endecalmonprd.item.estado=='incosistente'  || endecalmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
-                    <a v-else>  {{endecalmonprd.item.nombre}} </a>
+                    <a v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{endecalmonprd.item.nombre}} </a>
                     </div>                 
                     </template>      
                 </b-table>
@@ -59,11 +57,11 @@
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
                     <div v-if="env=='prd'">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-if="endecalmondrp.item.estado=='inconsistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
                     </div>
                     <div v-if="env=='drp'">
-                    <a v-if="endecalmondrp.item.estado=='incosistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
+                    <a v-if="endecalmondrp.item.estado=='inconsistente'  || endecalmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaLiverpoolServicesStatus-' + endecalmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{endecalmondrp.item.nombre}} </a>
                     <a v-else>  {{endecalmondrp.item.nombre}} </a>
                     </div>
                   </template>      
@@ -169,7 +167,7 @@ export default {
 
     formatEstado(value) {
 
-      return value === "incosistente" ? "inconsistente":
+      return value === "inconsistente" ? "inconsistente":
              value === "desconocido"  ? "desconocido":
              value === "consistente"   ? "consistente" : value ;
     },
@@ -249,7 +247,7 @@ export default {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
-             status === "incosistente" ? "danger" : 
+             status === "inconsistente" ? "danger" : 
                                       "primary";
     }
 
