@@ -43,6 +43,7 @@ app.get('/', (req, res) => {
 require('./routes/routes.js')(app);
 require('./routes/endeca_routes.js')(app);
 require('./routes/origin_routes.js')(app);
+require('./routes/otd_routes.js')(app);
 
 
 // listen for requests

@@ -5,6 +5,7 @@ db.weblogiclmondrp.drop()
 db.weblogicserverslmondrp.drop()
 db.endecalmondrp.drop()
 db.originlmondrp.drop()
+db.otdlmondrp.drop()
 
 db.ecommercelmondrp.insert([
     {
@@ -482,6 +483,32 @@ db.originlmondrp.insert(
         },
     ])
 
+db.otdlmondrp.insert(
+  [{
+    fecha: new Date(),
+    _id: "OTDLiverpool",
+    nombre: "OTD",
+    componentes: [{
+        fecha: new Date(),
+        _id: "OTDLiverpool-Port",
+        nombre: "Port",
+        estado: "consistente",
+        porcentaje: 100,
+      },
+      {
+        fecha: new Date(),
+        _id: "OTDLiverpool-URL",
+        nombre: "URL",
+        estado: "consistente",
+        porcentaje: 100,
+
+      },
+    ],
+    estado: "consistente",
+    porcentaje: 100
+  }, ])
+
+
 //--- Prd ------------------------------------------------
 
 db.ecommercelmonprd.drop()
@@ -489,6 +516,7 @@ db.weblogiclmonprd.drop()
 db.weblogicserverslmonprd.drop()
 db.endecalmonprd.drop()
 db.originlmonprd.drop()
+db.otdlmonprd.drop()
 
 db.ecommercelmonprd.insert([
     {
@@ -968,3 +996,27 @@ db.originlmonprd.insert(
         },
     ])
 
+db.otdlmonprd.insert(
+    [{
+    fecha: new Date(),
+    _id: "OTDLiverpool",
+    nombre: "OTD",
+    componentes: [{
+        fecha: new Date(),
+        _id: "OTDLiverpool-Port",
+        nombre: "Port",
+        estado: "consistente",
+        porcentaje: 100,
+        },
+        {
+        fecha: new Date(),
+        _id: "OTDLiverpool-URL",
+        nombre: "URL",
+        estado: "consistente",
+        porcentaje: 100,
+
+        },
+    ],
+    estado: "consistente",
+    porcentaje: 100
+    }, ])
