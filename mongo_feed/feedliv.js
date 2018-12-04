@@ -821,7 +821,8 @@ db.ecommercelmonprd.insert([{
   }
 ])
 
-db.weblogiclmonprd.insert([{
+db.weblogiclmonprd.insert(
+  [{
     fecha: new Date(),
     _id: "WeblogicDomainLiverpool",
     nombre: "Weblogic Domain Liverpool",

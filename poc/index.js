@@ -40,7 +40,7 @@ fileNameSplitter.fileNameSplitter(process.argv[2], optionsEndecaFileNameSplit).t
                     if (item.parts[i].partValue == 'LIV'){
                         collectionName = collectionName + 'l' + "mon"    
                     }else{
-                        collectionName = collectionName + item.parts[i].partValue + "mon"
+                        collectionName = collectionName + item.parts[i].partValue.toLowerCase() + "mon"
                     }
                 }
                 if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "env") {

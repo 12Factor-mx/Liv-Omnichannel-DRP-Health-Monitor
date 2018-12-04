@@ -49,13 +49,19 @@ module.exports = (app) => {
     app.get( '/endecamulmondrp', endecamulmondrp.findAll);
     app.get('/endecamulmondrp/:endecamulmondrpserver', endecamulmondrp.findOneServer);
     app.get('/endecamulmondrp/:endecamulmondrpserver/:endecamulmondrpserverservice', endecamulmondrp.findOneServerService);
+    app.post('/endecamulmondrp/:endecamulmondrpserver', endecamulmondrp.updateOneServer);
+    app.post('/endecamulmondrp/:endecamulmondrpserver/:endecamulmondrpserverservice', endecamulmondrp.updateOneServerService);
+    app.post('/endecamulmondrp/:endecamulmondrpserver/:endecamulmondrpserverservice/:endecamulmondrpserverscomponent', endecamulmondrp.updateOneServerServiceComponent);
     app.post('/endecamulmondrp/updateparents', endecamulmondrp.updateParents)
     app.put('/endecamulmondrp/:endecamulmondrpId', endecamulmondrp.update);
 
     const endecamulmonprd = require('../controllers/controller_endecamulmonprd.js');
-    app.get('/endecamulmonprd', endecamulmonprd.findAll);
+    app.get('/endecamulmonprd', endecamulmonprd.findAll);    
     app.get('/endecamulmonprd/:endecamulmonprdserver', endecamulmonprd.findOneServer);
     app.get('/endecamulmonprd/:endecamulmonprdserver/:endecamulmonprdserverservice', endecamulmonprd.findOneServerService);
+    app.post('/endecamulmonprd/:endecamulmonprdserver', endecamulmonprd.updateOneServer);
+    app.post('/endecamulmonprd/:endecamulmonprdserver/:endecamulmonprdserverservice', endecamulmonprd.updateOneServerService);
+    app.post('/endecamulmonprd/:endecamulmonprdserver/:endecamulmonprdserverservice/:endecamulmonprdserverscomponent', endecamulmonprd.updateOneServerServiceComponent);
     app.post('/endecamulmonprd/updateparents', endecamulmonprd.updateParents)
     app.put('/endecamulmonprd/:endecamulmonprdId', endecamulmonprd.update);
 
@@ -64,6 +70,9 @@ module.exports = (app) => {
     app.get( '/endecasubmondrp', endecasubmondrp.findAll);
     app.get('/endecasubmondrp/:endecasubmondrpserver', endecasubmondrp.findOneServer);
     app.get('/endecasubmondrp/:endecasubmondrpserver/:endecasubmondrpserverservice', endecasubmondrp.findOneServerService);
+    app.post('/endecasubmondrp/:endecasubmondrpserver', endecasubmondrp.updateOneServer);
+    app.post('/endecasubmondrp/:endecasubmondrpserver/:endecasubmondrpserverservice', endecasubmondrp.updateOneServerService);
+    app.post('/endecasubmondrp/:endecasubmondrpserver/:endecasubmondrpserverservice/:endecasubmondrpserverscomponent', endecasubmondrp.updateOneServerServiceComponent);
     app.post('/endecasubmondrp/updateparents', endecasubmondrp.updateParents);
     app.put('/endecasubmondrp/:endecasubmondrpId', endecasubmondrp.update);
 
@@ -71,6 +80,9 @@ module.exports = (app) => {
     app.get('/endecasubmonprd', endecasubmonprd.findAll);
     app.get('/endecasubmonprd/:endecasubmonprdserver', endecasubmonprd.findOneServer);
     app.get('/endecasubmonprd/:endecasubmonprdserver/:endecasubmonprdserverservice', endecasubmonprd.findOneServerService);
+    app.post('/endecasubmonprd/:endecasubmonprdserver', endecasubmonprd.updateOneServer);
+    app.post('/endecasubmonprd/:endecasubmonprdserver/:endecasubmonprdserverservice', endecasubmonprd.updateOneServerService);
+    app.post('/endecasubmonprd/:endecasubmonprdserver/:endecasubmonprdserverservice/:endecasubmonprdserverscomponent', endecasubmonprd.updateOneServerServiceComponent);
     app.post('/endecasubmonprd/updateparents', endecasubmonprd.updateParents);
     app.put('/endecasubmonprd/:endecasubmonprdId', endecasubmonprd.update);
  
@@ -79,6 +91,9 @@ module.exports = (app) => {
     app.get( '/endecamesmondrp', endecamesmondrp.findAll);
     app.get('/endecamesmondrp/:endecamesmondrpserver', endecamesmondrp.findOneServer);
     app.get('/endecamesmondrp/:endecamesmondrpserver/:endecamesmondrpserverservice', endecamesmondrp.findOneServerService);
+    app.post('/endecamesmondrp/:endecamesmondrpserver', endecamesmondrp.updateOneServer);
+    app.post('/endecamesmondrp/:endecamesmondrpserver/:endecamesmondrpserverservice', endecamesmondrp.updateOneServerService);
+    app.post('/endecamesmondrp/:endecamesmondrpserver/:endecamesmondrpserverservice/:endecamesmondrpserverscomponent', endecamesmondrp.updateOneServerServiceComponent);
     app.post('/endecamesmondrp/updateparents', endecamesmondrp.updateParents)
     app.put('/endecamesmondrp/:endecamesmondrpId', endecamesmondrp.update);
 
@@ -86,8 +101,10 @@ module.exports = (app) => {
     app.get('/endecamesmonprd', endecamesmonprd.findAll);
     app.get('/endecamesmonprd/:endecamesmonprdserver', endecamesmonprd.findOneServer);
     app.get('/endecamesmonprd/:endecamesmonprdserver/:endecamesmonprdserverservice', endecamesmonprd.findOneServerService);
+    app.post('/endecamesmonprd/:endecamesmonprdserver', endecamesmonprd.updateOneServer);
+    app.post('/endecamesmonprd/:endecamesmonprdserver/:endecamesmonprdserverservice', endecamesmonprd.updateOneServerService);
+    app.post('/endecamesmonprd/:endecamesmonprdserver/:endecamesmonprdserverservice/:endecamesmonprdserverscomponent', endecamesmonprd.updateOneServerServiceComponent);
     app.post('/endecamesmonprd/updateparents', endecamesmonprd.updateParents)
     app.put('/endecamesmonprd/:endecamesmonprdId', endecamesmonprd.update);
  
-
 }

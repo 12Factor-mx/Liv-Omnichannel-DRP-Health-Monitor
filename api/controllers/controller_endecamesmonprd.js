@@ -133,4 +133,62 @@ return axios.put('http://localhost:9001/endecamesmonprd/endeca', body)
         console.log(e)
         return e.message
     })
-} 
+}
+
+exports.updateOneServer= (req, res) => {
+    var server = req.params.endecamesmonprdserver
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    Endecalmonprd.update({ "_id": "eCommerceMesaServidores-" + server },
+        {
+            $set: {
+                "porcentaje": porcentaje,
+                "estado": estado
+            }
+        },
+        {new: true })
+        .then(endecamesmonprd => {
+            res.send(endecamesmonprd);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecamesmonprd."
+            });
+        });
+};
+
+exports.updateOneServerService = (req, res) => {
+    var server = req.params.endecamesmonprdserver
+    var service = req.params.endecamesmonprdserverservice
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    Endecalmonprd.update({ "_id": "eCommerceMesaServidores-" + server}, 
+                         { $set: { "servicios.$[s].porcentaje": porcentaje, 
+                                   "servicios.$[s].estado": estado } },
+                         { arrayFilters: [{ "s.nombre": service }] , new:true})
+        .then(endecamesmonprd => {
+            res.send(endecamesmonprd);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecamesmonprd."
+            });
+        });
+};
+
+exports.updateOneServerServiceComponent = (req, res) => {
+    var server = req.params.endecamesmonprdserver
+    var service = req.params.endecamesmonprdserverservice
+    var component = req.params.endecamesmonprdserverscomponent
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    Endecalmonprd.update({ "_id": "eCommerceMesaServidores-" + server },
+        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } , 
+                  "servicios.$[s].componentes.$[c].estado": estado},
+        { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
+        .then(endecamesmonprd => {
+            res.send(endecamesmonprd);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecamesmonprd."
+            });
+        });
+};

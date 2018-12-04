@@ -351,107 +351,13 @@ db.weblogicserversmesmondrp.insert([
     }
 ])
 
-db.endecamesmondrp.insert(
-    [
-        {
-          fecha: new Date(),
-          _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)",
-          nombre: "qroexahea15(172.16.212.71)",
-          servicios: [{
-            fecha: new Date(),
-            _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-XM",
-            nombre: "XM",
-            estado: "consistente",
-            porcentaje: 100,
-            componentes: [{
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-XM-Componente-Log",
-              nombre: "Log",
-              estado: "consistente",
-              porcentaje: 100
-            }, {
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-XM-Componente-Port",
-              nombre: "Port",
-              estado: "consistente",
-              porcentaje: 100
-            }],
-            espejo: "mtyexapea13(172.17.212.171)"
-          }, {
-            fecha: new Date(),
-            _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-CAS",
-            nombre: "CAS",
-            estado: "consistente",
-            porcentaje: 100,
-            componentes: [{
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-CAS-Componente-Log",
-              nombre: "Log",
-              estado: "consistente",
-              porcentaje: 100
-            }, {
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-CAS-Componente-Port",
-              nombre: "Port",
-              estado: "consistente",
-              porcentaje: 100
-            }],
-            espejo: "mtyexapea13(172.17.212.171)"
-          }, {
-            fecha: new Date(),
-            _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-EACAdmin",
-            nombre: "EACAdmin",
-            estado: "consistente",
-            porcentaje: 100,
-            componentes: [{
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-EACAdmin-Componente-Log",
-              nombre: "Log",
-              estado: "consistente",
-              porcentaje: 100
-            }, {
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-EACAdmin-Componente-Port",
-              nombre: "Port",
-              estado: "consistente",
-              porcentaje: 100
-            }],
-            espejo: "mtyexapea13(172.17.212.171)"
-          }, {
-            fecha: new Date(),
-            _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-AuthorMDEX",
-            nombre: "AuthorMDEX",
-            estado: "consistente",
-            porcentaje: 100,
-            componentes: [{
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-AuthorMDEX-Componente-Log",
-              nombre: "Log",
-              estado: "consistente",
-              porcentaje: 100
-            }, {
-              fecha: new Date(),
-              _id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-AuthorMDEX-Componente-Port",
-              nombre: "Port",
-              estado: "consistente",
-              porcentaje: 100
-            }],
-            espejo: "mtyexapea13(172.17.212.171)"
-          }, ],
-          estado: "consistente",
-          porcentaje: 100,
-          espejo: "mtyexapea13(172.17.212.171)"
-        }
-        
-        ,
-        
-        {fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)",nombre: "qroexahea14(172.16.212.70)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea15(172.17.212.170)"},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea15(172.17.212.170)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea15(172.17.212.170)"}
-                
-        ,
-        
-        {fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)",nombre: "qroexahea13(172.16.212.69)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea14(172.17.212.169)"},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea14(172.17.212.169)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea14(172.17.212.169)"}
-
-    ])
+db.endecamesmondrp.insert([
+    {fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)",nombre: "qroexahea15(172.16.212.71)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-XM",nombre: "XM",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-XM-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-XM-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea13(172.17.212.171)"},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-CAS",nombre: "CAS",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea13(172.17.212.171)"},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-EACAdmin",nombre: "EACAdmin",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-EACAdmin-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-EACAdmin-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea13(172.17.212.171)"},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-AuthorMDEX",nombre: "AuthorMDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-AuthorMDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea15(172.16.212.71)-Servicio-AuthorMDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea13(172.17.212.171)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea13(172.17.212.171)"}
+    ,        
+    {fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)",nombre: "qroexahea14(172.16.212.70)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea15(172.17.212.170)"},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea14(172.16.212.70)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea15(172.17.212.170)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea15(172.17.212.170)"}
+    ,
+    {fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)",nombre: "qroexahea13(172.16.212.69)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea14(172.17.212.169)"},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-qroexahea13(172.16.212.69)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "mtyexapea14(172.17.212.169)"},],estado: "consistente",porcentaje: 100,espejo: "mtyexapea14(172.17.212.169)"}
+])
 
 db.originmesmondrp.insert(
     [
@@ -827,24 +733,15 @@ db.weblogicserversmesmonprd.insert([
     }
 ])
 
-db.endecamesmonprd.insert(
-    [
-        
-        {fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)",nombre: "mtyexapea13(172.17.212.171)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-XM",nombre: "XM",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-XM-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-XM-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-CAS",nombre: "CAS",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-EACAdmin",nombre: "EACAdmin",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-EACAdmin-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-EACAdmin-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-AuthorMDEX",nombre: "AuthorMDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-AuthorMDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-AuthorMDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea15(172.16.212.71)"}
+db.endecamesmonprd.insert([
+    {fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)",nombre: "mtyexapea13(172.17.212.171)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-XM",nombre: "XM",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-XM-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-XM-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-CAS",nombre: "CAS",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-CAS-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-CAS-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-EACAdmin",nombre: "EACAdmin",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-EACAdmin-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-EACAdmin-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-AuthorMDEX",nombre: "AuthorMDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-AuthorMDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea13(172.17.212.171)-Servicio-AuthorMDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea15(172.16.212.71)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea15(172.16.212.71)"}
+    ,
+    {fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)",nombre: "mtyexapea15(172.17.212.170)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea14(172.16.212.70)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea14(172.16.212.70)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea14(172.16.212.70)"}
+    ,
+    {fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)",nombre: "mtyexapea14(172.17.212.169)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea13(172.16.212.69)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea13(172.16.212.69)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea13(172.16.212.69)"}
+])
 
-        ,
-        
-        {fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)",nombre: "mtyexapea15(172.17.212.170)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea14(172.16.212.70)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea15(172.17.212.170)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea14(172.16.212.70)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea14(172.16.212.70)"}
-
-        ,
-        
-        {fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)",nombre: "mtyexapea14(172.17.212.169)",servicios: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-MDEX",nombre: "MDEX",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-MDEX-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-MDEX-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea13(172.16.212.69)"},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-EACAgent",nombre: "EACAgent",estado: "consistente",porcentaje: 100,componentes: [{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-EACAgent-Componente-Log", nombre: "Log", estado: "consistente", porcentaje: 100},{fecha: new Date(),_id: "eCommerceMesaServidores-mtyexapea14(172.17.212.169)-Servicio-EACAgent-Componente-Port", nombre: "Port", estado: "consistente", porcentaje: 100}],espejo: "qroexahea13(172.16.212.69)"},],estado: "consistente",porcentaje: 100,espejo: "qroexahea13(172.16.212.69)"}
-
-
-    ])
-
-db.originmesmonprd.insert(
-    [
+db.originmesmonprd.insert([
         {
             fecha: new Date(),
             _id: "OriginMesa",
@@ -861,5 +758,4 @@ db.originmesmonprd.insert(
                 estado: "consistente",
                 porcentaje: 100
         }
-    ]
-)
+])

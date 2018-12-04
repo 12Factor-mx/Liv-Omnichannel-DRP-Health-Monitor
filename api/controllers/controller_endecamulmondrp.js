@@ -1,9 +1,7 @@
-
 const
 Endecalmondrp = require('../model/endecamulmondrp.js');
 
 const axios = require('axios');
-
 
 exports.findAll = (req, res) => {
 Endecalmondrp.find()
@@ -28,13 +26,10 @@ Endecalmondrp.findById("eCommerceMultisitiosServidores-" + req.params.endecamulm
 };
 
 exports.findOneServerService = (req, res) => {
-
 var server = req.params.endecamulmondrpserver
 var service = req.params.endecamulmondrpserverservice
 var queryfield = "eCommerceMultisitiosServidores-" + server + "-Servicio-" + service
 var queryString = '{"servicios._id":"' + queryfield + '"},{"_id":"0", "servicios":{"$elemMatch":{"_id":"' + queryfield + '"}}}'
-//var queryObject = JSON.parse(queryString)   
-
 Endecalmondrp.find({ "servicios._id": queryfield }, { "_id": "0", "servicios": { "$elemMatch": { "_id": queryfield } } })
     .then(endecamulmondrp => {
         res.send(endecamulmondrp);
@@ -68,47 +63,33 @@ Endecalmondrp.findByIdAndUpdate(req.params.endecamulmondrpId, req.body, {new: tr
 };
 
 exports.updateParents = (req, res) => {
-
 getEndecaLMonDrpStatus().then((response) => {
-
     const endecaStatusTotals = response.reduce(
         (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
         {}
     )
-
     consistente = parseInt(endecaStatusTotals["consistente"]);
     consistente = (isNaN(consistente) ? 0 : consistente)
     inconsistente = response.length - consistente;
     percentage = (consistente / inconsistente) * 100;
-
-
     req.body.nombre = "XXXXXXXXXXXXXXXXX endeca ";
     req.body.consistente = consistente;
     req.body.inconsistente = inconsistente
     req.body.percentage = percentage.toString();
     req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
     req.body.estadoDestalle = endecaStatusTotals;
-
-
-    /*----------------------------------------------------------------------*/
-
     updateEndecaLMonDrpStatus(req.body).then((response) => {
-
         return res.send(response);
-
     }).catch(e => {
         return res.send({
             message: "Error updating EndecaMonDrpStatus status " + e
         });
     });
-    /*----------------------------------------------------------------------*/
-
 }).catch(e => {
     return res.send({
         message: "Error getting endeca " + e
     });
 })
-
 };
 
 const getEndecaLMonDrpStatus = () => {
@@ -133,4 +114,62 @@ return axios.put('http://localhost:9001/endecamulmondrp/endeca', body)
         console.log(e)
         return e.message
     })
-} 
+}
+
+exports.updateOneServer= (req, res) => {
+    var server = req.params.endecamulmondrpserver
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    Endecalmondrp.update({ "_id": "eCommerceMultisitiosServidores-" + server },
+        {
+            $set: {
+                "porcentaje": porcentaje,
+                "estado": estado
+            }
+        },
+        {new: true })
+        .then(endecamulmondrp => {
+            res.send(endecamulmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecamulmondrp."
+            });
+        });
+};
+
+exports.updateOneServerService = (req, res) => {
+    var server = req.params.endecamulmondrpserver
+    var service = req.params.endecamulmondrpserverservice
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    Endecalmondrp.update({ "_id": "eCommerceMultisitiosServidores-" + server}, 
+                         { $set: { "servicios.$[s].porcentaje": porcentaje, 
+                                   "servicios.$[s].estado": estado } },
+                         { arrayFilters: [{ "s.nombre": service }] , new:true})
+        .then(endecamulmondrp => {
+            res.send(endecamulmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecamulmondrp."
+            });
+        });
+};
+
+exports.updateOneServerServiceComponent = (req, res) => {
+    var server = req.params.endecamulmondrpserver
+    var service = req.params.endecamulmondrpserverservice
+    var component = req.params.endecamulmondrpserverscomponent
+    var porcentaje = req.body.porcentaje
+    var estado = req.body.estado
+    Endecalmondrp.update({ "_id": "eCommerceMultisitiosServidores-" + server },
+        { $set: { "servicios.$[s].componentes.$[c].porcentaje": porcentaje } , 
+                  "servicios.$[s].componentes.$[c].estado": estado},
+        { arrayFilters: [{ "s.nombre": service }, { "c.nombre": component }], new: true })
+        .then(endecamulmondrp => {
+            res.send(endecamulmondrp);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Error recuperando endecamulmondrp."
+            });
+        });
+};
