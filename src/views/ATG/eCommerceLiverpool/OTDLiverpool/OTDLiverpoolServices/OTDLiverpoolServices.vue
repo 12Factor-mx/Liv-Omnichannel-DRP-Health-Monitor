@@ -2,40 +2,45 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="OTD Liverpool Services Status">
+        <b-card  header="OTD Liverpool Services">
             <b-row >
               <b-col  lg="6">
                 <p v-if="env=='prd'">
-                  <i class='fa fa-align-justify'></i> HA-PROD - {{ prdserverprd }} - {{ prdserviceprd }}
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ prdserverprd }}
                 </p>
                 <p v-if="env=='drp'">
-                  <i class='fa fa-align-justify'></i> HA-PROD - {{ drpserverprd }} - {{ drpserviceprd }}
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ drpserverprd }}
                 </p>
                 <b-table :items="otdlmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="otdlmonprd">
                     <b-badge :variant="getBadge(otdlmonprd.item.estado)" >{{formatEstado(otdlmonprd.item.estado)}}</b-badge>
                   </template> 
                   <template slot="fecha" slot-scope="otdlmonprd">
-                    {{formatDate(otdlmonprd.item.fecha)}}
+                    {{formatDate(otdlmonprd.item.fecha)}} 
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="percentage" slot-scope="otdlmonprd">
-                    {{otdlmonprd.item.percentage}}
+                    {{formatPercentage(otdlmonprd.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="otdlmonprd">
-                  <a>  {{otdlmonprd.item.nombre}} </a>
-                  </template>      
+                   <div v-if="env=='prd'">
+                    <a v-bind:href= "'/#/' + 'OtdLiverpoolServicesStatus-' + otdlmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{otdlmonprd.item.nombre}} </a>
+                    </div>
+                    <div v-if="env=='drp'">
+                    <a v-bind:href= "'/#/' + 'OtdLiverpoolServicesStatus-' + otdlmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{otdlmonprd.item.nombre}} </a>
+                    </div>                 
+                    </template>      
                 </b-table>
 
               </b-col>
               <b-col lg="6">
                 <p v-if="env=='prd'">
-                  <i class='fa fa-align-justify'></i> HA-DRP - {{ prdserverdrp }} - {{ prdservicedrp }}
+                  <i class='fa fa-align-justify'></i> HA-DRP - {{ prdserverdrp }}
                 </p>
                 <p v-if="env=='drp'">
-                  <i class='fa fa-align-justify'></i> HA-DRP - {{ drpserverdrp }} - {{ drpservicedrp }}
+                  <i class='fa fa-align-justify'></i> HA-DRP - {{ drpserverdrp }}
                 </p>
                 <b-table  :items="otdlmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
                   <template slot="estado" slot-scope="otdlmondrp">
@@ -51,7 +56,14 @@
                     {{formatPercentage(otdlmondrp.item.percentage)}}
                   </template>    
                   <template slot="nombre" slot-scope="otdlmondrp">
-                     <a>  {{otdlmondrp.item.nombre}} </a>
+                    <div v-if="env=='prd'">
+                    <a v-if="otdlmondrp.item.estado=='inconsistente'  || otdlmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdLiverpoolServicesStatus-' + otdlmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{otdlmondrp.item.nombre}} </a>
+                    <a v-else>  {{otdlmondrp.item.nombre}} </a>
+                    </div>
+                    <div v-if="env=='drp'">
+                    <a v-if="otdlmondrp.item.estado=='inconsistente'  || otdlmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdLiverpoolServicesStatus-' + otdlmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{otdlmondrp.item.nombre}} </a>
+                    <a v-else>  {{otdlmondrp.item.nombre}} </a>
+                    </div>
                   </template>      
                 </b-table>
               </b-col>
@@ -69,16 +81,16 @@
 //import json1 from '../json/data.json'
 import axios from 'axios'; 
 
-//import  {echo, extractBetween, extractBetweenDifferent} from './../../../../../../../src/utils/stringUtils.js' ;
+//import  {echo, extractBetween, extractBetweenDifferent} from './../../../../../utils/stringUtils.js' ;
 import  {echo, extractBetween, extractBetweenDifferent} from 'utils/stringUtils.js' ;
 
-
+//import Vue from 'vue';
 
 const miliseconds = 10000;
 
 
 export default {
-  name: 'OtdLiverpoolServicesStatus',
+  name: 'OTDLiverpoolServices',
   
   data: function () {
     return {  
@@ -89,10 +101,19 @@ export default {
       timer: [],
       loading: false,
       env: "",
-      service: "",
       server: "",
+      documentURI: "",
+      serverespejodrp: "",
+      serverespejoprd: "",
       _pos: "",
-      xserver: "",
+      xserverprd: "",
+      xserverdrp: "",
+      prdserverprd: "",
+      prdserverdrp: "",
+      drpserverprd: "",
+      drpserverdrp: "",
+      serveruriprd: "",
+      serveruridrp: "",
       fechaConsulta: [],
       fields: [
         { key: "nombre" },
@@ -100,20 +121,17 @@ export default {
         { key: "fecha", label: "Fecha Registro" },
         { key: "porcentaje", label: "% Consistencia" },
         'Fecha Consulta',
-      ],
-      prdserverprd: "",
-      prdserverdrp: "",
-      drpserverprd: "",
-      drpserverdrp: "",
-      prdserviceprd: "",
-      prdservicedrp: "",
-      drpserviceprd: "",
-      drpservicedrp: ""
+      ]
    } 
   },
 
   methods: {
 
+    a()
+    {
+      
+      return echo("sssss kskskj -papi_jksksk" )
+    },
     getPosition(string, subString, index) {
       return string.split(subString, index).join(subString).length;
     },
@@ -155,41 +173,34 @@ export default {
     },
 
     loadData: function () {
-
+     
       this.fechaConsulta = new Date();
-  
+
+
       this.documentURI = document.documentURI
       console.log("documentURI : " + this.documentURI)
-      this.service =  extractBetween(document.documentURI, "-",1)
-      console.log("service : " + this.service)
-      this.server =  extractBetween(document.documentURI, "-",2)
-      console.log("server : " + this.server)
+      this.server =  extractBetweenDifferent(document.documentURI, "-", "_",1)
+      console.log("serverprd : " + this.serverprd)
       this.env =  document.documentURI.substring(document.documentURI.indexOf('_') + 1)
       console.log("env : " + this.env)
+ 
 
       if(this.env == "drp")
       {
-        axios.get('http://localhost:9001/otdlmondrp/' + this.server + "/" + this.service).then(function (responsedrp)
+        axios.get('http://localhost:9001/otdlmondrp/' + this.server).then(function (responsedrp)
         {
-           //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
-           this.otdlmondrp = responsedrp.data[0].servicios[0].componentes
-           var espejo = responsedrp.data[0].servicios[0].espejo
+           console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
+           this.otdlmondrp = responsedrp.data.servicios
            this.drpserverdrp = this.server
-           this.drpserverprd = espejo
-           this.drpservicedrp = this.service
-           this.drpserviceprd = this.service
-            console.log('Viniendo de drp: ' + this.server + ' ' + responsedrp.data.espejo);
-           //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
-            axios.get('http://localhost:9001/otdlmonprd/' + espejo + "/" + this.service).then(function (responseprd)
+           this.drpserverprd = responsedrp.data.espejo
+
+            axios.get('http://localhost:9001/otdlmonprd/' + responsedrp.data.espejo).then(function (responseprd)
             {
-              //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
-              //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
-              this.otdlmonprd = responseprd.data[0].servicios[0].componentes
+              console.log("res prd: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
+              this.otdlmonprd = responseprd.data.servicios
+              this.prdserverprd = responseprd.data.espejo
               this.prdserverdrp = this.server
-              this.prdserverprd = espejo
-              this.prdservicedrp = this.service
-              this.prdserviceprd = this.service
-              console.log('Viniendo de drp: ')
+
             }.bind(this)).catch(e => 
             {
               this.loading = false;
@@ -203,26 +214,20 @@ export default {
       }
       else if (this.env == "prd")
       {
-        
-        axios.get('http://localhost:9001/otdlmonprd/' + this.server + "/" + this.service).then(function (responseprd)
+        axios.get('http://localhost:9001/otdlmonprd/' + this.server).then(function (responseprd)
         {
-           //console.log("res drp: " + JSON.stringify(responsedrp.data[0].servicios[0].componentes,undefined,2))
-           this.otdlmonprd = responseprd.data[0].servicios[0].componentes
-           var espejo = responseprd.data[0].servicios[0].espejo
+           console.log("res prd: " + JSON.stringify(responseprd.data.servicios, undefined,2))
+           this.otdlmonprd = responseprd.data.servicios
            this.prdserverprd = this.server
-           this.prdserverdrp = espejo
-           this.prdservicedrp = this.service
-           this.prdserviceprd = this.service
-           //console.log("espejo drp: " + JSON.stringify(espejo,undefined,2))
-            axios.get('http://localhost:9001/otdlmondrp/' + espejo + "/" + this.service).then(function (responsedrp)
+           this.prdserverdrp = responseprd.data.espejo
+
+            axios.get('http://localhost:9001/otdlmondrp/' + responseprd.data.espejo).then(function (responsedrp)
             {
-              //console.log("espejo prd: " + JSON.stringify(responseprd,undefined,2))
-              //console.log("res prd: " + JSON.stringify(responseprd.data[0].servicios[0].componentes, undefined,2))
-              this.otdlmondrp = responsedrp.data[0].servicios[0].componentes
-              this.drpserverdrp = this.server
-              this.drpserverprd = espejo
-              this.prdservicedrp = this.service
-              this.prdserviceprd = this.service
+              console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
+              this.otdlmondrp = responsedrp.data.servicios
+              this.drpserverdrp = responsedrp.data.espejo
+              this.drpserverprd = this.server
+
             }.bind(this)).catch(e => 
             {
               this.loading = false;
@@ -232,6 +237,7 @@ export default {
         {
           this.loading = false;
         })
+
 
       }
 
@@ -249,7 +255,7 @@ export default {
   created(){
 
     this.loadData();
-
+   
     setInterval(function () {
       this.loadData();
       
@@ -257,6 +263,8 @@ export default {
     
   },
    ready(){
+       
+       
   }
 
 

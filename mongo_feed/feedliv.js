@@ -722,49 +722,269 @@ db.originlmondrp.insert(
   }, ])
 
 db.otdlmondrp.insert(
-  [{
+  [
+
+    {
       fecha: new Date(),
-      _id: "OTDLiverpoolServicio-SHoppingApp",
-      nombre: "SHoppingApp",
-      componentes: [{
+      _id: "OtdLiverpoolServidores-qroexahea01(172.16.212.154)",
+      nombre: "qroexahea01(172.16.212.154)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea01(172.16.212.154)-Servicio-ITL",
+        nombre: "ITL",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
           fecha: new Date(),
-          _id: "OTDLiverpoolServicio-SHoppingApp-Componente-Port",
+          _id: "OtdLiverpoolServidores-qroexahea01(172.16.212.154)-Servicio-ITL-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea01(172.16.212.154)-Servicio-ITL-Componente-Port",
           nombre: "Port",
           estado: "consistente",
-          porcentaje: 100,
-        },
-        {
-          fecha: new Date(),
-          _id: "OTDLiverpoolServicio-SHoppingApp-Componente--URL",
-          nombre: "URL",
-          estado: "consistente",
-          porcentaje: 100,
-        }
-      ],
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea01(172.17.212.131)"
+      }, ],
       estado: "consistente",
-      porcentaje: 100
+      porcentaje: 100,
+      espejo: "mtyexapea01(172.17.212.131)"
     },
     {
       fecha: new Date(),
-      _id: "OTDLiverpoolServicio-Store(web)",
-      nombre: "Store(web)",
-      componentes: [{
+      _id: "OtdLiverpoolServidores-qroexahea03(172.16.212.147)",
+      nombre: "qroexahea03(172.16.212.147)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea03(172.16.212.147)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
           fecha: new Date(),
-          _id: "OTDLiverpoolServicio-Store(web)-Port",
+          _id: "OtdLiverpoolServidores-qroexahea03(172.16.212.147)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea03(172.16.212.147)-Servicio-MDEX-Componente-Port",
           nombre: "Port",
           estado: "consistente",
-          porcentaje: 100,
-        },
-        {
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea02(172.17.212.132)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea02(172.17.212.132)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-qroexahea04(172.16.212.148)",
+      nombre: "qroexahea04(172.16.212.148)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea04(172.16.212.148)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
           fecha: new Date(),
-          _id: "OTDLiverpoolServicio-Store(web)-URL",
-          nombre: "URL",
+          _id: "OtdLiverpoolServidores-qroexahea04(172.16.212.148)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
           estado: "consistente",
-          porcentaje: 100,
-        },
-      ]
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea04(172.16.212.148)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea03(172.17.212.133)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea03(172.17.212.133)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-qroexahea05(172.16.212.149)",
+      nombre: "qroexahea05(172.16.212.149)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea05(172.16.212.149)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea05(172.16.212.149)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea05(172.16.212.149)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea04(172.17.212.134)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea04(172.17.212.134)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-qroexahea06(172.16.212.150)",
+      nombre: "qroexahea06(172.16.212.150)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea06(172.16.212.150)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea06(172.16.212.150)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea06(172.16.212.150)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea05(172.17.212.135)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea05(172.17.212.135)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-qroexahea07(172.16.212.151)",
+      nombre: "qroexahea07(172.16.212.151)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea07(172.16.212.151)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea07(172.16.212.151)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea07(172.16.212.151)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea06(172.17.212.136)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea06(172.17.212.136)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-qroexahea08(172.16.212.152)",
+      nombre: "qroexahea08(172.16.212.152)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea08(172.16.212.152)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea08(172.16.212.152)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea08(172.16.212.152)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea07(172.17.212.137)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea07(172.17.212.137)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-qroexahea02(172.16.212.146)",
+      nombre: "qroexahea02(172.16.212.146)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea02(172.16.212.146)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea02(172.16.212.146)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea02(172.16.212.146)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea08(172.17.212.138)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea08(172.17.212.138)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-qroexahea09(172.16.212.153)",
+      nombre: "qroexahea09(172.16.212.153)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-qroexahea09(172.16.212.153)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea09(172.16.212.153)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-qroexahea09(172.16.212.153)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "mtyexapea11(172.17.212.129)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "mtyexapea11(172.17.212.129)"
     }
-
   ])
 
 
@@ -1496,45 +1716,263 @@ db.originlmonprd.insert(
 db.otdlmonprd.insert(
   [{
       fecha: new Date(),
-      _id: "OTDLiverpoolServicio-SHoppingApp",
-      nombre: "SHoppingApp",
-      componentes: [{
+      _id: "OtdLiverpoolServidores-mtyexapea01(172.17.212.131)",
+      nombre: "mtyexapea01(172.17.212.131)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea01(172.17.212.131)-Servicio-ITL",
+        nombre: "ITL",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
           fecha: new Date(),
-          _id: "OTDLiverpoolServicio-SHoppingApp-Componente-Port",
+          _id: "OtdLiverpoolServidores-mtyexapea01(172.17.212.131)-Servicio-ITL-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea01(172.17.212.131)-Servicio-ITL-Componente-Port",
           nombre: "Port",
           estado: "consistente",
-          porcentaje: 100,
-        },
-        {
-          fecha: new Date(),
-          _id: "OTDLiverpoolServicio-SHoppingApp-Componente--URL",
-          nombre: "URL",
-          estado: "consistente",
-          porcentaje: 100,
-        }
-      ],
+          porcentaje: 100
+        }],
+        espejo: "qroexahea01(172.16.212.154)"
+      }, ],
       estado: "consistente",
-      porcentaje: 100
+      porcentaje: 100,
+      espejo: "qroexahea01(172.16.212.154)"
     },
     {
       fecha: new Date(),
-      _id: "OTDLiverpoolServicio-Store(web)",
-      nombre: "Store(web)",
-      componentes: [{
+      _id: "OtdLiverpoolServidores-mtyexapea02(172.17.212.132)",
+      nombre: "mtyexapea02(172.17.212.132)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea02(172.17.212.132)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
           fecha: new Date(),
-          _id: "OTDLiverpoolServicio-Store(web)-Port",
+          _id: "OtdLiverpoolServidores-mtyexapea02(172.17.212.132)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea02(172.17.212.132)-Servicio-MDEX-Componente-Port",
           nombre: "Port",
           estado: "consistente",
-          porcentaje: 100,
-        },
-        {
+          porcentaje: 100
+        }],
+        espejo: "qroexahea03(172.16.212.147)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea03(172.16.212.147)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-mtyexapea03(172.17.212.133)",
+      nombre: "mtyexapea03(172.17.212.133)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea03(172.17.212.133)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
           fecha: new Date(),
-          _id: "OTDLiverpoolServicio-Store(web)-URL",
-          nombre: "URL",
+          _id: "OtdLiverpoolServidores-mtyexapea03(172.17.212.133)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
           estado: "consistente",
-          porcentaje: 100,
-        },
-      ]
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea03(172.17.212.133)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "qroexahea04(172.16.212.148)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea04(172.16.212.148)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-mtyexapea04(172.17.212.134)",
+      nombre: "mtyexapea04(172.17.212.134)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea04(172.17.212.134)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea04(172.17.212.134)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea04(172.17.212.134)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "qroexahea05(172.16.212.149)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea05(172.16.212.149)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-mtyexapea05(172.17.212.135)",
+      nombre: "mtyexapea05(172.17.212.135)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea05(172.17.212.135)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea05(172.17.212.135)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea05(172.17.212.135)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "qroexahea06(172.16.212.150)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea06(172.16.212.150)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-mtyexapea06(172.17.212.136)",
+      nombre: "mtyexapea06(172.17.212.136)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea06(172.17.212.136)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea06(172.17.212.136)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea06(172.17.212.136)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "qroexahea07(172.16.212.151)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea07(172.16.212.151)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-mtyexapea07(172.17.212.137)",
+      nombre: "mtyexapea07(172.17.212.137)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea07(172.17.212.137)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea07(172.17.212.137)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea07(172.17.212.137)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "qroexahea08(172.16.212.152)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea08(172.16.212.152)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-mtyexapea08(172.17.212.138)",
+      nombre: "mtyexapea08(172.17.212.138)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea08(172.17.212.138)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea08(172.17.212.138)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea08(172.17.212.138)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "qroexahea02(172.16.212.146)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea02(172.16.212.146)"
+    },
+    {
+      fecha: new Date(),
+      _id: "OtdLiverpoolServidores-mtyexapea11(172.17.212.129)",
+      nombre: "mtyexapea11(172.17.212.129)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdLiverpoolServidores-mtyexapea11(172.17.212.129)-Servicio-MDEX",
+        nombre: "MDEX",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea11(172.17.212.129)-Servicio-MDEX-Componente-Log",
+          nombre: "Log",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdLiverpoolServidores-mtyexapea11(172.17.212.129)-Servicio-MDEX-Componente-Port",
+          nombre: "Port",
+          estado: "consistente",
+          porcentaje: 100
+        }],
+        espejo: "qroexahea09(172.16.212.153)"
+      }, ],
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahea09(172.16.212.153)"
     }
-
   ])

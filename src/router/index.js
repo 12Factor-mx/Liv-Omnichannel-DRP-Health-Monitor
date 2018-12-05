@@ -11,13 +11,17 @@ const ecommerce = () => import('@/views/ATG/ecommerce')
 const ECommerceLiverpool = () => import('@/views/ATG/eCommerceLiverpool/ECommerceLiverpool')
   const WebLogicLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicLiverpool')
     const WebLogicServersLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicServersLiverpool/WebLogicServersLiverpool')
+  
   const OriginLiverpool = () => import('@/views/ATG/eCommerceLiverpool/OriginLiverpool/OriginLiverpool')
     //const OriginServersLiverpool = () => import('@/views/ATG/eCommerceLiverpool/OriginLiverpool/OriginServersLiverpool/OriginServersLiverpool')
-   const OTDLiverpool = () => import('@/views/ATG/eCommerceLiverpool/OTDLiverpool/OTDLiverpool')
+  
+    const OTDLiverpool = () => import('@/views/ATG/eCommerceLiverpool/OTDLiverpool/OTDLiverpool')
+      const OTDLiverpoolServices = () => import('@/views/ATG/eCommerceLiverpool/OTDLiverpool/OTDLiverpoolServices/OTDLiverpoolServices')
+         const OTDLiverpoolServicesStatus = () => import('@/views/ATG/eCommerceLiverpool/OTDLiverpool/OTDLiverpoolServices/OTDLiverpoolServicesStatus/OTDLiverpoolServicesStatus')
 
     const EndecaLiverpool = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpool') 
-    const EndecaLiverpoolServices = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpoolServices/EndecaLiverpoolServices') 
-      const EndecaLiverpoolServicesStatus = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpoolServices/EndecaLiverpoolServicesStatus/EndecaLiverpoolServicesStatus')
+      const EndecaLiverpoolServices = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpoolServices/EndecaLiverpoolServices') 
+        const EndecaLiverpoolServicesStatus = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpoolServices/EndecaLiverpoolServicesStatus/EndecaLiverpoolServicesStatus')
 
 
 
@@ -143,6 +147,16 @@ export default new Router({
           path: 'OTDLiverpool',
           name: "OTDs Liverpool",
           component: OTDLiverpool
+        },
+        {
+          path: 'OTDLiverpoolServices-*',
+          name: "OTD Liverpool Services",
+          component: OTDLiverpoolServices
+        },
+        {
+          path: 'OTDLiverpoolServicesStatus-*',
+          name: "OTD Liverpool Services Status",
+          component: OTDLiverpoolServicesStatus
         },
         {
           path: 'EndecaLiverpool',

@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="OTDs Liverpool">
+        <b-card  header="OTD Liverpool">
             <b-row >
               <b-col  lg="6">
                 <p>
@@ -18,8 +18,11 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
+                   <template slot="percentage" slot-scope="otdlmonprd">
+                    {{formatPercentage(otdlmonprd.item.percentage)}}
+                  </template>
                  <template slot="nombre" slot-scope="otdlmonprd">
-                     <a>  {{otdlmonprd.item.nombre}} </a>
+                    <a v-bind:href= "'/#/' + 'OtdLiverpoolServices-' + otdlmonprd.item.nombre + '_prd'" >  {{otdlmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
               </b-col>
@@ -37,8 +40,11 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
+                   <template slot="percentage" slot-scope="otdlmondrp">
+                    {{formatPercentage(otdlmondrp.item.percentage)}}
+                  </template>    
                   <template slot="nombre" slot-scope="otdlmondrp">
-                    <a >  {{otdlmondrp.item.nombre}} </a>
+                    <a v-bind:href= "'/#/' + 'OtdLiverpoolServices-' + otdlmondrp.item.nombre + '_drp'">  {{otdlmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
               </b-col>
@@ -47,6 +53,7 @@
       </b-col>
     </b-row>
 
+   
   </div>
 </template>
 
@@ -60,10 +67,13 @@ const miliseconds = 10000;
 
 export default {
   name: 'OTDLiverpool',
+
+  props:['propiedad'],
   
   data: function () {
     return {  
 
+      rootmonprd: [],
       otdlmondrp: [],
       otdlmonprd: [],
       timer: [],
@@ -73,6 +83,7 @@ export default {
         { key: "nombre" },
         { key: "estado" },
         { key: "fecha", label: "Fecha Registro" },
+        { key: "porcentaje", label: "% Consistencia" },
         'Fecha Consulta',
       ]
    } 
@@ -80,6 +91,21 @@ export default {
 
   methods: {
     
+    formatPercentage(value) {
+
+      var ret= value;
+
+       if (typeof ret == "undefined") {
+        //value = new Date()
+        ret = 0;
+      }
+
+      ret = Math.round(ret * 100) / 100
+
+       return ret + " %";
+    },
+
+
     formatDate(value) {
       var str = "";
       if (typeof value == "undefined") {
@@ -106,10 +132,23 @@ export default {
       this.fechaConsulta = new Date();
       this.loading = true;
 
+      // this.allLots = json1;
+      
+      /* axios.get('http://localhost:9001/rootmondrp')
+      .then(response => {
+         this.loading = false;
+         // JSON responses are automatically parsed.
+         this.rootmondrp1 = response.data;
+      })
+      .catch(e => {
+        this.loading = false;
+        this.errors.push(e)
+      }) */
+
      axios.get('http://localhost:9001/otdlmondrp')
      .then(function (response) {
        this.loading = false;
-       this.otdlmondrp = response.data[0].componentes;
+       this.otdlmondrp = response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
@@ -118,7 +157,7 @@ export default {
      axios.get('http://localhost:9001/otdlmonprd')
      .then(function (response) {
        this.loading = false;
-       this.otdlmonprd= response.data[0].componentes;
+       this.otdlmonprd= response.data;
       }.bind(this)) 
       .catch(e => {
       this.loading = false;
@@ -128,6 +167,7 @@ export default {
 
     getBadge(status) {
       return status === "consistente"   ? "success": 
+             status === "SHUTDOWN"  ? "warning": 
              status === "desconocido"   ? "danger": 
              status === "inconsistente" ? "danger" : 
                                       "primary";
