@@ -94,7 +94,7 @@ module.exports = (app) => {
     app.post('/endecamesmondrp/:endecamesmondrpserver', endecamesmondrp.updateOneServer);
     app.post('/endecamesmondrp/:endecamesmondrpserver/:endecamesmondrpserverservice', endecamesmondrp.updateOneServerService);
     app.post('/endecamesmondrp/:endecamesmondrpserver/:endecamesmondrpserverservice/:endecamesmondrpserverscomponent', endecamesmondrp.updateOneServerServiceComponent);
-    app.post('/endecamesmondrp/updateparents', endecamesmondrp.updateParents)
+    app.put('/endecamesmondrp/updateparents', endecamesmondrp.updateParents)
     app.put('/endecamesmondrp/:endecamesmondrpId', endecamesmondrp.update);
 
     const endecamesmonprd = require('../controllers/controller_endecamesmonprd.js');
@@ -104,7 +104,7 @@ module.exports = (app) => {
     app.post('/endecamesmonprd/:endecamesmonprdserver', endecamesmonprd.updateOneServer);
     app.post('/endecamesmonprd/:endecamesmonprdserver/:endecamesmonprdserverservice', endecamesmonprd.updateOneServerService);
     app.post('/endecamesmonprd/:endecamesmonprdserver/:endecamesmonprdserverservice/:endecamesmonprdserverscomponent', endecamesmonprd.updateOneServerServiceComponent);
-    app.post('/endecamesmonprd/updateparents', endecamesmonprd.updateParents)
+    app.put('/endecamesmonprd/updateparents', endecamesmonprd.updateParents)
     app.put('/endecamesmonprd/:endecamesmonprdId', endecamesmonprd.update);
  
 }

@@ -4,5 +4,11 @@
         { "start": "3", "end": "6", "into": "Endeca_env" },
         { "start": "6", "end": "17","into": "Endeca_date" },
         { "start": "18", "end": "", "into": "Endeca_server" }
+    ],
+    "parents":[
+        "http://localhost:9001/endecamesmondrp/updateparents",
+        "http://localhost:9001/endecamesmonprd/updateparents",
+        "http://localhost:9001/ecommercemesmondrp/updateparents",
+        "http://localhost:9001/ecommercemesmonprd/updateparents"
     ]
 }

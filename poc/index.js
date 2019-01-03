@@ -42,6 +42,7 @@ fileNameSplitter.fileNameSplitter(process.argv[2], optionsEndecaFileNameSplit).t
                     }else{
                         collectionName = collectionName + item.parts[i].partValue.toLowerCase() + "mon"
                     }
+
                 }
                 if (item.parts[i].partName.substring(item.parts[i].partName.indexOf("_") + 1) == "env") {
                     collectionName = collectionName + item.parts[i].partValue
@@ -153,10 +154,37 @@ fileNameSplitter.fileNameSplitter(process.argv[2], optionsEndecaFileNameSplit).t
                 }.bind(this))
                 .catch(e => {
                     console.log(e)
-                })   
+                })  
+                
+            // update parents
+
+            /* console.log(JSON.stringify(optionsEndecaFileNameSplit, undefined, 2))
+
+            asyncForEach(optionsEndecaFileNameSplit.parents, (parent) => {
+
+                axios.put(parent)
+                  .then(function (response) {
+                    console.log(response)
+                  }.bind(this))
+                  .catch(e => {
+                    console.log(e)
+                  })
+            }); */
         })}
+
+        asyncForEach(optionsEndecaFileNameSplit.parents, (parent) => {
+
+          axios.put(parent)
+            .then(function (response) {
+              console.log(response)
+            }.bind(this))
+            .catch(e => {
+              console.log(e)
+            })
+        });
  
     })
+    
 
     console.log("file name split result", result)
     resultEndecaFileNameSplit.forEach((item, i) => {

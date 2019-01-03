@@ -1,14 +1,14 @@
 
 const
-    Ecommercemulmondrp = require('../model/ecommercemesmondrp.js');
+    Ecommercemesmondrp = require('../model/ecommercemesmondrp.js');
 
 const axios = require('axios');
 
 
 exports.findAll = (req, res) => {
-    Ecommercemulmondrp.find()
-        .then(ecommercemulmondrp => {
-            res.send(ecommercemulmondrp);
+    Ecommercemesmondrp.find()
+        .then(ecommercemesmondrp => {
+            res.send(ecommercemesmondrp);
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Error recuperando ecommercemesmondrp."
@@ -17,30 +17,30 @@ exports.findAll = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    Ecommercemulmondrp.findByIdAndUpdate(req.params.ecommercemulmondrpId, req.body, {new: true })
-        .then(Ecommercemulmondrp => {
-            if (!Ecommercemulmondrp) {
+    Ecommercemesmondrp.findByIdAndUpdate(req.params.ecommercemesmondrpId, req.body, {new: true })
+        .then(Ecommercemesmondrp => {
+            if (!Ecommercemesmondrp) {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.ecommercemulmondrpId
+                    message: "Note not found with id " + req.params.ecommercemesmondrpId
                 });
             }
-            res.send(Ecommercemulmondrp);
+            res.send(Ecommercemesmondrp);
         })
         .catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Note not found with id " + req.params.ecommercemulmondrpId
+                    message: "Note not found with id " + req.params.ecommercemesmondrpId
                 });
             }
             return res.status(500).send({
-                message: "Error updating note with id " + req.params.ecommercemesmuldrpId
+                message: "Error updating note with id " + req.params.ecommercemesmesdrpId
             });
         });
 };
 
 exports.updateParents = (req, res) => {
 
-    getEcommercemulmonDrpStatus().then((response) => {
+    getEcommercemesmonDrpStatus().then((response) => {
 
         const eCommerceStatusTotals = response.reduce(
             (totals, p) => ({ ...totals, [p.estado]: (totals[p.estado] || 0) + 1 }),
@@ -50,13 +50,12 @@ exports.updateParents = (req, res) => {
         consistente = parseInt(eCommerceStatusTotals["consistente"]);
         consistente = (isNaN(consistente) ? 0 : consistente)
         inconsistente = response.length - consistente;
-        percentage = (consistente / inconsistente) * 100;
+        percentage = (consistente == response.length ? 100 : (inconsistente / response.length) * 100);
 
-
-        req.body.nombre = "eCommerceMesa";
+        //req.body.nombre = "eCommerceMesa";
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
-        req.body.percentage = percentage.toString();
+        req.body.porcentaje = percentage.toString();
         req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
         req.body.estadoDestalle = eCommerceStatusTotals;
 
@@ -82,7 +81,7 @@ exports.updateParents = (req, res) => {
 
 };
 
-const getEcommercemulmonDrpStatus = () => {
+const getEcommercemesmonDrpStatus = () => {
     return axios.get('http://localhost:9001/ecommercemesmondrp')
         .then((response) => {
             console.log(" get http://localhost:9001/ecommercemesmondrp result : \n" + JSON.stringify(response.data, undefined, 2));

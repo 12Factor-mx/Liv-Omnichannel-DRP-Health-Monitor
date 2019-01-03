@@ -91,17 +91,14 @@ module.exports = (app) => {
  
 
 
-
-
-
-//  Esta es la prueba de mejora en codigo
-
-    const ecommercemesmonprd = require('../controllers/controllerECommerce.js');
+    const ecommercemesmonprd = require('../controllers/controller_ecommercemesmonprd.js');
     app.get('/ecommercemesmonprd', ecommercemesmonprd.findAll);
-    app.post('/ecommercemesmonprd/updateparents', ecommercemesmonprd.updateParents)
+    app.put('/ecommercemesmonprd/updateparents', ecommercemesmonprd.updateParents)
     app.put('/ecommercemesmonprd/:ecommercemesmonprdId', ecommercemesmonprd.update);
-
-//  Aquí termina la prueba de mejora en codigo
+    const ecommercemesmondrp = require('../controllers/controller_ecommercemesmondrp.js');
+    app.get('/ecommercemesmondrp', ecommercemesmondrp.findAll);
+    app.put('/ecommercemesmondrp/updateparents', ecommercemesmondrp.updateParents)
+    app.put('/ecommercemesmondrp/:ecommercemesmondrpId', ecommercemesmondrp.update);
 
 
     const weblogicmesmonprd = require('../controllers/controller_weblogicmesmonprd.js');
@@ -118,10 +115,7 @@ module.exports = (app) => {
 
 
 
-    const ecommercemesmondrp = require('../controllers/controller_ecommercemesmondrp.js');
-    app.get('/ecommercemesmondrp', ecommercemesmondrp.findAll);
-    app.post('/ecommercemesmondrp/updateparents', ecommercemesmondrp.updateParents)
-    app.put('/ecommercemesmondrp/:ecommercemesmondrpId', ecommercemesmondrp.update);
+    
     
     const weblogicmesmondrp = require('../controllers/controller_weblogicmesmondrp.js');
     app.get( '/weblogicmesmondrp', weblogicmesmondrp.findAll);
