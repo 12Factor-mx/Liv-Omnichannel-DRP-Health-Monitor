@@ -79,13 +79,12 @@ getEndecaLMonPrdStatus().then((response) => {
     consistente = parseInt(endecaStatusTotals["consistente"]);
     consistente = (isNaN(consistente) ? 0 : consistente)
     inconsistente = response.length - consistente;
-    percentage = (consistente / inconsistente) * 100;
+    percentage = (consistente == response.length ? 100 : (inconsistente / response.length) * 100);
 
 
-    req.body.nombre = "XXXXXXXXXXXXXXXXX endeca ";
     req.body.consistente = consistente;
     req.body.inconsistente = inconsistente
-    req.body.percentage = percentage.toString();
+    req.body.porcentaje = percentage.toString();
     req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
     req.body.estadoDestalle = endecaStatusTotals;
 
@@ -124,9 +123,9 @@ return axios.get('http://localhost:9001/endecamulmonprd')
 }
 
 const updateEndecaLMonPrdStatus = (body) => {
-return axios.put('http://localhost:9001/endecamulmonprd/endeca', body)
+return axios.put('http://localhost:9001/ecommercemulmonprd/EndecaMultisitios', body)
     .then((response) => {
-        console.log(" put http://localhost:9001/endecamulmonprd/endeca result: \n" + JSON.stringify(response.data, undefined, 2));
+        console.log(" put http://localhost:9001/ecommercemulmonprd/EndecaMultisitios result: \n" + JSON.stringify(response.data, undefined, 2));
         return response.data;
     })
     .catch(e => {

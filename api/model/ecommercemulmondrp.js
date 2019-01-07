@@ -23,7 +23,7 @@ var ecommercemulmondrpSchema = new Schema(
         inconsistente: {
             type: 'Number'
         },
-        percentage: {
+        porcentaje: {
             type: 'Number'
         },
         estadoDestalle: {

@@ -30,22 +30,22 @@ module.exports = (app) => {
     app.get('/weblogicserverslmonprd', weblogicserverslmonprd.findAll);
     app.post('/weblogicserverslmonprd/updateparents', weblogicserverslmonprd.updateParents)
     const weblogicserverslmondrp = require('../controllers/controller_weblogicserverslmondrp.js');
-    app.get('/weblogicserverslmondrp', weblogicserverslmondrp.findAll);
-    app.post('/weblogicserverslmondrp/updateparents', weblogicserverslmondrp.updateParents)
+    //app.get('/weblogicserverslmondrp', weblogicserverslmondrp.findAll);
+    //app.post('/weblogicserverslmondrp/updateparents', weblogicserverslmondrp.updateParents)
 
 
     const ecommercemulmonprd = require('../controllers/controller_ecommercemulmonprd.js');
     app.get('/ecommercemulmonprd', ecommercemulmonprd.findAll);
-    app.post('/ecommercemulmonprd/updateparents', ecommercemulmonprd.updateParents)
+    app.put('/ecommercemulmonprd/updateparents', ecommercemulmonprd.updateParents)
     app.put('/ecommercemulmonprd/:ecommercemulmonprdId', ecommercemulmonprd.update);
     const ecommercemulmondrp = require('../controllers/controller_ecommercemulmondrp.js');
     app.get('/ecommercemulmondrp', ecommercemulmondrp.findAll);
-    app.post('/ecommercemulmondrp/updateparents', ecommercemulmondrp.updateParents)
+    app.put('/ecommercemulmondrp/updateparents', ecommercemulmondrp.updateParents)
     app.put('/ecommercemulmondrp/:ecommercemulmondrpId', ecommercemulmondrp.update);
     
     const weblogicmulmonprd = require('../controllers/controller_weblogicmulmonprd.js');
     app.get( '/weblogicmulmonprd', weblogicmulmonprd.findAll);
-    app.post('/weblogicmulmonprd/updateparents', weblogicmulmonprd.updateParents)
+    app.put('/weblogicmulmonprd/updateparents', weblogicmulmonprd.updateParents)
     app.put('/weblogicmulmonprd/:weblogicmulmonprdId', weblogicmulmonprd.update);
     const weblogicmulmondrp = require('../controllers/controller_weblogicmulmondrp.js');
     app.get( '/weblogicmulmondrp', weblogicmulmondrp.findAll);

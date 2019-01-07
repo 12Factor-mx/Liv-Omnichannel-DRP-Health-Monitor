@@ -50,13 +50,12 @@ exports.updateParents = (req, res) => {
         consistente = parseInt(eCommerceStatusTotals["consistente"]);
         consistente = (isNaN(consistente) ? 0 : consistente)
         inconsistente = response.length - consistente;
-        percentage = (consistente / inconsistente) * 100;
+        percentage = (consistente == response.length ? 100 : (inconsistente / response.length) * 100);
 
-
-        req.body.nombre = "eCommerceMultisitios"; 
+        //req.body.nombre = "eCommerceMesa";
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
-        req.body.percentage = percentage.toString();
+        req.body.porcentaje = percentage.toString();
         req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
         req.body.estadoDestalle = eCommerceStatusTotals;
 

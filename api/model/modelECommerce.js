@@ -9,7 +9,7 @@ var eCommerceSchema = new Schema
     fecha: { type: 'Date' },
     consistente: { type: 'Number' },
     inconsistente: { type: 'Number' },
-    percentage: { type: 'Number' },
+    porcentaje: { type: 'Number' },
     estadoDestalle: { type: 'Mixed' }
 });
 

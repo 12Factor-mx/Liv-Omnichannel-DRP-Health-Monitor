@@ -23,7 +23,7 @@ var originmulmonprdSchema = new Schema(
         noRunning: {
             type: 'Number'
         },
-        percentage: {
+        porcentaje: {
             type: 'Number'
         },
         estadoDestalle: {

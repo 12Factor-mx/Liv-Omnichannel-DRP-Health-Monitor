@@ -52,7 +52,7 @@ module.exports = (app) => {
     app.post('/endecamulmondrp/:endecamulmondrpserver', endecamulmondrp.updateOneServer);
     app.post('/endecamulmondrp/:endecamulmondrpserver/:endecamulmondrpserverservice', endecamulmondrp.updateOneServerService);
     app.post('/endecamulmondrp/:endecamulmondrpserver/:endecamulmondrpserverservice/:endecamulmondrpserverscomponent', endecamulmondrp.updateOneServerServiceComponent);
-    app.post('/endecamulmondrp/updateparents', endecamulmondrp.updateParents)
+    app.put('/endecamulmondrp/updateparents', endecamulmondrp.updateParents)
     app.put('/endecamulmondrp/:endecamulmondrpId', endecamulmondrp.update);
 
     const endecamulmonprd = require('../controllers/controller_endecamulmonprd.js');
@@ -62,7 +62,7 @@ module.exports = (app) => {
     app.post('/endecamulmonprd/:endecamulmonprdserver', endecamulmonprd.updateOneServer);
     app.post('/endecamulmonprd/:endecamulmonprdserver/:endecamulmonprdserverservice', endecamulmonprd.updateOneServerService);
     app.post('/endecamulmonprd/:endecamulmonprdserver/:endecamulmonprdserverservice/:endecamulmonprdserverscomponent', endecamulmonprd.updateOneServerServiceComponent);
-    app.post('/endecamulmonprd/updateparents', endecamulmonprd.updateParents)
+    app.put('/endecamulmonprd/updateparents', endecamulmonprd.updateParents)
     app.put('/endecamulmonprd/:endecamulmonprdId', endecamulmonprd.update);
 
 

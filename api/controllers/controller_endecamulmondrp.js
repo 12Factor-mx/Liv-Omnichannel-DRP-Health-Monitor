@@ -71,13 +71,14 @@ getEndecaLMonDrpStatus().then((response) => {
     consistente = parseInt(endecaStatusTotals["consistente"]);
     consistente = (isNaN(consistente) ? 0 : consistente)
     inconsistente = response.length - consistente;
-    percentage = (consistente / inconsistente) * 100;
-    req.body.nombre = "XXXXXXXXXXXXXXXXX endeca ";
+    percentage = (consistente == response.length ? 100 : (inconsistente / response.length) * 100);
+
     req.body.consistente = consistente;
     req.body.inconsistente = inconsistente
-    req.body.percentage = percentage.toString();
+    req.body.porcentaje = percentage.toString();
     req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
     req.body.estadoDestalle = endecaStatusTotals;
+
     updateEndecaLMonDrpStatus(req.body).then((response) => {
         return res.send(response);
     }).catch(e => {
@@ -105,9 +106,9 @@ return axios.get('http://localhost:9001/endecamulmondrp')
 }
 
 const updateEndecaLMonDrpStatus = (body) => {
-return axios.put('http://localhost:9001/endecamulmondrp/endeca', body)
+return axios.put('http://localhost:9001/ecommercemulmondrp/EndecaMultisitios', body)
     .then((response) => {
-        console.log(" put http://localhost:9001/endecamulmondrp/endeca result: \n" + JSON.stringify(response.data, undefined, 2));
+        console.log(" put http://localhost:9001/ecommercemulmondrp/EndecaMultisitios result: \n" + JSON.stringify(response.data, undefined, 2));
         return response.data;
     })
     .catch(e => {
