@@ -135,17 +135,17 @@ exports.updateParents = (req, res) => {
             {}
         )
 
+        
         consistente = parseInt(endecaStatusTotals["consistente"]);
         consistente = (isNaN(consistente) ? 0 : consistente)
         inconsistente = response.length - consistente;
-        inconsistente == 0 ? percentage = 100 : percentage = (consistente / inconsistente) * 100;
+        percentage = (consistente == response.length ? 100 : (inconsistente / response.length) * 100);
 
 
-
-        req.body.nombre = response.nombre;
+        // req.body.nombre = "XXXXXXXXXXXXXXXXX endeca ";
         req.body.consistente = consistente;
         req.body.inconsistente = inconsistente
-        req.body.percentage = percentage.toString();
+        req.body.porcentaje = percentage.toString();
         req.body.estado = (percentage == 100 ? "consistente" : "inconsistente");
         req.body.estadoDestalle = endecaStatusTotals;
 
@@ -183,9 +183,9 @@ const getEndecaLMonDrpStatus = () => {
 }
 
 const updateEndecaLMonDrpStatus = (body) => {
-    return axios.put('http://localhost:9001/endecalmondrp/EndecaLiverpool', body)
+    return axios.put('http://localhost:9001/ecommercelmondrp/EndecaLiverpool', body)
         .then((response) => {
-            console.log(" put http://localhost:9001/endecalmondrp/EndecaLiverpool result: \n" + JSON.stringify(response.data, undefined, 2));
+            console.log(" put http://localhost:9001/ecommercelmondrp/EndecaLiverpool result: \n" + JSON.stringify(response.data, undefined, 2));
             return response.data;
         })
         .catch(e => {

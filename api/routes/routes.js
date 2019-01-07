@@ -10,11 +10,11 @@ module.exports = (app) => {
 
     const ecommercelmonprd = require('../controllers/controller_ecommercelmonprd.js');
     app.get('/ecommercelmonprd', ecommercelmonprd.findAll);
-    app.post('/ecommercelmonprd/updateparents', ecommercelmonprd.updateParents)
+    app.put('/ecommercelmonprd/updateparents', ecommercelmonprd.updateParents)
     app.put('/ecommercelmonprd/:ecommercelmonprdId', ecommercelmonprd.update);
     const ecommercelmondrp = require('../controllers/controller_ecommercelmondrp.js');
     app.get('/ecommercelmondrp', ecommercelmondrp.findAll);
-    app.post('/ecommercelmondrp/updateparents', ecommercelmondrp.updateParents)
+    app.put('/ecommercelmondrp/updateparents', ecommercelmondrp.updateParents)
     app.put('/ecommercelmondrp/:ecommercelmondrpId', ecommercelmondrp.update);
     
     const weblogiclmonprd = require('../controllers/controller_weblogiclmonprd.js');

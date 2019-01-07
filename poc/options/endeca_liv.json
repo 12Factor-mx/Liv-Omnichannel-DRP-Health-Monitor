@@ -1,0 +1,14 @@
+{
+    "parts": [
+        { "start": "0", "end": "3", "into": "Endeca_bussines" },
+        { "start": "3", "end": "6", "into": "Endeca_env" },
+        { "start": "6", "end": "17","into": "Endeca_date" },
+        { "start": "18", "end": "", "into": "Endeca_server" }
+    ],
+    "parents":[
+       "http://localhost:9001/endecalmondrp/updateparents",
+       "http://localhost:9001/endecalmonprd/updateparents",
+       "http://localhost:9001/ecommercelmondrp/updateparents",
+       "http://localhost:9001/ecommercelmonprd/updateparents"
+    ]
+}

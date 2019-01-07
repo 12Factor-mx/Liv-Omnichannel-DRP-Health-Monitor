@@ -18,7 +18,7 @@ module.exports = (app) => {
         // update one  endeca server/service/component
         app.post('/endecalmondrp/:endecalmondrpserver/:endecalmondrpserverservice/:endecalmondrpserverscomponent', endecalmondrp.updateOneServerServiceComponent);   
         // misc
-        app.post('/endecalmondrp/updateparents', endecalmondrp.updateParents)
+        app.put('/endecalmondrp/updateparents', endecalmondrp.updateParents)
         app.put('/endecalmondrp/:endecalmondrpId', endecalmondrp.update);
     }
 
@@ -40,7 +40,7 @@ module.exports = (app) => {
         // update one  endeca server/service/component
         app.post('/endecalmonprd/:endecalmonprdserver/:endecalmonprdserverservice/:endecalmonprdserverscomponent', endecalmonprd.updateOneServerServiceComponent);
         // misc
-        app.post('/endecalmonprd/updateparents', endecalmonprd.updateParents)
+        app.put('/endecalmonprd/updateparents', endecalmonprd.updateParents)
         app.put('/endecalmonprd/:endecalmonprdId', endecalmonprd.update);
     }
 
