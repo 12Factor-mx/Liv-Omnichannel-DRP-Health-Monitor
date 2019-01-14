@@ -18,8 +18,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="rootmonprd">
-                    {{formatPercentage(rootmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="rootmonprd">
+                    {{formatPercentage(rootmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="rootmonprd">
                     <a v-if="rootmonprd.item.estado=='inconsistente'  || rootmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + rootmonprd.item._id">  {{rootmonprd.item.nombre}} </a>
@@ -41,8 +41,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="rootmondrp">
-                    {{formatPercentage(rootmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="rootmondrp">
+                    {{formatPercentage(rootmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="rootmondrp">
                     <a v-if="rootmondrp.item.estado=='inconsistente'  || rootmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + rootmondrp.item._id">  {{rootmondrp.item.nombre}} </a>
@@ -82,7 +82,7 @@ export default {
         { key: "nombre" },
         { key: "estado" },
         { key: "fecha", label: "Fecha Registro" },
-        { key: "percentage", label: "% Consistencia" },
+        { key: "porcentaje", label: "% Consistencia" },
         'Fecha Consulta',
       ]
 

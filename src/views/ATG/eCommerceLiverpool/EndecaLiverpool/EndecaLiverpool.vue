@@ -18,8 +18,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="endecalmonprd">
-                    {{formatPercentage(endecalmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="endecalmonprd">
+                    {{formatPercentage(endecalmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="endecalmonprd">
                     <a v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmonprd.item.nombre + '_prd'" >  {{endecalmonprd.item.nombre}} </a>
@@ -40,8 +40,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="endecalmondrp">
-                    {{formatPercentage(endecalmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="endecalmondrp">
+                    {{formatPercentage(endecalmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
                     <a v-bind:href= "'/#/' + 'EndecaLiverpoolServices-' + endecalmondrp.item.nombre + '_drp'">  {{endecalmondrp.item.nombre}} </a>

@@ -11,43 +11,51 @@ db.ecommercelmondrp.insert([{
     fecha: new Date(),
     _id: "WebLogicLiverpool",
     nombre: "WebLogic Liverpool",
-    estado: "consistente"
+    estado: "consistente", 
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OriginLiverpool",
     nombre: "Origenes Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "HardwareLiverpool",
     nombre: "Hardware Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
+
   },
   {
     fecha: new Date(),
     _id: "DatabaseLiverpool",
     nombre: "Database Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "EndecaLiverpool",
     nombre: "Endeca Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OTDLiverpool",
     nombre: "OTD Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "LoadBalancerLiverpool",
     nombre: "LoadBalancer Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   }
 ])
 
@@ -55,25 +63,30 @@ db.weblogiclmondrp.insert([{
     fecha: new Date(),
     _id: "WeblogicDomainLiverpool",
     nombre: "Weblogic Domain Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WeblogicServersLiverpool",
     nombre: "Weblogic Servers Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
+
   },
   {
     fecha: new Date(),
     _id: "WeblogicMachinesLiverpool",
     nombre: "Weblogic Machines Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "Weblogic Cluster Liverpool",
     nombre: "Weblogic Cluster Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
 ])
 
@@ -1001,43 +1014,50 @@ db.ecommercelmonprd.insert([{
     fecha: new Date(),
     _id: "WebLogicLiverpool",
     nombre: "WebLogic Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OriginLiverpool",
     nombre: "Origenes Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "HardwareLiverpool",
     nombre: "Hardware Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "DatabaseLiverpool",
     nombre: "Database Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "EndecaLiverpool",
     nombre: "Endeca Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OTDLiverpool",
     nombre: "OTD Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "LoadBalancerLiverpool",
     nombre: "LoadBalancer Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   }
 ])
 
@@ -1046,25 +1066,29 @@ db.weblogiclmonprd.insert(
     fecha: new Date(),
     _id: "WeblogicDomainLiverpool",
     nombre: "Weblogic Domain Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WeblogicServersLiverpool",
     nombre: "Weblogic Servers Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WeblogicMachinesLiverpool",
     nombre: "Weblogic Machines Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "Weblogic Cluster Liverpool",
     nombre: "Weblogic Cluster Liverpool",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
 ])
 

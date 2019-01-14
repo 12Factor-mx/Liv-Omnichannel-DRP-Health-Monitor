@@ -18,8 +18,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="weblogiclmonprd">
-                    {{formatPercentage(weblogiclmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="weblogiclmonprd">
+                    {{formatPercentage(weblogiclmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="weblogiclmonprd">
                     <a v-if="weblogiclmonprd.item.estado=='inconsistente'  || weblogiclmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + weblogiclmonprd.item._id">  {{weblogiclmonprd.item.nombre}} </a>
@@ -41,8 +41,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="weblogiclmondrp">
-                    {{formatPercentage(weblogiclmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="weblogiclmondrp">
+                    {{formatPercentage(weblogiclmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="weblogiclmondrp">
                     <a v-if="weblogiclmondrp.item.estado=='inconsistente'  || weblogiclmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + weblogiclmondrp.item._id">  {{weblogiclmondrp.item.nombre}} </a>
@@ -82,7 +82,7 @@ export default {
         { key: "nombre" },
         { key: "estado" },
         { key: "fecha", label: "Fecha Registro" },
-        { key: "percentage", label: "% Consistencia" },
+        { key: "porcentaje", label: "% Consistencia" },
         'Fecha Consulta',
       ]
    } 

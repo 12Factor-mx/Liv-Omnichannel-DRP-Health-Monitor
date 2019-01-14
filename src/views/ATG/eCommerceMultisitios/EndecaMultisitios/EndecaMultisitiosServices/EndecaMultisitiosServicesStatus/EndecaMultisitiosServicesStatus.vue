@@ -22,7 +22,7 @@
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="percentage" slot-scope="endecamulmonprd">
-                    {{formatPercentage(endecamulmonprd.item.percentage)}}
+                    {{formatPercentage(endecamulmonprd.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecamulmonprd">
                   <a>  {{endecamulmonprd.item.nombre}} </a>
@@ -48,7 +48,7 @@
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="percentage" slot-scope="endecamulmondrp">
-                    {{formatPercentage(endecamulmondrp.item.percentage)}}
+                    {{formatPercentage(endecamulmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecamulmondrp">
                      <a>  {{endecamulmondrp.item.nombre}} </a>

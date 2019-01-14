@@ -79,7 +79,7 @@ getEndecaLMonPrdStatus().then((response) => {
     consistente = parseInt(endecaStatusTotals["consistente"]);
     consistente = (isNaN(consistente) ? 0 : consistente)
     inconsistente = response.length - consistente;
-    percentage = (consistente == response.length ? 100 : (inconsistente / response.length) * 100);
+    percentage = (consistente == response.length ? 100 : (1 - (inconsistente / response.length)) * 100);
 
 
     req.body.consistente = consistente;

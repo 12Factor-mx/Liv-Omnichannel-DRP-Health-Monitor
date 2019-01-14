@@ -19,7 +19,7 @@
                     {{formatDate(fechaConsulta)}} 
                   </template>
                    <template slot="percentage" slot-scope="weblogicmesmonprd">
-                    {{formatPercentage(weblogicmesmonprd.item.percentage)}}
+                    {{formatPercentage(weblogicmesmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="weblogicmesmonprd">
                     <a v-if="weblogicmesmonprd.item.estado=='inconsistente'  || weblogicmesmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + weblogicmesmonprd.item._id">  {{weblogicmesmonprd.item.nombre}} </a>
@@ -42,7 +42,7 @@
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="percentage" slot-scope="weblogicmesmondrp">
-                    {{formatPercentage(weblogicmesmondrp.item.percentage)}}
+                    {{formatPercentage(weblogicmesmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="weblogicmesmondrp">
                     <a v-if="weblogicmesmondrp.item.estado=='inconsistente'  || weblogicmesmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + weblogicmesmondrp.item._id">  {{weblogicmesmondrp.item.nombre}} </a>
@@ -82,7 +82,7 @@ export default {
         { key: "nombre" },
         { key: "estado" },
         { key: "fecha", label: "Fecha Registro" },
-        { key: "percentage", label: "% Consistencia" },
+        { key: "porcentaje", label: "% Consistencia" },
         'Fecha Consulta',
       ]
    } 

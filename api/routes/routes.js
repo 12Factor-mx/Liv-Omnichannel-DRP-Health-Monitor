@@ -6,8 +6,7 @@ module.exports = (app) => {
     const rootmonprd = require('../controllers/controller.1.js')
     app.get('/rootmonprd', rootmonprd.findAll);
     app.put('/rootmonprd/:rootmonprdId', rootmonprd.update);
-
-
+   
     const ecommercelmonprd = require('../controllers/controller_ecommercelmonprd.js');
     app.get('/ecommercelmonprd', ecommercelmonprd.findAll);
     app.put('/ecommercelmonprd/updateparents', ecommercelmonprd.updateParents)
@@ -42,7 +41,7 @@ module.exports = (app) => {
     app.get('/ecommercemulmondrp', ecommercemulmondrp.findAll);
     app.put('/ecommercemulmondrp/updateparents', ecommercemulmondrp.updateParents)
     app.put('/ecommercemulmondrp/:ecommercemulmondrpId', ecommercemulmondrp.update);
-    
+
     const weblogicmulmonprd = require('../controllers/controller_weblogicmulmonprd.js');
     app.get( '/weblogicmulmonprd', weblogicmulmonprd.findAll);
     app.put('/weblogicmulmonprd/updateparents', weblogicmulmonprd.updateParents)
@@ -60,17 +59,13 @@ module.exports = (app) => {
     app.post('/weblogicserversmulmondrp/updateparents', weblogicserversmulmondrp.updateParents)
 
 
-
-
-
- 
     const ecommercesubmonprd = require('../controllers/controller_ecommercesubmonprd.js');
     app.get('/ecommercesubmonprd', ecommercesubmonprd.findAll);
-    app.post('/ecommercesubmonprd/updateparents', ecommercesubmonprd.updateParents)
+    app.put('/ecommercesubmonprd/updateparents', ecommercesubmonprd.updateParents)
     app.put('/ecommercesubmonprd/:ecommercesubmonprdId', ecommercesubmonprd.update);
     const ecommercesubmondrp = require('../controllers/controller_ecommercesubmondrp.js');
     app.get('/ecommercesubmondrp', ecommercesubmondrp.findAll);
-    app.post('/ecommercesubmondrp/updateparents', ecommercesubmondrp.updateParents)
+    app.put('/ecommercesubmondrp/updateparents', ecommercesubmondrp.updateParents)
     app.put('/ecommercesubmondrp/:ecommercesubmondrpId', ecommercesubmondrp.update);
     
     const weblogicsubmonprd = require('../controllers/controller_weblogicsubmonprd.js');
@@ -89,8 +84,6 @@ module.exports = (app) => {
     app.get('/weblogicserverssubmondrp', weblogicserverssubmondrp.findAll);
     app.post('/weblogicserverssubmondrp/updateparents', weblogicserverssubmondrp.updateParents)
  
-
-
     const ecommercemesmonprd = require('../controllers/controller_ecommercemesmonprd.js');
     app.get('/ecommercemesmonprd', ecommercemesmonprd.findAll);
     app.put('/ecommercemesmonprd/updateparents', ecommercemesmonprd.updateParents)
@@ -100,23 +93,15 @@ module.exports = (app) => {
     app.put('/ecommercemesmondrp/updateparents', ecommercemesmondrp.updateParents)
     app.put('/ecommercemesmondrp/:ecommercemesmondrpId', ecommercemesmondrp.update);
 
-
     const weblogicmesmonprd = require('../controllers/controller_weblogicmesmonprd.js');
     app.get( '/weblogicmesmonprd', weblogicmesmonprd.findAll);
     app.post('/weblogicmesmonprd/updateparents', weblogicmesmonprd.updateParents)
     app.put('/weblogicmesmonprd/:weblogicmesmonprdId', weblogicmesmonprd.update);
-
+    
     const weblogicserversmesmonprd = require('../controllers/controller_weblogicserversmesmonprd.js');
     app.get('/weblogicserversmesmonprd', weblogicserversmesmonprd.findAll);
     app.post('/weblogicserversmesmonprd/updateparents', weblogicserversmesmonprd.updateParents)
-    
-
-
-
-
-
-    
-    
+        
     const weblogicmesmondrp = require('../controllers/controller_weblogicmesmondrp.js');
     app.get( '/weblogicmesmondrp', weblogicmesmondrp.findAll);
     app.post('/weblogicmesmondrp/updateparents', weblogicmesmondrp.updateParents)

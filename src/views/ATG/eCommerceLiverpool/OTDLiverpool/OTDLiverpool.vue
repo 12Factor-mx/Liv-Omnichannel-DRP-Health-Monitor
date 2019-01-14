@@ -18,8 +18,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="otdlmonprd">
-                    {{formatPercentage(otdlmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="otdlmonprd">
+                    {{formatPercentage(otdlmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="otdlmonprd">
                     <a v-bind:href= "'/#/' + 'OtdLiverpoolServices-' + otdlmonprd.item.nombre + '_prd'" >  {{otdlmonprd.item.nombre}} </a>
@@ -40,8 +40,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="otdlmondrp">
-                    {{formatPercentage(otdlmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="otdlmondrp">
+                    {{formatPercentage(otdlmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="otdlmondrp">
                     <a v-bind:href= "'/#/' + 'OtdLiverpoolServices-' + otdlmondrp.item.nombre + '_drp'">  {{otdlmondrp.item.nombre}} </a>

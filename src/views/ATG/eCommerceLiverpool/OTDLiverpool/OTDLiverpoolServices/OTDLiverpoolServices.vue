@@ -21,8 +21,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="otdlmonprd">
-                    {{formatPercentage(otdlmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="otdlmonprd">
+                    {{formatPercentage(otdlmonprd.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="otdlmonprd">
                    <div v-if="env=='prd'">
@@ -52,8 +52,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="otdlmondrp">
-                    {{formatPercentage(otdlmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="otdlmondrp">
+                    {{formatPercentage(otdlmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="otdlmondrp">
                     <div v-if="env=='prd'">

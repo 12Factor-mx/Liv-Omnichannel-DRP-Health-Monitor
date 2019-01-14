@@ -19,7 +19,7 @@
                     {{formatDate(fechaConsulta)}} 
                   </template>
                    <template slot="percentage" slot-scope="endecamulmonprd">
-                    {{formatPercentage(endecamulmonprd.item.percentage)}}
+                    {{formatPercentage(endecamulmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="endecamulmonprd">
                     <a v-if="endecamulmonprd.item.estado=='inconsistente'  || endecamulmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServices-' + endecamulmonprd.item.nombre + '_prd'" >  {{endecamulmonprd.item.nombre}} </a>
@@ -42,7 +42,7 @@
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="percentage" slot-scope="endecamulmondrp">
-                    {{formatPercentage(endecamulmondrp.item.percentage)}}
+                    {{formatPercentage(endecamulmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecamulmondrp">
                     <a v-if="endecamulmondrp.item.estado=='inconsistente'  || endecamulmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServices-' + endecamulmondrp.item.nombre + '_drp'">  {{endecamulmondrp.item.nombre}} </a>

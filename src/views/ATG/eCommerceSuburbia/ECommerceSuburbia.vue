@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Weblogic Suburbia">
+        <b-card  header="eCommerce Suburbia">
             <b-row >
               <b-col  lg="6">
                 <p>
@@ -18,8 +18,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="ecommercesubmonprd">
-                    {{formatPercentage(ecommercesubmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="ecommercesubmonprd">
+                    {{formatPercentage(ecommercesubmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="ecommercesubmonprd">
                     <a v-if="ecommercesubmonprd.item.estado=='inconsistente'  || ecommercesubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + ecommercesubmonprd.item._id">  {{ecommercesubmonprd.item.nombre}} </a>
@@ -41,8 +41,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="ecommercesubmondrp">
-                    {{formatPercentage(ecommercesubmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="ecommercesubmondrp">
+                    {{formatPercentage(ecommercesubmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="ecommercesubmondrp">
                     <a v-if="ecommercesubmondrp.item.estado=='inconsistente'  || ecommercesubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + ecommercesubmondrp.item._id">  {{ecommercesubmondrp.item.nombre}} </a>
@@ -82,7 +82,7 @@ export default {
         { key: "nombre" },
         { key: "estado" },
         { key: "fecha", label: "Fecha Registro" },
-        { key: "percentage", label: "% Consistencia" },
+        { key: "porcentaje", label: "% Consistencia" },
         'Fecha Consulta',
       ]
 

@@ -73,7 +73,7 @@ module.exports = (app) => {
     app.post('/endecasubmondrp/:endecasubmondrpserver', endecasubmondrp.updateOneServer);
     app.post('/endecasubmondrp/:endecasubmondrpserver/:endecasubmondrpserverservice', endecasubmondrp.updateOneServerService);
     app.post('/endecasubmondrp/:endecasubmondrpserver/:endecasubmondrpserverservice/:endecasubmondrpserverscomponent', endecasubmondrp.updateOneServerServiceComponent);
-    app.post('/endecasubmondrp/updateparents', endecasubmondrp.updateParents);
+    app.put('/endecasubmondrp/updateparents', endecasubmondrp.updateParents);
     app.put('/endecasubmondrp/:endecasubmondrpId', endecasubmondrp.update);
 
     const endecasubmonprd = require('../controllers/controller_endecasubmonprd.js');
@@ -83,7 +83,7 @@ module.exports = (app) => {
     app.post('/endecasubmonprd/:endecasubmonprdserver', endecasubmonprd.updateOneServer);
     app.post('/endecasubmonprd/:endecasubmonprdserver/:endecasubmonprdserverservice', endecasubmonprd.updateOneServerService);
     app.post('/endecasubmonprd/:endecasubmonprdserver/:endecasubmonprdserverservice/:endecasubmonprdserverscomponent', endecasubmonprd.updateOneServerServiceComponent);
-    app.post('/endecasubmonprd/updateparents', endecasubmonprd.updateParents);
+    app.put('/endecasubmonprd/updateparents', endecasubmonprd.updateParents);
     app.put('/endecasubmonprd/:endecasubmonprdId', endecasubmonprd.update);
  
 

@@ -21,8 +21,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="endecalmonprd">
-                    {{formatPercentage(endecalmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="endecalmonprd">
+                    {{formatPercentage(endecalmonprd.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmonprd">
                    <div v-if="env=='prd'">
@@ -52,8 +52,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="endecalmondrp">
-                    {{formatPercentage(endecalmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="endecalmondrp">
+                    {{formatPercentage(endecalmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecalmondrp">
                     <div v-if="env=='prd'">

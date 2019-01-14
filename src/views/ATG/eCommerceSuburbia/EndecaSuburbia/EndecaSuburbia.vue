@@ -18,8 +18,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="endecasubmonprd">
-                    {{formatPercentage(endecasubmonprd.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="endecasubmonprd">
+                    {{formatPercentage(endecasubmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="endecasubmonprd">
                     <a v-if="endecasubmonprd.item.estado=='inconsistente'  || endecasubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + endecasubmonprd.item.nombre + '_prd'" >  {{endecasubmonprd.item.nombre}} </a>
@@ -41,8 +41,8 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="endecasubmondrp">
-                    {{formatPercentage(endecasubmondrp.item.percentage)}}
+                   <template slot="porcentaje" slot-scope="endecasubmondrp">
+                    {{formatPercentage(endecasubmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="endecasubmondrp">
                     <a v-if="endecasubmondrp.item.estado=='inconsistente'  || endecasubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + endecasubmondrp.item.nombre + '_drp'">  {{endecasubmondrp.item.nombre}} </a>
