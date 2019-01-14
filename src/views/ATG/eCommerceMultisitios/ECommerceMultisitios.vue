@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Weblogic Multisitios 1">
+        <b-card  header="eCommerce Multisitios">
             <b-row >
               <b-col  lg="6">
                 <p>
@@ -18,7 +18,7 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="ecommercemulmonprd">
+                   <template slot="porcentaje" slot-scope="ecommercemulmonprd">
                     {{formatPercentage(ecommercemulmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="ecommercemulmonprd">
@@ -41,7 +41,7 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="ecommercemulmondrp">
+                   <template slot="porcentaje" slot-scope="ecommercemulmondrp">
                     {{formatPercentage(ecommercemulmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="ecommercemulmondrp">

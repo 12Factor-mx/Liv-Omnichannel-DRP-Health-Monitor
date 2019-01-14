@@ -10,43 +10,50 @@ db.ecommercemulmondrp.insert([{
     fecha: new Date(),
     _id: "WebLogicMultisitios",
     nombre: "WebLogic Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OriginMultisitios",
     nombre: "Origenes Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
 },
   {
     fecha: new Date(),
     _id: "HardwareMultisitios",
     nombre: "Hardware Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "DatabaseMultisitios",
     nombre: "Database Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "EndecaMultisitios",
     nombre: "Endeca Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OTDMultisitios",
     nombre: "OTD Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "LoadBalancerMultisitios",
     nombre: "LoadBalancer Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   }
 ])
 
@@ -55,25 +62,29 @@ db.weblogicmulmondrp.insert(
     fecha: new Date(),
     _id: "WeblogicDomainMultisitios",
     nombre: "Weblogic Domain Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WeblogicServersMultisitios",
     nombre: "Weblogic Servers Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WeblogicMachinesMultisitios",
     nombre: "Weblogic Machines Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "Weblogic Cluster Multisitios",
     nombre: "WebLogic Cluster Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
 ])
 
@@ -392,43 +403,50 @@ db.ecommercemulmonprd.insert([
     fecha: new Date(),
     _id: "WebLogicMultisitios",
     nombre: "WebLogic Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OriginMultisitios",
     nombre: "Origenes Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
 },
   {
     fecha: new Date(),
     _id: "HardwareMultisitios",
     nombre: "Hardware Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "DatabaseMultisitios",
     nombre: "Database Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "EndecaMultisitios",
     nombre: "Endeca Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OTDMultisitios",
     nombre: "OTD Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "LoadBalancerMultisitios",
     nombre: "LoadBalancer Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   }
 ])
 
@@ -437,25 +455,29 @@ db.weblogicmulmonprd.insert([
     fecha: new Date(),
     _id: "WeblogicDomainMultisitios",
     nombre: "Weblogic Domain Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WeblogicServersMultisitios",
     nombre: "Weblogic Servers Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WeblogicMachinesMultisitios",
     nombre: "Weblogic Machines Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "Weblogic Cluster Multisitios",
     nombre: "WebLogic Cluster Multisitios",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
 ])
 
