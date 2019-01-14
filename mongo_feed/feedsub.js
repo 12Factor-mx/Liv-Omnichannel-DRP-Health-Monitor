@@ -218,6 +218,8 @@ db.endecasubmondrp.insert([
       fecha: new Date(),
       _id: "OtdSuburbiaServidores-qroexahot13(172.16.212.35)",
       nombre: "qroexahot13(172.16.212.35)",
+      estado: "consistente",
+      porcentaje: 100,
       servicios: [{
         fecha: new Date(),
         _id: "OtdSuburbiaServidores-qroexahot13(172.16.212.35)-Servicio-SB-NodeJS",
@@ -469,6 +471,8 @@ db.otdsubmonprd.insert([{
   fecha: new Date(),
   _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)",
   nombre: "mtyexapot13(172.17.212.194)",
+  estado: "consistente",
+  porcentaje: 100,
   servicios: [{
     fecha: new Date(),
     _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SB-NodeJS",

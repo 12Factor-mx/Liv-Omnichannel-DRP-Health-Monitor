@@ -45,4 +45,49 @@ module.exports = (app) => {
      }
 
 
+
+      /***
+       * ---------------------------------------------------
+       * Otd Suburbia DRP
+       * ---------------------------------------------------
+       *  */
+      {
+        const otdsubmondrp = require('../controllers/controller_otdsubmondrp.js');
+        // get all 
+        app.get('/otdsubmondrp', otdsubmondrp.findAll);
+        // get, and update one otd server
+        app.get('/otdsubmondrp/:otdlmondrpserver', otdsubmondrp.findOneServer);
+        app.post('/otdsubmondrp/:otdlmondrpserver', otdsubmondrp.updateOneServer);
+        // get, and update one otd server/service
+        app.get('/otdsubmondrp/:otdlmondrpserver/:otdlmondrpserverservice', otdsubmondrp.findOneServerService);
+        app.post('/otdsubmondrp/:otdlmondrpserver/:otdlmondrpserverservice', otdsubmondrp.updateOneServerService);
+        // update one  otd server/service/component
+        app.post('/otdsubmondrp/:otdlmondrpserver/:otdlmondrpserverservice/:otdlmondrpserverscomponent', otdsubmondrp.updateOneServerServiceComponent);
+        // misc
+        app.put('/otdsubmondrp/updateparents', otdsubmondrp.updateParents)
+        app.put('/otdsubmondrp/:otdlmondrpId', otdsubmondrp.update);
+      }
+
+      /***
+       * ----------------------------------------------------
+       * Otd Suburbia PRD
+       * ----------------------------------------------------
+       *  */
+      {
+        const otdsubmonprd = require('../controllers/controller_otdsubmonprd.js');
+        // get all 
+        app.get('/otdsubmonprd', otdsubmonprd.findAll);
+        // get, and update one otd server
+        app.get('/otdsubmonprd/:otdlmonprdserver', otdsubmonprd.findOneServer);
+        app.post('/otdsubmonprd/:otdlmonprdserver', otdsubmonprd.updateOneServer);
+        // get, and update one otd server/service
+        app.get('/otdsubmonprd/:otdlmonprdserver/:otdlmonprdserverservice', otdsubmonprd.findOneServerService);
+        app.post('/otdsubmonprd/:otdlmonprdserver/:otdlmonprdserverservice', otdsubmonprd.updateOneServerService);
+        // update one  otd server/service/component
+        app.post('/otdsubmonprd/:otdlmonprdserver/:otdlmonprdserverservice/:otdlmonprdserverscomponent', otdsubmonprd.updateOneServerServiceComponent);
+        // misc
+        app.put('/otdsubmonprd/updateparents', otdsubmonprd.updateParents)
+        app.put('/otdsubmonprd/:otdlmonprdId', otdsubmonprd.update);
+      }
+
 }

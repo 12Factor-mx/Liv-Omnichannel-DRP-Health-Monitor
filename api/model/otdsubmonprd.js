@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var otdlmonprdSchema = new Schema({
+var otdsubmonprdSchema = new Schema({
     _id: {
       type: 'String'
     },
@@ -38,4 +38,4 @@ var otdlmonprdSchema = new Schema({
 
 );
 
-module.exports = mongoose.model('Otdlmonprd', otdlmonprdSchema, 'otdlmonprd');
+module.exports = mongoose.model('Otdsubmonprd', otdsubmonprdSchema, 'otdsubmonprd');

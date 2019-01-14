@@ -22,7 +22,7 @@
                     {{formatPercentage(otdsubmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="otdsubmonprd">
-                    <a v-if="otdsubmonprd.item.estado=='inconsistente'  || otdsubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + otdsubmonprd.item.nombre + '_prd'" >  {{otdsubmonprd.item.nombre}} </a>
+                    <a v-if="otdsubmonprd.item.estado=='inconsistente'  || otdsubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdSuburbiaServices-' + otdsubmonprd.item.nombre + '_prd'" >  {{otdsubmonprd.item.nombre}} </a>
                     <a v-else>  {{otdsubmonprd.item.nombre}} </a>
                   </template>
                 </b-table>
@@ -45,7 +45,7 @@
                     {{formatPercentage(otdsubmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="otdsubmondrp">
-                    <a v-if="otdsubmondrp.item.estado=='inconsistente'  || otdsubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaSuburbiaServices-' + otdsubmondrp.item.nombre + '_drp'">  {{otdsubmondrp.item.nombre}} </a>
+                    <a v-if="otdsubmondrp.item.estado=='inconsistente'  || otdsubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdSuburbiaServices-' + otdsubmondrp.item.nombre + '_drp'">  {{otdsubmondrp.item.nombre}} </a>
                     <a v-else>  {{otdsubmondrp.item.nombre}} </a>
                   </template>      
                 </b-table>
