@@ -18,7 +18,7 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}} 
                   </template>
-                   <template slot="percentage" slot-scope="weblogicsubmonprd">
+                   <template slot="porcentaje" slot-scope="weblogicsubmonprd">
                     {{formatPercentage(weblogicsubmonprd.item.porcentaje)}}
                   </template>
                  <template slot="nombre" slot-scope="weblogicsubmonprd">
@@ -41,7 +41,7 @@
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="percentage" slot-scope="weblogicsubmondrp">
+                   <template slot="porcentaje" slot-scope="weblogicsubmondrp">
                     {{formatPercentage(weblogicsubmondrp.item.porcentaje)}}
                   </template>    
                   <template slot="nombre" slot-scope="weblogicsubmondrp">

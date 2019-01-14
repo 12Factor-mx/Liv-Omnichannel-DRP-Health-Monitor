@@ -10,43 +10,50 @@ db.ecommercesubmondrp.insert([{
     fecha: new Date(),
     _id: "WebLogicSuburbia",
     nombre: "WebLogic Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OriginSuburbia",
     nombre: "Origenes Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
 },
   {
     fecha: new Date(),
     _id: "HardwareSuburbia",
     nombre: "Hardware Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "DatabaseSuburbia",
     nombre: "Database Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "EndecaSuburbia",
     nombre: "Endeca Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OTDSuburbia",
     nombre: "OTD Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "LoadBalancerSuburbia",
     nombre: "LoadBalancer Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   }
 ])
 
@@ -55,25 +62,29 @@ db.weblogicsubmondrp.insert(
     fecha: new Date(),
     _id: "WebLogicDomainSuburbia",
     nombre: "WebLogic Domain Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WebLogicServersSuburbia",
     nombre: "WebLogic Servers Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WebLogicMachinesSuburbia",
     nombre: "WebLogic Machines Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WebLogicClusterSuburbia",
     nombre: "WebLogic Cluster Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
 ])
 
@@ -216,43 +227,50 @@ db.ecommercesubmonprd.insert(
     fecha: new Date(),
     _id: "WebLogicSuburbia",
     nombre: "WebLogic Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OriginSuburbia",
     nombre: "Origenes Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
 },
   {
     fecha: new Date(),
     _id: "HardwareSuburbia",
     nombre: "Hardware Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "DatabaseSuburbia",
     nombre: "Database Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "EndecaSuburbia",
     nombre: "Endeca Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "OTDSuburbia",
     nombre: "OTD Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "LoadBalancerSuburbia",
     nombre: "LoadBalancer Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   }
 ])
 
@@ -261,25 +279,29 @@ db.weblogicsubmonprd.insert(
     fecha: new Date(),
     _id: "WebLogicDomainSuburbia",
     nombre: "WebLogic Domain Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WebLogicServersSuburbia",
     nombre: "WebLogic Servers Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WebLogicMachinesSuburbia",
     nombre: "WebLogic Machines Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
   {
     fecha: new Date(),
     _id: "WebLogicClusterSuburbia",
     nombre: "WebLogic Cluster Suburbia",
-    estado: "consistente"
+    estado: "consistente",
+    porcentaje: 100
   },
 ])
 
