@@ -11,43 +11,51 @@ db.ecommercemesmondrp.insert([
         fecha: new Date(),
         _id: "WebLogicMesa",
         nombre: "WebLogic Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
+
     },
     {
         fecha: new Date(),
         _id: "OriginMesa",
         nombre: "Origenes Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "HardwareMesa",
         nombre: "Hardware Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "DatabaseMesa",
         nombre: "Database Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "EndecaMesa",
         nombre: "Endeca Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "OTDMesa",
         nombre: "OTD Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "LoadBalancerMesa",
         nombre: "LoadBalancer Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     }
 ])
 
@@ -56,25 +64,29 @@ db.weblogicmesmondrp.insert([
         fecha: new Date(),
         _id: "WebLogicDomainMesa",
         nombre: "WebLogic Domain Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "WebLogicServersMesa",
         nombre: "WebLogic Servers Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "WebLogicMachinesMesa",
         nombre: "WebLogic Machines Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "WebLogicClusterMesa",
         nombre: "WebLogic Cluster Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
 ])
 
@@ -393,43 +405,50 @@ db.ecommercemesmonprd.insert([
         fecha: new Date(),
         _id: "WebLogicMesa",
         nombre: "WebLogic Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "OriginMesa",
         nombre: "Origenes Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "HardwareMesa",
         nombre: "Hardware Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "DatabaseMesa",
         nombre: "Database Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "EndecaMesa",
         nombre: "Endeca Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "OTDMesa",
         nombre: "OTD Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "LoadBalancerMesa",
         nombre: "LoadBalancer Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     }
 ])
 
@@ -438,25 +457,29 @@ db.weblogicmesmonprd.insert([
         fecha: new Date(),
         _id: "WebLogicDomainMesa",
         nombre: "WebLogic Domain Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "WebLogicServersMesa",
         nombre: "WebLogic Servers Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "WebLogicMachinesMesa",
         nombre: "WebLogic Machines Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
     {
         fecha: new Date(),
         _id: "WebLogicClusterMesa",
         nombre: "WebLogic Cluster Mesa",
-        estado: "consistente"
+        estado: "consistente",
+        porcentaje: 100
     },
 ])
 
