@@ -256,7 +256,7 @@ db.weblogicsubmonprd.drop()
 db.weblogicserverssubmonprd.drop()
 db.endecasubmonprd.drop()
 db.originsubmonprd.drop()
-db.otdsubmondrp.drop()
+db.otdsubmonprd.drop()
 
 db.ecommercesubmonprd.insert(
   [{
@@ -465,7 +465,7 @@ db.originsubmonprd.insert(
     },
   ]
 )
-db.otdsubmondrp.insert([{
+db.otdsubmonprd.insert([{
   fecha: new Date(),
   _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)",
   nombre: "mtyexapot13(172.17.212.194)",
