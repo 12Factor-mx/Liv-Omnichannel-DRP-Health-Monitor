@@ -5,6 +5,7 @@ db.weblogicsubmondrp.drop()
 db.weblogicserverssubmondrp.drop()
 db.endecasubmondrp.drop()
 db.originsubmondrp.drop()
+db.otdsubmondrp.drop()
 
 db.ecommercesubmondrp.insert([{
     fecha: new Date(),
@@ -213,6 +214,40 @@ db.endecasubmondrp.insert([
     ]
   )
 
+  db.otdsubmondrp.insert([{
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-qroexahot13(172.16.212.35)",
+      nombre: "qroexahot13(172.16.212.35)",
+      servicios: [{
+        fecha: new Date(),
+        _id: "OtdSuburbiaServidores-qroexahot13(172.16.212.35)-Servicio-SB-NodeJS",
+        nombre: "SB-NodeJS",
+        estado: "consistente",
+        porcentaje: 100,
+        componentes: [{
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-qroexahot13(172.16.212.35)-Servicio-SB-NodeJS-Componente-Http",
+          nombre: "Http",
+          estado: "consistente",
+          porcentaje: 100
+        }, {
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-qroexahot13(172.16.212.35)-Servicio-SB-NodeJS-Componente-Https",
+          nombre: "Https",
+          estado: "consistente",
+          porcentaje: 100
+        },{
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-qroexahot13(172.16.212.35)-Servicio-SB-NodeJS-Componente-AdminUrl",
+          nombre: "Admin url",
+          estado: "consistente",
+          porcentaje: 100
+        }
+      ],
+        espejo: "mtyexapot13(172.17.212.194)"
+      }]
+  }])
+
 
 //--- Prd ------------------------------------------------
 
@@ -221,6 +256,7 @@ db.weblogicsubmonprd.drop()
 db.weblogicserverssubmonprd.drop()
 db.endecasubmonprd.drop()
 db.originsubmonprd.drop()
+db.otdsubmondrp.drop()
 
 db.ecommercesubmonprd.insert(
   [{
@@ -429,3 +465,35 @@ db.originsubmonprd.insert(
     },
   ]
 )
+db.otdsubmondrp.insert([{
+  fecha: new Date(),
+  _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)",
+  nombre: "mtyexapot13(172.17.212.194)",
+  servicios: [{
+    fecha: new Date(),
+    _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SB-NodeJS",
+    nombre: "SB-NodeJS",
+    estado: "consistente",
+    porcentaje: 100,
+    componentes: [{
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SB-NodeJS-Componente-Http",
+      nombre: "Http",
+      estado: "consistente",
+      porcentaje: 100
+    }, {
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SB-NodeJS-Componente-Https",
+      nombre: "Https",
+      estado: "consistente",
+      porcentaje: 100
+    }, {
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SB-NodeJS-Componente-AdminUrl",
+      nombre: "Admin url",
+      estado: "consistente",
+      porcentaje: 100
+    }],
+    espejo: "qroexahot13(172.16.212 35)"
+  }]
+}])
