@@ -4,5 +4,11 @@
         { "start": "3", "end": "6", "into": "Otd_env" },
         { "start": "6", "end": "17","into": "Otd_date" },
         { "start": "18", "end": "", "into": "Otd_server" }
+    ],
+    "parents": [
+      "http://localhost:9001/otdsubmondrp/updateparents",
+      "http://localhost:9001/otdsubmonprd/updateparents",
+      "http://localhost:9001/otdsubmondrp/updateparents",
+      "http://localhost:9001/otdsubmonprd/updateparents"
     ]
 }
