@@ -8,7 +8,7 @@
     "parents": [
       "http://localhost:9001/otdsubmondrp/updateparents",
       "http://localhost:9001/otdsubmonprd/updateparents",
-      "http://localhost:9001/otdsubmondrp/updateparents",
-      "http://localhost:9001/otdsubmonprd/updateparents"
+      "http://localhost:9001/ecommercesubmondrp/updateparents",
+      "http://localhost:9001/ecommercesubmonprd/updateparents"
     ]
 }
