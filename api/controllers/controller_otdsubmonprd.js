@@ -1,8 +1,8 @@
-const Otdlmonprd = require('../model/otdsubmonprd.js');
+const Otdsubmonprd = require('../model/otdsubmonprd.js');
 const axios = require('axios');
 
 exports.findAll = (req, res) => {
-  Otdlmonprd.find()
+  Otdsubmonprd.find()
     .then(otdsubmonprd => {
       res.send(otdsubmonprd);
     }).catch(err => {
@@ -13,7 +13,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOneServer = (req, res) => {
-  Otdlmonprd.findById("OtdLiverpoolServidores-" + req.params.otdlmonprdserver)
+  Otdsubmonprd.findById("OtdSuburbiaServidores-" + req.params.otdsubmonprdserver)
     .then(otdsubmonprd => {
       res.send(otdsubmonprd);
     }).catch(err => {
@@ -25,11 +25,11 @@ exports.findOneServer = (req, res) => {
 
 exports.findOneServerService = (req, res) => {
 
-  var server = req.params.otdlmonprdserver
-  var service = req.params.otdlmonprdserverservice
-  var queryfield = "OtdLiverpoolServidores-" + server + "-Servicio-" + service
+  var server = req.params.otdsubmonprdserver
+  var service = req.params.otdsubmonprdserverservice
+  var queryfield = "OtdSuburbiaServidores-" + server + "-Servicio-" + service
 
-  Otdlmonprd.find({
+  Otdsubmonprd.find({
       "servicios._id": queryfield
     }, {
       "_id": "0",
@@ -49,37 +49,37 @@ exports.findOneServerService = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  Otdlmonprd.findByIdAndUpdate(req.params.otdlmonprdId, req.body, {
+  Otdsubmonprd.findByIdAndUpdate(req.params.otdsubmonprdId, req.body, {
       new: true
     })
-    .then(Otdlmonprd => {
-      if (!Otdlmonprd) {
+    .then(Otdsubmonprd => {
+      if (!Otdsubmonprd) {
         return res.status(404).send({
-          message: "Note not found with id " + req.params.otdlmonprdId
+          message: "Note not found with id " + req.params.otdsubmonprdId
         });
       }
-      res.send(Otdlmonprd);
+      res.send(Otdsubmonprd);
     })
     .catch(err => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: "Note not found with id " + req.params.otdlmonprdId
+          message: "Note not found with id " + req.params.otdsubmonprdId
         });
       }
       return res.status(500).send({
-        message: "Error updating note with id " + req.params.otdlmonprdId
+        message: "Error updating note with id " + req.params.otdsubmonprdId
       });
     });
 };
 
 exports.updateOneServer = (req, res) => {
 
-  var server = req.params.otdlmonprdserver
+  var server = req.params.otdsubmonprdserver
   var porcentaje = req.body.porcentaje
   var estado = req.body.estado
 
-  Otdlmonprd.update({
-      "_id": "OtdLiverpoolServidores-" + server
+  Otdsubmonprd.update({
+      "_id": "OtdSuburbiaServidores-" + server
     }, {
       $set: {
         "porcentaje": porcentaje,
@@ -99,13 +99,13 @@ exports.updateOneServer = (req, res) => {
 
 exports.updateOneServerService = (req, res) => {
 
-  var server = req.params.otdlmonprdserver
-  var service = req.params.otdlmonprdserverservice
+  var server = req.params.otdsubmonprdserver
+  var service = req.params.otdsubmonprdserverservice
   var porcentaje = req.body.porcentaje
   var estado = req.body.estado
 
-  Otdlmonprd.update({
-      "_id": "OtdLiverpoolServidores-" + server
+  Otdsubmonprd.update({
+      "_id": "OtdSuburbiaServidores-" + server
     }, {
       $set: {
         "servicios.$[s].porcentaje": porcentaje,
@@ -128,14 +128,14 @@ exports.updateOneServerService = (req, res) => {
 
 exports.updateOneServerServiceComponent = (req, res) => {
 
-  var server = req.params.otdlmonprdserver
-  var service = req.params.otdlmonprdserverservice
-  var component = req.params.otdlmonprdserverscomponent
+  var server = req.params.otdsubmonprdserver
+  var service = req.params.otdsubmonprdserverservice
+  var component = req.params.otdsubmonprdserverscomponent
   var porcentaje = req.body.porcentaje
   var estado = req.body.estado
 
-  Otdlmonprd.update({
-      "_id": "OtdLiverpoolServidores-" + server
+  Otdsubmonprd.update({
+      "_id": "OtdSuburbiaServidores-" + server
     }, {
       $set: {
         "servicios.$[s].componentes.$[c].porcentaje": porcentaje

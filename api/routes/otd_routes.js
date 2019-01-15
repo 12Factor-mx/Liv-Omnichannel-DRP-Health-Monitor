@@ -56,16 +56,16 @@ module.exports = (app) => {
         // get all 
         app.get('/otdsubmondrp', otdsubmondrp.findAll);
         // get, and update one otd server
-        app.get('/otdsubmondrp/:otdlmondrpserver', otdsubmondrp.findOneServer);
-        app.post('/otdsubmondrp/:otdlmondrpserver', otdsubmondrp.updateOneServer);
+        app.get('/otdsubmondrp/:otdsubmondrpserver', otdsubmondrp.findOneServer);
+        app.post('/otdsubmondrp/:otdsubmondrpserver', otdsubmondrp.updateOneServer);
         // get, and update one otd server/service
-        app.get('/otdsubmondrp/:otdlmondrpserver/:otdlmondrpserverservice', otdsubmondrp.findOneServerService);
-        app.post('/otdsubmondrp/:otdlmondrpserver/:otdlmondrpserverservice', otdsubmondrp.updateOneServerService);
+        app.get('/otdsubmondrp/:otdsubmondrpserver/:otdsubmondrpserverservice', otdsubmondrp.findOneServerService);
+        app.post('/otdsubmondrp/:otdsubmondrpserver/:otdsubmondrpserverservice', otdsubmondrp.updateOneServerService);
         // update one  otd server/service/component
-        app.post('/otdsubmondrp/:otdlmondrpserver/:otdlmondrpserverservice/:otdlmondrpserverscomponent', otdsubmondrp.updateOneServerServiceComponent);
+        app.post('/otdsubmondrp/:otdsubmondrpserver/:otdsubmondrpserverservice/:otdsubmondrpserverscomponent', otdsubmondrp.updateOneServerServiceComponent);
         // misc
         app.put('/otdsubmondrp/updateparents', otdsubmondrp.updateParents)
-        app.put('/otdsubmondrp/:otdlmondrpId', otdsubmondrp.update);
+        app.put('/otdsubmondrp/:otdsubmondrpId', otdsubmondrp.update);
       }
 
       /***
@@ -78,16 +78,16 @@ module.exports = (app) => {
         // get all 
         app.get('/otdsubmonprd', otdsubmonprd.findAll);
         // get, and update one otd server
-        app.get('/otdsubmonprd/:otdlmonprdserver', otdsubmonprd.findOneServer);
-        app.post('/otdsubmonprd/:otdlmonprdserver', otdsubmonprd.updateOneServer);
+        app.get('/otdsubmonprd/:otdsubmonprdserver', otdsubmonprd.findOneServer);
+        app.post('/otdsubmonprd/:otdsubmonprdserver', otdsubmonprd.updateOneServer);
         // get, and update one otd server/service
-        app.get('/otdsubmonprd/:otdlmonprdserver/:otdlmonprdserverservice', otdsubmonprd.findOneServerService);
-        app.post('/otdsubmonprd/:otdlmonprdserver/:otdlmonprdserverservice', otdsubmonprd.updateOneServerService);
+        app.get('/otdsubmonprd/:otdsubmonprdserver/:otdsubmonprdserverservice', otdsubmonprd.findOneServerService);
+        app.post('/otdsubmonprd/:otdsubmonprdserver/:otdsubmonprdserverservice', otdsubmonprd.updateOneServerService);
         // update one  otd server/service/component
-        app.post('/otdsubmonprd/:otdlmonprdserver/:otdlmonprdserverservice/:otdlmonprdserverscomponent', otdsubmonprd.updateOneServerServiceComponent);
+        app.post('/otdsubmonprd/:otdsubmonprdserver/:otdsubmonprdserverservice/:otdsubmonprdserverscomponent', otdsubmonprd.updateOneServerServiceComponent);
         // misc
         app.put('/otdsubmonprd/updateparents', otdsubmonprd.updateParents)
-        app.put('/otdsubmonprd/:otdlmonprdId', otdsubmonprd.update);
+        app.put('/otdsubmonprd/:otdsubmonprdId', otdsubmonprd.update);
       }
 
 }

@@ -49,6 +49,7 @@ const ECommerceSuburbia = () => import('@/views/ATG/eCommerceSuburbia/ECommerceS
     const EndecaSuburbiaServices = () => import('@/views/ATG/eCommerceSuburbia/EndecaSuburbia/EndecaSuburbiaServices/EndecaSuburbiaServices') 
       const EndecaSuburbiaServicesStatus = () => import('@/views/ATG/eCommerceSuburbia/EndecaSuburbia/EndecaSuburbiaServices/EndecaSuburbiaServicesStatus/EndecaSuburbiaServicesStatus')
   const OTDSuburbia = () => import('@/views/ATG/eCommerceSuburbia/OTDSuburbia/OTDSuburbia')
+      const OTDSuburbiaServices = () => import('@/views/ATG/eCommerceSuburbia/OTDSuburbia/OTDSuburbiaServices/OTDSuburbiaServices')
 
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
@@ -278,6 +279,11 @@ export default new Router({
           path: 'OTDSuburbia',
           name: "OTD Suburbia",
           component: OTDSuburbia
+        },
+        {
+          path: 'OTDSuburbiaServices-*',
+          name: "OTD Suburbia Services",
+          component: OTDSuburbiaServices
         },
         {
           path: 'theme',
