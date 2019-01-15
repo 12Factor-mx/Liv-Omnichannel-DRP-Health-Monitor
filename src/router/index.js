@@ -50,6 +50,7 @@ const ECommerceSuburbia = () => import('@/views/ATG/eCommerceSuburbia/ECommerceS
       const EndecaSuburbiaServicesStatus = () => import('@/views/ATG/eCommerceSuburbia/EndecaSuburbia/EndecaSuburbiaServices/EndecaSuburbiaServicesStatus/EndecaSuburbiaServicesStatus')
   const OTDSuburbia = () => import('@/views/ATG/eCommerceSuburbia/OTDSuburbia/OTDSuburbia')
       const OTDSuburbiaServices = () => import('@/views/ATG/eCommerceSuburbia/OTDSuburbia/OTDSuburbiaServices/OTDSuburbiaServices')
+         const OTDSuburbiaServicesStatus = () => import('@/views/ATG/eCommerceSuburbia/OTDSuburbia/OTDSuburbiaServices/OTDSuburbiaServicesStatus/OTDSuburbiaServicesStatus')
 
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
@@ -276,6 +277,11 @@ export default new Router({
           component: EndecaSuburbiaServices
         },
         {
+          path: 'EndecaSuburbiaServicesStatus-*',
+          name: "Endeca Suburbia Services Satus",
+          component: EndecaSuburbiaServicesStatus
+        },
+        {
           path: 'OTDSuburbia',
           name: "OTD Suburbia",
           component: OTDSuburbia
@@ -284,6 +290,11 @@ export default new Router({
           path: 'OTDSuburbiaServices-*',
           name: "OTD Suburbia Services",
           component: OTDSuburbiaServices
+        },
+        {
+          path: 'OTDSuburbiaServicesStatus-*',
+          name: "OTD Suburbia Services Satus",
+          component: OTDSuburbiaServicesStatus
         },
         {
           path: 'theme',
