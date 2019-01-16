@@ -5,6 +5,7 @@ db.weblogicmesmondrp.drop()
 db.weblogicserversmesmondrp.drop()
 db.endecamesmondrp.drop()
 db.originmesmondrp.drop()
+db.otdmesmondrp.drop()
 
 db.ecommercemesmondrp.insert([
     {
@@ -391,6 +392,286 @@ db.originmesmondrp.insert(
       }, 
     ]
 )
+db.otdmesmondrp.insert(
+  [{
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)",
+      nombre: "mtyexapot13(172.17.212.194)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot13(172.16.212.35)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBNodeJS",
+          nombre: "SBNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot13(172.16.212.35)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBCreditApp",
+          nombre: "SBCreditApp",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot13(172.16.212.35)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBCreditApp-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBCreditApp-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot13(172.17.212.194)-Servicio-SBCreditApp-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    }, // -----------------------------------------------------------------------
+
+    {
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)",
+      nombre: "mtyexapot14(172.17.212.195)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot14(172.16.212.36)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBNodeJS",
+          nombre: "SBNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot14(172.16.212.36)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBCreditApp",
+          nombre: "SBCreditApp",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot14(172.16.212.36)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBCreditApp-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBCreditApp-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot14(172.17.212.195)-Servicio-SBCreditApp-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    }, // ---------------------------------------------------------------------------------------------
+    {
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)",
+      nombre: "mtyexapot15(172.17.212.196)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot15(172.16.212.37)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBNodeJS",
+          nombre: "SBNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot15(172.16.212.37)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBCreditApp",
+          nombre: "SBCreditApp",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot15(172.16.212.37)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBCreditApp-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBCreditApp-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot15(172.17.212.196)-Servicio-SBCreditApp-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    }, // ---------------------------------------------------------------------------------------------
+    {
+      fecha: new Date(),
+      _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)",
+      nombre: "mtyexapot16(172.17.212.197)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot16(172.16.212.38)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBNodeJS",
+          nombre: "SBNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot16(172.16.212.38)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBCreditApp",
+          nombre: "SBCreditApp",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot16(172.16.212.38)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBCreditApp-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBCreditApp-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdSuburbiaServidores-mtyexapot16(172.17.212.197)-Servicio-SBCreditApp-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    } // ---------------------------------------------------------------------------------------------
+  ]
+)
 
 //--- Prd ------------------------------------------------
 
@@ -399,6 +680,7 @@ db.weblogicmesmonprd.drop()
 db.weblogicserversmesmonprd.drop()
 db.endecamesmonprd.drop()
 db.originmesmonprd.drop()
+db.otdmesmonprd.drop()
 
 db.ecommercemesmonprd.insert([
     {
@@ -782,3 +1064,331 @@ db.originmesmonprd.insert([
                 porcentaje: 100
         }
 ])
+
+
+db.otdmesmonprd.insert(
+  [{
+      fecha: new Date(),
+      _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)",
+      nombre: "mtyexapot09(172.17.212.172)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot09(172.16.212.72)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-GRNodeJS",
+          nombre: "GRNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot09(172.16.212.72)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-GRNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-GRNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-GRNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-CCNodeJS",
+          nombre: "CCNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot09(172.16.212.72)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-CCNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-CCNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot09(172.17.212.172)-Servicio-CCNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    }, // -----------------------------------------------------------------------
+
+    {
+      fecha: new Date(),
+      _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)",
+      nombre: "mtyexapot10(172.17.212.173)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot10(172.16.212.73)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-GRNodeJS",
+          nombre: "GRNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot10(172.16.212.73)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-GRNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-GRNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-GRNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-CCNodeJS",
+          nombre: "CCNodeJS",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot10(172.16.212.73)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-CCNodeJS-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-CCNodeJS-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot10(172.17.212.173)-Servicio-CCNodeJS-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    }, // ---------------------------------------------------------------------------------------------
+    {
+      fecha: new Date(),
+      _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)",
+      nombre: "mtyexapot11(172.17.212.174)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot11(172.16.212.74)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-GRATG",
+          nombre: "GRATG",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot11(172.16.212.74)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-GRATG-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-GRATG-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-GRATG-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-CCATG",
+          nombre: "CCATG",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot11(172.16.212.74)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-CCATG-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-CCATG-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-CCATG-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-GREndeca",
+          nombre: "GREndeca",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot11(172.16.212.74)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-GREndeca-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot11(172.17.212.174)-Servicio-GREndeca-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    }, // ---------------------------------------------------------------------------------------------
+    {
+      fecha: new Date(),
+      _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)",
+      nombre: "mtyexapot12(172.17.212.175)",
+      estado: "consistente",
+      porcentaje: 100,
+      espejo: "qroexahot12(172.16.212.75)",
+      servicios: [{
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-GRATG",
+          nombre: "GRATG",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot12(172.16.212.75)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-GRATG-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-GRATG-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-GRATG-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        },
+        {
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-CCATG",
+          nombre: "CCATG",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot12(172.16.212.75)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-CCATG-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-CCATG-Componente-Https",
+              nombre: "Https",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-CCATG-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }, 
+        {
+          fecha: new Date(),
+          _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-GEEndeca",
+          nombre: "GEEndeca",
+          estado: "consistente",
+          porcentaje: 100,
+          espejo: "qroexahot12(172.16.212.75)",
+          componentes: [{
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-GEEndeca-Componente-Http",
+              nombre: "Http",
+              estado: "consistente",
+              porcentaje: 100
+            },
+            {
+              fecha: new Date(),
+              _id: "OtdMesaServidores-mtyexapot12(172.17.212.175)-Servicio-GEEndeca-Componente-AdminUrl",
+              nombre: "AdminUrl",
+              estado: "consistente",
+              porcentaje: 100
+            }
+          ]
+        }
+      ]
+    } // ---------------------------------------------------------------------------------------------
+  ]
+)
