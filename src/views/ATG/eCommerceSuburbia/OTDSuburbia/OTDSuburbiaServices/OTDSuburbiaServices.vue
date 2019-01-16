@@ -6,10 +6,10 @@
             <b-row >
               <b-col  lg="6">
                 <p v-if="env=='prd'">
-                  <i class='fa fa-align-justify'></i> HA-PROD 1- {{ prdserverprd }}
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ prdserverprd }}
                 </p>
                 <p v-if="env=='drp'">
-                  <i class='fa fa-align-justify'></i> HA-PROD 2- {{ drpserverprd }}
+                  <i class='fa fa-align-justify'></i> HA-PROD - {{ drpserverprd }}
                 </p>
                 <b-table :items="otdsubmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
                   <template slot="estado" slot-scope="otdsubmonprd">
