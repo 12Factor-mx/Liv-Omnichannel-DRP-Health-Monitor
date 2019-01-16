@@ -18,7 +18,7 @@
                   <template slot="fecha" slot-scope="otdsubmonprd">
                     {{formatDate(otdsubmonprd.item.fecha)}} 
                   </template>  
-                  <template slot="Fecha Consulta" slot-scope="data">
+                  <template slot="Fecha Consulta" >
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="porcentaje" slot-scope="otdsubmonprd">
@@ -51,7 +51,7 @@
                   <template slot="fecha" slot-scope="otdsubmondrp">
                     {{formatDate(otdsubmondrp.item.fecha)}}
                   </template>  
-                  <template slot="Fecha Consulta" slot-scope="data">
+                  <template slot="Fecha Consulta" >
                     {{formatDate(fechaConsulta)}}
                   </template>   
                    <template slot="porcentaje" slot-scope="otdsubmondrp">
