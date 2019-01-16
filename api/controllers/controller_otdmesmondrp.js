@@ -212,9 +212,9 @@ const getOtdLMonDrpStatus = () => {
 }
 
 const updateOtdLMonDrpStatus = (body) => {
-  return axios.put('http://localhost:9001/ecommercesubmondrp/OTDSuburbia', body)
+  return axios.put('http://localhost:9001/ecommercemesmondrp/OTDMesa', body)
     .then((response) => {
-      console.log(" put http://localhost:9001/ecommercesubmondrp/OTDSuburbia result: \n" + JSON.stringify(response.data, undefined, 2));
+      console.log(" put http://localhost:9001/ecommercemesmondrp/OTDMesa result: \n" + JSON.stringify(response.data, undefined, 2));
       return response.data;
     })
     .catch(e => {

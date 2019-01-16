@@ -213,9 +213,9 @@ const getOtdLMonPrdStatus = () => {
 }
 
 const updateOtdLMonPrdStatus = (body) => {
-  return axios.put('http://localhost:9001/ecommercesubmonprd/OTDSuburbia', body)
+  return axios.put('http://localhost:9001/ecommercemesmonprd/OTDMesa', body)
     .then((response) => {
-      console.log(" put http://localhost:9001/ecommercesubmonprd/OTDSuburbia result: \n" + JSON.stringify(response.data, undefined, 2));
+      console.log(" put http://localhost:9001/ecommercemesmonprd/OTDMesa result: \n" + JSON.stringify(response.data, undefined, 2));
       return response.data;
     })
     .catch(e => {

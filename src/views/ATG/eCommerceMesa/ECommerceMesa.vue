@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="Weblogic Mesa de Regalos">
+        <b-card  header="eCommerce Mesa de Regalos">
             <b-row >
               <b-col  lg="6">
                 <p>

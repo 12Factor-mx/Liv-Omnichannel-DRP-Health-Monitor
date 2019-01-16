@@ -255,7 +255,8 @@ export default new Router({
           path: 'OTDMesa',
           name: "OTD Mesa",
           component: OTDMesa
-        }, {
+        }, 
+        {
           path: 'OTDMesaServices-*',
           name: "OTD Mesa Services",
           component: OTDMesaServices
