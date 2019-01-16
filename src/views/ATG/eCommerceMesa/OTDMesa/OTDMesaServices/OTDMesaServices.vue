@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-row>
       <b-col md="12">
-        <b-card  header="OTD Suburbia Services">
+        <b-card  header="OTD Mesa Services">
             <b-row >
               <b-col  lg="6">
                 <p v-if="env=='prd'">
@@ -11,27 +11,27 @@
                 <p v-if="env=='drp'">
                   <i class='fa fa-align-justify'></i> HA-PROD - {{ drpserverprd }}
                 </p>
-                <b-table :items="otdsubmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
-                  <template slot="estado" slot-scope="otdsubmonprd">
-                    <b-badge :variant="getBadge(otdsubmonprd.item.estado)" >{{formatEstado(otdsubmonprd.item.estado)}}</b-badge>
+                <b-table :items="otdmesmonprd" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields">    
+                  <template slot="estado" slot-scope="otdmesmonprd">
+                    <b-badge :variant="getBadge(otdmesmonprd.item.estado)" >{{formatEstado(otdmesmonprd.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="otdsubmonprd">
-                    {{formatDate(otdsubmonprd.item.fecha)}} 
+                  <template slot="fecha" slot-scope="otdmesmonprd">
+                    {{formatDate(otdmesmonprd.item.fecha)}} 
                   </template>  
-                  <template slot="Fecha Consulta" slot-scope="data">
+                  <template slot="Fecha Consulta" slot-scope="data" >
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="porcentaje" slot-scope="otdsubmonprd">
-                    {{formatPercentage(otdsubmonprd.item.porcentaje)}}
+                   <template slot="porcentaje" slot-scope="otdmesmonprd">
+                    {{formatPercentage(otdmesmonprd.item.porcentaje)}}
                   </template>    
-                  <template slot="nombre" slot-scope="otdsubmonprd">
+                  <template slot="nombre" slot-scope="otdmesmonprd">
                    <div v-if="env=='prd'">
-                    <a v-if="otdsubmonprd.item.estado=='inconsistente'  || otdsubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdSuburbiaServicesStatus-' + otdsubmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{otdsubmonprd.item.nombre}} </a>
-                    <a v-else>  {{otdsubmonprd.item.nombre}} </a>
+                    <a v-if="otdmesmonprd.item.estado=='inconsistente'  || otdmesmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdMesaServicesStatus-' + otdmesmonprd.item.nombre + '-' + prdserverprd + '-_prd'">  {{otdmesmonprd.item.nombre}} </a>
+                    <a v-else>  {{otdmesmonprd.item.nombre}} </a>
                     </div>
                     <div v-if="env=='drp'">
-                    <a v-if="otdsubmonprd.item.estado=='inconsistente'  || otdsubmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdSuburbiaServicesStatus-' + otdsubmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{otdsubmonprd.item.nombre}} </a>
-                    <a v-else>  {{otdsubmonprd.item.nombre}} </a>
+                    <a v-if="otdmesmonprd.item.estado=='inconsistente'  || otdmesmonprd.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdMesaServicesStatus-' + otdmesmonprd.item.nombre + '-' + drpserverprd + '-_prd'">  {{otdmesmonprd.item.nombre}} </a>
+                    <a v-else>  {{otdmesmonprd.item.nombre}} </a>
                     </div>                 
                     </template>      
                 </b-table>
@@ -44,27 +44,27 @@
                 <p v-if="env=='drp'">
                   <i class='fa fa-align-justify'></i> HA-DRP - {{ drpserverdrp }}
                 </p>
-                <b-table  :items="otdsubmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
-                  <template slot="estado" slot-scope="otdsubmondrp">
-                    <b-badge :variant="getBadge(otdsubmondrp.item.estado)" >{{formatEstado(otdsubmondrp.item.estado)}}</b-badge>
+                <b-table  :items="otdmesmondrp" hover="hover" striped="striped" bordered="bordered"   responsive="sm" :fields="fields">  
+                  <template slot="estado" slot-scope="otdmesmondrp">
+                    <b-badge :variant="getBadge(otdmesmondrp.item.estado)" >{{formatEstado(otdmesmondrp.item.estado)}}</b-badge>
                   </template> 
-                  <template slot="fecha" slot-scope="otdsubmondrp">
-                    {{formatDate(otdsubmondrp.item.fecha)}}
+                  <template slot="fecha" slot-scope="otdmesmondrp">
+                    {{formatDate(otdmesmondrp.item.fecha)}}
                   </template>  
                   <template slot="Fecha Consulta" slot-scope="data">
                     {{formatDate(fechaConsulta)}}
                   </template>   
-                   <template slot="porcentaje" slot-scope="otdsubmondrp">
-                    {{formatPercentage(otdsubmondrp.item.porcentaje)}}
+                   <template slot="porcentaje" slot-scope="otdmesmondrp">
+                    {{formatPercentage(otdmesmondrp.item.porcentaje)}}
                   </template>    
-                  <template slot="nombre" slot-scope="otdsubmondrp">
+                  <template slot="nombre" slot-scope="otdmesmondrp">
                     <div v-if="env=='prd'">
-                    <a v-if="otdsubmondrp.item.estado=='inconsistente'  || otdsubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdSuburbiaServicesStatus-' + otdsubmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{otdsubmondrp.item.nombre}} </a>
-                    <a v-else>  {{otdsubmondrp.item.nombre}} </a>
+                    <a v-if="otdmesmondrp.item.estado=='inconsistente'  || otdmesmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdMesaServicesStatus-' + otdmesmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{otdmesmondrp.item.nombre}} </a>
+                    <a v-else>  {{otdmesmondrp.item.nombre}} </a>
                     </div>
                     <div v-if="env=='drp'">
-                    <a v-if="otdsubmondrp.item.estado=='inconsistente'  || otdsubmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdSuburbiaServicesStatus-' + otdsubmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{otdsubmondrp.item.nombre}} </a>
-                    <a v-else>  {{otdsubmondrp.item.nombre}} </a>
+                    <a v-if="otdmesmondrp.item.estado=='inconsistente'  || otdmesmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdMesaServicesStatus-' + otdmesmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{otdmesmondrp.item.nombre}} </a>
+                    <a v-else>  {{otdmesmondrp.item.nombre}} </a>
                     </div>
                   </template>      
                 </b-table>
@@ -91,14 +91,14 @@ const miliseconds = 10000;
 
 
 export default {
-  name: 'OTDSuburbiaServices',
+  name: 'OTDMesaServices',
   
   data: function () {
     return {  
 
       rootmonprd: [],
-      otdsubmondrp: [],
-      otdsubmonprd: [],
+      otdmesmondrp: [],
+      otdmesmonprd: [],
       timer: [],
       loading: false,
       env: "",
@@ -188,17 +188,17 @@ export default {
 
       if(this.env == "drp")
       {
-        axios.get('http://localhost:9001/otdsubmondrp/' + this.server).then(function (responsedrp)
+        axios.get('http://localhost:9001/otdmesmondrp/' + this.server).then(function (responsedrp)
         {
            console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
-           this.otdsubmondrp = responsedrp.data.servicios
+           this.otdmesmondrp = responsedrp.data.servicios
            this.drpserverdrp = this.server
            this.drpserverprd = responsedrp.data.espejo
 
-            axios.get('http://localhost:9001/otdsubmonprd/' + responsedrp.data.espejo).then(function (responseprd)
+            axios.get('http://localhost:9001/otdmesmonprd/' + responsedrp.data.espejo).then(function (responseprd)
             {
               console.log("res prd: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
-              this.otdsubmonprd = responseprd.data.servicios
+              this.otdmesmonprd = responseprd.data.servicios
               this.prdserverprd = responseprd.data.espejo
               this.prdserverdrp = this.server
 
@@ -215,19 +215,19 @@ export default {
       }
       else if (this.env == "prd")
       {
-        axios.get('http://localhost:9001/otdsubmonprd/' + this.server).then(function (responseprd)
+        axios.get('http://localhost:9001/otdmesmonprd/' + this.server).then(function (responseprd)
         {
            console.log("res prd: " + JSON.stringify(responseprd.data.servicios, undefined,2))
-           this.otdsubmonprd = responseprd.data.servicios
+           this.otdmesmonprd = responseprd.data.servicios
            this.prdserverprd = this.server
            this.prdserverdrp = responseprd.data.espejo
 
            console.log("ssdsdsdsdjzcxgjksguysafyusafdyuatrduysfusaydr: " + JSON.stringify(responseprd.data.espejo, undefined,2))
 
-            axios.get('http://localhost:9001/otdsubmondrp/' + responseprd.data.espejo).then(function (responsedrp)
+            axios.get('http://localhost:9001/otdmesmondrp/' + responseprd.data.espejo).then(function (responsedrp)
             {
               console.log("res drp: " + JSON.stringify(responsedrp.data.servicios, undefined,2))
-              this.otdsubmondrp = responsedrp.data.servicios
+              this.otdmesmondrp = responsedrp.data.servicios
               this.drpserverdrp = responsedrp.data.espejo
               this.drpserverprd = this.server
 

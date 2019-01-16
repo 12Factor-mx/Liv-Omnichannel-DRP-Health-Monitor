@@ -40,6 +40,11 @@ const ECommerceMesa = () => import('@/views/ATG/eCommerceMesa/ECommerceMesa')
     const EndecaMesa = () => import('@/views/ATG/eCommerceMesa/EndecaMesa/EndecaMesa') 
     const EndecaMesaServices = () => import('@/views/ATG/eCommerceMesa/EndecaMesa/EndecaMesaServices/EndecaMesaServices') 
       const EndecaMesaServicesStatus = () => import('@/views/ATG/eCommerceMesa/EndecaMesa/EndecaMesaServices/EndecaMesaServicesStatus/EndecaMesaServicesStatus')
+  const OTDMesa = () => import('@/views/ATG/eCommerceMesa/OTDMesa/OTDMesa')
+    const OTDMesaServices = () => import('@/views/ATG/eCommerceMesa/OTDMesa/OTDMesaServices/OTDMesaServices')
+      const OTDMesaServicesStatus = () => import('@/views/ATG/eCommerceMesa/OTDMesa/OTDMesaServices/OTDMesaServicesStatus/OTDMesaServicesStatus')
+
+
 
 const ECommerceSuburbia = () => import('@/views/ATG/eCommerceSuburbia/ECommerceSuburbia')
   const WebLogicSuburbia = () => import('@/views/ATG/eCommerceSuburbia/WebLogicSuburbia/WebLogicSuburbia')
@@ -245,6 +250,19 @@ export default new Router({
           path: 'EndecaMesaServicesStatus-*',
           name: "Endeca Mesa Services Status",
           component: EndecaMesaServicesStatus
+        },
+        {
+          path: 'OTDMesa',
+          name: "OTD Mesa",
+          component: OTDMesa
+        }, {
+          path: 'OTDMesaServices-*',
+          name: "OTD Mesa Services",
+          component: OTDMesaServices
+        }, {
+          path: 'OTDMesaServicesStatus-*',
+          name: "OTD Mesa Services Satus",
+          component: OTDMesaServicesStatus
         },
         {
           path: 'eCommerceSuburbia',
