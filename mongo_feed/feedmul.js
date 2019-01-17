@@ -391,7 +391,7 @@ db.originmulmondrp.insert(
   ]
 )
 
-db.otdsubmondrp.insert([
+db.otdmulmondrp.insert([
 
   {
     fecha: new Date(),
