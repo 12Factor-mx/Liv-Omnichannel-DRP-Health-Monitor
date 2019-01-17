@@ -13,7 +13,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOneServer = (req, res) => {
-  Otdmulmondrp.findById("OtdSuburbiaServidores-" + req.params.otdmulmondrpserver)
+  Otdmulmondrp.findById("OtdMultisitiosServidores-" + req.params.otdmulmondrpserver)
     .then(otdmulmondrp => {
       res.send(otdmulmondrp);
     }).catch(err => {
@@ -27,7 +27,7 @@ exports.findOneServerService = (req, res) => {
 
   var server = req.params.otdmulmondrpserver
   var service = req.params.otdmulmondrpserverservice
-  var queryfield = "OtdSuburbiaServidores-" + server + "-Servicio-" + service
+  var queryfield = "OtdMultisitiosServidores-" + server + "-Servicio-" + service
 
   Otdmulmondrp.find({
       "servicios._id": queryfield
@@ -79,7 +79,7 @@ exports.updateOneServer = (req, res) => {
   var estado = req.body.estado
 
   Otdmulmondrp.update({
-      "_id": "OtdSuburbiaServidores-" + server
+      "_id": "OtdMultisitiosServidores-" + server
     }, {
       $set: {
         "porcentaje": porcentaje,
@@ -105,7 +105,7 @@ exports.updateOneServerService = (req, res) => {
   var estado = req.body.estado
 
   Otdmulmondrp.update({
-      "_id": "OtdSuburbiaServidores-" + server
+      "_id": "OtdMultisitiosServidores-" + server
     }, {
       $set: {
         "servicios.$[s].porcentaje": porcentaje,
@@ -135,7 +135,7 @@ exports.updateOneServerServiceComponent = (req, res) => {
   var estado = req.body.estado
 
   Otdmulmondrp.update({
-      "_id": "OtdSuburbiaServidores-" + server
+      "_id": "OtdMultisitiosServidores-" + server
     }, {
       $set: {
         "servicios.$[s].componentes.$[c].porcentaje": porcentaje

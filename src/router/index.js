@@ -23,15 +23,16 @@ const ECommerceLiverpool = () => import('@/views/ATG/eCommerceLiverpool/ECommerc
       const EndecaLiverpoolServices = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpoolServices/EndecaLiverpoolServices') 
         const EndecaLiverpoolServicesStatus = () => import('@/views/ATG/eCommerceLiverpool/EndecaLiverpool/EndecaLiverpoolServices/EndecaLiverpoolServicesStatus/EndecaLiverpoolServicesStatus')
 
-
-
 const ECommerceMultisitios = () => import('@/views/ATG/eCommerceMultisitios/ECommerceMultisitios')
   const WebLogicMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicMultisitios')
     const WebLogicServersMultisitios = () => import('@/views/ATG/eCommerceMultisitios/WebLogicMultisitios/WebLogicServersMultisitios/WebLogicServersMultisitios')
-    const OriginMultisitios = () => import('@/views/ATG/eCommerceMultisitios/OriginMultisitios/OriginMultisitios')
-    const EndecaMultisitios = () => import('@/views/ATG/eCommerceMultisitios/EndecaMultisitios/EndecaMultisitios') 
+  const OriginMultisitios = () => import('@/views/ATG/eCommerceMultisitios/OriginMultisitios/OriginMultisitios')
+  const EndecaMultisitios = () => import('@/views/ATG/eCommerceMultisitios/EndecaMultisitios/EndecaMultisitios') 
     const EndecaMultisitiosServices = () => import('@/views/ATG/eCommerceMultisitios/EndecaMultisitios/EndecaMultisitiosServices/EndecaMultisitiosServices') 
       const EndecaMultisitiosServicesStatus = () => import('@/views/ATG/eCommerceMultisitios/EndecaMultisitios/EndecaMultisitiosServices/EndecaMultisitiosServicesStatus/EndecaMultisitiosServicesStatus')
+  const OTDMultisitios = () => import('@/views/ATG/eCommerceMultisitios/OTDMultisitios/OTDMultisitios')
+    const OTDMultisitiosServices = () => import('@/views/ATG/eCommerceMultisitios/OTDMultisitios/OTDMultisitiosServices/OTDMultisitiosServices')
+      const OTDMultisitiosServicesStatus = () => import('@/views/ATG/eCommerceMultisitios/OTDMultisitios/OTDMultisitiosServices/OTDMultisitiosServicesStatus/OTDMultisitiosServicesStatus')
 
 const ECommerceMesa = () => import('@/views/ATG/eCommerceMesa/ECommerceMesa')
   const WebLogicMesa = () => import('@/views/ATG/eCommerceMesa/WebLogicMesa/WebLogicMesa')
@@ -200,6 +201,19 @@ export default new Router({
           path: 'OriginMultisitios',
           name: "Origenes Multisitios",
           component: OriginMultisitios
+        },
+        {
+          path: 'OTDMultisitios',
+          name: "OTD Multisitios",
+          component: OTDMultisitios
+        }, {
+          path: 'OTDMultisitiosServices-*',
+          name: "OTD Multisitios Services",
+          component: OTDMultisitiosServices
+        }, {
+          path: 'OTDMultisitiosServicesStatus-*',
+          name: "OTD Multisitios Services Satus",
+          component: OTDMultisitiosServicesStatus
         },
         {
           path: 'EndecaMultisitios',
