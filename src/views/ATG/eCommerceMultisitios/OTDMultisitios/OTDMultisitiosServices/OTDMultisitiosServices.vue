@@ -59,11 +59,11 @@
                   </template>    
                   <template slot="nombre" slot-scope="otdmulmondrp">
                     <div v-if="env=='prd'">
-                    <a v-if="otdmulmondrp.item.estado=='inconsistente'  || otdmulmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServicesStatus-' + otdmulmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{otdmulmondrp.item.nombre}} </a>
+                    <a v-if="otdmulmondrp.item.estado=='inconsistente'  || otdmulmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdMultisitiosServicesStatus-' + otdmulmondrp.item.nombre + '-' + prdserverdrp + '-_drp'">  {{otdmulmondrp.item.nombre}} </a>
                     <a v-else>  {{otdmulmondrp.item.nombre}} </a>
                     </div>
                     <div v-if="env=='drp'">
-                    <a v-if="otdmulmondrp.item.estado=='inconsistente'  || otdmulmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'EndecaMultisitiosServicesStatus-' + otdmulmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{otdmulmondrp.item.nombre}} </a>
+                    <a v-if="otdmulmondrp.item.estado=='inconsistente'  || otdmulmondrp.item.estado=='consistente' " v-bind:href= "'/#/' + 'OtdMultisitiosServicesStatus-' + otdmulmondrp.item.nombre + '-' + drpserverdrp + '-_drp'">  {{otdmulmondrp.item.nombre}} </a>
                     <a v-else>  {{otdmulmondrp.item.nombre}} </a>
                     </div>
                   </template>      
@@ -179,7 +179,7 @@ export default {
       this.documentURI = document.documentURI
       console.log("documentURI : " + this.documentURI)
       this.server =  extractBetweenDifferent(document.documentURI, "-", "_",1)
-      console.log("serverprd : " + this.serverprd)
+      console.log("server : " + this.server)
       this.env =  document.documentURI.substring(document.documentURI.indexOf('_') + 1)
       console.log("env : " + this.env)
  
