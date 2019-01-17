@@ -4,7 +4,7 @@ module.exports = (app) => {
       * ---------------------------------------------------
       * Otd Liverpool DRP
       * ---------------------------------------------------
-      *  */
+      **/
      {
        const otdlmondrp = require('../controllers/controller_otdlmondrp.js');
        // get all 
@@ -26,7 +26,7 @@ module.exports = (app) => {
       * ----------------------------------------------------
       * Otd Liverpool PRD
       * ----------------------------------------------------
-      *  */
+      **/
      {
        const otdlmonprd = require('../controllers/controller_otdlmonprd.js');
        // get all 
@@ -50,7 +50,7 @@ module.exports = (app) => {
        * ---------------------------------------------------
        * Otd Suburbia DRP
        * ---------------------------------------------------
-       *  */
+       **/
       {
         const otdsubmondrp = require('../controllers/controller_otdsubmondrp.js');
         // get all 
@@ -72,7 +72,7 @@ module.exports = (app) => {
        * ----------------------------------------------------
        * Otd Suburbia PRD
        * ----------------------------------------------------
-       *  */
+       **/
       {
         const otdsubmonprd = require('../controllers/controller_otdsubmonprd.js');
         // get all 
@@ -94,7 +94,7 @@ module.exports = (app) => {
         * ---------------------------------------------------
         * Otd Mesa DRP
         * ---------------------------------------------------
-        *  */
+        **/
         {
           const otdmesmondrp = require('../controllers/controller_otdmesmondrp.js');
           // get all 
@@ -112,11 +112,11 @@ module.exports = (app) => {
           app.put('/otdmesmondrp/:otdmesmondrpId', otdmesmondrp.update);
       }
 
-      //  /***
-      //   * ----------------------------------------------------
-      //   * Otd Mesa PRD
-      //   * ----------------------------------------------------
-      //   *  */
+      /***
+      * ----------------------------------------------------
+      * Otd Mesa PRD
+      * ----------------------------------------------------
+      **/
         {
           const otdmesmonprd = require('../controllers/controller_otdmesmonprd.js');
           // get all 
@@ -132,6 +132,50 @@ module.exports = (app) => {
           // misc
           app.put('/otdmesmonprd/updateparents', otdmesmonprd.updateParents)
           app.put('/otdmesmonprd/:otdmesmonprdId', otdmesmonprd.update);
+        }
+
+        /***
+         * ---------------------------------------------------
+         * Otd Multisitios DRP
+         * ---------------------------------------------------
+         **/
+        {
+          const otdmulmondrp = require('../controllers/controller_otdmulmondrp.js');
+          // get all 
+          app.get('/otdmulmondrp', otdmulmondrp.findAll);
+          // get, and update one otd server
+          app.get('/otdmulmondrp/:otdmulmondrpserver', otdmulmondrp.findOneServer);
+          app.post('/otdmulmondrp/:otdmulmondrpserver', otdmulmondrp.updateOneServer);
+          // get, and update one otd server/service
+          app.get('/otdmulmondrp/:otdmulmondrpserver/:otdmulmondrpserverservice', otdmulmondrp.findOneServerService);
+          app.post('/otdmulmondrp/:otdmulmondrpserver/:otdmulmondrpserverservice', otdmulmondrp.updateOneServerService);
+          // update one  otd server/service/component
+          app.post('/otdmulmondrp/:otdmulmondrpserver/:otdmulmondrpserverservice/:otdmulmondrpserverscomponent', otdmulmondrp.updateOneServerServiceComponent);
+          // misc
+          app.put('/otdmulmondrp/updateparents', otdmulmondrp.updateParents)
+          app.put('/otdmulmondrp/:otdmulmondrpId', otdmulmondrp.update);
+        }
+
+        /***
+        * ----------------------------------------------------
+        * Otd Multisitios PRD
+        * ----------------------------------------------------
+        *  */
+        {
+          const otdmulmonprd = require('../controllers/controller_otdmulmonprd.js');
+          // get all 
+          app.get('/otdmulmonprd', otdmulmonprd.findAll);
+          // get, and update one otd server
+          app.get('/otdmulmonprd/:otdmulmonprdserver', otdmulmonprd.findOneServer);
+          app.post('/otdmulmonprd/:otdmulmonprdserver', otdmulmonprd.updateOneServer);
+          // get, and update one otd server/service
+          app.get('/otdmulmonprd/:otdmulmonprdserver/:otdmulmonprdserverservice', otdmulmonprd.findOneServerService);
+          app.post('/otdmulmonprd/:otdmulmonprdserver/:otdmulmonprdserverservice', otdmulmonprd.updateOneServerService);
+          // update one  otd server/service/component
+          app.post('/otdmulmonprd/:otdmulmonprdserver/:otdmulmonprdserverservice/:otdmulmonprdserverscomponent', otdmulmonprd.updateOneServerServiceComponent);
+          // misc
+          app.put('/otdmulmonprd/updateparents', otdmulmonprd.updateParents)
+          app.put('/otdmulmonprd/:otdmulmonprdId', otdmulmonprd.update);
         }
 
 }
