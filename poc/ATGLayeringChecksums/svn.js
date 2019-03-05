@@ -25,6 +25,8 @@ function exportTo(src, dst, options) {
           else
             return reject(err)
         })
+    }).catch((err) => {
+        throw err
     });
   })
 }
