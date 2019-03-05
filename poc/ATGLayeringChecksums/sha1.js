@@ -2,7 +2,6 @@ const fs = require('fs'),
   path = require('path'),
   checksum = require('checksum');
 
-
 async function readDirRecursive(startDir) {
   const readDirQueue = [],
     fileList = [];
@@ -14,7 +13,6 @@ async function readDirRecursive(startDir) {
           if (err) {
             return reject(err);
           }
-
           resolve(itemList.map((item) => path.resolve(readDir, item)));
         });
       });
@@ -27,7 +25,6 @@ async function readDirRecursive(startDir) {
             if (err) {
               return reject(err);
             }
-
             resolve({
               itemPath,
               isDirectory: stat.isDirectory()
@@ -35,7 +32,6 @@ async function readDirRecursive(startDir) {
           });
         });
       }
-
       return Promise.all(itemList.map(getStat));
     }
 
@@ -49,7 +45,6 @@ async function readDirRecursive(startDir) {
           readDirQueue.push(itemPath);
           continue;
         }
-
         checksum.file(itemPath, function (err, sum) {
             fileList.push({
               "pathSVN": itemPath.replace(startDir, '.'),
@@ -58,61 +53,16 @@ async function readDirRecursive(startDir) {
         })
         
       }
-
       if (readDirQueue.length > 0) {
         return readDir(readDirQueue.shift());
       }
-
       return fileList;
     }
-
     return getItemList(dir)
       .then(getItemListStat)
       .then(processItemList);
   }
-
    return readDir(startDir);
 }
-
-
-function filewalker(dir, done) {
-  let results = [];
-
-  fs.readdir(dir, function (err, list) {
-    if (err) return done(err);
-
-    var pending = list.length;
-
-    if (!pending) return done(null, results);
-
-    list.forEach(function (file) {
-      file = path.resolve(dir, file);
-
-      fs.stat(file, function (err, stat) {
-        // If directory, execute a recursive call
-        if (stat && stat.isDirectory()) {
-          // Add directory to array [comment if you need to remove the directories from the array]
-          //results.push(file);
-
-          filewalker(file, function (err, res) {
-            results = results.concat(res);
-            if (!--pending) done(null, results);
-          });
-        } else {
-          checksum.file(file, function (err, sum) {
-            results.push({
-              "pathSVN": file.replace(dir, '.'),
-              "sha1SVN": sum
-            });
-        })
-          //results.push(file);
-
-          if (!--pending) done(null, results);
-        }
-      });
-    });
-  });
-};
-
 
 exports.create = readDirRecursive;

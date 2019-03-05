@@ -1,10 +1,11 @@
 var MongoClient = require('mongodb').MongoClient;
 var urlMongoDb = "mongodb://127.0.0.1:27017/Liv_Ominchannel_DRP_Health_Monitor";
 
-function insert_into_ecommerce_v11_3_env_configuration(data) {
-
+async function insert_into_ecommerce_v11_3_env_configuration(data) {
   return new Promise((resolve, reject) => {
-      MongoClient.connect(urlMongoDb, function (e, db) {
+      MongoClient.connect(urlMongoDb, {
+            useNewUrlParser: true
+          }, function (e, db) {
         if (e) {
           reject(e)
         };
@@ -20,10 +21,11 @@ function insert_into_ecommerce_v11_3_env_configuration(data) {
     }
 )}
 
-function insertWithDropCreate(collection,data) {
-
+async function insertWithDropCreate(collection,data) {
   return new Promise((resolve, reject) => {
-    MongoClient.connect(urlMongoDb, function (e, db) {
+    MongoClient.connect(urlMongoDb, {
+          useNewUrlParser: true
+        }, function (e, db) {
       if (e) {
         reject(e)
       };
@@ -38,7 +40,6 @@ function insertWithDropCreate(collection,data) {
     })
   })
 }
-
 
 exports.insert_into_ecommerce_v11_3_env_configuration = insert_into_ecommerce_v11_3_env_configuration;
 exports.insertWithDropCreate = insertWithDropCreate

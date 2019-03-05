@@ -8,8 +8,9 @@
 
 var ATGLayeringConsistencyAPI = require('./ATGLayeringConsistencyAPI')
 
-console.log("Starting find diff PROD vs HAPROD checksums: " + Date(Date.now()).toLocaleString('es-MX'))
+console.log("Starting find diff SVNPROD vs SVNPRODHA checksums: " + Date(Date.now()).toLocaleString('es-MX'))
 
-ATGLayeringConsistencyAPI.get_SHA1_Diff_SVNPROD_vs_SVNVHAPROD().then((res) => {
-    console.log("Sucessfully updated MongoDB collection 'SHA1_diff_PROD_vs_PRODHA' at: " + Date(Date.now()).toLocaleString('es-MX'))
+ATGLayeringConsistencyAPI.updateSHA1_Diff_SVNPROD_vs_SVNPRODHA().then((res) => {
+    console.log("Sucessfully finished at: " + Date(Date.now()).toLocaleString('es-MX'))
+    console.log("Recorded Differneces: " + res.insertedCount)
 });

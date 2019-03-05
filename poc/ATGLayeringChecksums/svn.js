@@ -9,7 +9,7 @@ const default_options = {
 
  };
  
-function exportTo(src, dst, options) {
+async function exportTo(src, dst, options) {
    
    return new Promise((resolve, reject) => {
     console.log("Cleaning " + dst)

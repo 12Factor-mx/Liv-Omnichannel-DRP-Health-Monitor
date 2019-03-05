@@ -1,6 +1,8 @@
 /**
- * Funciones para obterner informacion de consistenacia para el
- * ATG Layering de los mabientes Liverpool 
+ * Funciones para obterner información de consistenacia para el
+ * ATG Layering de los ambientes Liverpool 
+ * 
+ * Miguel Díaz - mdiazm01@liverpool.com.mx
  * 
  */
 
@@ -9,9 +11,6 @@ var loki = require('lokijs')
 var _ = require('lodash');
 var fs = require('fs');
 var jsdiff = require('diff');
-
-
-
 
 // My Modules
 var svn = require('./svn')
@@ -28,7 +27,6 @@ var options = {
   params: ['--force'],
   quiet: true,
 };
-
 
 //-------------------------------------
 // Exportable Functions
@@ -50,40 +48,35 @@ var options = {
  * 3) inserta las rutas y los respectivos checksum en la coleccion ecommerce_v11_3_env_configuration
  * 
  */
-function updateSHA1_ecommerce_v11_3_env_configuration() {
-
+async function updateSHA1_ecommerce_v11_3_env_configuration() {
   var collection = "ecommerce_v11_3_env_configuration"
-
   return new Promise((resolve, reject) => {
-
-    // Exporta el repo SVN
-    //svn.exportTo(svnUrl, to, options).then(function (r) {
-    //   console.log(r);
-    // Calcula los checksums
-    sha1.create(to).then((sha1Files) => {
-      // Presiste en Mongo
-      db.insertWithDropCreate(collection, sha1Files).then((r) => {
-        console.log(r);
-        resolve(r);
+    svn.exportTo(svnUrl, to, options).then(function (r) {
+      console.log(r);
+      sha1.create(to).then((sha1Files) => {
+        console.log(sha1Files);
+        db.insertWithDropCreate(collection, sha1Files).then((r) => {
+          console.log(r);
+          resolve(r);
+        }).catch((e) => {
+          console.log("Insert Error: " + e);
+          reject(r);
+        })
       }).catch((e) => {
-        console.log("Insert Error: " + e);
+        console.log("Create Error: " + e);
         reject(r);
       })
     }).catch((e) => {
-      console.log("Create Error: " + e);
+      console.log("Export Error:" + e)
       reject(r);
     })
-    //}).catch((e) => {
-    //console.log("Export Error:" + e)
-    //reject(r);
-    //})
   })
 }
 
 
-/** function get_SHA1_Diff_SVNPROD_vs_SVNHAPROD()
+/** function updateSHA1_Diff_SVNPROD_vs_SVNPRODHA()
  * 
- * Tener en Mongo las diferecias de checksum entre PROD y HAPROD
+ * Tener en Mongo las diferecias de checksum entre SVNPROD y SVNPRODHA
  * 
  * Regresa:
  * 
@@ -91,79 +84,54 @@ function updateSHA1_ecommerce_v11_3_env_configuration() {
  * 
  * Lógica:
  * 
- * 1) exporta el SVN repo 'ecommerce_v11_3/branches/environment/env-configuratio' a /tmp/liv_atg_layering_config
- * 2) 
- * 3) 
+ * 1) Exporta el SVN repo 'ecommerce_v11_3/branches/environment/env-configuratio' a /tmp/liv_atg_layering_config
+ * 2) Crea una base de datos loki (fast 100% javascript in-memory key:value database)
+ * 3) Crea las tablas/coleccines loki PROD y PRODHA
+ * 4) Llena las tablas PROD y PORDHA con los datos de /tmp/liv_atg_layering_config y el checksum de cada archivo
+ * 5) Itera sobre PROD buscando los archivos de PRODHA 
+ * 6) Calcula las diferencias de checksum y los archivos no existentes
+ * 7) Elimina la llave $loki del cálculo de diferencias (mongo no permite documentos con llaves que comienzan con $)
+ * 8) Persiste el cálculo de difenercias
  * 
  */
 
-function get_SHA1_Diff_SVNPROD_vs_SVNVHAPROD() {
-  var collection = "SHA1_Diff_SVNPROD_vs_SVNVHAPROD"
-
-  return new Promise((resolve, reject) => {
-
-  //svn.exportTo(svnUrl, to, options).then(function (r) {
-    calculate_SHA1_Diff_SVNPROD_vs_SVNPRODHA().then((diffData) => {
-      //console.log(JSON.stringify(diffData, undefined, 2))
-      removeLoki(diffData).then((prod) => {
-        //console.log(JSON.stringify(prod,undefined,2));
-        db.insertWithDropCreate(collection, prod).then((insertResult) => {
-          console.log(insertResult);
-          resolve(insertResult);
-        }).catch((e) => {
-          console.log("Insert Error: " + e);
-          reject(e);
-        })
-      }).catch((e) => {
-        console.log("Clean Error: " + e);
-        reject(e);
-      })
-    }).catch((e) => {
-      console.log("Calculate Error:" + e)
-      reject(e);
-    })
-    // }).catch((e) => {
-    //   console.log("Export Error:" + e)
-    //    reject(r);
-    // })
-  })
-}
-
-
-//-------------------------------------
-// Helper Functions
-//-------------------------------------
-
-// If OK promises returs a loki collection
-async function calculate_SHA1_Diff_SVNPROD_vs_SVNPRODHA() {
-
-  return new Promise((resolve, reject) => {
-
+async function updateSHA1_Diff_SVNPROD_vs_SVNPRODHA() {
+  return new Promise(async (resolve, reject) => {
     let lokiDB = new loki('loki.json')
-
     k = 0
     s = 0
     t = 0
-
-    createLokiCollectionProd(lokiDB).then((lokiCollectionProd) => {
-      let lcprd = lokiCollectionProd
-      sha1.create(to + '/PROD/').then((sha1Files) => {
-        let prodSHA1Files = sha1Files
-        insertLokiCollectionProd(lcprd, prodSHA1Files).then((loadedLokiCollectionProd) => {
-          let llcprd = loadedLokiCollectionProd
-          // console.log("loadedLokiCollectionProd ouside :" + JSON.stringify(llcprd.data, undefined, 2))
-          createLokiCollectionProdHA(lokiDB).then((lokiCollectionProdHA) => {
-            let lcprdHA = lokiCollectionProdHA
-            sha1.create(to + '/PRODHA/').then((sha1FilesHA) => {
-              let prodSHA1FilesHA = sha1FilesHA
-              insertLokiCollectionProdHA(lcprdHA, prodSHA1FilesHA).then((loadedLokiCollectionProdHA) => {
-                let llcprdHA = loadedLokiCollectionProdHA
-                //console.log("loadedLokiCollectionProdHA ouside :" + JSON.stringify(llcprdHA.data, undefined, 2))
-                findAllLokiCollectionProdHA(llcprd).then((prod) => {
-                  let prd = prod
-                  console.log("prod ouside :" + JSON.stringify(prd, undefined, 2))
-                  genereate_SHA1_Diff_SVNPROD_vs_SVNPRODHA(prd, lcprdHA).then((diff) => {
-                    console.log(JSON.stringify(diff, undefined, 2))
+    svn.exportTo(svnUrl, to, options).then( (exportRes) => {
+      let e = exportRes
+      createLokiCollectionProd(lokiDB).then((lokiCollectionProd) => {
+        let lcprd = lokiCollectionProd
+        sha1.create(to + '/PROD/').then((sha1Files) => {
+          let prodSHA1Files = sha1Files
+          insertLokiCollectionProd(lcprd, prodSHA1Files).then((loadedLokiCollectionProd) => {
+            let llcprd = loadedLokiCollectionProd
+            // console.log("loadedLokiCollectionProd ouside :" + JSON.stringify(llcprd.data, undefined, 2))
+            createLokiCollectionProdHA(lokiDB).then((lokiCollectionProdHA) => {
+              let lcprdHA = lokiCollectionProdHA
+              sha1.create(to + '/PRODHA/').then((sha1FilesHA) => {
+                let prodSHA1FilesHA = sha1FilesHA
+                insertLokiCollectionProdHA(lcprdHA, prodSHA1FilesHA).then((loadedLokiCollectionProdHA) => {
+                  let llcprdHA = loadedLokiCollectionProdHA
+                  //console.log("loadedLokiCollectionProdHA ouside :" + JSON.stringify(llcprdHA.data, undefined, 2))
+                  findAllLokiCollectionProd(llcprd).then((prod) => {
+                    let prd = prod
+                    //console.log("prod ouside :" + JSON.stringify(prd, undefined, 2))
+                    genereate_SHA1_Diff_SVNPROD_vs_SVNPRODHA(prd, lcprdHA).then((diff) => {
+                      let d = diff
+                      //console.log(JSON.stringify(diff, undefined, 2))
+                      removeLoki(d).then((cleanDiff) => {
+                        let clean = cleanDiff
+                        //console.log(JSON.stringify(cleanDiff, undefined, 2))
+                        db.insertWithDropCreate('SHA1_Diff_SVNPROD_vs_SVNPRODHA', clean).then((insertRes) => {
+                          //console.log(JSON.stringify(insertRes, undefined, 2))
+                          resolve(insertRes)
+                        })
+                      })
+                    })
                   })
                 })
               })
@@ -175,17 +143,26 @@ async function calculate_SHA1_Diff_SVNPROD_vs_SVNPRODHA() {
   })
 }
 
+//-------------------------------------
+// Helper Functions
+//-------------------------------------
+
+// If OK promises returs a loki collection
+//async function calculate_SHA1_Diff_SVNPROD_vs_SVNPRODHA() {
+
 
 async function genereate_SHA1_Diff_SVNPROD_vs_SVNPRODHA(prod, LokiCollectionProdHA) {
+
   return new Promise(async (resolve, reject) => {
-    let Diff = [];  k = 0; s = 0; t = prod.length; 
+; 
+    let Diff = [];
+    k = 0; s = 0; t = prod.length; 
     await asyncForEach(prod, (item) =>{
       findOneLokiCollectionProdHA(LokiCollectionProdHA, "pathSVN", item.pathSVN).then((prodHA) => {
-
         function getDiffsLoop(){
           return new Promise(async (resolve, reject) =>{
             if (prodHA === undefined) {
-              console.log("La llave %s de PROD no existe en PRODHA", item.pathSVN);
+              //console.log("La llave %s de PROD no existe en PRODHA", item.pathSVN);
               k++
               var r1 = {
                 "error": {
@@ -193,17 +170,14 @@ async function genereate_SHA1_Diff_SVNPROD_vs_SVNPRODHA(prod, LokiCollectionProd
                   "path": item.pathSVN
                 }
               }
-              resolve(r1)
+              Diff.push(r1)
             } else if (item.sha1SVN != prodHA.sha1SVN) {
-              console.log("El checksum de %s no coincide", item.pathSVN)
+              //console.log("El checksum de %s no coincide", item.pathSVN)
               var src1 = to + '/PROD/' + item.pathSVN.substring(1)
               var src2 = to + '/PRODHA/' + prodHA['pathSVN'].substring(1)
               var fileSrc1 = fs.readFileSync(src1, "utf8");
               var fileSrc2 = fs.readFileSync(src2, "utf8");
-
               var diff = await jsdiff.diffChars(fileSrc1, fileSrc2);
-
-              console.log(JSON.stringify(diff, undefined, 2))
               s++
               var r2 = {
                 "error": {
@@ -216,17 +190,16 @@ async function genereate_SHA1_Diff_SVNPROD_vs_SVNPRODHA(prod, LokiCollectionProd
                   "dif": diff,
                 } 
               }
-              resolve(r2)
+              Diff.push(r2)
             } else {}
           })
         }
       getDiffsLoop().then((calculatedDiff) => {
-        console.log(calculatedDiff)
         Diff.push(calculatedDiff)
       })
-    })      
-    }).then(() =>{
-      Diff.push({
+    })
+    }) 
+    Diff.push({
       "error": {
         "errorType": "resumen",
         "archivosEnPROD": t,
@@ -236,9 +209,9 @@ async function genereate_SHA1_Diff_SVNPROD_vs_SVNPRODHA(prod, LokiCollectionProd
       }
     })
     resolve(Diff)
-    })
   });
 }
+
 //Removes the '$loki' key
 async function removeLoki(obj) {
   return new Promise((resolve, reject) => {
@@ -246,9 +219,7 @@ async function removeLoki(obj) {
   })
 }
 
-
 async function createLokiCollectionProd(lokiDB) {
-
   let dB = lokiDB
   return new Promise((resolve, reject) => {
     resolve(dB.addCollection("PROD", {
@@ -259,7 +230,6 @@ async function createLokiCollectionProd(lokiDB) {
 }
 
 async function createLokiCollectionProdHA (lokiDB)  {
-
   let dB = lokiDB
   return new Promise((resolve, reject) => {
     resolve(dB.addCollection("PRODHA", {
@@ -270,37 +240,29 @@ async function createLokiCollectionProdHA (lokiDB)  {
 }
 
 async function insertLokiCollectionProd(lokiCollectionProd, pordData) {
-
   return new Promise((resolve, reject) => {
     lokiCollectionProd.insert(pordData)
-    //console.log("lokiCollectionProd :" + lokiCollectionProd)
     resolve(lokiCollectionProd)
   })
 }
 
 async function insertLokiCollectionProdHA(lokiCollectionProdHA, pordDataHA) {
-
   return new Promise((resolve, reject) => {
     lokiCollectionProdHA.insert(pordDataHA)
-    // console.log("lokiCollectionProdHA :" + lokiCollectionProdHA)
     resolve(lokiCollectionProdHA)
   })
 }
 
-async function findAllLokiCollectionProdHA(lokiCollectionProd) {
-
+async function findAllLokiCollectionProd(lokiCollectionProd) {
   return new Promise((resolve, reject) => {
     var prod = lokiCollectionProd.find()
-    //console.log("prod:" + prod)
     resolve(prod)
   })
 }
 
 async function findOneLokiCollectionProdHA(lokiCollectionProd, key, value) {
-
   return new Promise((resolve, reject) => {
     var doc = lokiCollectionProd.by(key, value)
-    //console.log("prod:" + prod)
     resolve(doc)
   })
 }
@@ -315,4 +277,4 @@ async function asyncForEach(array, callback) {
 // Expoose public functions here
 //-------------------------------------
 exports.updateSHA1_ecommerce_v11_3_env_configuration = updateSHA1_ecommerce_v11_3_env_configuration;
-exports.get_SHA1_Diff_SVNPROD_vs_SVNVHAPROD = get_SHA1_Diff_SVNPROD_vs_SVNVHAPROD;
+exports.updateSHA1_Diff_SVNPROD_vs_SVNPRODHA = updateSHA1_Diff_SVNPROD_vs_SVNPRODHA;
