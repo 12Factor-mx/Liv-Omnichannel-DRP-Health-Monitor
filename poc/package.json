@@ -11,8 +11,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "checksum": "^0.1.1",
+    "child_process": "^1.0.2",
     "csv-to-array": "^1.0.2",
     "csvtojson": "^2.0.8",
+    "diff": "^4.0.1",
     "lodash": "^4.17.11",
     "lokijs": "^1.5.6",
     "mongodb": "^3.1.13",

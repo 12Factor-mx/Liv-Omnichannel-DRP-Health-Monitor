@@ -4,7 +4,6 @@ var _ = require('lodash');
 
 async function deletePathContent(directory) {
   return new Promise((res, rej) => {
-
     fs.readdir(directory, (err, files) => {
       if (err) rej(err);
 
@@ -15,12 +14,13 @@ async function deletePathContent(directory) {
       }
       res()
     });
+  }).catch((err) =>{
+     throw err
   })
 }
 
-
 //https://stackoverflow.com/questions/39085399/lodash-remove-items-recursively
-function deepOmit(obj, keysToOmit) {
+async function deepOmit(obj, keysToOmit) {
   var keysToOmitIndex = _.keyBy(Array.isArray(keysToOmit) ? keysToOmit : [keysToOmit]); // create an index object of the keys that should be omitted
 
   function omitFromObject(obj) { // the inner function which will be called recursivley
@@ -35,5 +35,22 @@ function deepOmit(obj, keysToOmit) {
    return omitFromObject(obj);
 }
 
-exports.deletePathContent = deletePathContent
-exports.deepOmit = deepOmit
+//https://stackoverflow.com/questions/35092270/how-do-use-nodejs-childprocess-exec-to-run-the-unix-diff-command
+async function getDiff(src1, src2)
+{
+  return new Promise((resolve,reject) => {
+    var childProcess = require('child_process');
+    var cmd = "diff " + src1 + " " + src2;
+    try{
+      childProcess.exec(cmd, (error, stdout, stderr) => {
+        resolve(stdout);
+      });
+    }catch(error){
+      reject(error)
+    }
+  })
+}
+
+exports.deletePathContent = deletePathContent;
+exports.deepOmit = deepOmit;
+exports.getDiff = getDiff;

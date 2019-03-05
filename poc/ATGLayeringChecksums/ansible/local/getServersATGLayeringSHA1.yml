@@ -5,7 +5,7 @@
   tasks:
 
   - name: Get sha1sum
-    shell: 'find /tmp/liv_atg_layering_config -type f -exec sha1sum "{}" + > /tmp/checklist.chk'
+    shell: 'find /tmp/liv_atg_layering_config1 -type f -exec sha1sum "{}" + > /tmp/checklist.chk'
 
   - name: Replace 
     shell: sed -e "s/[[:space:]]\+/,/g" /tmp/checklist.chk > /tmp/checklist1.chk

@@ -2,8 +2,7 @@ const fs = require('fs'),
   path = require('path'),
   checksum = require('checksum');
 
-
-function readDirRecursive(startDir) {
+async function readDirRecursive(startDir) {
   const readDirQueue = [],
     fileList = [];
 
@@ -14,7 +13,6 @@ function readDirRecursive(startDir) {
           if (err) {
             return reject(err);
           }
-
           resolve(itemList.map((item) => path.resolve(readDir, item)));
         });
       });
@@ -27,7 +25,6 @@ function readDirRecursive(startDir) {
             if (err) {
               return reject(err);
             }
-
             resolve({
               itemPath,
               isDirectory: stat.isDirectory()
@@ -35,7 +32,6 @@ function readDirRecursive(startDir) {
           });
         });
       }
-
       return Promise.all(itemList.map(getStat));
     }
 
@@ -49,7 +45,6 @@ function readDirRecursive(startDir) {
           readDirQueue.push(itemPath);
           continue;
         }
-
         checksum.file(itemPath, function (err, sum) {
             fileList.push({
               "pathSVN": itemPath.replace(startDir, '.'),
@@ -58,19 +53,15 @@ function readDirRecursive(startDir) {
         })
         
       }
-
       if (readDirQueue.length > 0) {
         return readDir(readDirQueue.shift());
       }
-
       return fileList;
     }
-
     return getItemList(dir)
       .then(getItemListStat)
       .then(processItemList);
   }
-
    return readDir(startDir);
 }
 
