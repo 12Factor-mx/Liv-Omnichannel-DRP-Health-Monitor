@@ -94,8 +94,7 @@ async function updateSHA1_ecommerce_v11_3_env_configuration() {
  * 8) Persiste el cálculo de difenercias
  * 
  */
-
-async function updateSHA1_Diff_SVNPROD_vs_SVNPRODHA() {
+ async function updateSHA1_Diff_SVNPROD_vs_SVNPRODHA() {
   return new Promise(async (resolve, reject) => {
     let lokiDB = new loki('loki.json')
     k = 0
@@ -141,6 +140,38 @@ async function updateSHA1_Diff_SVNPROD_vs_SVNPRODHA() {
       })
     })
   })
+}
+
+/** function uupdateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA()
+ * 
+ * Tener en Mongo las diferecias de checksum entre SVNPRODHA y SERVERPRODHA
+ * 
+ * Regresa:
+ * 
+ * 1) Promesa con el estado de la transacción
+ * 
+ * Lógica:
+ * 
+ * 1) Exporta el SVN repo 'ecommerce_v11_3/branches/environment/env-configuratio' a /tmp/liv_atg_layering_config
+ * 2) 
+ * 3) 
+ * 4) 
+ * 5) 
+ * 6) 
+ * 7) 
+ * 8) 
+ * 
+ */
+async function updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA(){
+
+  let SVNPRODHA_ExportTo = "/tmp/SVNPRODHA_ExportTo";
+  let SERVERPRODHA_Path =  ""
+
+  return new Promise((resolve, reject) =>{
+
+    resolve("ok")
+  })
+
 }
 
 //-------------------------------------
@@ -278,3 +309,4 @@ async function asyncForEach(array, callback) {
 //-------------------------------------
 exports.updateSHA1_ecommerce_v11_3_env_configuration = updateSHA1_ecommerce_v11_3_env_configuration;
 exports.updateSHA1_Diff_SVNPROD_vs_SVNPRODHA = updateSHA1_Diff_SVNPROD_vs_SVNPRODHA;
+exports.updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA = updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA
