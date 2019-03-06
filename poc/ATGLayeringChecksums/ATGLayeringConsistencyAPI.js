@@ -211,9 +211,65 @@ async function updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA()
         })
       }).catch((err) => { 
         reject(err)})
-    })
+  })
 }
  
+
+async function updateSHA1_Diff_SVNPROD_vs_SERVERPROD() {
+
+  let lokiDB = new loki('loki.json')
+  let SVNPROD_ExportTo = "/tmp/SVNPROD_ExportTo";
+  let playbook = './ansible/local/shell';
+  let SERVERPROD_Path = "/u01/oracle/atg/data/ear/lp-store-a.ear/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers"
+  let playbookVars = {
+    cmd: 'scp -r mdiazm@127.0.0.1:/u01/oracle/atg/data/ear/lp-store-a.ear/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers' + ' ' + SVNPROD_ExportTo
+  }
+  return new Promise((resolve, reject) => {
+    runShellPlaybook(playbook, playbookVars).then((ansibleOutput) => {
+      let ansibleOutputRes = ansibleOutput
+      svn.exportTo(svnUrl, SVNPROD_ExportTo, options).then((export_) => {
+        let exportRes = export_
+        createLokiCollectionProd(lokiDB).then((lokiCollectionSVNPROD) => {
+          let lokiCollectionSVNPRODRes = lokiCollectionSVNPROD
+          sha1.create(SVNPROD_ExportTo + '/PROD/').then((sha1SVNPRODFiles) => {
+            let sha1SVNPRODFilesRes = sha1SVNPRODFiles
+            insertLokiCollectionProd(lokiCollectionSVNPRODRes, sha1SVNPRODFilesRes).then((loadedLokiCollectionSVNPROD) => {
+              let loadedLokiCollectionSVNPRODRes = loadedLokiCollectionSVNPROD
+              createLokiCollectionProdHA(lokiDB).then((lokiCollectionSERVERPROD) => {
+                let lokiCollectionSERVERPRODRes = lokiCollectionSERVERPROD
+                sha1.create(SERVERPROD_Path + '/PROD/').then((sha1SERVERPRODFiles) => {
+                  let sha1SERVERPRODFilesRes = sha1SERVERPRODFiles
+                  insertLokiCollectionProdHA(lokiCollectionSERVERPRODRes, sha1SERVERPRODFilesRes).then((loadedLokiCollectionSERVERPPRODHA) => {
+                    let loadedLokiCollectionSERVERPPRODHARes = loadedLokiCollectionSERVERPPRODHA
+                    findAllLokiCollectionProd(loadedLokiCollectionSVNPRODRes).then((SVNPROD) => {
+                      let = SVNPRODRes = SVNPROD
+                      //todo change this to a new one
+                      genereate_SHA1_Diff_SVNPROD_vs_SVNPRODHA(SVNPRODRes, loadedLokiCollectionSERVERPPRODHARes).then((diff) => {
+                        let diffRes = diff
+                        removeLoki(diffRes).then((cleanDiffRes) => {
+                          let cleanDiff = cleanDiffRes
+                          //console.log(JSON.stringify(cleanDiff, undefined, 2))
+                          db.insertWithDropCreate('SHA1_Diff_SVNPROD_vs_SERVERPROD', cleanDiff).then((insertRes) => {
+                            //console.log(JSON.stringify(insertRes, undefined, 2))
+                            resolve(insertRes)
+                          })
+                        })
+                      })
+                    })
+                  })
+                })
+              })
+            })
+          })
+        })
+      })
+    }).catch((err) => {
+      reject(err)
+    })
+  })
+
+}
+
 
 //-------------------------------------
 // Helper Functions
@@ -376,3 +432,4 @@ async function asyncForEach(array, callback) {
 exports.updateSHA1_ecommerce_v11_3_env_configuration = updateSHA1_ecommerce_v11_3_env_configuration;
 exports.updateSHA1_Diff_SVNPROD_vs_SVNPRODHA = updateSHA1_Diff_SVNPROD_vs_SVNPRODHA;
 exports.updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA = updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA
+exports.updateSHA1_Diff_SVNPROD_vs_SERVERPROD = updateSHA1_Diff_SVNPROD_vs_SERVERPROD
