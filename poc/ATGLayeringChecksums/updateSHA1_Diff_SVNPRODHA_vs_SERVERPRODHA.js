@@ -12,5 +12,5 @@ console.log("Starting find diff SVNPRODHA vs SERVERPRODHA checksums: " + Date(Da
 
 ATGLayeringConsistencyAPI.updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA().then((res) => {
     console.log("Sucessfully finished at: " + Date(Date.now()).toLocaleString('es-MX'))
-   // console.log("Recorded Differneces: " + res.insertedCount)
+   /console.log("Recorded Differneces: " + res.insertedCount)
 });
