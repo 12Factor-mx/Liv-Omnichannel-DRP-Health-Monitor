@@ -12,5 +12,5 @@ console.log("Starting find diff SVNPROD vs SERVERPROD checksums: " + Date(Date.n
 
 ATGLayeringConsistencyAPI.updateSHA1_Diff_SVNPROD_vs_SERVERPROD().then((res) => {
     console.log("Sucessfully finished at: " + Date(Date.now()).toLocaleString('es-MX'))
-    console.log("Recorded Differneces: " + res.insertedCount)
+    console.log("Recorded Differeneces: " + res.insertedCount)
 });
