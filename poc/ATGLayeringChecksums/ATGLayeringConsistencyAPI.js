@@ -270,7 +270,13 @@ async function updateSHA1_Diff_SVNPROD_vs_SERVERPROD() {
 
 }
 
+async function updateSHA1_Diff_SERVERPROD_vs_SERVERPRODHA(){
+  return new Promise((resolve,reject) => {
 
+    resolve("ok updateSHA1_Diff_SERVERPROD_vs_SERVERPRO")
+
+  })
+}
 //-------------------------------------
 // Helper Functions
 //-------------------------------------
@@ -433,3 +439,4 @@ exports.updateSHA1_ecommerce_v11_3_env_configuration = updateSHA1_ecommerce_v11_
 exports.updateSHA1_Diff_SVNPROD_vs_SVNPRODHA = updateSHA1_Diff_SVNPROD_vs_SVNPRODHA;
 exports.updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA = updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA
 exports.updateSHA1_Diff_SVNPROD_vs_SERVERPROD = updateSHA1_Diff_SVNPROD_vs_SERVERPROD
+exports.updateSHA1_Diff_SERVERPROD_vs_SERVERPRODHA = updateSHA1_Diff_SERVERPROD_vs_SERVERPRODHA

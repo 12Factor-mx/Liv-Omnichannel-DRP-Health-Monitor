@@ -8,9 +8,9 @@
 
 var ATGLayeringConsistencyAPI = require('./ATGLayeringConsistencyAPI')
 
-console.log("Starting find diff SVNPRODHA vs SERVERPRODHA checksums: " + Date(Date.now()).toLocaleString('es-MX'))
+console.log("Starting find diff SERVERPROD vs SERVERPRODHA checksums: " + Date(Date.now()).toLocaleString('es-MX'))
 
-ATGLayeringConsistencyAPI.updateSHA1_Diff_SVNPRODHA_vs_SERVERPRODHA().then((res) => {
+ATGLayeringConsistencyAPI.updateSHA1_Diff_SERVERPROD_vs_SERVERPRODHA().then((res) => {
     console.log("Sucessfully finished at: " + Date(Date.now()).toLocaleString('es-MX'))
-    console.log("Recorded Differeneces: " + res.insertedCount)
+    console.log("Recorded Differeneces: " + res/*.insertedCount*/)
 });
