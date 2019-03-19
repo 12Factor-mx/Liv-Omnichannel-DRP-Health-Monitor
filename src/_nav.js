@@ -24,6 +24,13 @@ export default {
           icon: 'icon-basket',
           name: 'e-Commerce',
           url: '/ATG/eCommerce'
+        }, {
+          badge: {
+            variant: 'warning'
+          },
+          icon: 'icon-basket',
+          name: 'ATG Layering',
+          url: '/ATG/Layering'
         }
       ]
     }

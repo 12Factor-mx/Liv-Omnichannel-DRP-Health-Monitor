@@ -7,6 +7,7 @@ const DefaultContainer = () => import('@/containers/DefaultContainer')
 // Views
 const Dashboard = () => import('@/views/Dashboard')
 const ecommerce = () => import('@/views/ATG/ecommerce')
+const ATGLayeringDiff = () => import('@/views/ATG/ATGLayeringDiff')
 
 const ECommerceLiverpool = () => import('@/views/ATG/eCommerceLiverpool/ECommerceLiverpool')
   const WebLogicLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicLiverpool')
@@ -132,6 +133,12 @@ export default new Router({
           component: ecommerce
           
         }, 
+        {
+          path: 'ATG/Layering',
+          name: 'ATG Layering',
+          component: ATGLayeringDiff
+
+        },
         {
           path: 'eCommerceLiverpool',
           name: "ECommerce Liverpool",

@@ -103,7 +103,6 @@ export default {
        return ret + " %";
     },
 
-
     formatDate(value){
       var str = "";
 
@@ -177,6 +176,7 @@ export default {
     })
 
     },
+
     getBadge(status) {
       return status === "consistente"   ? "success": 
              status === "SHUTDOWN"  ? "warning": 
