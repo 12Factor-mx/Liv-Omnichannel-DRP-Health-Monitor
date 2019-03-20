@@ -2,21 +2,38 @@
 
   <div class="animated fadeIn">
       
-      <b-row>
-        <b-col>
-            <b-table :items="layeringDiff" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fields" :current-page="currentPage" :per-page="perPage"  @row-clicked="rowClicked">  
-            </b-table>
-            <nav>
-                <b-pagination :total-rows="getRowCount(layeringDiff)" :per-page="perPage" v-model="currentPage" prev-text="Prev" next-text="Next" hide-goto-end-buttons />
-            </nav>
-          </b-col>  
-      </b-row>  
-      <b-row>
-          <b-col>
-            <div v-html="h">
-            </div>
-        </b-col>
-      </b-row>
+
+      <b-col >
+        <b-row >
+          <b-card  class="w-100" >
+          
+               <template slot="header">
+                 <label > Ambientes Layering ATG </label>
+
+               </template>
+
+                <b-row >
+                  <b-col  lg="12">
+
+                    <b-table class="m-3 mx" fixed="true"  :items="envs" hover="hover" striped="striped" bordered="bordered"  responsive="sm" :fields="fieldsEnv" >
+                      <template  slot="name" slot-scope="envs">
+                        <a   v-bind:href= "envs.item.route">  {{envs.item.name}} </a>
+
+                      </template>  
+                    </b-table>
+
+
+                    
+                  
+                  </b-col> 
+                </b-row >  
+          
+          
+          </b-card>  
+        </b-row>
+      </b-col>  
+
+      
       
   </div> 
  
@@ -26,142 +43,68 @@
 <script>
    
 
-import ghDiffHTML from 'gh-diff-html';
-import Diff from 'diff';
-import axios from 'axios'; 
+//import ghDiffHTML from 'gh-diff-html';
+//import Diff from 'diff';
+//import axios from 'axios'; 
 
-const miliseconds = 10000;
+//const miliseconds = 10000;
 
-var layeringDiffData = [];
+//var layeringDiffData = [];
 
-var diff = Diff.diffChars(before, after);
+//var diff = Diff.diffChars(before, after);
 
-
-var before = `import Vue from 'vue'
-const vm = new Vue({
-  el: '#app',
-  data() {
-    message: 'hello!!'
-  },
-  methods: {
-    hello() {
-      alert(this.message)
-    }
-  }
-})`
- 
-var after = `import Vue from 'vue'
-const vm = new Vue({
-  el: '#app',
-  data() {
-    message: 'helloooooooo!!'
-  },
-  methods: {
-    hello() {
-      console.log(this.hi)
-    }
-  },
-  computed: {
-    hi() {
-      return 'hiiiiii!!'
-    }
-  }
-})`
-
-var html ="";
-var html1 = ghDiffHTML(before, after, {
-  fileName: ' ',//'archivo.js',
-  outputFormat:'line-by-line'  // 'line-by-line' // or 'side-by-side' 
-})
+//var html ="";
+//var html1 = ghDiffHTML(before, after, {
+//  fileName: ' ',//'archivo.js',
+//  outputFormat:'line-by-line'  // 'line-by-line' // or 'side-by-side' 
+//})
 
 export default {
 
   name: 'ATGLayeringDiff',
 
   data(){
-
-    
     return {
-      h:'',
-      layeringDiff: [],
-      originalFilePRODHA: ' ',
-      originalFilePROD: ' ',
-      currentPage: 1,
-      perPage: 3,
-      totalRows: 0,
-      fields: [
-        { key: "error.path", label : 'Archivo' },
-       
-       { key: "error.dif", label: 'Diferencia' },
-       // 'Fecha Consulta',
+      envs:[{name:"Liverpool Store A",
+             path:"/u01/oracle/atg/data/ear/lp-store-a.ear/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers",
+             svn:"svn://172.17.203.59:3691/liverpool/informatica/sistemas/sisope/ecommerce_v11_3/branches/environment/env-configuration",
+             route:"/#/ATG/Layering/LiverpoolStoreA"},
+             {name:"Liverpool Store B", 
+             path:"/u01/oracle/atg/data/ear/lp-store-b.ear/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers",
+             svn:"svn://172.17.203.59:3691/liverpool/informatica/sistemas/sisope/ecommerce_v11_3/branches/environment/env-configuration"}, 
+             {name:"Mesa", 
+             path:"/u01/oracle/atg/data/ear/mesa.ear/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers",
+             svn:"svn://172.17.203.59:3691/liverpool/informatica/sistemas/sisope/ecommerce_v11_3/branches/environment/env-configuration"}, 
+             {name:"Suburbia", 
+             path:"/u01/oracle/atg/data/ear/lp-store-a.ear/atg_bootstrap.war/WEB-INF/ATG-INF/home/servers",
+             svn:"svn://172.17.203.59:3691/liverpool/informatica/sistemas/sisope/ecommerce_v11_3/branches/environment/env-configuration"}],
+      fieldsEnv: [
+        { key: "name", label : 'Nombre' },
+        { key: "path", label : 'Share' },
+        { key: "svn", label : 'SVN' },
+
       ],
+     // h:'',
+     // layeringDiff: [],
+     // currentPage: 1,
+     // perPage: 3,
+     // totalRows: 0,
+     // fields: [
+     //   { key: "error.path", label : 'Archivo' },
+      //  { key: "error.dif", label: 'Diferencia' },
+     // ],
     }
   },
-  methods:{
-
-     loadData: function () {
-      
-      this.fechaConsulta = new Date();
-      this.loading = true;
-      
-
-      axios.get('http://localhost:9002/SERVERPROD_vs_SERVERPRODHA')
-      .then(function (response) {
-        this.loading = false;
-        console.log(response.data)
-        this.layeringDiff = response.data;
-        }.bind(this)) 
-        .catch(e => {
-        this.loading = false;
-      })
-
-    },
-    getRowCount (items) {
-      return items.length
-    },
-    rowClicked(rowData) {
-      console.log(rowData.error)
-
-     
-
-
-     this.h = ghDiffHTML(rowData.error.filePROD, rowData.error.filePRODHA, {
-        fileName: rowData.error.path,//'archivo.js',
-        outputFormat:'side-by-side'  // 'line-by-line' // or 'side-by-side' 
-      })
-
-      console.log(html1)
-
-    },
-    
-  },
-  
-
-    
-   created(){
-
-    this.loadData();
-
-   // setInterval(function () {
-      //this.loadData();
-      
-   // }.bind(this), miliseconds); 
-    
-  },
-   ready(){
-  }
+ 
 }
 
 </script>
 
 <style>
-  /* IE fix */
+  
   #card-chart-01, #card-chart-02 {
     width: 100% !important;
   }
-
-
-   
 
 </style>
 

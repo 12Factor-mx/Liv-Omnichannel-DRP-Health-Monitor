@@ -7,7 +7,13 @@ const DefaultContainer = () => import('@/containers/DefaultContainer')
 // Views
 const Dashboard = () => import('@/views/Dashboard')
 const ecommerce = () => import('@/views/ATG/ecommerce')
+
 const ATGLayeringDiff = () => import('@/views/ATG/ATGLayeringDiff')
+  const LiverpoolStoreA = () => import('@/views/ATG/Layering/LiverpoolStoreA')
+    const LiverpoolStoreAServerPRODvsServerPRODHA = () => import( '@/views/ATG/Layering/LiverpoolStoreAF/ServerPRODvsServerPRODHA')
+    const LiverpoolStoreASVNPRODvsServerPROD = () => import('@/views/ATG/Layering/LiverpoolStoreAF/SVNPRODvsServerPROD')
+    const LiverpoolStoreASVNPRODvsSVNPRODHA = () => import('@/views/ATG/Layering/LiverpoolStoreAF/SVNPRODvsSVNPRODHA')
+    const LiverpoolStoreASVNPRODHAvsServerPRODHA = () => import('@/views/ATG/Layering/LiverpoolStoreAF/SVNPRODHAvsServerPRODHA')
 
 const ECommerceLiverpool = () => import('@/views/ATG/eCommerceLiverpool/ECommerceLiverpool')
   const WebLogicLiverpool = () => import('@/views/ATG/eCommerceLiverpool/WebLogicLiverpool/WebLogicLiverpool')
@@ -140,7 +146,37 @@ export default new Router({
 
         },
         {
-          path: 'eCommerceLiverpool',
+          path: 'ATG/Layering/LiverpoolStoreA',
+          name: 'ATG Layering - Liverpool Store A',
+          component: LiverpoolStoreA
+
+        },
+        {
+          path: 'ATG/Layering/LiverpoolStoreA/ServerPRODvsServerPRODHA',
+          name: 'ATG Layering - Liverpool Store A - ServerPRODvsServerPRODHA',
+          component: LiverpoolStoreAServerPRODvsServerPRODHA
+
+        },
+        {
+           path: 'ATG/Layering/LiverpoolStoreA/SVNPRODvsServerPROD',
+           name: 'ATG Layering - Liverpool Store A - SVNPRODvsServerPROD',
+           component: LiverpoolStoreASVNPRODvsServerPROD
+
+         }, 
+         {
+           path: 'ATG/Layering/LiverpoolStoreA/SVNPRODvsSVNPRODHA',
+           name: 'ATG Layering - Liverpool Store A - SVNPRODvsServerPROD',
+           component: LiverpoolStoreASVNPRODvsSVNPRODHA
+
+         },
+         {
+           path: 'ATG/Layering/LiverpoolStoreA/SVNPRODHAvsServerPRODHA',
+           name: 'ATG Layering - Liverpool Store A - SVNPRODHAvsServerPRODHA',
+           component: LiverpoolStoreASVNPRODHAvsServerPRODHA
+
+         }, //
+        {
+          path: 'eCommerceLiverpool',  
           name: "ECommerce Liverpool",
           component: ECommerceLiverpool
         },
